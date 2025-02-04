@@ -4,7 +4,7 @@ dotenv.config();
 
 const mySqlconfig = {
     development: {
-        username: 'root',
+        username: process.env.MYSQL_LOCAL_USERNAME || 'root',
         password: process.env.MYSQL_LOCAL_PASSWORD || '',
         database: process.env.MYSQL_LOCAL_SCHEMA || '',
         host: '127.0.0.1',
