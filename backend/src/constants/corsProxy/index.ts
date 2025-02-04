@@ -1,0 +1,1 @@
+export { CORS_CONFIG } from './configs';
