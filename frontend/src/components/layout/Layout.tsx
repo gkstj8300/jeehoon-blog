@@ -1,16 +1,14 @@
 import styles from './Layout.module.scss';
+import { Header } from './header';
 import ErrorBoundary from '@/components/boundaries/ErrorBoundary';
 import { ContextProviders } from '@/components/functional/ContextProviders';
 
-type LayoutProps = {
-    children: React.ReactNode;
-}
-
-export const Layout: React.FC<LayoutProps> = ({ children }) => {
+export const Layout: React.FC = ({ children }) => {
 
     return (
         <ErrorBoundary>
             <ContextProviders>
+                <Header />
                 <div className={styles.layout}>
                     <div className={styles.main}>
                         {children}
@@ -18,5 +16,6 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </div>
             </ContextProviders>
         </ErrorBoundary>
-    )
-}
+    );
+};
+Layout.displayName = 'Layout';

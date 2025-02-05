@@ -3,6 +3,12 @@ import { None } from '@/layouts/none';
 import styles from '@/styles/home.module.scss';
 import { NextPageWithLayout } from "@/utils/types";
 
+// eslint-disable-next-line @typescript-eslint/ban-types
+const Layout = dynamic<{}>(
+	() => import('@/components/layout/Layout').then(({ Layout }) => Layout),
+	{ ssr: false }
+);
+
 const Home = dynamic(
 	() => import('@/components/home').then(module => module.Home),
 	{ ssr: false }
@@ -10,9 +16,9 @@ const Home = dynamic(
 
 const HomePage: NextPageWithLayout = () => {
     return (
-        <div className={styles.page}>
+        <Layout>
             <Home className={styles.home}/>
-        </div>
+        </Layout>
     );
 }
 HomePage.displayName = 'HomePage';
