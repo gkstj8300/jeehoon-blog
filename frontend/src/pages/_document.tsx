@@ -1,13 +1,17 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import RawDocument, { Head, Html, Main, NextScript } from 'next/document';
 
-export default function Document() {
-  return (
-    <Html lang="en">
-      <Head />
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  );
+class Document extends RawDocument {
+	render() {
+		return (
+			<Html lang="ko">
+				<Head>
+				</Head>
+				<body>
+					<Main />
+					<NextScript />
+				</body>
+			</Html>
+		);
+	}
 }
+export default Document;

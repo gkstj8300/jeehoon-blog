@@ -1,0 +1,71 @@
+.home :global {
+	ul,
+	ol,
+	li,
+	dl,
+	dt,
+	dd {
+		list-style: none outside none;
+	}
+}
+
+.page {
+	--gray-rgb: 0, 0, 0;
+	--gray-alpha-200: rgb(var(--gray-rgb) 0.08);
+	--gray-alpha-100: rgb(var(--gray-rgb) 0.05);
+	--button-primary-hover: #383838;
+	--button-secondary-hover: #f2f2f2;
+
+	display: grid;
+	gap: 8rem;
+	max-width: 60rem;
+	min-height: 100svh;
+	margin-right: auto;
+	margin-left: auto;
+	justify-items: center;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	grid-row-start: 2;
+	gap: 32px;
+}
+
+.main ol {
+	margin: 0;
+	padding-left: 0;
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: -0.01em;
+	list-style-position: inside;
+}
+
+.main li:not(:last-of-type) {
+	margin-bottom: 8px;
+}
+
+.main code {
+	padding: 2px 4px;
+	font-weight: 600;
+	background: var(--gray-alpha-100);
+	border-radius: 4px;
+}
+
+@media (min-width: 768px) {
+	.page {
+		gap: 8rem;
+		margin-bottom: 5rem;
+	}
+}
+
+@media (max-width: 600px) {
+	// .page {
+	// 	padding: 32px;
+	// 	padding-bottom: 80px;
+	// }
+
+	.main {
+		align-items: center;
+	}
+}

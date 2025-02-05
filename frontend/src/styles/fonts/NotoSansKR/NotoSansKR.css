@@ -1,0 +1,62 @@
+@font-face {
+	font-weight: 100;
+	font-family: NotoSansKR;
+	src: url(./NotoSansKR-Thin.ttf) format('truetype');
+	font-display: swap;
+}
+
+@font-face {
+	font-weight: 200;
+	font-family: NotoSansKR;
+	src: url(./NotoSansKR-ExtraLight.ttf) format('truetype');
+	font-display: swap;
+}
+
+@font-face {
+	font-weight: 300;
+	font-family: NotoSansKR;
+	src: url(./NotoSansKR-Light.ttf) format('truetype');
+	font-display: swap;
+}
+
+@font-face {
+	font-weight: 400;
+	font-family: NotoSansKR;
+	src: url(./NotoSansKR-Regular.ttf) format('truetype');
+	font-display: swap;
+}
+
+@font-face {
+	font-weight: 500;
+	font-family: NotoSansKR;
+	src: url(./NotoSansKR-Medium.ttf) format('truetype');
+	font-display: swap;
+}
+
+@font-face {
+	font-weight: 600;
+	font-family: NotoSansKR;
+	src: url(./NotoSansKR-SemiBold.ttf) format('truetype');
+	font-display: swap;
+}
+
+@font-face {
+	font-weight: 700;
+	font-family: NotoSansKR;
+	src: url(./NotoSansKR-Bold.ttf) format('truetype');
+	font-display: swap;
+}
+
+@font-face {
+	font-weight: 800;
+	font-family: NotoSansKR;
+	src: url(./NotoSansKR-ExtraBold.ttf) format('truetype');
+	font-display: swap;
+}
+
+@font-face {
+	font-weight: 900;
+	font-family: NotoSansKR;
+	src: url(./NotoSansKR-Black.ttf) format('truetype');
+	font-display: swap;
+}
