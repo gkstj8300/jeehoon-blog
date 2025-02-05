@@ -1,44 +1,72 @@
 .container {
-    position: relative;
+	position: relative;
 }
 
 .profile {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    position: absolute;
-    right: 112%;
-    top: 0px;
-    width: 200px;
-    height: 100px;
-    font-size: 16px;
+	position: absolute;
+	right: 112%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 200px;
+	padding-top: 48px;
+	font-size: 16px;
 }
 
 .image {
-    flex: 0 0 auto;
-    width: 128px;
-    height: 128px;
-    border-radius: 999px;
-    background-color: aliceblue;
-    background-size: cover;
-    background-position: center center;
+	flex: 0 0 auto;
+	width: 128px;
+	height: 128px;
+	background-color: #f0f8ff;
+	background-position: center center;
+	background-size: cover;
+	border-radius: 999px;
 }
 
 .sub {
-    width: 100%;
+	width: 100%;
+
+	a {
+		margin-right: 9.6px;
+	}
+
+	svg {
+		width: 25.6px;
+		height: 25.6px;
+		cursor: pointer;
+	}
 }
 
 .author {
-    margin-bottom: 4.8px;
-    font-size: 24px;
-    font-weight: 700;
-    color: rgb(25, 25, 25);
+	margin-bottom: 4.8px;
+	color: rgb(25 25 25);
+	font-weight: 700;
+	font-size: 24px;
+	text-align: center;
 }
 
 .description {
-    margin-bottom: 11.2px;
-    line-height: 1.5;
-    font-size: 16px;
-    color: rgb(64, 64, 64);
-    white-space: nowrap;
+	margin-bottom: 11.2px;
+	color: rgb(64 64 64);
+	font-size: 16px;
+	line-height: 1.5;
+	white-space: normal;
+}
+
+.link {
+	display: flex;
+}
+
+.gitHubIcon {
+	display: block;
+	width: 26px;
+	height: 26px;
+	background-image: url(./assets/githubicon.svg);
+}
+
+.portfolioicon {
+	display: block;
+	width: 26px;
+	height: 26px;
+	background-image: url(./assets/portfolioicon.svg);
 }
