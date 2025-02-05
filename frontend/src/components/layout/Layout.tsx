@@ -1,4 +1,5 @@
 import styles from './Layout.module.scss';
+import { Footer } from './footer';
 import { Header } from './header';
 import ErrorBoundary from '@/components/boundaries/ErrorBoundary';
 import { ContextProviders } from '@/components/functional/ContextProviders';
@@ -14,6 +15,7 @@ export const Layout: React.FC = ({ children }) => {
                         {children}
                     </div>
                 </div>
+                <Footer />
             </ContextProviders>
         </ErrorBoundary>
     );
