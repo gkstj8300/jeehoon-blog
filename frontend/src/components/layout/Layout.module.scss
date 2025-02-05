@@ -1,11 +1,5 @@
-.main {
-	flex-grow: 1;
-	width: 100%;
-	padding: 0 10px 80px;
-}
-
-.childrenWrapper {
-	&:empty {
-		min-height: 100vh;
-	}
+.layout {
+	margin: 0px auto;
+    padding-top: 100px;
+    max-width: 680px;
 }

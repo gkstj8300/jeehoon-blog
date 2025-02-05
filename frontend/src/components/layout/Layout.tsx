@@ -11,10 +11,8 @@ export const Layout: React.FC = ({ children }) => {
             <ContextProviders>
                 <Header />
                 <div className={styles.layout}>
-                    <div className={styles.main}>
-                        {children}
-                    </div>
-                </div>
+                    {children}
+                </div>  
                 <Footer />
             </ContextProviders>
         </ErrorBoundary>

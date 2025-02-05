@@ -10,7 +10,7 @@ const Layout = dynamic<{}>(
 );
 
 const Home = dynamic(
-	() => import('@/components/home').then(module => module.Home),
+	() => import('@/components/pages/Home').then(module => module.Home),
 	{ ssr: false }
 );
 
