@@ -1,0 +1,45 @@
+.overlay {
+	position: absolute;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 500;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	background: rgb(33 33 33 / 0.6);
+}
+
+.loader {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	min-height: 150px;
+	color: #e5e5e5;
+	font-weight: bold;
+	font-size: 13px;
+
+	&::before {
+		left: 50%;
+		box-sizing: content-box;
+		width: 42px;
+		height: 42px;
+		margin-bottom: 8px;
+		margin-left: -8px;
+		border: 7px solid #004098;
+		border-right: 7px solid #e5e5e5;
+		border-radius: 50%;
+		animation-name: loading-rotate;
+		animation-duration: 1.5s;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite;
+		content: '';
+	}
+}

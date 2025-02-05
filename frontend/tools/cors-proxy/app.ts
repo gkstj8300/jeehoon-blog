@@ -3,6 +3,7 @@ import cors from 'cors';
 import axios from 'axios';
 import { configs } from './config';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const fetchData = async (url: any, headers = {}) => {
 	try {
 		const response = await axios.get(url, { headers });
