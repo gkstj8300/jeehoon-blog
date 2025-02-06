@@ -2,7 +2,8 @@
 
 .container {
 	display: flex;
-	margin: 0 1rem 1rem;
+	align-items: center;
+	margin-bottom: 1rem;
 	padding: 0.5rem;
 	background-color: variables.$subBackgroundColor;
 	border-radius: 1rem;
@@ -24,6 +25,6 @@
 
 @media (min-width: 768px) {
 	.container {
-		margin: 0 2rem 2rem;
+		margin-bottom: 2rem;
 	}
 }
