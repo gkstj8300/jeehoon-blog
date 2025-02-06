@@ -8,14 +8,10 @@ type props = {
 export const Title: React.FC<props> = ({
     title,
 }) => {
-
     return (
         <div className={styles.container}>
-            <div className={styles.line}></div>
-                <h3 className={styles.title}>
-                    {title}
-                </h3>
-            <div className={styles.line}></div>
+            {title}
         </div>
-    )
-}
+    );
+};
+Title.displayName = 'Title';

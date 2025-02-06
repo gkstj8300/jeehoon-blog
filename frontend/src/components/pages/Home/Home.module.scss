@@ -1,7 +1,22 @@
 .home {
-	display: flex;
-	flex-direction: column;
-	gap: 3rem;
-	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	gap: 1.5rem;
 	min-height: 100svh; // 임시 높이값 지정
+	padding: 2rem 0;
+}
+
+.lcontainer {
+	position: sticky;
+	top: 63px;
+	display: none;
+	overflow: scroll;
+	scrollbar-width: none;
+}
+
+@media (min-width: 1024px) {
+	.lcontainer {
+		display: block;
+		grid-column: span 3 / span 3;
+	}
 }

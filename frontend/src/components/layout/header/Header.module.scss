@@ -1,12 +1,8 @@
 .header {
-	position: fixed;
+	position: sticky;
 	top: 0;
-	right: 0;
-	left: 0;
-	z-index: 999;
-	display: block;
-	padding: 16px;
-	background-color: rgb(255 255 255 / 0.85);
+	z-index: 30;
+	background-color: rgb(53 53 53);
 	box-shadow: rgb(0 0 0 / 0.08) 0 0 8px;
 	opacity: 1;
 	backdrop-filter: blur(5px);
@@ -20,7 +16,6 @@
 }
 
 .title {
-	color: rgb(25 25 25);
 	font-weight: 700;
 	font-size: 24px;
 	font-family: "Source Code Pro", sans-serif;

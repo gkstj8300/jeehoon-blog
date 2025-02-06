@@ -1,6 +1,7 @@
 import { footer } from '@/components/layout/footer/Footer.i18n.ko';
 import { header } from '@/components/layout/header/Header.i18n.ko';
-import { profile } from '@/components/pages/Profile/Profile.i18n.ko';
+import { contact } from '@/components/pages/Home/contact/Contact.i18n.ko';
+import { profile } from '@/components/pages/Home/profile/Profile.i18n.ko';
 import type { Translation } from '@/i18n/types';
 
 const translation: Translation = {
@@ -12,7 +13,10 @@ const translation: Translation = {
 				header,
 				footer,
 			},
-			profile,	
+		},
+		pages: {
+			contact,
+			profile,
 		}
 	}
 };

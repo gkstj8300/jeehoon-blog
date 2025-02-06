@@ -1,0 +1,62 @@
+@use 'src/styles/variables';
+
+.profile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 2.25rem;
+	background-color: rgb(40 40 40);
+	border-radius: 1rem;
+}
+
+.image {
+	flex: 0 0 auto;
+	width: 128px;
+	height: 128px;
+	background-color: #f0f8ff;
+	background-position: center center;
+	background-size: cover;
+	border-radius: 999px;
+}
+
+.sub {
+	width: 100%;
+	padding: 0.5rem;
+
+	a {
+		margin-right: 9.6px;
+	}
+}
+
+.author {
+	margin-bottom: 4.8px;
+	font-weight: 700;
+	font-size: 1.3rem;
+	text-align: center;
+}
+
+.description {
+	margin-bottom: 11.2px;
+	color: variables.$subFontColor;
+	font-size: 0.85rem;
+	line-height: 1.5;
+	white-space: normal;
+}
+
+@media (min-width: 1024px) {
+	.container {
+		display: block;
+		grid-column: span 3 / span 3;
+	}
+
+	.profile {
+		padding: 1rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.profile {
+		padding: 1rem;
+	}
+}

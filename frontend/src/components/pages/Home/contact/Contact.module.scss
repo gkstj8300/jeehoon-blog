@@ -1,0 +1,28 @@
+@use 'src/styles/variables';
+
+.contact {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin-bottom: 2.25rem;
+	background-color: rgb(40 40 40);
+	border-radius: 1rem;
+}
+
+.linkList {
+	display: flex;
+	flex-direction: column;
+	list-style-type: none;
+}
+
+@media (min-width: 1024px) {
+	.contact {
+		padding: 1rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.contact {
+		padding: 1rem;
+	}
+}
