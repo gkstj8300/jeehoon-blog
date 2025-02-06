@@ -1,19 +1,23 @@
 import styles from './Layout.module.scss';
+import { Footer } from './footer';
+import { Header } from './header';
+import ErrorBoundary from '@/components/boundaries/ErrorBoundary';
 import { ContextProviders } from '@/components/functional/ContextProviders';
+import { TooltipController } from '@/components/ui/tooltips';
 
-type LayoutProps = {
-    children: React.ReactNode;
-}
-
-export const Layout: React.FC<LayoutProps> = ({ children }) => {
+export const Layout: React.FC = ({ children }) => {
 
     return (
-        <ContextProviders>
-            <div className={styles.layout}>
-                <div className={styles.main}>
+        <ErrorBoundary>
+            <ContextProviders>
+                <Header />
+                <div className={styles.layout}>
                     {children}
-                </div>
-            </div>
-        </ContextProviders>
-    )
-}
+                </div>  
+                <Footer />
+                <TooltipController />
+            </ContextProviders>
+        </ErrorBoundary>
+    );
+};
+Layout.displayName = 'Layout';

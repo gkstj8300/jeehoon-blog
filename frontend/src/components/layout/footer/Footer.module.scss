@@ -1,0 +1,25 @@
+.footer {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	justify-content: center;
+	align-items: center;
+	height: 7rem;
+	font-size: 0.9rem;
+	border-top: 1px solid rgb(233 236 239);
+}
+
+.linkList {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	text-align: center;
+	cursor: pointer;
+
+	a {
+		margin-right: 5px;
+	}
+
+	a:hover {
+		color: rgb(34 38 42);
+	}
+}

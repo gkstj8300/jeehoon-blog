@@ -1,0 +1,50 @@
+@use 'src/styles/variables';
+
+.container {
+	position: relative;
+	margin-bottom: 1.5rem;
+	padding: 1rem;
+	overflow: hidden;
+	background-color: variables.$subBackgroundColor;
+	border-radius: 1rem;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 300ms;
+	transition-property: box-shadow;
+
+	&:hover {
+		filter: drop-shadow(2px 5px 7px rgb(128 128 128));
+		transition: 0.2s;
+	}
+}
+
+.regDate {
+	color: variables.$postFontColor;
+}
+
+.description {
+	color: variables.$postSubFontColor;
+	line-height: 2rem;
+}
+
+
+.tag span {
+	display: inline-block;
+	margin-right: .25rem;
+	padding: 0.45em 0.6em;;
+	color: variables.$fontColor;
+	font-weight: 400;
+	font-size: 75%;
+	line-height: 1;
+	white-space: nowrap;
+	text-align: center;
+	vertical-align: baseline;
+	background-color: #6c757d;
+	border-radius: .25rem;
+}
+
+
+@media (min-width: 768px) {
+	.container {
+		margin-bottom: 2rem;
+	}
+}

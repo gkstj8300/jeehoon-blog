@@ -1,0 +1,30 @@
+@use 'src/styles/variables';
+
+.container {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
+	padding: 0.5rem;
+	background-color: variables.$subBackgroundColor;
+	border-radius: 1rem;
+}
+
+.title {
+	margin: 0;
+}
+
+.searchBox {
+	width: 100%;
+	padding: 0.5rem 1.25rem;
+	color: variables.$fontColor;
+	font-family: variables.$baseFont;
+	background-color: variables.$subBackgroundColor;
+	border-width: 0;
+	outline: none;
+}
+
+@media (min-width: 768px) {
+	.container {
+		margin-bottom: 2rem;
+	}
+}
