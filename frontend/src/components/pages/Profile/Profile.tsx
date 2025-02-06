@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import styles from './Profile.module.scss';
+import { url } from '@/utils/url';
 
 export const Profile: React.FC = () => {
     const { t } = useTranslation();
@@ -17,10 +18,10 @@ export const Profile: React.FC = () => {
                         {t('component.ui.profile.description')}
                     </div>
                     <div className={styles.link}>
-                        <Link href={'https://github.com/gkstj8300/'}>
+                        <Link href={url.github}>
                             <i className={styles.gitHubIcon}></i>
                         </Link>
-                        <Link href={'https://parkjeehoon-portfolio.vercel.app/'}>
+                        <Link href={url.portfolio}>
                             <i className={styles.portfolioicon}></i>
                         </Link>
                     </div>
