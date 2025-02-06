@@ -2,6 +2,7 @@ import React from "react";
 import styles from './Home.module.scss';
 import { Contact } from '@/components/pages/Home/Contact';
 import { Profile } from '@/components/pages/Home/Profile';
+import { SearchBox } from "@/components/pages/Home/SearchBox";
 
 type Props = {
     className?: string;
@@ -14,7 +15,9 @@ export const Home: React.FC<Props> = () => {
                 <Profile />
                 <Contact />
             </div>
-            <div style={{ gridColumn: 'span 7 / span 7' }}></div>
+            <div className={styles.mainContainer}>
+                <SearchBox />
+            </div>
             <div></div>
         </div>
     );

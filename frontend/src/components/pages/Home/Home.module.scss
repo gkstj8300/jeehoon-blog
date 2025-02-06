@@ -14,9 +14,17 @@
 	scrollbar-width: none;
 }
 
+.mainContainer {
+	grid-column: span 12 / span 12;
+}
+
 @media (min-width: 1024px) {
 	.lcontainer {
 		display: block;
 		grid-column: span 3 / span 3;
+	}
+
+	.mainContainer {
+		grid-column: span 7 / span 7;
 	}
 }
