@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './Home.module.scss';
-import { Contact } from '@/components/pages/Home/contact';
-import { Profile } from '@/components/pages/Home/profile';
+import { Contact } from '@/components/pages/Home/Contact';
+import { Profile } from '@/components/pages/Home/Profile';
 
 type Props = {
     className?: string;
