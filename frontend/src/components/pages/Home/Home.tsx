@@ -1,9 +1,10 @@
 import React from "react";
 import styles from './Home.module.scss';
 import { Contact } from '@/components/pages/Home/Contact';
-import { Profile } from '@/components/pages/Home/Profile';
 import { Post } from '@/components/pages/Home/Post';
+import { Profile } from '@/components/pages/Home/Profile';
 import { SearchBox } from "@/components/pages/Home/SearchBox";
+import { Tag } from "@/components/pages/Home/Tag";
 
 type Props = {
     className?: string;
@@ -20,7 +21,9 @@ export const Home: React.FC<Props> = () => {
                 <SearchBox />
                 <Post />
             </div>
-            <div></div>
+            <div className={styles.rcontainer}>
+                <Tag />
+            </div>
         </div>
     );
 };

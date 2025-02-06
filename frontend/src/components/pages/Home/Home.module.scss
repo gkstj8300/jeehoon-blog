@@ -2,20 +2,29 @@
 	display: grid;
 	grid-template-columns: repeat(12, minmax(0, 1fr));
 	gap: 1.5rem;
-	min-height: 100svh; // 임시 높이값 지정
 	padding: 2rem 0;
 }
 
 .lcontainer {
-	position: sticky;
-	top: 63px;
+	top: 60px;
 	display: none;
+	height: calc(-210px + 100vh);
 	overflow: scroll;
 	scrollbar-width: none;
 }
 
 .mainContainer {
 	grid-column: span 12 / span 12;
+}
+
+.rcontainer {
+	position: sticky;
+	top: 60px;
+	display: none;
+	grid-column: span 2 / span 2;
+	height: calc(-210px + 100vh);
+	overflow: scroll;
+	scrollbar-width: none;
 }
 
 @media (min-width: 1024px) {
@@ -26,5 +35,9 @@
 
 	.mainContainer {
 		grid-column: span 7 / span 7;
+	}
+
+	.rcontainer {
+		display: block;
 	}
 }
