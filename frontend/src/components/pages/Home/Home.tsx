@@ -2,6 +2,7 @@ import React from "react";
 import styles from './Home.module.scss';
 import { Contact } from '@/components/pages/Home/Contact';
 import { Profile } from '@/components/pages/Home/Profile';
+import { Post } from '@/components/pages/Home/Post';
 import { SearchBox } from "@/components/pages/Home/SearchBox";
 
 type Props = {
@@ -17,6 +18,7 @@ export const Home: React.FC<Props> = () => {
             </div>
             <div className={styles.mainContainer}>
                 <SearchBox />
+                <Post />
             </div>
             <div></div>
         </div>
