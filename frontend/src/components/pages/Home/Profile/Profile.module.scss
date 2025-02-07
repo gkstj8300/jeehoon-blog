@@ -3,17 +3,23 @@
 .profile {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 	width: 100%;
-	margin-bottom: 2.25rem;
+	margin-bottom: 1.25rem;
+	padding: 0.5rem 0.8rem;
 	background-color: rgb(40 40 40);
 	border-radius: 1rem;
 }
 
+.mainProfile {
+	display: flex;
+	align-items: center;
+}
+
 .image {
 	flex: 0 0 auto;
-	width: 128px;
-	height: 128px;
+	width: 64px;
+	height: 64px;
 	background-color: #f0f8ff;
 	background-position: center center;
 	background-size: cover;
@@ -29,15 +35,17 @@
 	}
 }
 
+.developer {
+	color: rgb(199 199 199);
+}
+
 .author {
 	margin-bottom: 4.8px;
 	font-weight: 700;
-	font-size: 1.3rem;
-	text-align: center;
+	font-size: 1.24rem;
 }
 
 .description {
-	margin-bottom: 11.2px;
 	color: variables.$subFontColor;
 	font-size: 0.85rem;
 	line-height: 1.5;
@@ -51,12 +59,19 @@
 	}
 
 	.profile {
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 2.25rem;
 		padding: 1rem;
+	}
+
+	.mainProfile {
+		flex-direction: column;
+	}
+
+	.image {
+		width: 128px;
+		height: 128px;
 	}
 }
 
-@media (min-width: 768px) {
-	.profile {
-		padding: 1rem;
-	}
-}

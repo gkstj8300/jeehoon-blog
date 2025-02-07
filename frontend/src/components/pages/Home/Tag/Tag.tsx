@@ -7,9 +7,9 @@ export const Tag: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <Title title='Tag List'/>
+            <Title className={styles.title} title='Tag List'/>
             <div className={styles.link}>
-                <IoIosArrowBack />
+                <IoIosArrowBack className={styles.icon}/>
                 <TagLink
                     href='#'
                     name='Nextjs'

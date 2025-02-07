@@ -8,16 +8,18 @@ export const Profile: React.FC = () => {
     return (
         <div className={styles.profile}>
             <Title title='Profile' />
-            <div className={styles.image} />
-            <div className={styles.sub}>
-                <div className={styles.developer}>
-                    {t('component.pages.profile.developer')}
-                </div>
-                <div className={styles.author}>
-                    {t('component.pages.profile.author')}
-                </div>
-                <div className={styles.description}>
-                    {t('component.pages.profile.description')}
+            <div className={styles.mainProfile}>
+                <div className={styles.image} />
+                <div className={styles.sub}>
+                    <div className={styles.developer}>
+                        {t('component.pages.profile.developer')}
+                    </div>
+                    <div className={styles.author}>
+                        {t('component.pages.profile.author')}
+                    </div>
+                    <div className={styles.description}>
+                        {t('component.pages.profile.description')}
+                    </div>
                 </div>
             </div>
         </div>
