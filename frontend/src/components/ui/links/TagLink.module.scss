@@ -1,3 +1,5 @@
+@use 'src/styles/variables';
+
 .link {
 	display: block;
 	margin: 0.25rem 0;
@@ -6,4 +8,8 @@
 	font-size: 1rem;
 	line-height: 1.25rem;
 	cursor: pointer;
+
+	&:hover {
+		color: variables.$subFontColor;
+	}
 }
