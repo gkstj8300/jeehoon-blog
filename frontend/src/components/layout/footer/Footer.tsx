@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import styles from './Footer.module.scss';
+import { url } from '@/utils/url';
 
 export const Footer: React.FC = () => {
     const { t } = useTranslation();
@@ -12,9 +13,15 @@ export const Footer: React.FC = () => {
                 </p>
                 <a 
                     target="_blank" 
-                    href='https://github.com/gkstj8300'
+                    href={url.github}
                 >
                     <span>{t('component.ui.layouts.footer.github')}</span>
+                </a>
+                <a 
+                    target="_blank" 
+                    href={url.portfolio}
+                >
+                    <span>{t('component.ui.layouts.footer.portfolio')}</span>
                 </a>
             </div>
             <div>

@@ -1,3 +1,5 @@
+@use 'src/styles/variables';
+
 .footer {
 	display: flex;
 	flex-direction: column;
@@ -20,6 +22,6 @@
 	}
 
 	a:hover {
-		color: rgb(34 38 42);
+		color: rgb(160 160 160);
 	}
 }
