@@ -1,7 +1,7 @@
+import { IoIosArrowBack } from "react-icons/io";
 import styles from './Tag.module.scss';
 import { TagLink } from '@/components/ui/links/TagLink';
 import { Title } from '@/components/ui/title';
-import { IoIosArrowBack } from "react-icons/io";
 
 export const Tag: React.FC = () => {
 
