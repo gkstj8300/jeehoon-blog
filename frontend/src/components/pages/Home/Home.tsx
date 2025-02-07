@@ -5,12 +5,16 @@ import { Post } from '@/components/pages/Home/Post';
 import { Profile } from '@/components/pages/Home/Profile';
 import { SearchBox } from "@/components/pages/Home/SearchBox";
 import { Tag } from "@/components/pages/Home/Tag";
+import { PostType } from "@/pages/posts/[slug].types";
 
 type Props = {
+    postList: PostType[];
     className?: string;
 }
 
-export const Home: React.FC<Props> = () => {
+export const Home: React.FC<Props> = ({
+    postList
+}) => {
     return (
         <div className={styles.home}>
             <div className={styles.lcontainer}>
@@ -19,7 +23,7 @@ export const Home: React.FC<Props> = () => {
             </div>
             <div className={styles.mainContainer}>
                 <SearchBox />
-                <Post />
+                <Post postList={postList}/>
             </div>
             <div className={styles.rcontainer}>
                 <Tag />
