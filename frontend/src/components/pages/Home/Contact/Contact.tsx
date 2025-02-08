@@ -51,7 +51,10 @@ export const Contact: React.FC = () => {
                     <li key={index} className={styles.link}>
                         <IconLink href={item.href} {...item.bind}>
                             {item.icon}
-                            <span onClick={item.onClick}>
+                            <span onClick={(e) => {
+                                e.preventDefault();
+                                item.onClick;
+                            }}>
                                 {item.text}
                             </span>
                         </IconLink>
