@@ -23,7 +23,7 @@ const getMarkdownPost = async (slug: string): Promise<PostType> => {
                 description: data.description,
                 thumbnailImage: data.thumbnailImage,
                 regDate: data.regDate,
-                tag: data.tag,
+                tags: data.tags,
                 content,
             };
 

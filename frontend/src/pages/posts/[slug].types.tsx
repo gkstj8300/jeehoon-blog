@@ -3,6 +3,6 @@ export interface PostType {
     description: string,
     thumbnailImage: string,
     regDate: string,
-    tag: string[],
+    tags: string[],
     content: string,
 }
