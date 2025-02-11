@@ -21,9 +21,7 @@ const Home = dynamic(
 
 const HomePage: NextPage<Props> = props => {
     return (
-        <Layout>
-            <Home className={styles.home} {...props}/>
-        </Layout>
+        <Home className={styles.home} {...props}/>
     );
 }
 HomePage.displayName = 'HomePage';
