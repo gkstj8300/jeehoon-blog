@@ -1,25 +1,44 @@
+import { GetServerSideProps } from 'next';
+import { useRouter } from 'next/router';
 import React from 'react';
+import { PostType } from './[slug].types';
+import { getParams } from './[slug].utils';
 import getMarkdownPost from '@/utils/markDown/getMarkdownPost';
-// import IndividualPost from '@/app/_components/_post/_individualPost/IndividualPost';
-import type { Metadata } from 'next';
+import { NextPageWithLayout } from '@/utils/types';
 
 type Props = {
-  params: { slug: string };
+    post: PostType;
 };
 
-// export async function generateMetadata({ params }: Props): Promise<Metadata> {
-//     const { slug } = params;
-//     const decodedSlug = decodeURIComponent(slug);
-//     const post = await getMarkdownPost(decodedSlug);
+const PostDetailPage: NextPageWithLayout<Props> = ({
+    post,
+}) => {
+	const { isReady } = useRouter();
 
-//     return {
-//         title: `${post.title}`,
-//         description: post.description,
-//     };
-// }
+	if (!isReady) {
+		return null;
+	}
 
-// export default async function PostPage({ params }: { params: { slug: string } }) {
-//     const { slug } = params;
-//     const decodedSlug = decodeURIComponent(slug);
-//     const post = await getMarkdownPost(decodedSlug);
-// }
+    return (
+        <>HI</>
+    );
+};
+PostDetailPage.displayName = 'PostDetailPage';
+
+export const getServerSideProps: GetServerSideProps<Props> = async ({
+	query,    
+}) => {
+    const { slug } = getParams(query);
+    try {
+        const post = await getMarkdownPost(String(slug));
+
+        return {
+            props: { post }
+        }
+
+    } catch(error) {
+        throw error;
+    }
+};
+
+export default PostDetailPage;

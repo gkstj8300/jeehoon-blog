@@ -1,7 +1,7 @@
-import dynamic from "next/dynamic";
 import { GetServerSideProps, NextPage } from 'next';
-import styles from '@/styles/home.module.scss';
+import dynamic from "next/dynamic";
 import { PostType } from "./posts/[slug].types";
+import styles from '@/styles/home.module.scss';
 import getMarkdownAllPosts from "@/utils/markDown/getMarkdownAllPosts";
 
 type Props = {

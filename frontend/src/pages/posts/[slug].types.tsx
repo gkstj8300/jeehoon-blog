@@ -4,4 +4,5 @@ export interface PostType {
     thumbnailImage: string,
     regDate: string,
     tag: string[],
+    content: string,
 }

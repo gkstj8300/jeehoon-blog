@@ -21,7 +21,7 @@ export const PostItem: React.FC<Props> = ({
             <div className={styles.regDate}>{regDate}</div>
             <div className={styles.description}>{description}</div>
             <div className={styles.tag}>
-                {tag.map(item => <span>{item}</span>)}
+                {tag.map((item, index) => <span key={`post-${index}`}>{item}</span>)}
             </div>
         </div>
     );

@@ -6,6 +6,7 @@ import { PostType } from '@/pages/posts/[slug].types';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 
+/* eslint-disable no-restricted-syntax */
 const getMarkdownPost = async (slug: string): Promise<PostType> => {
     const fileNames = await fs.readdir(postsDirectory);
 
@@ -13,21 +14,28 @@ const getMarkdownPost = async (slug: string): Promise<PostType> => {
         fileNames.map(async (fileName) => {
             const filePath = path.join(postsDirectory, fileName);
             const fileContents = await fs.readFile(filePath, 'utf8');
-            const { data } = matter(fileContents);
-            return convertToSlug(data.title) === slug
-                ? {
-                    title: data.title,
-                    description: data.description,
-                    thumbnailImage: data.thumbnail,
-                    regDate: data.date,
-                    tag: data.tag,
-                } : null;
+            const { data, content } = matter(fileContents);
+
+            const convertSlug = convertToSlug(data.title);
+
+            const post: PostType = {
+                title: data.title,
+                description: data.description,
+                thumbnailImage: data.thumbnailImage,
+                regDate: data.regDate,
+                tag: data.tag,
+                content,
+            };
+
+            if(convertSlug === slug) {
+                return post;
+            }
         })
     ).then((posts) => posts.find((post) => post !== null));
 
     if (!post) {
         throw new Error('게시글을 찾지 못했습니다.')
-    };
+    }
 
     return post;
 };

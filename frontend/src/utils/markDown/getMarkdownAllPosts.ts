@@ -11,7 +11,7 @@ const getMarkdownAllPosts = async () => {
     const postList = fileNames.map((fileName) => {
         const fullPath = path.join(postsDirectory, fileName);
         const contents = fs.readFileSync(fullPath, 'utf8');
-        const { data } = matter(contents);
+        const { data, content } = matter(contents);
 
         const post: PostType = {
             title: data.title,
@@ -19,6 +19,7 @@ const getMarkdownAllPosts = async () => {
             thumbnailImage: data.thumbnailImage,
             regDate: data.regDate,
             tag: data.tag,
+            content,
         };
 
         return post;

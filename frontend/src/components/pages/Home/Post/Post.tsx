@@ -13,8 +13,8 @@ export const Post: React.FC<Props> = ({
     return (
         <div className={styles.container}>
             <Title className={styles.title} title='Posts'/>
-            {postList.map(post => (
-                <PostItem key={post.title} {...post} />
+            {postList.map((post, idx) => (
+                <PostItem key={idx} {...post} />
             ))}
         </div>
     );
