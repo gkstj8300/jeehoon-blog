@@ -13,7 +13,7 @@ export const Layout: React.FC = ({ children }) => {
                 <Header />
                 <div className={styles.layout}>
                     {children}
-                </div>  
+                </div> 
                 <Footer />
                 <TooltipController />
             </ContextProviders>

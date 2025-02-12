@@ -1,25 +1,21 @@
 import styles from './Post.module.scss';
 import { PostItem } from './PostItem';
 import { Title } from '@/components/ui/title';
+import { PostType } from '@/pages/posts/[slug].types';
 
-export const Post: React.FC = () => {
+type Props = {
+    postList: PostType[];
+}
+
+export const Post: React.FC<Props> = ({
+    postList
+}) => {
     return (
         <div className={styles.container}>
             <Title className={styles.title} title='Posts'/>
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
-            <PostItem />
+            {postList.map((post, idx) => (
+                <PostItem key={idx} {...post} />
+            ))}
         </div>
     );
 };

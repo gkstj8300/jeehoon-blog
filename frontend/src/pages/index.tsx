@@ -1,7 +1,12 @@
+import { GetServerSideProps, NextPage } from 'next';
 import dynamic from "next/dynamic";
-import { None } from '@/layouts/none';
+import { PostType } from "./posts/[slug].types";
 import styles from '@/styles/home.module.scss';
-import { NextPageWithLayout } from "@/utils/types";
+import getMarkdownAllPosts from "@/utils/markDown/getMarkdownAllPosts";
+
+type Props = {
+    postList: PostType[];
+}
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 const Layout = dynamic<{}>(
@@ -14,14 +19,21 @@ const Home = dynamic(
 	{ ssr: false }
 );
 
-const HomePage: NextPageWithLayout = () => {
+const HomePage: NextPage<Props> = props => {
     return (
-        <Layout>
-            <Home className={styles.home}/>
-        </Layout>
+        <Home className={styles.home} {...props}/>
     );
 }
 HomePage.displayName = 'HomePage';
-HomePage.getLayout = None;
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+    const { postList } = await getMarkdownAllPosts();
+
+    return {
+        props: {
+            postList: Array.isArray(postList) ? postList : [],
+        },
+    };
+};
 
 export default HomePage;
