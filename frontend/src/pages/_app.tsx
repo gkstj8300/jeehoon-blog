@@ -26,9 +26,11 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
 	}, [t]);
 
     return (
-        <Provider store={store}>
-            {getLayout(<Component {...pageProps} />)}
-        </Provider>
+        <>
+            <Provider store={store}>
+                {getLayout(<Component {...pageProps} />)}
+            </Provider>
+        </>
     );
 }
 export default App;

@@ -1,18 +1,16 @@
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { PostType } from './[slug].types';
 import { getParams } from './[slug].utils';
 import { PostDetail } from '@/components/pages/PostDetail';
-import { None } from '@/layouts/none';
 import getMarkdownPost from '@/utils/markDown/getMarkdownPost';
-import { NextPageWithLayout } from '@/utils/types';
 
 type Props = {
     post: PostType;
 };
 
-const PostDetailPage: NextPageWithLayout<Props> = ({
+const PostDetailPage: NextPage<Props> = ({
     post,
 }) => {
 	const { isReady, query } = useRouter();
@@ -26,7 +24,6 @@ const PostDetailPage: NextPageWithLayout<Props> = ({
     );
 };
 PostDetailPage.displayName = 'PostDetailPage';
-PostDetailPage.getLayout = None;
 
 export const getServerSideProps: GetServerSideProps<Props> = async ({
 	query,    
