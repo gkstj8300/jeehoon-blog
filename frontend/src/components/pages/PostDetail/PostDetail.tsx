@@ -8,6 +8,7 @@ type Props = {
     title: string,
     description: string,
     thumbnailImage: string,
+    mainTag: string,
     regDate: string,
     tags: string[],
     content: string,
@@ -18,14 +19,21 @@ export const PostDetail: React.FC<Props> = ({
     title,
     description,
     regDate,
+    mainTag,
     tags,
     content,
 }) => {
     return (
         <div className={styles.container}>
-            <PostTitle title={title} />
-            <PostInfo regDate={regDate} tags={tags} />
-            <PostContent content={content} />
+            <div className={styles.detailWrap}>
+                <PostTitle title={title} />
+                <PostInfo 
+                    regDate={regDate} 
+                    tags={tags} 
+                    mainTag={mainTag} 
+                />
+                <PostContent content={content} />
+            </div>
         </div>
     )
 }

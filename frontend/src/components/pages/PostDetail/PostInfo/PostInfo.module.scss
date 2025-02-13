@@ -1,0 +1,35 @@
+@use 'src/styles/variables';
+
+.container {
+    margin-bottom: 32px;
+    font-size: 16px;
+    color: variables.$postSubFontColor;
+};
+
+.info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+
+    > div:not(:last-child)::after {
+        content: "·";
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 0.2rem;
+    }
+}
+
+.tags {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.tag {
+    padding: 0.25rem 0.5rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 400;
+    color: variables.$postSubFontColor;
+    background-color: hsl(0, 0%, 17.9%);
+}
