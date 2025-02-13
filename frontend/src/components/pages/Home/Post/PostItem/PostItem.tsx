@@ -1,5 +1,5 @@
-import styles from './PostItem.module.scss';
 import Link from 'next/link';
+import styles from './PostItem.module.scss';
 import { url } from '@/utils/url';
 
 type Props = {

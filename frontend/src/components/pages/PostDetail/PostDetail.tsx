@@ -1,7 +1,7 @@
-import styles from './PostDetail.module.scss';
-import { PostTitle } from './PostTitle';
-import { PostInfo } from './PostInfo';
 import { PostContent } from './PostContent';
+import styles from './PostDetail.module.scss';
+import { PostInfo } from './PostInfo';
+import { PostTitle } from './PostTitle';
 
 type Props = {
     slug: string;
@@ -15,9 +15,7 @@ type Props = {
 }
 
 export const PostDetail: React.FC<Props> = ({
-    slug,
     title,
-    description,
     regDate,
     mainTag,
     tags,

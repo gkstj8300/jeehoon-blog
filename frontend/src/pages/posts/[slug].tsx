@@ -29,15 +29,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
 	query,    
 }) => {
     const { slug } = getParams(query);
-    try {
-        const post = await getMarkdownPost(String(slug));
+    const post = await getMarkdownPost(String(slug));
 
-        return {
-            props: { post }
-        }
-
-    } catch(error) {
-        throw error;
+    return {
+        props: { post }
     }
 };
 
