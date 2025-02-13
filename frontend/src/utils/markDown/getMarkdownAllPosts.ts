@@ -17,6 +17,7 @@ const getMarkdownAllPosts = async () => {
             title: data.title,
             description: data.description,
             thumbnailImage: data.thumbnailImage,
+            mainTag: data.mainTag,
             regDate: data.regDate,
             tags: data.tags,
             content,
