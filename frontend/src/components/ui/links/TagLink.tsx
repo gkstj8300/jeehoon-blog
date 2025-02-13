@@ -8,6 +8,7 @@ export type Props = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
 	href: string | UrlObject;
 	newTab?: boolean;
     name: string;
+	tagCounts?: Record<string, number>;
 };
 
 export const TagLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
@@ -16,6 +17,7 @@ export const TagLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
 			href,
 			newTab,
             name,
+			tagCounts,
 			className,
 			/* eslint-disable @typescript-eslint/no-unused-vars */
 			target = newTab ? `_blank` : undefined,
@@ -30,7 +32,12 @@ export const TagLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
                 className={classNames(styles.link, className)}
                 {...props}
             >
-                {name}
+				<>
+				{name}
+				{tagCounts && (
+					<div>({tagCounts[name]})</div>
+				)}
+				</>
             </Link>
         )
 	}
