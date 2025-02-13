@@ -16,7 +16,7 @@ export const usePortal = () => {
 		}
 	}, []);
 
-	const Portal: React.FC = useCallback(({ children }) => {
+	const Portal: React.FC<{ children: React.ReactNode }> = useCallback(({ children }) => {
 		if (!portalRef.current) {
 			return null;
 		}

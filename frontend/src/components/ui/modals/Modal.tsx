@@ -17,6 +17,7 @@ type Props = {
 	isOpen?: boolean;
 	title?: string | ReactNode;
 	onCancel?: () => void;
+	children?: React.ReactNode;
 };
 
 type Position = 'absolute' | 'fixed';
