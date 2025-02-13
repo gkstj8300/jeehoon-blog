@@ -32,7 +32,7 @@ const getMarkdownPost = async (slug: string): Promise<PostType> => {
                 return post;
             }
         })
-    ).then((posts) => posts.find((post) => post !== null));
+    ).then((posts) => posts.find((post) => post));
 
     if (!post) {
         throw new Error('게시글을 찾지 못했습니다.')
