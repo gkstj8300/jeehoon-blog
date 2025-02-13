@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { MainLoaderContext } from './MainLoader.context';
 
-export const MainLoaderProvider: React.FC = ({ children }) => {
+export const MainLoaderProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const [loading, setLoading] = useState<boolean>(false);
 
 	const showLoading = useCallback(() => {

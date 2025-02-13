@@ -5,7 +5,9 @@ import styles from './ErrorBoundary.module.scss';
 /**
  * error boundary props
  */
-interface ErrorProps {}
+interface ErrorProps {
+	children?: React.ReactNode;
+}
 
 /**
  * error boundary state

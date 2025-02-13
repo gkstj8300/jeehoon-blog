@@ -7,6 +7,7 @@ import styles from './IconLink.module.scss';
 export type Props = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
 	href: string | UrlObject;
 	newTab?: boolean;
+	onClick?: () => void;
 };
 
 export const IconLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
@@ -18,6 +19,7 @@ export const IconLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
 			className,
 			/* eslint-disable @typescript-eslint/no-unused-vars */
 			target = newTab ? `_blank` : undefined,
+			onClick,
 			...props
 		},
 		ref
@@ -27,6 +29,7 @@ export const IconLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
                 href={href}
 				ref={ref}
                 className={classNames(styles.link, className)}
+				onClick={href === '#' ? onClick : undefined}
                 {...props}
             >
                 {children}

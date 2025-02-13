@@ -80,7 +80,7 @@ function reducer(
  * Confirm modal provider
  * It is assumed to be the only one used by the App component.
  */
-export const ConfirmModalProvider: React.FC = ({ children }) => {
+export const ConfirmModalProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const [context, dispatch] = useReducer(reducer, {
 		isOpen: false,
 		resource: { message: '' },

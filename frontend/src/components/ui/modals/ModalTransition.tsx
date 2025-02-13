@@ -4,6 +4,7 @@ import styles from './ModalTransition.module.scss';
 
 type Props = {
 	isOpen: boolean;
+	children?: React.ReactNode;
 };
 
 /**

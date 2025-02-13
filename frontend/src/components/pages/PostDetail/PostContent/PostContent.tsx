@@ -1,3 +1,9 @@
+import ReactMarkdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import rehypeRaw from "rehype-raw";
+import remarkBreaks from "remark-breaks";
+import remarkGfm from "remark-gfm";
 import styles from './PostContent.module.scss';
 import { markDownContentFormat } from '@/utils/markDown/markDown';
 
@@ -9,7 +15,53 @@ export const PostContent: React.FC<Props> = ({ content }) => {
     const markDownContent = markDownContentFormat(content);
     return (
         <div className={styles.container}>
-            {markDownContent}
+            <ReactMarkdown 
+                remarkPlugins={[remarkGfm, remarkBreaks]}
+                rehypePlugins={[rehypeRaw]}
+                components={{
+                    code(props) {
+                        const { className, children } = props;
+                        const match = /language-(\w+)/.exec(className || '');
+
+                        if (match?.[1] === "javascript") {
+                            return (
+                                <SyntaxHighlighter
+                                    className={styles.scriptBlock}
+                                    style={materialDark}
+                                    language="javascript"
+                                    PreTag="div"
+                                >
+                                    {String(children).replace(/\n$/, '')}
+                                </SyntaxHighlighter>
+                            );
+                        }
+                    
+                        if (match?.[1] === "list") {
+                            return (
+                                <div className={styles.list}>
+                                    <h3>목차</h3>
+                                    <code {...props}>{children}</code>
+                                </div>
+                            );
+                        }
+                    
+                        return (
+                            <div className={styles.codeBlock}>
+                                <code {...props}>{children}</code>
+                            </div>
+                        );
+                    },
+                    h1: ({ ...props }) => <h1 style={{ fontSize: "2em" }} {...props} />,
+                    h2: ({ ...props }) => <h2 style={{ fontSize: "1.75em" }} {...props} />,
+                    h3: ({ ...props }) => <h3 style={{ fontSize: "1.5em" }} {...props} />,
+                    h4: ({ ...props }) => <h4 style={{ fontSize: "1.25em" }} {...props} />,
+                    h5: ({ ...props }) => <h5 style={{ fontSize: "1em" }} {...props} />,
+                    h6: ({ ...props }) => <h5 style={{ fontSize: "1em" }} {...props} />,
+                    details: ({ ...props }) => <details style={{ cursor: "pointer" }} {...props} />,
+                }}
+            >
+                {markDownContent}
+            </ReactMarkdown>
         </div>
     );
 };

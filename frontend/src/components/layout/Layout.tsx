@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import styles from './Layout.module.scss';
 import { Footer } from './footer';
 import { Header } from './header';
@@ -5,7 +6,7 @@ import ErrorBoundary from '@/components/boundaries/ErrorBoundary';
 import { ContextProviders } from '@/components/functional/ContextProviders';
 import { TooltipController } from '@/components/ui/tooltips';
 
-export const Layout: React.FC = ({ children }) => {
+export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
 
     return (
         <ErrorBoundary>

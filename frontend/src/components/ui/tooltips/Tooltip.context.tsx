@@ -51,11 +51,9 @@ export const TooltipContext = createContext<ToolTip>({
 });
 
 /** Tooltip context provider */
-export const TooltipProvider: FC = ({ children }) => {
+export const TooltipProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
 	const [position, setPosition] = useState<CSSProperties>({ top: 0, left: 0 });
-	const [direction, setDirection] = useState<
-		'bottom' | 'top' | 'left' | 'right'
-	>('bottom');
+	const [direction, setDirection] = useState<Direction>('bottom');
 	const [showsTooltip, setShowsTooltip] = useState(false);
 
 	const tooltipRef = useRef<HTMLDivElement>(null);
@@ -66,8 +64,8 @@ export const TooltipProvider: FC = ({ children }) => {
 		(
 			content: ReactNode,
 			offset = 0,
-			direction,
-			theme,
+			direction: Direction,
+			theme: Theme,
 			targetRef: RefObject<HTMLElement>
 		) => {
 			setDirection(direction);

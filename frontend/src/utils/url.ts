@@ -1,6 +1,6 @@
+import { UrlObject } from 'url';
 import { resolveHref } from 'next/dist/client/resolve-href';
 import Router from 'next/router';
-import { UrlObject } from 'url';
 
 export const url = {
     // 깃허브 링크

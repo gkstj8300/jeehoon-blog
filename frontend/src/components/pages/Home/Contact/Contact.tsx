@@ -49,12 +49,13 @@ export const Contact: React.FC = () => {
             <ul className={styles.linkList}>
                 {contactItems.map((item, index) => (
                     <li key={index} className={styles.link}>
-                        <IconLink href={item.href} {...item.bind}>
+                        <IconLink 
+                            href={item.href} 
+                            {...item.bind} 
+                            onClick={item.onClick}
+                        >
                             {item.icon}
-                            <span onClick={(e) => {
-                                e.preventDefault();
-                                item.onClick;
-                            }}>
+                            <span>
                                 {item.text}
                             </span>
                         </IconLink>

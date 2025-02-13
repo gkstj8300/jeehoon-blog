@@ -8,12 +8,6 @@ type Props = {
     postList: PostType[];
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-const Layout = dynamic<{}>(
-	() => import('@/components/layout/Layout').then(({ Layout }) => Layout),
-	{ ssr: false }
-);
-
 const Home = dynamic(
 	() => import('@/components/pages/Home').then(module => module.Home),
 	{ ssr: false }

@@ -6,7 +6,7 @@ import { TooltipProvider } from '@/components/ui/tooltips';
 /**
  * Context providers
  */
-export const ContextProviders: React.FC = ({ children }) => {
+export const ContextProviders: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	return (
 		<MainLoaderProvider>
 			<TooltipProvider>
