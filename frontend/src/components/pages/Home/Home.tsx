@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from './Home.module.scss';
 import { Contact } from '@/components/pages/Home/Contact';
 import { Post } from '@/components/pages/Home/Post';
@@ -15,6 +15,7 @@ type Props = {
 export const Home: React.FC<Props> = ({
     postList
 }) => {
+    const [posts, setPosts] = useState(postList);
     return (
         <div className={styles.home}>
             <div className={styles.lcontainer}>
@@ -22,11 +23,14 @@ export const Home: React.FC<Props> = ({
                 <Contact />
             </div>
             <div className={styles.mainContainer}>
-                <SearchBox />
-                <Post postList={postList}/>
+                <SearchBox 
+                    allPostList={postList}
+                    setPosts={setPosts}
+                />
+                <Post postList={posts}/>
             </div>
             <div className={styles.rcontainer}>
-                <Tag />
+                <Tag postList={postList}/>
             </div>
         </div>
     );
