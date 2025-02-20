@@ -42,9 +42,9 @@ export const Header: React.FC = () => {
             <div className={styles.inner}>
                 <span className={styles.title}>
                     {pathIsMain ? (
-                        <h1>JeeHoon-Blog</h1>
+                        <h1>@BaakHan</h1>
                     ) : (
-                        <Link href='/'>JeeHoon-Blog</Link>
+                        <Link href='/'>@BaakHan</Link>
                     )}
                 </span>
                 <div className={styles.menu}>
