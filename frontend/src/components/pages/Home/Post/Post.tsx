@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './Post.module.scss';
 import { PostItem } from './PostItem';
 import { PostTItle } from './PostTItle';
-import { PostType } from '@/pages/posts/[slug].types';
+import { PostType } from '@/models/pages/slug';
 
 export type Sort = 'desc' | 'asc';
 

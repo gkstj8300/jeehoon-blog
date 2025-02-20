@@ -8,7 +8,6 @@ module.exports = {
 	},
 	reactStrictMode: false,
 	trailingSlash: true,
-	pageExtensions: ['api.ts'],
 	webpack: config => {
 		config.plugins.push(new CaseSensitivePathsPlugin());
 		return config;

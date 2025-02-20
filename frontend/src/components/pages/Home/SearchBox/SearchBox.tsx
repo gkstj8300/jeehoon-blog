@@ -1,7 +1,7 @@
 import { ChangeEvent, useState, useEffect } from 'react';
 import styles from './SearchBox.module.scss';
 import { Title } from '@/components/ui/title';
-import { PostType } from '@/pages/posts/[slug].types';
+import { PostType } from '@/models/pages/slug';
 
 type Props = {
     allPostList: PostType[];

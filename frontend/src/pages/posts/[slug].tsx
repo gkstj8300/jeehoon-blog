@@ -1,9 +1,9 @@
 import { GetServerSideProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { PostType } from './[slug].types';
-import { getParams } from './[slug].utils';
 import { PostDetail } from '@/components/pages/PostDetail';
+import { PostType } from '@/models/pages/slug';
+import { getParams } from '@/utils/getParams';
 import getMarkdownPost from '@/utils/markDown/getMarkdownPost';
 
 type Props = {

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { PostType } from '@/pages/posts/[slug].types';
+import { PostType } from '@/models/pages/slug';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 

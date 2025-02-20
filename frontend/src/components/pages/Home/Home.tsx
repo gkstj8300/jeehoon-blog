@@ -5,7 +5,7 @@ import { Post } from '@/components/pages/Home/Post';
 import { Profile } from '@/components/pages/Home/Profile';
 import { SearchBox } from "@/components/pages/Home/SearchBox";
 import { Tag } from "@/components/pages/Home/Tag";
-import { PostType } from "@/pages/posts/[slug].types";
+import { PostType } from "@/models/pages/slug";
 
 type Props = {
     postList: PostType[];
