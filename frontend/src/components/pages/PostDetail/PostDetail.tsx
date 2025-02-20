@@ -1,7 +1,15 @@
+import dynamic from "next/dynamic";
 import { PostContent } from './PostContent';
 import styles from './PostDetail.module.scss';
 import { PostInfo } from './PostInfo';
 import { PostTitle } from './PostTitle';
+
+const PostComents = dynamic(
+    () => import("@/components/pages/PostDetail/PostComents/PostComents"),
+    {
+      ssr: false,
+    }
+);
 
 type Props = {
     slug: string;
@@ -31,6 +39,7 @@ export const PostDetail: React.FC<Props> = ({
                     mainTag={mainTag} 
                 />
                 <PostContent content={content} />
+                <PostComents />
             </div>
         </div>
     )
