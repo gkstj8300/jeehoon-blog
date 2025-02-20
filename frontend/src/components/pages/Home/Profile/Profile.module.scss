@@ -1,13 +1,13 @@
 @use 'src/styles/variables';
 
-.profile {
+.profile { 
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 	width: 100%;
 	margin-bottom: 1.25rem;
 	padding: 0.5rem 0.8rem;
-	background-color: rgb(40 40 40);
+	background-color: var(--sub-background-color); // 수정된 부분
 	border-radius: 1rem;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .developer {
-	color: rgb(199 199 199);
+	color: var(--profile-develop-color);
 }
 
 .author {
@@ -46,7 +46,7 @@
 }
 
 .description {
-	color: variables.$subFontColor;
+	color: var(--sub-font-color);
 	font-size: 0.85rem;
 	line-height: 1.5;
 	white-space: normal;

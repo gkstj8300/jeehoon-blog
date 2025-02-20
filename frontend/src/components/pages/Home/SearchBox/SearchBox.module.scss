@@ -5,7 +5,7 @@
 	align-items: center;
 	margin-bottom: 1rem;
 	padding: 0.5rem;
-	background-color: variables.$subBackgroundColor;
+	background-color: var(--sub-background-color);
 	border-radius: 1rem;
 }
 
@@ -16,9 +16,9 @@
 .searchBox {
 	width: 100%;
 	padding: 0.5rem 1.25rem;
-	color: variables.$fontColor;
-	font-family: variables.$baseFont;
-	background-color: variables.$subBackgroundColor;
+	color: var(--foreground);
+	font-family: var(--base-font);
+	background-color: var(--sub-background-color);
 	border-width: 0;
 	outline: none;
 }

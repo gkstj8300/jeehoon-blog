@@ -5,7 +5,7 @@
 	margin-bottom: 1.5rem;
 	padding: 1rem;
 	overflow: hidden;
-	background-color: variables.$subBackgroundColor;
+	background-color: var(--sub-background-color);
 	border-radius: 1rem;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 300ms;
@@ -19,11 +19,11 @@
 }
 
 .regDate {
-	color: variables.$postFontColor;
+	color: var(--post-font-color);
 }
 
 .description {
-	color: variables.$postSubFontColor;
+	color: var(--post-sub-font-color);
 	line-height: 2rem;
 }
 
@@ -32,14 +32,13 @@
 	display: inline-block;
 	margin-right: .25rem;
 	padding: 0.45em 0.6em;;
-	color: variables.$fontColor;
 	font-weight: 400;
 	font-size: 75%;
 	line-height: 1;
 	white-space: nowrap;
 	text-align: center;
 	vertical-align: baseline;
-	background-color: #6c757d;
+	background-color: var(--tag);
 	border-radius: .25rem;
 }
 

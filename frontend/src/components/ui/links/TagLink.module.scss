@@ -11,6 +11,6 @@
 	cursor: pointer;
 
 	&:hover {
-		color: variables.$subFontColor;
+		color: var(--sub-font-color);
 	}
 }

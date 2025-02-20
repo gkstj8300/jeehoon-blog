@@ -11,8 +11,8 @@
 	-webkit-box-align: center;
 
 	&:hover {
-		color: variables.$fontColor;
-		background-color: variables.$backgroundColor;
+		color: var(--foreground);
+		background-color: var(--icon-link-background-color);
 	}
 
 	svg {
