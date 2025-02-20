@@ -16,6 +16,7 @@ html[data-theme="dark"] {
 	--post-background-color: #{dark.$postBackgroundColor};
 	--post-tag-background-color: #{dark.$postTagBackgroundColor};
 	--icon-link-background-color: #{dark.$iconLinkBackgroundColor};
+	--back-to-top-background-color: #{dark.$backToTopBackgroundColor};
 	--base-font: #{dark.$baseFont};
 }
 
@@ -34,5 +35,6 @@ html[data-theme="light"] {
 	--post-background-color: #{light.$postBackgroundColor};
 	--post-tag-background-color: #{light.$postTagBackgroundColor};
 	--icon-link-background-color: #{light.$iconLinkBackgroundColor};
+	--back-to-top-background-color: #{light.$backToTopBackgroundColor};
 	--base-font: #{light.$baseFont};     
 }

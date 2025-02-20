@@ -5,6 +5,12 @@
 	padding: 1rem;
 }
 
+.backToTop {
+	position: fixed;
+	right: 10px;
+	bottom: 99px;
+}
+
 @media (min-width: 1024px) {
 	.layout {
 		padding: 1rem;
