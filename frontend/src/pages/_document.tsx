@@ -3,7 +3,7 @@ import RawDocument, { Head, Html, Main, NextScript } from 'next/document';
 class Document extends RawDocument {
 	render() {
 		return (
-			<Html lang="ko">
+			<Html lang="ko" className='jeehoon'>
 				<Head>
 				</Head>
 				<body>

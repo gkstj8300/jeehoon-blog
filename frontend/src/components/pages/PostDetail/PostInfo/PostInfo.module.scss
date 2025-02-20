@@ -2,7 +2,7 @@
 
 .container {
 	margin-bottom: 32px;
-	color: variables.$postSubFontColor;
+	color: var(--post-sub-font-color);
 	font-size: 16px;
 };
 
@@ -26,10 +26,10 @@
 
 .tag {
 	padding: 0.25rem 0.5rem;
-	color: variables.$postSubFontColor;
+	color: var(--post-sub-font-color);
 	font-weight: 400;
 	font-size: 0.75rem;
 	line-height: 1rem;
-	background-color: hsl(0deg 0% 17.9%);
+	background-color: var(--post-tag-background-color);
 	border-radius: 50px;
 }

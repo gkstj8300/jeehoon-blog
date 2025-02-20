@@ -27,7 +27,7 @@
 	width: 100%;
 	margin: 4px 0;
 	padding: 16px 16px 16px 12px;
-	border: 1px solid hsl(0deg 0% 100% / .9);
+	border: var(--post-content-border);
 	border-width: 1px;
 	border-radius: 3px;
 
@@ -46,7 +46,7 @@
 	width: 100%;
 	margin: 4px 0;
 	padding: 16px 16px 16px 12px;
-	border: 1px solid hsl(0deg 0% 100% / .9);
+	border: var(--post-content-border);
 	border-width: 1px;
 	border-radius: 3px;
 

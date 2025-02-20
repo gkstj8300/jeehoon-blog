@@ -1,6 +1,6 @@
 ---
-title: 'Temp'
-regDate: '2025.02.08 15:32'
+title: 'BBBB'
+regDate: '2025.02.06 15:32'
 description: '테스트 게시글 파일'
 thumbnailImage: 'asd'
 mainTag: 'Next'
