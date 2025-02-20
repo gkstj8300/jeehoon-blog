@@ -27,7 +27,10 @@ export const Home: React.FC<Props> = ({
                     allPostList={postList}
                     setPosts={setPosts}
                 />
-                <Post postList={posts}/>
+                <Post
+                    postList={posts} 
+                    setPosts={setPosts}
+                />
             </div>
             <div className={styles.rcontainer}>
                 <Tag postList={postList}/>
