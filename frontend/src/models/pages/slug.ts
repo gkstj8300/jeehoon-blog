@@ -1,4 +1,5 @@
 export interface PostType {
+    slug: string;
     title: string,
     description: string,
     thumbnailImage: string,

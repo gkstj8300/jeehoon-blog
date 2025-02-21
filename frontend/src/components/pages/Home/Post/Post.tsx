@@ -37,7 +37,16 @@ export const Post: React.FC<Props> = ({
                 handleClickSort={handleClickSort}
             />
             {postList.map((post, idx) => (
-                <PostItem key={idx} {...post} />
+                <PostItem 
+                    key={idx} 
+                    slug={post.slug}
+                    title={post.title}
+                    description={post.description}
+                    thumbnailImage={post.thumbnailImage}
+                    mainTag={post.mainTag}
+                    regDate={post.regDate}
+                    tags={post.tags}
+                />
             ))}
         </div>
     );

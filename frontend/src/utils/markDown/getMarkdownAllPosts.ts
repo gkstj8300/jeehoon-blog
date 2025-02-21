@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import convertToSlug from './convertToSlug';
 import { PostType } from '@/models/pages/slug';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
@@ -14,6 +15,7 @@ const getMarkdownAllPosts = async () => {
         const { data, content } = matter(contents);
 
         const post: PostType = {
+            slug: convertToSlug(data.title),
             title: data.title,
             description: data.description,
             thumbnailImage: data.thumbnailImage,
