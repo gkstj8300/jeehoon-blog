@@ -13,14 +13,14 @@ type Props = {
 const PostDetailPage: NextPage<Props> = ({
     post,
 }) => {
-	const { isReady, query } = useRouter();
+	const { isReady } = useRouter();
 
 	if (!isReady) {
 		return null;
 	}
 
     return (
-        <PostDetail slug={String(query.slug)} {...post} />
+        <PostDetail {...post} />
     );
 };
 PostDetailPage.displayName = 'PostDetailPage';

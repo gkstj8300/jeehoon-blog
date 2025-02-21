@@ -1,4 +1,4 @@
-import ReactMarkdown from "react-markdown";
+import dynamic from "next/dynamic";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeRaw from "rehype-raw";
@@ -11,11 +11,15 @@ type Props = {
     content: string;
 }
 
+const DynamicReactMarkdown = dynamic(() => import("react-markdown"), {
+    ssr: false,
+});
+
 export const PostContent: React.FC<Props> = ({ content }) => {
     const markDownContent = markDownContentFormat(content);
     return (
         <div className={styles.container}>
-            <ReactMarkdown 
+            <DynamicReactMarkdown 
                 remarkPlugins={[remarkGfm, remarkBreaks]}
                 rehypePlugins={[rehypeRaw]}
                 components={{
@@ -61,7 +65,7 @@ export const PostContent: React.FC<Props> = ({ content }) => {
                 }}
             >
                 {markDownContent}
-            </ReactMarkdown>
+            </DynamicReactMarkdown>
         </div>
     );
 };

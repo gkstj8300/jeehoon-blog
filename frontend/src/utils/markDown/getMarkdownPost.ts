@@ -19,6 +19,7 @@ const getMarkdownPost = async (slug: string): Promise<PostType> => {
             const convertSlug = convertToSlug(data.title);
 
             const post: PostType = {
+                slug: convertToSlug(data.title),
                 title: data.title,
                 description: data.description,
                 thumbnailImage: data.thumbnailImage,

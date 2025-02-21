@@ -3,25 +3,25 @@ import styles from './PostItem.module.scss';
 import { url } from '@/utils/url';
 
 type Props = {
-    title: string,
-    description: string,
-    thumbnailImage: string,
-    mainTag: string,
-    regDate: string,
-    tags: string[],
+    slug: string;
+    title: string;
+    description: string;
+    thumbnailImage: string;
+    mainTag: string;
+    regDate: string;
+    tags: string[];
 }
 
 export const PostItem: React.FC<Props> = ({
+    slug,
     title,
     description,
-    // thumbnailImage,
     regDate,
     tags,
 }) => {
-    const href = url.postDetail(title);
     return (
         <div className={styles.container}>
-            <Link href={href}>
+            <Link href={`${url.postDetail(slug)}`}>
                 <div className={styles.title}>{title}</div>
                 <div className={styles.regDate}>{regDate}</div>
                 <div className={styles.description}>{description}</div>
