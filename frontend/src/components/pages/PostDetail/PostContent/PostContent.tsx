@@ -27,7 +27,7 @@ export const PostContent: React.FC<Props> = ({ content }) => {
                         const { className, children } = props;
                         const match = /language-(\w+)/.exec(className || '');
 
-                        if (match?.[1] === "javascript") {
+                        if (match?.[1] === "javascript" || match?.[1] === "js" || match?.[1] === "ts") {
                             return (
                                 <SyntaxHighlighter
                                     className={styles.scriptBlock}
@@ -48,7 +48,6 @@ export const PostContent: React.FC<Props> = ({ content }) => {
                                 </div>
                             );
                         }
-                    
                         return (
                             <div className={styles.codeBlock}>
                                 <code {...props}>{children}</code>
@@ -61,6 +60,7 @@ export const PostContent: React.FC<Props> = ({ content }) => {
                     h4: ({ ...props }) => <h4 style={{ fontSize: "1.25em" }} {...props} />,
                     h5: ({ ...props }) => <h5 style={{ fontSize: "1em" }} {...props} />,
                     h6: ({ ...props }) => <h5 style={{ fontSize: "1em" }} {...props} />,
+                    p: ({ ...props }) => <p style={{ marginTop: "0", marginBottom: "1rem" }} {...props} />,
                     details: ({ ...props }) => <details style={{ cursor: "pointer" }} {...props} />,
                 }}
             >

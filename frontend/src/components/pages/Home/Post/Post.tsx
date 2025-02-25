@@ -1,39 +1,34 @@
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './Post.module.scss';
 import { PostItem } from './PostItem';
 import { PostTItle } from './PostTItle';
+import { Sort, SearchType } from "@/components/pages/Home/Home.types";
 import { PostType } from '@/models/pages/slug';
-
-export type Sort = 'desc' | 'asc';
 
 type Props = {
     postList: PostType[];
-    setPosts: React.Dispatch<React.SetStateAction<PostType[]>>;
+    search?: SearchType;
+    handleFindPosts: (search: SearchType) => void;
 }
 
 export const Post: React.FC<Props> = ({
     postList,
-    setPosts
+    search,
+    handleFindPosts
 }) => {
     const { t } = useTranslation();
-    const [sort, setSort] = useState<Sort>('desc');
 
     const handleClickSort = useCallback((sort: Sort) => {
-        const sortedPosts = [...postList].sort((a, b) => 
-            (sort === 'desc' ? -1 : 1) * 
-            (new Date(a.regDate).getTime() - new Date(b.regDate).getTime())
-        );
-        setSort(sort);
-        setPosts(sortedPosts);
-    }, [postList, setPosts]);
+        handleFindPosts({ sort });
+    }, [handleFindPosts]);
 
     return (
         <div className={styles.container}>
             <PostTItle 
-                className={styles.title} 
+                className={styles.title}
                 title={t('component.pages.post.title')}
-                sort={sort}
+                sort={search?.sort || 'desc'}
                 handleClickSort={handleClickSort}
             />
             {postList.map((post, idx) => (

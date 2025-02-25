@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './PostTItle.module.scss';
-import type { Sort } from '@/components/pages/Home/Post';
+import { Sort } from '@/components/pages/Home/Home.types';
 
 type props = {
     title: string;

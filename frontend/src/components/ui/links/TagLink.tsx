@@ -8,6 +8,7 @@ export type Props = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
 	href: string | UrlObject;
 	newTab?: boolean;
     name: string;
+	bold?: boolean;
 	tagCounts?: Record<string, number>;
 };
 
@@ -17,6 +18,7 @@ export const TagLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
 			href,
 			newTab,
             name,
+			bold,
 			tagCounts,
 			className,
 			/* eslint-disable @typescript-eslint/no-unused-vars */
@@ -30,6 +32,7 @@ export const TagLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
                 href={href}
 				ref={ref}
                 className={classNames(styles.link, className)}
+				data-bold={bold}
                 {...props}
             >
 				<>

@@ -2,7 +2,7 @@
 title: 'Temp'
 regDate: '2025-02-08 15:32'
 description: '테스트 게시글 파일'
-thumbnailImage: 'asd'
+thumbnailImage: ''
 mainTag: 'Next'
 tags: ['tag1','tag2','tag3','tag4','tag5']
 ---

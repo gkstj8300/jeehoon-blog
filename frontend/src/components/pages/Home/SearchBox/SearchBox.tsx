@@ -1,16 +1,14 @@
 import { ChangeEvent, useState, useEffect } from 'react';
 import styles from './SearchBox.module.scss';
+import { SearchType } from "@/components/pages/Home/Home.types";
 import { Title } from '@/components/ui/title';
-import { PostType } from '@/models/pages/slug';
 
 type Props = {
-    allPostList: PostType[];
-    setPosts: React.Dispatch<React.SetStateAction<PostType[]>>;
+    handleFindPosts: (search: SearchType) => void;
 }
 
 export const SearchBox: React.FC<Props> = ({
-    allPostList,
-    setPosts,
+    handleFindPosts,
 }) => {
     const [keyDownValue, setKeyDownValue] = useState('');
 
@@ -20,9 +18,8 @@ export const SearchBox: React.FC<Props> = ({
     };
 
     useEffect(() => {
-        const findPostList = allPostList.filter(post => post.title.toLowerCase().startsWith(keyDownValue.toLowerCase()));
-        setPosts(findPostList);
-    }, [keyDownValue, allPostList, setPosts]);
+        handleFindPosts({ keyword: keyDownValue });
+    }, [keyDownValue, handleFindPosts]);
 
     return (
         <div className={styles.container}>
