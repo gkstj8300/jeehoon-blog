@@ -27,13 +27,13 @@ export const PostTItle: React.FC<props> = ({
                     data-sort={sort === 'desc'}
                     onClick={() => handleClickSort('desc')}
                 >
-                    {t('component.pages.post.newest')}
+                    {t('component.pages.home.post.newest')}
                 </span>
                 <span 
                     data-sort={sort === 'asc'}
                     onClick={() => handleClickSort('asc')}
                 >
-                    {t('component.pages.post.oldest')}
+                    {t('component.pages.home.post.oldest')}
                 </span>
             </div>
         </div>
