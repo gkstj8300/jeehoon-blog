@@ -8,8 +8,17 @@
 
 .info {
 	display: flex;
-	align-items: center;
+	flex-direction: column;
 	margin-bottom: 0.75rem;
+	font-size: 0.8rem;
+}
+
+.mainTag {
+	font-weight: bold;
+}
+
+.subInfo {
+	display: flex;
 
 	> div:not(:last-child)::after {
 		display: inline-block;
