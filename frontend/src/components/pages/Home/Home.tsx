@@ -1,12 +1,12 @@
 import { useHome } from './Home.hooks';
 import styles from './Home.module.scss';
+import { Meta } from './Meta';
 import { Contact } from '@/components/pages/Home/Contact';
 import { Post } from '@/components/pages/Home/Post';
 import { Profile } from '@/components/pages/Home/Profile';
 import { SearchBox } from "@/components/pages/Home/SearchBox";
 import { Tag } from "@/components/pages/Home/Tag";
 import { PostType } from "@/models/pages/slug";
-
 
 type Props = {
     postList: PostType[];
@@ -24,6 +24,7 @@ export const Home: React.FC<Props> = ({
 
     return (
         <div className={styles.home}>
+            <Meta />
             <div className={styles.lcontainer}>
                 <Profile />
                 <Contact />
