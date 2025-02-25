@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeRaw from "rehype-raw";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
@@ -27,11 +27,11 @@ export const PostContent: React.FC<Props> = ({ content }) => {
                         const { className, children } = props;
                         const match = /language-(\w+)/.exec(className || '');
 
-                        if (match?.[1] === "javascript") {
+                        if (match?.[1] === "javascript" || match?.[1] === "js" || match?.[1] === "ts") {
                             return (
                                 <SyntaxHighlighter
                                     className={styles.scriptBlock}
-                                    style={materialDark}
+                                    style={oneDark}
                                     language="javascript"
                                     PreTag="div"
                                 >

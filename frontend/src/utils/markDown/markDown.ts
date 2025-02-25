@@ -4,5 +4,5 @@
  * @returns string
  */
 export const markDownContentFormat = (content: string) => {
-    return content.replace(/\\n/g, '\n').replace(/\\`/g, '`');
+    return content.replace(/\\n/g, '\n').replace(/\\`/g, '`').replace(/\n\s*\n/g, '\n\n<br>\n\n');
 };
