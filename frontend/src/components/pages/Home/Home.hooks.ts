@@ -25,7 +25,7 @@ export const useHome = (
 
         if (search.keyword) {
             filteredPosts = filteredPosts.filter(post => 
-                post.title.toLowerCase().startsWith(search.keyword!.toLowerCase())
+                post.title.toLowerCase().includes(search.keyword!.toLowerCase())
             );
         }
 
