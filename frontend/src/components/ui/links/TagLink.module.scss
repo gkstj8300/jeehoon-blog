@@ -10,6 +10,11 @@
 	line-height: 1.25rem;
 	cursor: pointer;
 
+	&[data-bold='true'] {
+		color: var(--sub-font-color);
+		font-weight: bold;
+	}
+
 	&:hover {
 		color: var(--sub-font-color);
 	}

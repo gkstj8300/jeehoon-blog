@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useHome } from './Home.hooks';
 import styles from './Home.module.scss';
 import { Contact } from '@/components/pages/Home/Contact';
 import { Post } from '@/components/pages/Home/Post';
@@ -6,6 +6,7 @@ import { Profile } from '@/components/pages/Home/Profile';
 import { SearchBox } from "@/components/pages/Home/SearchBox";
 import { Tag } from "@/components/pages/Home/Tag";
 import { PostType } from "@/models/pages/slug";
+
 
 type Props = {
     postList: PostType[];
@@ -15,7 +16,12 @@ type Props = {
 export const Home: React.FC<Props> = ({
     postList
 }) => {
-    const [posts, setPosts] = useState(postList);
+    const { 
+        posts,
+        search,
+        handleFindPosts 
+    } = useHome(postList);
+
     return (
         <div className={styles.home}>
             <div className={styles.lcontainer}>
@@ -24,16 +30,20 @@ export const Home: React.FC<Props> = ({
             </div>
             <div className={styles.mainContainer}>
                 <SearchBox 
-                    allPostList={postList}
-                    setPosts={setPosts}
+                    handleFindPosts={handleFindPosts}
                 />
                 <Post
-                    postList={posts} 
-                    setPosts={setPosts}
+                    postList={posts}
+                    search={search}
+                    handleFindPosts={handleFindPosts}
                 />
             </div>
             <div className={styles.rcontainer}>
-                <Tag postList={postList}/>
+                <Tag 
+                    postList={postList}
+                    search={search}
+                    handleFindPosts={handleFindPosts}
+                />
             </div>
         </div>
     );
