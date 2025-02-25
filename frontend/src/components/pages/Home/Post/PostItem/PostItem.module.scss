@@ -18,6 +18,22 @@
 	}
 }
 
+.thumbnail {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	margin-bottom: 1rem;
+	background-color: rgb(28 28 28);
+
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		color: transparent;
+		inset: 0;
+	}
+}
+
 .regDate {
 	color: var(--post-font-color);
 }
