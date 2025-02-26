@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { setLocale } from 'yup';
+import { GoogleAnalytics } from '@/components/anylytics/GoogleAnalytics';
 import '@/styles/globals.scss';
 import '@/i18n';
 import { Standard } from '@/layouts/standard';
@@ -29,6 +30,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
         <>
             <Provider store={store}>
                 {getLayout(<Component {...pageProps} />)}
+                <GoogleAnalytics />
             </Provider>
         </>
     );
