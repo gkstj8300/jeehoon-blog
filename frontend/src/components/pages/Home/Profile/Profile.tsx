@@ -12,13 +12,13 @@ export const Profile: React.FC = () => {
                 <div className={styles.image} />
                 <div className={styles.sub}>
                     <div className={styles.developer}>
-                        {t('component.pages.profile.developer')}
+                        {t('component.pages.home.profile.developer')}
                     </div>
                     <div className={styles.author}>
-                        {t('component.pages.profile.author')}
+                        {t('component.pages.home.profile.author')}
                     </div>
                     <div className={styles.description}>
-                        {t('component.pages.profile.description')}
+                        {t('component.pages.home.profile.description')}
                     </div>
                 </div>
             </div>

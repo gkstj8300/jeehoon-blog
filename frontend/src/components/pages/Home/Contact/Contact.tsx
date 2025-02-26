@@ -12,14 +12,14 @@ export const Contact: React.FC = () => {
     const { t } = useTranslation();
 
     const { bind } = useTooltip<HTMLDivElement>({
-        content: t('component.pages.contact.emailTooltip'),
+        content: t('component.pages.home.contact.emailTooltip'),
         theme: 'dark',
         closeOnClick: true,
     });
 
     const handleEmailCopy = useCallback((email: string) => {
         navigator.clipboard.writeText(email).then(() => {
-            alert(t('component.pages.contact.emailCopy'));
+            alert(t('component.pages.home.contact.emailCopy'));
         });
     }, [t]);
 
@@ -27,19 +27,19 @@ export const Contact: React.FC = () => {
         {
             icon: <MdEmail />,
             href: '#',
-            text: t('component.pages.contact.email'),
+            text: t('component.pages.home.contact.email'),
             onClick: () => handleEmailCopy('gkstj8300@naver.com'),
             bind: bind
         },
         {
             icon: <FaGithub />,
             href: url.github,
-            text: t('component.pages.contact.github'),
+            text: t('component.pages.home.contact.github'),
         },
         {
             icon: <FaRegUserCircle />,
             href: url.portfolio,
-            text: t('component.pages.contact.portfolio'),
+            text: t('component.pages.home.contact.portfolio'),
         }
     ];
 

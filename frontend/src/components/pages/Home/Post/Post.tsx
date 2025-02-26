@@ -27,7 +27,7 @@ export const Post: React.FC<Props> = ({
         <div className={styles.container}>
             <PostTItle 
                 className={styles.title}
-                title={t('component.pages.post.title')}
+                title={t('component.pages.home.post.title')}
                 sort={search?.sort || 'desc'}
                 handleClickSort={handleClickSort}
             />
