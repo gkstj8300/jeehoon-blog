@@ -5,14 +5,14 @@
 	font-size: 0.9rem;
 
 	a:hover {
-		color: var(--icon-link-background-color);
+		color: var(--footer-hover-font-color);
 	}
 }
 
 .breadcrumb {
 	display: flex;
 	align-items: center;
-	color: #666;
+	color: var(--foreground);
 
 	&:not(:last-child)::after {
 		display: inline-block;
@@ -23,7 +23,7 @@
 	}
 
 	&[data-strong='true'] {
-		color: #333;
+		color: var(--sub-font-color);
 	}
 }
 

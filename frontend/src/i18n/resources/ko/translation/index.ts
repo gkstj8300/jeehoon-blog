@@ -1,5 +1,6 @@
 import { footer } from '@/components/layout/footer/Footer.i18n.ko';
 import { header } from '@/components/layout/header/Header.i18n.ko';
+import { about } from '@/components/pages/About/About.i18n.ko';
 import { home } from '@/components/pages/Home/Home.i18n.ko';
 import { postDetail } from '@/components/pages/PostDetail/PostDetail.i18n.ko';
 import { breadcrumbs } from '@/components/ui/links/Breadcrumbs.i18n.ko';
@@ -21,6 +22,7 @@ const translation: Translation = {
 		pages: {
 			home,
 			postDetail,
+			about,
 		}
 	}
 };
