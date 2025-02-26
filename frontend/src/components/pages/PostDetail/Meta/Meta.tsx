@@ -16,7 +16,7 @@ export const Meta: React.FC<Props> = ({
     tags,
 }) => {
     const { t } = useTranslation();
-	const keywords = useMemo(() => [mainTag, ...tags].join(', '), []);
+	const keywords = useMemo(() => [mainTag, ...tags].join(', '), [mainTag, tags]);
 
 	return (
 		<Head>

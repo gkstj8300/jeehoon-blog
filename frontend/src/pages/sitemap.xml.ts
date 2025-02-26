@@ -1,6 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next';
-import getMarkdownAllPosts from "@/utils/markDown/getMarkdownAllPosts";
 import { PostType } from "@/models/pages/slug";
+import getMarkdownAllPosts from "@/utils/markDown/getMarkdownAllPosts";
 
 const Sitemap: NextPage = () => null;
 
