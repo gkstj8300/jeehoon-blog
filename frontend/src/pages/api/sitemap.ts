@@ -1,11 +1,9 @@
-import { GetServerSideProps, NextPage } from 'next';
+import { NextApiRequest, NextApiResponse } from "next";
 import { PostType } from "@/models/pages/slug";
 import getMarkdownAllPosts from "@/utils/markDown/getMarkdownAllPosts";
 
-const Sitemap: NextPage = () => null;
-
 const generateSiteMap = (postList: PostType[]) => {
-    const baseUrl = 'https://baakhan.com';
+    const baseUrl = "https://baakhan.com";
 
     return `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -17,19 +15,14 @@ const generateSiteMap = (postList: PostType[]) => {
                     <priority>0.8</priority>
                 </url>
             `)
-            .join('')}
+            .join("")}
     </urlset>`;
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const { postList } = await getMarkdownAllPosts();
     const sitemap = generateSiteMap(postList);
 
     res.setHeader("Content-Type", "text/xml");
-    res.write(sitemap);
-    res.end();
-
-    return { props: {} };
-};
-
-export default Sitemap;
+    res.status(200).send(sitemap);
+}
