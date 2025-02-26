@@ -1,0 +1,32 @@
+.breadcrumbList {
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 1rem;
+	font-size: 0.9rem;
+
+	a:hover {
+		color: var(--footer-hover-font-color);
+	}
+}
+
+.breadcrumb {
+	display: flex;
+	align-items: center;
+	color: var(--foreground);
+
+	&:not(:last-child)::after {
+		display: inline-block;
+		width: 13px;
+		height: 13px;
+		margin: 0 0 8px 7px;
+		content: "›";
+	}
+
+	&[data-strong='true'] {
+		color: var(--sub-font-color);
+	}
+}
+
+.customTag {
+	font-weight: normal;
+}

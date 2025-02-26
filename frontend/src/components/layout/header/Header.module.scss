@@ -25,12 +25,22 @@
 
 .menu {
 	display: flex;
+	gap: 0.5rem;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.asideMenu {
+	display: flex;
 }
 
 .theme {
 	width: 1.5rem;
 	height: 1.5rem;
 	cursor: pointer;
+}
+
+.link {
+	width: 1.5rem;
+	height: 1.5rem;
 }

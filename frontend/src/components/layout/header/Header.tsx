@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useCallback } from 'react';
+import { BsPersonBoundingBox } from "react-icons/bs";
 import { CiLight } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
 import { useDispatch } from 'react-redux';
@@ -48,6 +49,9 @@ export const Header: React.FC = () => {
                     )}
                 </span>
                 <div className={styles.menu}>
+                    <Link href={'/about'} className={styles.link}>
+                        <BsPersonBoundingBox className={styles.theme} />
+                    </Link>
                     {theme === 'dark' 
                     ? (
                         <MdDarkMode className={styles.theme} onClick={handleTogleChangeClick}/>

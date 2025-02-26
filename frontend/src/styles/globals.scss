@@ -6,6 +6,7 @@
 	--color-text-secondary: #717171;
 	--color-border-primary: #000;
 	--color-border-secondary: #717171;
+	transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 body,
@@ -75,6 +76,7 @@ body {
 	background: var(--background);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 * {
