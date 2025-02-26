@@ -4,6 +4,7 @@ import { PostContent } from './PostContent';
 import styles from './PostDetail.module.scss';
 import { PostInfo } from './PostInfo';
 import { PostTitle } from './PostTitle';
+import { Breadcrumbs } from '@/components/ui/links/Breadcrumbs';
 
 const PostComents = dynamic(
     () => import("@/components/pages/PostDetail/PostComents/PostComents"),
@@ -34,6 +35,14 @@ export const PostDetail: React.FC<Props> = ({
     content,
 }) => {
     return (
+        <>
+        <Breadcrumbs
+            className={styles.breadcrumb}
+            breadcrumbList={[{
+                text: title,
+                strong: true,
+            }]}
+        />
         <div className={styles.container}>
             <Meta
                 slug={slug}
@@ -54,5 +63,6 @@ export const PostDetail: React.FC<Props> = ({
                 <PostComents />
             </div>
         </div>
+        </>
     )
 }
