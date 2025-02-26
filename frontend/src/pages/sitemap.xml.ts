@@ -12,7 +12,7 @@ const generateSiteMap = (postList: PostType[]) => {
         ${postList
             .map(post => `
                 <url>
-                    <loc>${baseUrl}/post/${post.slug}</loc>
+                    <loc>${baseUrl}/posts/${post.slug}</loc>
                     <lastmod>${new Date(post.regDate).toISOString()}</lastmod>
                     <priority>0.8</priority>
                 </url>
