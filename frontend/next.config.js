@@ -12,4 +12,12 @@ module.exports = {
 		config.plugins.push(new CaseSensitivePathsPlugin());
 		return config;
 	},
+	rewrites() {
+		return [
+			{
+				source: "/sitemap.xml",
+				destination: "/api/sitemap",
+			},
+		];
+	},
 };
