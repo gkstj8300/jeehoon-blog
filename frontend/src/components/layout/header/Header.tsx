@@ -6,6 +6,7 @@ import { CiLight } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
 import { useDispatch } from 'react-redux';
 import styles from './Header.module.scss';
+import { ScrollProgressBar } from '@/components/ui/progressBar';
 import { useOnMounted } from '@/hooks/useOnMounted';
 import { useStore, useSelector } from '@/store/hooks';
 import { loadLayoutTheme, toggleUpdateLayoutTheme } from '@/store/modules/common/operations';
@@ -39,27 +40,30 @@ export const Header: React.FC = () => {
     }, [theme]);
 
     return (
-        <header className={styles.header} data-theme={theme}>
-            <div className={styles.inner}>
-                <span className={styles.title}>
-                    {pathIsMain ? (
-                        <h1>@BaakHan</h1>
-                    ) : (
-                        <Link href='/'>@BaakHan</Link>
-                    )}
-                </span>
-                <div className={styles.menu}>
-                    <Link href={'/about'} className={styles.link}>
-                        <BsPersonBoundingBox className={styles.theme} />
-                    </Link>
-                    {theme === 'dark' 
-                    ? (
-                        <MdDarkMode className={styles.theme} onClick={handleTogleChangeClick}/>
-                    ) : (
-                        <CiLight className={styles.theme} onClick={handleTogleChangeClick} />
-                    )}
+        <>
+            <header className={styles.header} data-theme={theme}>
+                <div className={styles.inner}>
+                    <span className={styles.title}>
+                        {pathIsMain ? (
+                            <h1>@BaakHan</h1>
+                        ) : (
+                            <Link href='/'>@BaakHan</Link>
+                        )}
+                    </span>
+                    <div className={styles.menu}>
+                        <Link href={'/about'} className={styles.link}>
+                            <BsPersonBoundingBox className={styles.theme} />
+                        </Link>
+                        {theme === 'dark' 
+                        ? (
+                            <MdDarkMode className={styles.theme} onClick={handleTogleChangeClick}/>
+                        ) : (
+                            <CiLight className={styles.theme} onClick={handleTogleChangeClick} />
+                        )}
+                    </div>
                 </div>
-            </div>
-        </header>
+            </header>
+            {!pathIsMain && <ScrollProgressBar />}
+        </>
     )
 }
