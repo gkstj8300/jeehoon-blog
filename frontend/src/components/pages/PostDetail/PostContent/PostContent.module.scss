@@ -16,17 +16,17 @@
 }
 
 .thumbnail {
+	position: relative;
+	width: 100%;
+	margin-bottom: 1.75rem;
 	overflow: hidden;
-    position: relative;
-    margin-bottom: 1.75rem;
-    width: 100%;
 
 	img {
 		width: 100%;
 		height: 100%;
 		color: transparent;
-		inset: 0;
 		border-radius: 2rem;
+		inset: 0;
 	}
 }
 

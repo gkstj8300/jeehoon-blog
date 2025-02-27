@@ -13,8 +13,8 @@
 .linkList {
 	display: flex;
 	flex-direction: column;
-	list-style-type: none;
 	gap: 0.5rem;
+	list-style-type: none;
 }
 
 @media (min-width: 1024px) {

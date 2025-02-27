@@ -20,15 +20,15 @@
 
 .link {
 	display: flex;
-    justify-content: space-between;
-    gap: 2rem;
+	gap: 2rem;
+	justify-content: space-between;
 }
 
 .postWrap {
 	display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    flex: 1 1 0%;
+	flex: 1 1 0%;
+	flex-direction: column;
+	gap: 0.5rem;
 }
 
 .thumbnail {

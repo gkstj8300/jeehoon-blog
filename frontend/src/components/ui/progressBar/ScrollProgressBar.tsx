@@ -32,7 +32,9 @@ export const ScrollProgressBar: React.FC = () => {
     }, []);
 
     const handleProgressBarClick = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!progressBarRef.current) return;
+        if (!progressBarRef.current) {
+            return;
+        }
 
         const { left, width } = progressBarRef.current.getBoundingClientRect();
         const clickX = e.clientX - left;
