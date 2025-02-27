@@ -11,19 +11,29 @@ import { markDownContentFormat } from '@/utils/markDown/markDown';
 
 type Props = {
     content: string;
+    thumbnailImage?: string;
 }
 
 const DynamicReactMarkdown = dynamic(() => import("react-markdown"), {
     ssr: false,
 });
 
-export const PostContent: React.FC<Props> = ({ content }) => {
+export const PostContent: React.FC<Props> = ({ 
+    content,
+    thumbnailImage
+}) => {
     const markDownContent = markDownContentFormat(content);
     const { getPostContentHeadings } = usePostContent({ content });
     const headings = getPostContentHeadings();
 
     return (
         <div className={styles.container}>
+            {thumbnailImage && (
+                <div className={styles.thumbnail}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={thumbnailImage} alt={`${thumbnailImage}`} />
+                </div>
+            )}
             <TableOfContents headings={headings} />
             <DynamicReactMarkdown 
                 remarkPlugins={[remarkGfm, remarkBreaks]}

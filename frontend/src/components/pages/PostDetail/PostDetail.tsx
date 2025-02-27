@@ -59,7 +59,10 @@ export const PostDetail: React.FC<Props> = ({
                     tags={tags} 
                     mainTag={mainTag} 
                 />
-                <PostContent content={content} />
+                <PostContent 
+                    content={content} 
+                    thumbnailImage={thumbnailImage} 
+                />
                 <PostComents />
             </div>
         </div>
