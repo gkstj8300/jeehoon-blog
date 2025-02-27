@@ -7,11 +7,6 @@ mainTag: 'React'
 tags: ['React','Bactching','useState']
 ---
 
-```list
-1. 예시
-2. Bactching이란?
-```
-
 ## 예시
 리액트를 공부하는 도중 기본적으로 내가 아는 프로그래밍의 구조와는 다른 것을 배웠다.
 React의 공식 문서에는 나와있다. 'useState는 비동기적으로 작동한다.'

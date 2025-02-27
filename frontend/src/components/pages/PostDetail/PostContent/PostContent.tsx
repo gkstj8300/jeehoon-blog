@@ -4,7 +4,9 @@ import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeRaw from "rehype-raw";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
+import { usePostContent } from "./PostContent.hook";
 import styles from './PostContent.module.scss';
+import { TableOfContents } from "./TableOfContents";
 import { markDownContentFormat } from '@/utils/markDown/markDown';
 
 type Props = {
@@ -17,8 +19,12 @@ const DynamicReactMarkdown = dynamic(() => import("react-markdown"), {
 
 export const PostContent: React.FC<Props> = ({ content }) => {
     const markDownContent = markDownContentFormat(content);
+    const { getPostContentHeadings } = usePostContent({ content });
+    const headings = getPostContentHeadings();
+
     return (
         <div className={styles.container}>
+            <TableOfContents headings={headings} />
             <DynamicReactMarkdown 
                 remarkPlugins={[remarkGfm, remarkBreaks]}
                 rehypePlugins={[rehypeRaw]}
@@ -39,24 +45,24 @@ export const PostContent: React.FC<Props> = ({ content }) => {
                                 </SyntaxHighlighter>
                             );
                         }
-                    
-                        if (match?.[1] === "list") {
-                            return (
-                                <div className={styles.list}>
-                                    <h3>목차</h3>
-                                    <code {...props}>{children}</code>
-                                </div>
-                            );
-                        }
                         return (
                             <div className={styles.codeBlock}>
                                 <code {...props}>{children}</code>
                             </div>
                         );
                     },
-                    h1: ({ ...props }) => <h1 style={{ fontSize: "2em" }} {...props} />,
-                    h2: ({ ...props }) => <h2 style={{ fontSize: "1.75em" }} {...props} />,
-                    h3: ({ ...props }) => <h3 style={{ fontSize: "1.5em" }} {...props} />,
+                    h1: ({ children, ...props }) => {
+                        const id = String(children).replace(/\s+/g, "-").toLowerCase();
+                        return <h1 id={id} style={{ fontSize: "2em" }} {...props}>{children}</h1>;
+                    },
+                    h2: ({ children, ...props }) => {
+                        const id = String(children).replace(/\s+/g, "-").toLowerCase();
+                        return <h2 id={id} style={{ fontSize: "1.75em" }} {...props}>{children}</h2>;
+                    },
+                    h3: ({ children, ...props }) => {
+                        const id = String(children).replace(/\s+/g, "-").toLowerCase();
+                        return <h3 id={id} style={{ fontSize: "1.5em" }} {...props}>{children}</h3>;
+                    },
                     h4: ({ ...props }) => <h4 style={{ fontSize: "1.25em" }} {...props} />,
                     h5: ({ ...props }) => <h5 style={{ fontSize: "1em" }} {...props} />,
                     h6: ({ ...props }) => <h5 style={{ fontSize: "1em" }} {...props} />,
