@@ -34,7 +34,7 @@ export const PostContent: React.FC<Props> = ({
                     <img src={thumbnailImage} alt={`${thumbnailImage}`} />
                 </div>
             )}
-            <TableOfContents headings={headings} />
+            {headings.length > 0 && <TableOfContents headings={headings} />}
             <DynamicReactMarkdown 
                 remarkPlugins={[remarkGfm, remarkBreaks]}
                 rehypePlugins={[rehypeRaw]}
@@ -77,6 +77,7 @@ export const PostContent: React.FC<Props> = ({
                     h5: ({ ...props }) => <h5 style={{ fontSize: "1em" }} {...props} />,
                     h6: ({ ...props }) => <h5 style={{ fontSize: "1em" }} {...props} />,
                     p: ({ ...props }) => <p style={{ marginTop: "0", marginBottom: "1rem" }} {...props} />,
+                    pre: ({ ...props }) => <pre style={{ marginTop: "0", marginBottom: "1rem" }} {...props} />,
                     details: ({ ...props }) => <details style={{ cursor: "pointer" }} {...props} />,
                 }}
             >
