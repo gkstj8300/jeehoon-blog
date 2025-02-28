@@ -1,16 +1,32 @@
-export const uploadToGitHub = async (title: string, content: string) => {
+import { format, parseISO } from "date-fns";
+import { PostType } from "@/models/pages/slug";
+
+export const uploadToGitHub = async (post: PostType) => {
     const repo = process.env.NEXT_PUBLIC_GITHUB_REPO!;
     const branch = process.env.NEXT_PUBLIC_GITHUB_BRANCH!;
     const token = process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN!;
   
-    const filePath = `frontend/src/posts/${title}.md`;
-    const commitMessage = `docs: ${title} 게시글 작성`;
+    const filePath = `frontend/src/posts/${post.title}.md`;
+    const commitMessage = `docs: ${post.title} 게시글 작성`;
   
     // GitHub API URL
     const url = `https://api.github.com/repos/${repo}/contents/${filePath}`;
   
+    const metadata = [
+        "---",
+        `title: "${post.title}"`,
+        `regDate: "${format(parseISO(post.regDate), "yyyy-MM-dd HH:mm")}"`,
+        `description: '${post.description}'`,
+        `thumbnailImage: '${post.thumbnailImage}'`,
+        `mainTag: '${post.mainTag}'`,
+        `tags: ${JSON.stringify(post.tags)}`,
+        "---",
+    ].join("\n");
+
+    const markdownWithMetadata = `${metadata}\n\n${post.content}`;
+
     // 파일 내용 Base64 인코딩
-    const contentEncoded = Buffer.from(content, "utf-8").toString("base64");
+    const contentEncoded = Buffer.from(markdownWithMetadata, "utf-8").toString("base64");
   
     // 기존 파일 체크 (있으면 업데이트)
     const existingFile = await fetch(url, {
