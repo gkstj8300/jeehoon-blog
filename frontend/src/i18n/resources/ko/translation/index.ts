@@ -3,6 +3,7 @@ import { header } from '@/components/layout/header/Header.i18n.ko';
 import { about } from '@/components/pages/About/About.i18n.ko';
 import { home } from '@/components/pages/Home/Home.i18n.ko';
 import { postDetail } from '@/components/pages/PostDetail/PostDetail.i18n.ko';
+import { write } from '@/components/pages/Write/Write.i18n.ko';
 import { breadcrumbs } from '@/components/ui/links/Breadcrumbs.i18n.ko';
 import type { Translation } from '@/i18n/types';
 
@@ -23,6 +24,7 @@ const translation: Translation = {
 			home,
 			postDetail,
 			about,
+			write,
 		}
 	}
 };

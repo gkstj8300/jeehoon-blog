@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeRaw from "rehype-raw";
@@ -65,6 +66,7 @@ const MarkdownPreview: React.FC<{ content: string }> = ({ content }) => (
 );
 
 export const Write: React.FC = () => {
+    const { t } = useTranslation();
     const [post, setPost] = useState<PostType>({
         title: "",
         description: "",
@@ -75,14 +77,6 @@ export const Write: React.FC = () => {
         mainTag: "",
         tags: [""],
     });
-
-    // 로컬스토리지에서 기존 데이터 불러오기 (최초 마운트 시 실행)
-    useEffect(() => {
-        const savedContent = localStorage.getItem("markdownPost");
-        if (savedContent) {
-            setPost((prev) => ({ ...prev, content: savedContent }));
-        }
-    }, []);
 
     // 입력값 변경 핸들러 (공통 적용)
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -96,23 +90,23 @@ export const Write: React.FC = () => {
     // 마크다운 업로드 핸들러
     const handleUpload = async () => {
         if (!post.title.trim() || !post.content.trim() || !post.mainTag.trim()) {
-            alert("제목과 내용을 입력하세요.");
+            alert(t('component.pages.write.postValidateAlert'));
             return;
         }
 
         try {
             await uploadToGitHub(post);
-            alert("GitHub에 업로드 완료!");
+            alert(t('component.pages.write.apiSuccess'));
         } catch (error) {
             /* eslint-disable no-console */
-            console.error("업로드 실패", error);
+            console.error(t('component.pages.write.apiError'), error);
         }
     };
 
     // 마크다운 파일 다운로드 핸들러
     const handleDownload = () => {
-        if (!post.title.trim() || !post.content.trim()) {
-            alert("제목과 내용을 입력하세요.");
+        if (!post.title.trim() || !post.content.trim() || !post.mainTag.trim()) {
+            alert(t('component.pages.write.postValidateAlert'));
             return;
         }
 
@@ -138,7 +132,7 @@ export const Write: React.FC = () => {
                         <TextInput
                             key={field}
                             title={field}
-                            placeholder={`${field} 입력`}
+                            placeholder={t('component.pages.write.inputPlaceHolder', { field })}
                             type="text"
                             name={field}
                             isRequired
@@ -149,7 +143,7 @@ export const Write: React.FC = () => {
                     <textarea
                         value={post.content}
                         onChange={(e) => setPost((prev) => ({ ...prev, content: e.target.value }))}
-                        placeholder="마크다운을 입력하세요..."
+                        placeholder={t('component.pages.write.mdPlaceholder')}
                         className={styles.textarea}
                     />
                 </div>
@@ -159,10 +153,10 @@ export const Write: React.FC = () => {
             </div>
             <div className={styles.buttonWrap}>
                 <button onClick={handleDownload} className={styles.downloadButton}>
-                    마크다운 다운로드
+                    {t('component.pages.write.mdDownload')}
                 </button>
-                <button onClick={handleUpload} className={styles.uploadButton}>
-                    마크다운 업로드
+                <button onClick={handleUpload} className={styles.downloadButton}>
+                    {t('component.pages.write.mdUpload')}
                 </button>
             </div>
         </div>
