@@ -157,7 +157,7 @@ export const useWrite = (
         });
     
         try {
-            const res = await fetch('/api/upload', {
+            const res = await fetch('/api/uploadS3Image', {
                 method: 'POST',
                 body: formData,
             });
@@ -208,11 +208,11 @@ export const useWrite = (
                 try {
                     // 업로드 후 url 로 변경
                     const data = await uploadImage(fileList);
-                    // const uploadedText = data.map((img: ImageUploadDataTypes) => {
-                    //     return `![${img.name}](${img.url})`;
-                    // });
-                    // const finalText = `${before}${uploadedText.join('\n')}${after}`;
-                    // ref.current.value = finalText;
+                    const uploadedText = data.map((img: any) => {
+                        return `![${img.name}](${img.url})`;
+                    });
+                    const finalText = `${before}${uploadedText.join('\n')}${after}`;
+                    ref.current.value = finalText;
 
                 } catch (e) {
                     console.error(e);
