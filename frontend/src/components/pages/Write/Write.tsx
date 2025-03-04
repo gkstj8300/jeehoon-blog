@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { MarkdownPreview } from "./MarkdownPreview";
+import { useWrite } from "./Write.hook";
 import styles from "./Write.module.scss";
 import { TextInput } from "@/components/ui/inputs/TextInput";
-import { useWrite } from "./Write.hook";
-import { MarkdownPreview } from "./MarkdownPreview";
 
 export const Write: React.FC = () => {
     const { t } = useTranslation();
@@ -41,7 +41,7 @@ export const Write: React.FC = () => {
                         onDragOver={(e) => {
                             e.preventDefault();
                         }}
-                        onDrop={(e) => handleDragOver(e, textAreaRef, 'content')}
+                        onDrop={(e) => handleDragOver(e, textAreaRef)}
                         placeholder={t('component.pages.write.mdPlaceholder')}
                         className={styles.textarea}
                     />

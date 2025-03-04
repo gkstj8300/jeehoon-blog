@@ -1,8 +1,8 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import fs from 'fs';
 import { S3Client } from '@aws-sdk/client-s3';
 import { Upload } from '@aws-sdk/lib-storage';
-import formidable, { File } from 'formidable';
-import fs from 'fs';
+import formidable from 'formidable';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 export const config = {
 	api: {
@@ -23,7 +23,6 @@ const uploadS3Image = async (req: NextApiRequest, res: NextApiResponse) => {
 
 	form.parse(req, async (err, fields, files) => {
 		if (err) {
-			console.error('폼 데이터 파싱 오류:', err);
 			return res.status(500).json({ status: 'fail', data: err });
 		}
 
@@ -32,7 +31,9 @@ const uploadS3Image = async (req: NextApiRequest, res: NextApiResponse) => {
 			: [files.file].filter(Boolean);
 
 		const promises = fileArray.map(async file => {
-			if (!file) return Promise.reject(new Error('파일이 없습니다.'));
+			if (!file) {
+				return Promise.reject(new Error('파일이 없습니다.'));
+			}
 
 			const filename = file.originalFilename?.split('.');
 			const extension = filename?.pop();
@@ -61,7 +62,6 @@ const uploadS3Image = async (req: NextApiRequest, res: NextApiResponse) => {
 			const urls = await Promise.all(promises);
 			res.status(200).json({ status: 'success', urls });
 		} catch (uploadError) {
-			console.error('업로드 실패:', uploadError);
 			res.status(500).json({ status: 'fail', data: uploadError });
 		}
 	});

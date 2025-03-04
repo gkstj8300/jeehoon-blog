@@ -139,7 +139,9 @@ export const useWrite = (
 
         const results = await Promise.all(resizePromise);
         const resizedFiles = results.map((res) => {
-            if (res === null) return null;
+            if (res === null) {
+                return null;
+            }
             return res as File;
         });
     
@@ -173,7 +175,6 @@ export const useWrite = (
     const handleDragOver = async (
         e: React.DragEvent<HTMLTextAreaElement>,
         ref: RefObject<HTMLTextAreaElement>,
-        name: string
     ) => {
         e.preventDefault();
 
@@ -208,7 +209,7 @@ export const useWrite = (
                 try {
                     // 업로드 후 url 로 변경
                     const data = await uploadImage(fileList);
-                    const uploadedText = data.map((img: any) => {
+                    const uploadedText = data.map((img: { name: string, url: string }) => {
                         return `![${img.name}](${img.url})`;
                     });
                     const finalText = `${before}${uploadedText.join('\n')}${after}`;
