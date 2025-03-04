@@ -4,38 +4,18 @@ import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeRaw from "rehype-raw";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
-import { usePostContent } from "./PostContent.hook";
-import styles from './PostContent.module.scss';
-import { TableOfContents } from "./TableOfContents";
-import { markDownContentFormat } from '@/utils/markDown/markDown';
+import styles from "./MarkdownPreview.module.scss";
+
+const DynamicReactMarkdown = dynamic(() => import("react-markdown"), { ssr: false });
 
 type Props = {
     content: string;
-    thumbnailImage?: string;
 }
 
-const DynamicReactMarkdown = dynamic(() => import("react-markdown"), {
-    ssr: false,
-});
-
-export const PostContent: React.FC<Props> = ({ 
-    content,
-    thumbnailImage
-}) => {
-    const markDownContent = markDownContentFormat(content);
-    const { getPostContentHeadings } = usePostContent({ content });
-    const headings = getPostContentHeadings();
-
+export const MarkdownPreview: React.FC<Props> = ({ content }) => {
     return (
-        <div className={styles.container}>
-            {thumbnailImage && (
-                <div className={styles.thumbnail}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={thumbnailImage} alt={`${thumbnailImage}`} />
-                </div>
-            )}
-            {headings.length > 0 && <TableOfContents headings={headings} />}
-            <DynamicReactMarkdown 
+        <div className={styles.editor}>
+            <DynamicReactMarkdown
                 remarkPlugins={[remarkGfm, remarkBreaks]}
                 rehypePlugins={[rehypeRaw]}
                 components={{
@@ -75,15 +55,14 @@ export const PostContent: React.FC<Props> = ({
                     },
                     h4: ({ ...props }) => <h4 style={{ fontSize: "1.25em" }} {...props} />,
                     h5: ({ ...props }) => <h5 style={{ fontSize: "1em" }} {...props} />,
-                    h6: ({ ...props }) => <h5 style={{ fontSize: "1em" }} {...props} />,
+                    h6: ({ ...props }) => <h6 style={{ fontSize: "1em" }} {...props} />,
                     p: ({ ...props }) => <p style={{ marginTop: "0", marginBottom: "1rem" }} {...props} />,
-                    pre: ({ ...props }) => <pre style={{ marginTop: "0", marginBottom: "1rem" }} {...props} />,
                     details: ({ ...props }) => <details style={{ cursor: "pointer" }} {...props} />,
                 }}
             >
-                {markDownContent}
+                {content}
             </DynamicReactMarkdown>
         </div>
     );
 };
-PostContent.displayName = 'PostContent';
+MarkdownPreview.displayName = 'MarkdownPreview';
