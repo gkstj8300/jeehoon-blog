@@ -26,6 +26,14 @@ const uploadS3Image = async (req: NextApiRequest, res: NextApiResponse) => {
 			return res.status(500).json({ status: 'fail', data: err });
 		}
 
+		if (!files.file) {
+			return res.status(400).json({ status: 'fail', message: '업로드할 파일이 없습니다.' });
+		}
+
+		if (req.method !== 'POST') {
+			return res.status(405).json({ status: 'fail', message: 'Method Not Allowed' });
+		}
+
 		const fileArray = Array.isArray(files.file)
 			? files.file
 			: [files.file].filter(Boolean);
@@ -47,6 +55,7 @@ const uploadS3Image = async (req: NextApiRequest, res: NextApiResponse) => {
 					Bucket: process.env.AWS_S3_BUCKET_NAME,
 					Key: key,
 					Body: fs.createReadStream(file.filepath),
+					ContentType: file.mimetype || '',
 				},
 			});
 
