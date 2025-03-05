@@ -17,7 +17,7 @@ configs.forEach(config => {
 	const app = express();
 	app.use(cors());
 	
-	app.use('/ttb/api', async (request, response, next) => {
+	app.use('/api', async (request, response, next) => {
 		if (request.method.toLowerCase() !== 'get') {
 			console.error(`Error: unknown method: ${request.method}`);
 		}
