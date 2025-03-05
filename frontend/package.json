@@ -34,6 +34,7 @@
     "i18next": "^21.6.6",
     "lodash": "^4.17.21",
     "next": "^14.2.1",
+    "next-auth": "^4.24.11",
     "react": "18",
     "react-collapsed": "^4.1.1",
     "react-datepicker": "^4.18.0",

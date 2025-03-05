@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useCallback } from 'react';
+import { useSession, signOut } from 'next-auth/react';
+import { useEffect, useCallback, useMemo } from 'react';
 import { BsPersonBoundingBox } from "react-icons/bs";
 import { CiLight } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
+import { RiLogoutCircleLine } from "react-icons/ri";
+import { TfiWrite } from "react-icons/tfi";
 import { useDispatch } from 'react-redux';
 import styles from './Header.module.scss';
 import { ScrollProgressBar } from '@/components/ui/progressBar';
@@ -16,10 +19,16 @@ export const Header: React.FC = () => {
     const router = useRouter();
     const store = useStore();
     const dispatch = useDispatch();
+    const { data: session, status } = useSession();
 
     const pathIsMain = router.pathname === '/';
 
     const theme = useSelector(selectTheme);
+
+    const isAuthenticate = useMemo(
+        () => !!(session?.user?.email === process.env.NEXT_PUBLIC_GITHUB_ACCESS_EMAIL && status === "authenticated"),
+        [session, status]
+    );
 
     const handleTogleChangeClick = useCallback(
         async (event: React.MouseEvent) => {
@@ -59,6 +68,15 @@ export const Header: React.FC = () => {
                             <MdDarkMode className={styles.theme} onClick={handleTogleChangeClick}/>
                         ) : (
                             <CiLight className={styles.theme} onClick={handleTogleChangeClick} />
+                        )}
+                        {/* "authenticated" */}
+                        {isAuthenticate && (
+                            <>
+                                <Link href={'/write'} className={styles.link}>
+                                    <TfiWrite className={styles.theme}/>
+                                </Link>
+                                <RiLogoutCircleLine className={styles.theme} onClick={() => signOut()}/>
+                            </>
                         )}
                     </div>
                 </div>

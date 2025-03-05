@@ -1,3 +1,4 @@
+import { SessionProvider } from "next-auth/react";
 import { ReactNode, useRef } from 'react';
 import styles from './Layout.module.scss';
 import { Footer } from './footer';
@@ -13,17 +14,19 @@ export const Layout: React.FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <ErrorBoundary>
             <ContextProviders>
-                <div className={styles.container} ref={rootRef}>
-                    <Header />
-                    <div className={styles.layout}>
-                        {children}
-                        <div className={styles.backToTop}>
-                            <BackToTop layoutRootRef={rootRef}/>
+                <SessionProvider>
+                    <div className={styles.container} ref={rootRef}>
+                        <Header />
+                        <div className={styles.layout}>
+                            {children}
+                            <div className={styles.backToTop}>
+                                <BackToTop layoutRootRef={rootRef}/>
+                            </div>
                         </div>
+                        <Footer />
                     </div>
-                    <Footer />
-                </div>
-                <TooltipController />
+                    <TooltipController />
+                </SessionProvider>
             </ContextProviders>
         </ErrorBoundary>
     );
