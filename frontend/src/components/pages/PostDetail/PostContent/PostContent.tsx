@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark, materialLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { materialDark, coy } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeRaw from "rehype-raw";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
@@ -41,7 +41,7 @@ export const PostContent: React.FC<Props> = ({ content }) => {
                             return (
                                 <SyntaxHighlighter
                                     className={styles.scriptBlock}
-                                    style={theme === 'dark' ? materialDark : materialLight}
+                                    style={theme === 'dark' ? materialDark : coy}
                                     language="javascript"
                                     PreTag="div"
                                     showLineNumbers

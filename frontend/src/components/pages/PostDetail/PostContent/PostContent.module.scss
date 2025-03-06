@@ -12,7 +12,11 @@
 
 	p, blockquote, ul, ol, dl, table, pre, details {
 		margin-top: 0;
-	}    
+	}
+
+	p {
+		line-height: 1.6;
+	}
 }
 
 .thumbnail {
