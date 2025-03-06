@@ -1,10 +1,12 @@
 import dynamic from "next/dynamic";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { materialDark, coy } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeRaw from "rehype-raw";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
 import styles from "./MarkdownPreview.module.scss";
+import { useSelector } from "@/store/hooks";
+import { selectTheme } from '@/store/modules/common/selectors';
 
 const DynamicReactMarkdown = dynamic(() => import("react-markdown"), { ssr: false });
 
@@ -13,6 +15,8 @@ type Props = {
 }
 
 export const MarkdownPreview: React.FC<Props> = ({ content }) => {
+    const theme = useSelector(selectTheme);
+
     return (
         <div className={styles.editor}>
             <DynamicReactMarkdown
@@ -27,9 +31,11 @@ export const MarkdownPreview: React.FC<Props> = ({ content }) => {
                             return (
                                 <SyntaxHighlighter
                                     className={styles.scriptBlock}
-                                    style={materialDark}
+                                    style={theme === 'dark' ? materialDark : coy}
                                     language="javascript"
                                     PreTag="div"
+                                    showLineNumbers
+                                    wrapLines
                                 >
                                     {String(children).replace(/\n$/, '')}
                                 </SyntaxHighlighter>

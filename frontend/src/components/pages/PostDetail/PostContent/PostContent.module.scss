@@ -12,7 +12,11 @@
 
 	p, blockquote, ul, ol, dl, table, pre, details {
 		margin-top: 0;
-	}    
+	}
+
+	p {
+		line-height: 1.6;
+	}
 }
 
 .thumbnail {
@@ -32,6 +36,7 @@
 
 .scriptBlock {
 	font-size: 85% !important;
+	border: var(--post-content-border);
 }
 
 .codeBlock {

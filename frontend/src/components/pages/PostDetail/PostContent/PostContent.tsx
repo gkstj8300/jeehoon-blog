@@ -1,39 +1,33 @@
 import dynamic from "next/dynamic";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { materialDark, coy } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeRaw from "rehype-raw";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
 import { usePostContent } from "./PostContent.hook";
 import styles from './PostContent.module.scss';
 import { TableOfContents } from "./TableOfContents";
+import { useSelector } from "@/store/hooks";
+import { selectTheme } from '@/store/modules/common/selectors';
 import { markDownContentFormat } from '@/utils/markDown/markDown';
 
 type Props = {
     content: string;
-    thumbnailImage?: string;
 }
 
 const DynamicReactMarkdown = dynamic(() => import("react-markdown"), {
     ssr: false,
 });
 
-export const PostContent: React.FC<Props> = ({ 
-    content,
-    thumbnailImage
-}) => {
+export const PostContent: React.FC<Props> = ({ content }) => {
     const markDownContent = markDownContentFormat(content);
     const { getPostContentHeadings } = usePostContent({ content });
     const headings = getPostContentHeadings();
 
+    const theme = useSelector(selectTheme);
+
     return (
         <div className={styles.container}>
-            {thumbnailImage && (
-                <div className={styles.thumbnail}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={thumbnailImage} alt={`${thumbnailImage}`} />
-                </div>
-            )}
             {headings.length > 0 && <TableOfContents headings={headings} />}
             <DynamicReactMarkdown 
                 remarkPlugins={[remarkGfm, remarkBreaks]}
@@ -47,9 +41,11 @@ export const PostContent: React.FC<Props> = ({
                             return (
                                 <SyntaxHighlighter
                                     className={styles.scriptBlock}
-                                    style={materialDark}
+                                    style={theme === 'dark' ? materialDark : coy}
                                     language="javascript"
                                     PreTag="div"
+                                    showLineNumbers
+                                    wrapLines
                                 >
                                     {String(children).replace(/\n$/, '')}
                                 </SyntaxHighlighter>

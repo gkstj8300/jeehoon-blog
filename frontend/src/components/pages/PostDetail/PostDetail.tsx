@@ -53,16 +53,18 @@ export const PostDetail: React.FC<Props> = ({
                 thumbnailImage={thumbnailImage}
             />
             <div className={styles.detailWrap}>
+                {thumbnailImage && (
+                    <div className={styles.thumbnail}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={thumbnailImage} alt={`${thumbnailImage}`} />
+                    </div>
+                )}
                 <PostTitle title={title} />
                 <PostInfo 
                     regDate={regDate} 
                     tags={tags} 
-                    mainTag={mainTag} 
                 />
-                <PostContent 
-                    content={content} 
-                    thumbnailImage={thumbnailImage} 
-                />
+                <PostContent content={content} />
                 <PostComents />
             </div>
         </div>
