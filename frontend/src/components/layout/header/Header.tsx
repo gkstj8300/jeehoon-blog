@@ -69,7 +69,6 @@ export const Header: React.FC = () => {
                         ) : (
                             <CiLight className={styles.theme} onClick={handleTogleChangeClick} />
                         )}
-                        {/* "authenticated" */}
                         {isAuthenticate && (
                             <>
                                 <Link href={'/write'} className={styles.link}>
