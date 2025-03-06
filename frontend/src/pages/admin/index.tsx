@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 export default function AdminRedirect() {
     useEffect(() => {
-        signIn();
+        signIn("github", { callbackUrl: "/" });
     }, []);
 
     return <p>Loding...</p>;
