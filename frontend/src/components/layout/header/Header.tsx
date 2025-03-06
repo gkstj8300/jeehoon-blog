@@ -75,7 +75,7 @@ export const Header: React.FC = () => {
                                 <Link href={'/write'} className={styles.link}>
                                     <TfiWrite className={styles.theme}/>
                                 </Link>
-                                <RiLogoutCircleLine className={styles.theme} onClick={() => signOut()}/>
+                                <RiLogoutCircleLine className={styles.theme} onClick={() => signOut({ callbackUrl: "/"})}/>
                             </>
                         )}
                     </div>
