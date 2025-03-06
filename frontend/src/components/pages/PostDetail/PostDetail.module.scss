@@ -14,3 +14,18 @@
 	max-width: 52rem;
 	margin: 0 auto;
 }
+
+.thumbnail {
+	position: relative;
+	width: 100%;
+	margin-bottom: 1.75rem;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: 100%;
+		color: transparent;
+		border-radius: 2rem;
+		inset: 0;
+	}
+}
