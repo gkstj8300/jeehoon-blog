@@ -1,3 +1,6 @@
+import { ClassAttributes, HTMLAttributes } from "react";
+import { ExtraProps } from "react-markdown";
+
 export interface PostType {
     slug: string;
     title: string,
@@ -7,4 +10,9 @@ export interface PostType {
     regDate: string,
     tags: string[],
     content: string,
+}
+
+export interface CustomMarkdownType {
+    props: ClassAttributes<HTMLElement> & HTMLAttributes<HTMLElement> & ExtraProps;
+    theme: string;
 }
