@@ -12,7 +12,7 @@ export const uploadToGitHub = async (post: PostType) => {
     // GitHub API URL
     const url = `https://api.github.com/repos/${repo}/contents/${filePath}`;
   
-    const metadata = [
+    const frontMatter = [
         "---",
         `title: "${post.title}"`,
         `regDate: "${format(parseISO(post.regDate), "yyyy-MM-dd HH:mm")}"`,
@@ -23,7 +23,7 @@ export const uploadToGitHub = async (post: PostType) => {
         "---",
     ].join("\n");
 
-    const markdownWithMetadata = `${metadata}\n\n${post.content}`;
+    const markdownWithMetadata = `${frontMatter}\n\n${post.content}`;
 
     // 파일 내용 Base64 인코딩
     const contentEncoded = Buffer.from(markdownWithMetadata, "utf-8").toString("base64");

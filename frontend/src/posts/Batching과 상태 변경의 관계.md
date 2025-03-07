@@ -2,7 +2,7 @@
 title: 'Batching과 상태 변경의 관계'
 regDate: '2025-02-25 10:47'
 description: 'Batching과 상태 변경의 관계에 대해'
-thumbnailImage: '/React.png'
+thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/React.png'
 mainTag: 'React'
 tags: ['React','Bactching','useState']
 ---

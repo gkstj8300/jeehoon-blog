@@ -196,7 +196,6 @@ export const useWrite = (
         
                 // // fileList 형식으로 변환
                 const fileList = Array.from(files);
-                console.log('check', { files, fileList })
         
                 // 업로드 할 동안 보여줄 로딩 텍스트
                 const loadingText = fileList.map((file) => {
