@@ -29,7 +29,7 @@ export const IconLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
                 href={href}
 				ref={ref}
                 className={classNames(styles.link, className)}
-				onClick={href === '#' ? onClick : undefined}
+				onClick={href === '' ? onClick : undefined}
                 {...props}
             >
                 {children}
