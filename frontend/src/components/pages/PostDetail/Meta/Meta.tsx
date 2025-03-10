@@ -34,7 +34,7 @@ export const Meta: React.FC<Props> = ({
 			<meta property="og:site_name" content={t('component.pages.postDetail.meta.title', { title })} />
 			<meta property="og:title" content={t('component.pages.postDetail.meta.title', { title })} />
 			<meta property="og:description" content={t('component.pages.postDetail.meta.description', { description })} />
-			<meta property="og:image" content={`https://baakhan.com/${thumbnailImage}`} />
+			<meta property="og:image" content={thumbnailImage} />
 
 			{/*  Twitter Meta Tags  */}
 			<meta name="twitter:card" content="summary_large_image" />
@@ -42,7 +42,7 @@ export const Meta: React.FC<Props> = ({
 			<meta property="twitter:url" content={`https://baakhan.com/posts/${slug}`} />
 			<meta name="twitter:title" content={t('component.pages.postDetail.meta.title', { title })} />
 			<meta name="twitter:description" content={t('component.pages.postDetail.meta.description', { description })} />
-			<meta name="twitter:image" content={`https://baakhan.com/${thumbnailImage}`} />
+			<meta name="twitter:image" content={thumbnailImage} />
 			<meta name="twitter:label1" content="Baakhan" />
 			<meta name="twitter:data1" content={t('component.pages.postDetail.meta.keywords', { keywords })} />
 		</Head>
