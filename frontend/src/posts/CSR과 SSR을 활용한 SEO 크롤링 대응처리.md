@@ -3,8 +3,8 @@ title: "CSR과 SSR을 활용한 SEO 크롤링 대응처리"
 regDate: "2025-03-10 16:57"
 description: '업무중 SEO 크롤링 문제 리액트 프로젝트를 완료하고 SEO 크롤링이 제대로 되지 않는다는 요청을 받았어요. 확인해보니 CSR 환경으로 메타태그 내의 데이터가 완성되기 전의 데이터를 파싱하고 있는 것이 확인되었고 이에 대한 대응에 관련하여 작성해볼게요.'
 thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/Troubleshooting.png'
-mainTag: 'Troubleshooting'
-tags: ["'SEO'","'CSR'","'SSR'","'크롤링'","'Troubleshooting'"]
+mainTag: 'SEO'
+tags: ['SEO','CSR','SSR','크롤링','Troubleshooting']
 ---
 
 ## SEO 크롤링 이슈
@@ -69,7 +69,7 @@ export function middleware(request: NextRequest) {
 	const regex = new RegExp('yeti', 'i');
 	const isYetiBot = regex.test(userAgent);
 
-    if (isYetiBot) {
+	if (isYetiBot) {
 		const url = request.nextUrl.clone();
 		url.pathname = `/partial-ssr${url.pathname}`;
 		return NextResponse.rewrite(url);
