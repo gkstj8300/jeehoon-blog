@@ -26,7 +26,7 @@ export const Contact: React.FC = () => {
     const contactItems = [
         {
             icon: <MdEmail />,
-            href: '#',
+            href: '',
             text: t('component.pages.home.contact.email'),
             onClick: () => handleEmailCopy('gkstj8300@naver.com'),
             bind: bind

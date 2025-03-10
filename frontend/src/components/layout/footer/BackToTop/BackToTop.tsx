@@ -15,7 +15,7 @@ export const BackToTop: React.VFC<Props> = ({ layoutRootRef }) => {
 
 	return (
 		<a
-			href="#"
+			href=""
 			className={styles.backToTop}
 			onClick={handleClickBackToTop}
 			aria-label="Back to Top"

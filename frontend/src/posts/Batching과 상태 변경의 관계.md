@@ -1,7 +1,7 @@
 ---
 title: 'Batching과 상태 변경의 관계'
 regDate: '2025-02-25 10:47'
-description: 'Batching과 상태 변경의 관계에 대해'
+description: '리액트를 공부하는 도중 기본적으로 내가 아는 프로그래밍의 구조와는 다른 것을 배웠다. React의 공식 문서에는 나와있다. useState는 비동기적으로 작동한다. 또한 이를 통하여 일괄 처리(batching) 이 무엇이며 여러 상태 업데이트를 적용하는 방법을 알 수 있다. 이를 통해 Batching과 상태 변경의 관계에 대해 알아보자'
 thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/React.png'
 mainTag: 'React'
 tags: ['React','Bactching','useState']

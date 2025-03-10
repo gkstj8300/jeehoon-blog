@@ -1,7 +1,7 @@
 ---
 title: "React, Next를 이용한 개인블로그는 어떻게 만들까"
 regDate: "2025-03-07 18:38"
-description: 'React, Next로 개인 블로그를 만들어서 도메인을 구매하여 배포해봅시다.'
+description: 'tstory, 네이버블로그, velog 등을 이용하지 않고 최근에 진행했던 프로젝트의 환경을 기반으로하여 블로그를 만들고 싶었어요. CS 지식이 많이 부족한 스스로에게 공부를 메모할 수 있는 나만의 공간을 만들어보고 기능들을 사용하여 블로그를 만들어봅시다.'
 thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/blog.png'
 mainTag: 'Develop'
 tags: ["Blog","React","Next","Redux","gray-matter"]

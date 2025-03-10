@@ -49,7 +49,7 @@ export const Tag: React.FC<Props> = ({
                     onClick={(e) => handleClickFindPost(e, '')}
                 >
                     <TagLink
-                        href='#'
+                        href=''
                         name={'전체'}
                     />
                 </div>
@@ -61,7 +61,7 @@ export const Tag: React.FC<Props> = ({
                         onClick={(e) => handleClickFindPost(e, tag)}
                     >    
                         <TagLink
-                            href='#'
+                            href=''
                             name={tag}
                             tagCounts={tagCounts}
                         />
