@@ -12,8 +12,9 @@
 	-webkit-box-align: center;
 
 	&:hover {
-		color: var(--foreground);
+		color: rgb(237 237 237);
 		background-color: var(--icon-link-background-color);
+		transition: 0.15s ease-in-out;
 	}
 
 	svg {

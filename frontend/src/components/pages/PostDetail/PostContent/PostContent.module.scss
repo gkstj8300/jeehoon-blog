@@ -51,9 +51,10 @@
 	width: 100%;
 	margin: 4px 0;
 	padding: 16px 16px 16px 12px;
-	border: var(--post-content-border);
+	background-color: rgb(112 100 133 / 0.2);
 	border-width: 1px;
-	border-radius: 3px;
+	border-left: var(--post-content-left-border);
+	border-radius: 5px;
 
 	code {
 		width: 100%;

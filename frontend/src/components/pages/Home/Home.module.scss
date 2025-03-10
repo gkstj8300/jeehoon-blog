@@ -1,18 +1,6 @@
-.home {
-	display: grid;
-}
-
-.mainContainer {
-	order: 2;
-}
-
-.rcontainer {
-	order: 1;
-	margin-bottom: 1.25rem;
-}
-
 @media (min-width: 1024px) {
 	.home {
+		display: grid;
 		grid-template-columns: repeat(12, minmax(0, 1fr));
 		gap: 1.5rem;
 		padding: 2rem 0;

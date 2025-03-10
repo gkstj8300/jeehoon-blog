@@ -19,6 +19,9 @@ $postSubFontColor: rgb(71 71 71);
 // post content border
 $postContentBorder: 1px solid hsl(0deg 0% 6.45% / 0.9);
 
+// post content left border
+$postContentLeftBorder: 5px solid hsl(0deg 0% 47.82% / 0.9);
+
 // header background color
 $headerBackgroundColor: rgb(229 229 229);
 
@@ -38,7 +41,7 @@ $postBackgroundColor: hsl(0deg 0% 89.91%);
 $postTagBackgroundColor: rgb(213 213 213);
 
 // icon link hover background color
-$iconLinkBackgroundColor: rgb(213 213 213);
+$iconLinkBackgroundColor: #7b60c9;
 
 // back to top background color
 $backToTopBackgroundColor: rgb(159 159 159);

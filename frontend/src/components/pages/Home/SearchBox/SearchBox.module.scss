@@ -18,9 +18,13 @@
 	padding: 0.5rem 1.25rem;
 	color: var(--foreground);
 	font-family: var(--base-font);
-	background-color: var(--sub-background-color);
+	background-color: transparent;
 	border-width: 0;
 	outline: none;
+
+	&::placeholder {
+		color: var(--foreground);
+	}
 }
 
 @media (min-width: 768px) {

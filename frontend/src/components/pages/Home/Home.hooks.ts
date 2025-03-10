@@ -6,7 +6,7 @@ export const useHome = (
     postList: PostType[]
 ) => {
     const [posts, setPosts] = useState<PostType[]>(postList);
-    const [search, setSearch] = useState<SearchType>({ sort: 'desc' });
+    const [search, setSearch] = useState<SearchType>({ tag: '', sort: 'desc' });
 
     const handleFindPosts = useCallback((search: SearchType) => {
         setSearch(prev => ({
