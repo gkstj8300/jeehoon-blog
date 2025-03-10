@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback, MouseEvent } from "react";
-import { IoIosArrowBack } from "react-icons/io";
 import styles from './Tag.module.scss';
 import { SearchType } from "@/components/pages/Home/Home.types";
 import { TagLink } from '@/components/ui/links/TagLink';
@@ -44,15 +43,27 @@ export const Tag: React.FC<Props> = ({
         <div className={styles.container}>
             <Title className={styles.title} title='Tag List'/>
             <div className={styles.link}>
+                <div 
+                    className={styles.tagWrap}
+                    data-bold={search?.tag === ''}
+                    onClick={(e) => handleClickFindPost(e, '')}
+                >
+                    <TagLink
+                        href='#'
+                        name={'전체'}
+                    />
+                </div>
                 {tags?.map((tag, index) => (
-                    <div key={index} className={styles.tagWrap}>
-                        <IoIosArrowBack className={styles.icon}/>
+                    <div 
+                        key={index} 
+                        className={styles.tagWrap}
+                        data-bold={search?.tag === tag}
+                        onClick={(e) => handleClickFindPost(e, tag)}
+                    >    
                         <TagLink
                             href='#'
                             name={tag}
-                            bold={search?.tag === tag}
                             tagCounts={tagCounts}
-                            onClick={(e) => handleClickFindPost(e, tag)}
                         />
                     </div>
                 ))}

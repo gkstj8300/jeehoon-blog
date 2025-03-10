@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useHome } from './Home.hooks';
 import styles from './Home.module.scss';
 import { Meta } from './Meta';
@@ -8,6 +9,8 @@ import { SearchBox } from "@/components/pages/Home/SearchBox";
 import { Tag } from "@/components/pages/Home/Tag";
 import { Breadcrumbs } from '@/components/ui/links/Breadcrumbs';
 import { PostType } from "@/models/pages/slug";
+
+const TEG_INNER_WIDTH = 1024;
 
 type Props = {
     postList: PostType[];
@@ -23,6 +26,15 @@ export const Home: React.FC<Props> = ({
         handleFindPosts 
     } = useHome(postList);
 
+    const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+      const handleResize = () => setInnerWidth(window.innerWidth);
+  
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
         <>
             <Breadcrumbs breadcrumbList={[]}/>
@@ -32,6 +44,15 @@ export const Home: React.FC<Props> = ({
                     <Profile />
                     <Contact />
                 </div>
+                {innerWidth < TEG_INNER_WIDTH && (
+                    <div className={styles.rcontainer}>
+                        <Tag 
+                            postList={postList}
+                            search={search}
+                            handleFindPosts={handleFindPosts}
+                        />
+                    </div>
+                )}
                 <div className={styles.mainContainer}>
                     <SearchBox 
                         handleFindPosts={handleFindPosts}
@@ -42,13 +63,15 @@ export const Home: React.FC<Props> = ({
                         handleFindPosts={handleFindPosts}
                     />
                 </div>
-                <div className={styles.rcontainer}>
-                    <Tag 
-                        postList={postList}
-                        search={search}
-                        handleFindPosts={handleFindPosts}
-                    />
-                </div>
+                {innerWidth >= TEG_INNER_WIDTH && (
+                    <div className={styles.rcontainer}>
+                        <Tag 
+                            postList={postList}
+                            search={search}
+                            handleFindPosts={handleFindPosts}
+                        />
+                    </div>
+                )}
             </div>
         </>
     );
