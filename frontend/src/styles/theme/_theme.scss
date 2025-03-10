@@ -9,6 +9,7 @@ html[data-theme="dark"] {
 	--post-font-color: #{dark.$postFontColor};
 	--post-sub-font-color: #{dark.$postSubFontColor};
 	--post-content-border: #{dark.$postContentBorder};
+	--post-content-left-border: #{dark.$postContentLeftBorder};
 	--header-background-color: #{dark.$headerBackgroundColor};
 	--footer-hover-font-color: #{dark.$footerHoverFontColor};
 	--tag: #{dark.$tag};
@@ -28,6 +29,7 @@ html[data-theme="light"] {
 	--post-font-color: #{light.$postFontColor};
 	--post-sub-font-color: #{light.$postSubFontColor};   
 	--post-content-border: #{light.$postContentBorder};
+	--post-content-left-border: #{light.$postContentLeftBorder};
 	--header-background-color: #{light.$headerBackgroundColor};
 	--footer-hover-font-color: #{light.$footerHoverFontColor};
 	--tag: #{light.$tag};

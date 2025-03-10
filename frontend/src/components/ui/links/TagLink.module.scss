@@ -4,18 +4,7 @@
 	display: flex;
 	gap: 0.1rem;
 	margin: 0.25rem 0;
-	padding: 0.25rem;
-	color: rgb(126 126 126);
+	padding: 0.5rem 0.75rem;
 	font-size: 1rem;
 	line-height: 1.25rem;
-	cursor: pointer;
-
-	&[data-bold='true'] {
-		color: var(--sub-font-color);
-		font-weight: bold;
-	}
-
-	&:hover {
-		color: var(--sub-font-color);
-	}
 }

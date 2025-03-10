@@ -1,11 +1,21 @@
 .container {
-	display: block;
+	position: relative;
+	width: 100%;
+	height: 100px;
+	overflow: auto;
 }
 
 .link {
 	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
+	gap: 0.5rem;
+	max-height: 365px;
+	padding-bottom: 0.5rem;
+	overflow: auto;
+
+	&::-webkit-scrollbar-thumb {
+		background-color: #957cde;
+		border-radius: 5px;
+	}
 }
 
 .icon {
@@ -15,11 +25,34 @@
 .tagWrap {
 	display: flex;
 	align-items: center;
+	min-width: 135px;
+	max-width: 135px;
+	background-color: var(--sub-background-color);
+	border-radius: 0.3rem;
+	cursor: pointer;
+
+	&[data-bold='true'] {
+		color: rgb(237 237 237);
+		font-weight: bold;
+		background-color: var(--icon-link-background-color);
+	}
+
+	&:hover {
+		color: rgb(237 237 237);
+		background-color: var(--icon-link-background-color);
+		transition: 0.15s ease-in-out;
+	}
 }
 
 @media (min-width: 1024px) {
+	.container {
+		height: 100%;
+		overflow: hidden;
+	}
+
 	.link {
 		flex-direction: column;
+		padding: 0 0.5rem 0.5rem 0;
 	}
 	
 	.icon {
