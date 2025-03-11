@@ -1,29 +1,26 @@
-import { useRouter } from 'next/router';
-import { useEffect, useState, useCallback } from 'react';
+import { GetServerSideProps, NextPage } from 'next';
 import { About } from '@/components/pages/About';
 
-const AboutPage: React.FC = () => {
-	const [notFound, setNotFound] = useState(false);
-    const { isReady } = useRouter();
+type Props = {
+	notFound: boolean;
+};
 
-	const load = useCallback(async () => {
-		setNotFound(false);
-	}, []);
-
-	useEffect(() => {
-		load();
-	}, [load]);
-
-    if (!isReady) {
-		return null;
-	}
-
+const AboutPage: NextPage<Props> = ({ notFound }) => {
 	if (notFound) {
 		return <div>Not Found</div>;
 	}
 
 	return <About />;
 };
-AboutPage.displayName = 'AboutPage';
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+	const notFound = false;
+
+	return {
+		props: {
+			notFound,
+		},
+	};
+};
 
 export default AboutPage;

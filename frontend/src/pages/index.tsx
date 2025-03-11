@@ -10,7 +10,7 @@ type Props = {
 
 const Home = dynamic(
 	() => import('@/components/pages/Home').then(module => module.Home),
-	{ ssr: false }
+	{ ssr: true }
 );
 
 const HomePage: NextPage<Props> = props => {
