@@ -36,38 +36,38 @@ export const PostDetail: React.FC<Props> = ({
 }) => {
     return (
         <>
-        <Breadcrumbs
-            className={styles.breadcrumb}
-            breadcrumbList={[{
-                text: title,
-                strong: true,
-            }]}
-        />
-        <div className={styles.container}>
-            <Meta
-                slug={slug}
-                title={title}
-                description={description}
-                mainTag={mainTag}
-                tags={tags}
-                thumbnailImage={thumbnailImage}
+            <Breadcrumbs
+                className={styles.breadcrumb}
+                breadcrumbList={[{
+                    text: title,
+                    strong: true,
+                }]}
             />
-            <div className={styles.detailWrap}>
-                {thumbnailImage && (
-                    <div className={styles.thumbnail}>
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={thumbnailImage} alt={`${thumbnailImage}`} />
-                    </div>
-                )}
-                <PostTitle title={title} />
-                <PostInfo 
-                    regDate={regDate} 
-                    tags={tags} 
+            <div className={styles.container}>
+                <Meta
+                    slug={slug}
+                    title={title}
+                    description={description}
+                    mainTag={mainTag}
+                    tags={tags}
+                    thumbnailImage={thumbnailImage}
                 />
-                <PostContent content={content} />
-                <PostComents />
+                <div className={styles.detailWrap}>
+                    {thumbnailImage && (
+                        <div className={styles.thumbnail}>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={thumbnailImage} alt={`${thumbnailImage}`} />
+                        </div>
+                    )}
+                    <PostTitle title={title} />
+                    <PostInfo 
+                        regDate={regDate} 
+                        tags={tags} 
+                    />
+                    <PostContent content={content} />
+                    <PostComents />
+                </div>
             </div>
-        </div>
         </>
     )
 }
