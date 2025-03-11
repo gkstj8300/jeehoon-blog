@@ -24,9 +24,10 @@
 
 .tagWrap {
 	display: flex;
+	justify-content: center;
 	align-items: center;
-	min-width: 135px;
-	max-width: 135px;
+	min-width: 100px;
+	max-width: 100px;
 	background-color: var(--sub-background-color);
 	border-radius: 0.3rem;
 	cursor: pointer;
@@ -53,6 +54,12 @@
 	.link {
 		flex-direction: column;
 		padding: 0 0.5rem 0.5rem 0;
+	}
+
+	.tagWrap {
+		justify-content: flex-start;
+		min-width: 135px;
+		max-width: 135px;
 	}
 	
 	.icon {
