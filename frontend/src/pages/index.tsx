@@ -1,5 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next';
 import dynamic from "next/dynamic";
+import { Meta } from '@/components/pages/Home/Meta';
 import { PostType } from "@/models/pages/slug";
 import styles from '@/styles/home.module.scss';
 import getMarkdownAllPosts from "@/utils/markDown/getMarkdownAllPosts";
@@ -15,7 +16,10 @@ const Home = dynamic(
 
 const HomePage: NextPage<Props> = props => {
     return (
-        <Home className={styles.home} {...props}/>
+        <>
+            <Meta />
+            <Home className={styles.home} {...props}/>
+        </>
     );
 }
 HomePage.displayName = 'HomePage';
