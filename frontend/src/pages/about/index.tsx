@@ -1,5 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next';
 import { About } from '@/components/pages/About';
+import { Meta } from '@/components/pages/About/Meta';
 
 type Props = {
 	notFound: boolean;
@@ -10,7 +11,12 @@ const AboutPage: NextPage<Props> = ({ notFound }) => {
 		return <div>Not Found</div>;
 	}
 
-	return <About />;
+	return (
+		<>
+			<Meta />
+			<About />
+		</>
+	);
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {

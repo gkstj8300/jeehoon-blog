@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useHome } from './Home.hooks';
 import styles from './Home.module.scss';
-import { Meta } from './Meta';
 import { Contact } from '@/components/pages/Home/Contact';
 import { Post } from '@/components/pages/Home/Post';
 import { Profile } from '@/components/pages/Home/Profile';
@@ -39,7 +38,6 @@ export const Home: React.FC<Props> = ({
         <>
             <Breadcrumbs breadcrumbList={[]}/>
             <div className={styles.home}>
-                <Meta />
                 <div className={styles.lcontainer}>
                     <Profile />
                     <Contact />
