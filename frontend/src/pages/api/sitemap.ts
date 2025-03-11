@@ -3,7 +3,7 @@ import { PostType } from "@/models/pages/slug";
 import getMarkdownAllPosts from "@/utils/markDown/getMarkdownAllPosts";
 
 const generateSiteMap = (postList: PostType[]) => {
-    const baseUrl = "https://baakhan.com";
+    const baseUrl = "https://www.baakhan.com";
 
     return `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
