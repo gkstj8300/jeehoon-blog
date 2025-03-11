@@ -37,9 +37,9 @@ export const Home: React.FC<Props> = ({
 
     return (
         <>
+            <Meta />
             <Breadcrumbs breadcrumbList={[]}/>
             <div className={styles.home}>
-                <Meta />
                 <div className={styles.lcontainer}>
                     <Profile />
                     <Contact />

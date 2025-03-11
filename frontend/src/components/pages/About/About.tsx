@@ -11,6 +11,7 @@ export const About: React.FC = () => {
 
     return (
         <>
+            <Meta />
             <Breadcrumbs
                 className={styles.breadcrumb}
                 breadcrumbList={[{
@@ -19,7 +20,6 @@ export const About: React.FC = () => {
                 }]}
             />
             <div className={styles.container}>
-                <Meta />
                 <Introduce />
                 <Skill />
                 <Experience />
