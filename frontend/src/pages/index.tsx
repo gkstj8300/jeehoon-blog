@@ -10,7 +10,7 @@ type Props = {
 
 const Home = dynamic(
 	() => import('@/components/pages/Home').then(module => module.Home),
-	{ ssr: false }
+	{ ssr: true }
 );
 
 const HomePage: NextPage<Props> = props => {
@@ -20,7 +20,7 @@ const HomePage: NextPage<Props> = props => {
 }
 HomePage.displayName = 'HomePage';
 
-export const getStaticProps: GetServerSideProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
     const { postList } = await getMarkdownAllPosts();
 
     return {
