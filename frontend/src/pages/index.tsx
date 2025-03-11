@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import dynamic from "next/dynamic";
 import { PostType } from "@/models/pages/slug";
 import styles from '@/styles/home.module.scss';
@@ -10,7 +10,7 @@ type Props = {
 
 const Home = dynamic(
 	() => import('@/components/pages/Home').then(module => module.Home),
-	{ ssr: true }
+	{ ssr: false }
 );
 
 const HomePage: NextPage<Props> = props => {
@@ -20,7 +20,7 @@ const HomePage: NextPage<Props> = props => {
 }
 HomePage.displayName = 'HomePage';
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetServerSideProps<Props> = async () => {
     const { postList } = await getMarkdownAllPosts();
 
     return {
