@@ -1,0 +1,97 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+.head {
+	display: flex;
+	flex-shrink: 0;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.body {
+	position: relative;
+}
+
+.recentPosts {
+	margin-bottom: 10px;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 1;
+}
+
+.allPostLink {
+	display: flex;
+	gap: 3px;
+	align-items: center;
+	font-size: 13px;
+	line-height: 1;
+}
+
+.icon {
+	width: 18px;
+	height: 18px;
+}
+
+.post {
+	position: relative;
+	display: flex;
+	gap: 3px;
+	align-items: center;
+	margin: 0 -7px;
+	padding: 10px;
+	cursor: pointer;
+
+	&::before {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		width: calc(100% - 20px);
+		height: 1px;
+		margin: 0 auto;
+		background-color: var(--footer-hover-font-color);
+		content: "";
+	}
+
+	&:hover {
+		background-color: #ffffff0d;
+		border-radius: 6px;
+	}
+}
+
+.tag {
+	margin-right: 7px;
+	padding: 5px 7px;
+	color: #121212;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 1;
+	white-space:nowrap;
+	background-color: var(--icon-link-background-color);
+	border-radius: 4px;
+	user-select: none
+}
+
+.title {
+	display: -webkit-box;
+	overflow: hidden;
+	font-size: 16px;
+	line-height: 1;
+	-webkit-line-clamp: 1;
+	line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+
+.place {
+	flex-grow: 1;
+}
+
+.date {
+	flex-shrink: 0;
+	font-size: 12px;
+	opacity: .6;
+}

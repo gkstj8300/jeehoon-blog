@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useHome } from './Home.hooks';
 import styles from './Home.module.scss';
-import { Contact } from '@/components/pages/Home/Contact';
 import { Post } from '@/components/pages/Home/Post';
 import { Profile } from '@/components/pages/Home/Profile';
+import { RecentPosts } from "@/components/pages/Home/RecentPosts";
 import { SearchBox } from "@/components/pages/Home/SearchBox";
 import { Tag } from "@/components/pages/Home/Tag";
 import { Breadcrumbs } from '@/components/ui/links/Breadcrumbs';
@@ -22,6 +22,7 @@ export const Home: React.FC<Props> = ({
     const { 
         posts,
         search,
+        recentPosts,
         handleFindPosts 
     } = useHome(postList);
 
@@ -37,39 +38,37 @@ export const Home: React.FC<Props> = ({
     return (
         <>
             <Breadcrumbs breadcrumbList={[]}/>
-            <div className={styles.home}>
-                <div className={styles.lcontainer}>
-                    <Profile />
-                    <Contact />
-                </div>
-                {innerWidth < TEG_INNER_WIDTH && (
-                    <div className={styles.rcontainer}>
-                        <Tag 
-                            postList={postList}
-                            search={search}
+            <div>
+                <div className={styles.home}>
+                    <div className={styles.lcontainer}>
+                        <Profile />
+                    </div>
+                    {innerWidth < TEG_INNER_WIDTH && (
+                        <div className={styles.rcontainer}>
+                            <Tag 
+                                postList={postList}
+                                search={search}
+                                handleFindPosts={handleFindPosts}
+                            />
+                        </div>
+                    )}
+                    <div className={styles.mainContainer}>
+                        <RecentPosts posts={recentPosts} />
+                        <SearchBox 
                             handleFindPosts={handleFindPosts}
                         />
                     </div>
-                )}
-                <div className={styles.mainContainer}>
-                    <SearchBox 
-                        handleFindPosts={handleFindPosts}
-                    />
-                    <Post
-                        postList={posts}
-                        search={search}
-                        handleFindPosts={handleFindPosts}
-                    />
+                    {innerWidth >= TEG_INNER_WIDTH && (
+                        <div className={styles.rcontainer}>
+                            <Tag 
+                                postList={postList}
+                                search={search}
+                                handleFindPosts={handleFindPosts}
+                            />
+                        </div>
+                    )}
                 </div>
-                {innerWidth >= TEG_INNER_WIDTH && (
-                    <div className={styles.rcontainer}>
-                        <Tag 
-                            postList={postList}
-                            search={search}
-                            handleFindPosts={handleFindPosts}
-                        />
-                    </div>
-                )}
+                <Post postList={posts} />
             </div>
         </>
     );

@@ -3,7 +3,6 @@
 .container {
 	display: flex;
 	align-items: center;
-	margin-bottom: 1rem;
 	padding: 0.5rem;
 	background-color: var(--sub-background-color);
 	border-radius: 1rem;
@@ -24,11 +23,5 @@
 
 	&::placeholder {
 		color: var(--foreground);
-	}
-}
-
-@media (min-width: 768px) {
-	.container {
-		margin-bottom: 2rem;
 	}
 }

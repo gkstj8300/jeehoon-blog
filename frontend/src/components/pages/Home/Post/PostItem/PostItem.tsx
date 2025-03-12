@@ -18,27 +18,25 @@ export const PostItem: React.FC<Props> = ({
     description, 
     thumbnailImage, 
     regDate,
-    tags,
+    mainTag,
 }) => {
     return (
-        <article className={styles.container}>
-            <Link href={url.postDetail(slug)}>
-                {thumbnailImage && (
-                    <div className={styles.thumbnail}>
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={thumbnailImage} alt={`${title}`} />
-                    </div>
-                )}
-                <div>
-                    <div className={styles.title}>{title}</div>
-                    <div className={styles.regDate}>{regDate}</div>
-                    <div className={styles.description}>{description}</div>
-                    <div className={styles.tag}>
-                        {tags.map((item, index) => <span key={`post-${index}`}>{item}</span>)}
-                    </div>
+        <Link className={styles.container} href={url.postDetail(slug)}>
+            <div className={styles.thumbnail}>
+                <div className={styles.thumbnailImg}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img 
+                        className={styles.img}
+                        src={thumbnailImage ? thumbnailImage : '/React.png'} 
+                        alt={`${title}`} 
+                    />
                 </div>
-            </Link>
-        </article>
+                <div className={styles.mainTag}>{mainTag}</div>
+            </div>
+            <div className={styles.title}>{title}</div>
+            <div className={styles.regDate}>{regDate}</div>
+            <div className={styles.description}>{description}</div>
+        </Link>
     );
 };
 

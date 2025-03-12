@@ -1,20 +1,29 @@
 @use 'src/styles/variables';
 
+.img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: .4s;
+}
+
 .container {
 	position: relative;
-	margin-bottom: 1.5rem;
-	padding: 1rem;
 	overflow: hidden;
-	background-color: var(--sub-background-color);
 	border-radius: 1rem;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 300ms;
 	transition-property: box-shadow;
 
 	&:hover {
+		z-index: 1;
 		cursor: pointer;
 		filter: drop-shadow(2px 5px 7px rgb(128 128 128));
 		transition: 0.2s;
+
+		.img {
+			transform: scale(1.1);
+		}
 	}
 }
 
@@ -33,55 +42,65 @@
 
 .thumbnail {
 	position: relative;
-	width: 100%;
-	height: 200px;
-	margin-bottom: 1rem;
-	background-color: rgb(28 28 28);
+	margin-bottom: 0.5rem;
+	overflow: hidden;
+	background-color: #e9690010;
+	border-radius: 10px;
+}
 
-	img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		color: transparent;
-		inset: 0;
-	}
+.thumbnailImg {
+	width: 100%;
+	height: 180px;
+	border-radius: 10px;
+}
+
+.mainTag {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: max-content;
+	padding: 0.3rem;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 1;
+	background-color: var(--icon-link-background-color);
+	border-radius: 6px;
 }
 
 .regDate {
 	color: var(--post-font-color);
 }
 
+.postInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.title {
+	display: -webkit-box;
+	box-sizing: border-box;
+	width: 100%;
+	overflow: hidden;
+	font-weight: 700;
+	font-size: 23px;
+	line-height: 1.1;
+	transition: color .4s;
+	-webkit-line-clamp: 1;
+	line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+
 .description {
+	display: -webkit-box;
 	margin-bottom: 0.5rem;
-	color: var(--post-sub-font-color);
-	line-height: 1.5rem;
-}
-
-
-.tag span {
-	display: inline-block;
-	margin-right: .25rem;
-	padding: 0.45em 0.6em;;
-	font-weight: 400;
-	font-size: 75%;
-	line-height: 1;
-	white-space: nowrap;
-	text-align: center;
-	vertical-align: baseline;
-	background-color: var(--tag);
-	border-radius: .25rem;
-}
-
-@media (min-width: 768px) {
-	.container {
-		margin-bottom: 2rem;
-	}
-
-	.thumbnail {
-		position: relative;
-		width: 100%;
-		height: 300px;
-		margin-bottom: 1rem;
-		background-color: rgb(28 28 28);
-	}
+	overflow: hidden;
+	transition: color .4s;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	-webkit-box-orient: vertical;
 }
