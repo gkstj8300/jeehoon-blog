@@ -1,7 +1,7 @@
 @media (min-width: 1024px) {
 	.home {
 		display: grid;
-		grid-template-columns: repeat(12, minmax(0, 1fr));
+		grid-template-columns: repeat(14, minmax(0, 1fr));
 		gap: 1.5rem;
 		padding: 2rem 0;
 	}
@@ -10,13 +10,13 @@
 		top: 60px;
 		display: block;
 		grid-column: span 3 / span 3;
-		height: calc(-210px + 100vh);
+		// height: calc(-210px + 100vh); 임시 주석
 		overflow: scroll;
 		scrollbar-width: none;
 	}
 
 	.mainContainer {
-		grid-column: span 7 / span 7;
+		grid-column: span 9 / span 9;
 		order: 1;
 	}
 
@@ -26,7 +26,7 @@
 		display: block;
 		grid-column: span 2 / span 2;
 		order: 2;
-		height: calc(-210px + 100vh);
+		// height: calc(-210px + 100vh); 임시 주석
 		overflow: scroll;
 		scrollbar-width: none;
 	}

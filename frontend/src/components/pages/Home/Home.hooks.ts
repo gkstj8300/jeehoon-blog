@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useMemo } from "react";
 import { SearchType } from "./Home.types";
 import { PostType } from "@/models/pages/slug";
 
@@ -6,13 +6,14 @@ export const useHome = (
     postList: PostType[]
 ) => {
     const [posts, setPosts] = useState<PostType[]>(postList);
-    const [search, setSearch] = useState<SearchType>({ tag: '', sort: 'desc' });
+    const [search, setSearch] = useState<SearchType>({ tag: '' });
+
+    const recentPosts = useMemo(() => postList.sort((a, b) => new Date(b.regDate).getTime() - new Date(a.regDate).getTime()).slice(0, 5), [postList]);
 
     const handleFindPosts = useCallback((search: SearchType) => {
         setSearch(prev => ({
             ...prev,
             ...search,
-            sort: search.sort ?? prev.sort ?? 'desc'
         }));
     }, []);
 
@@ -33,19 +34,13 @@ export const useHome = (
             filteredPosts = filteredPosts.filter(post => post.mainTag === search.tag);
         }
 
-        if (search.sort) {
-            filteredPosts = filteredPosts.sort((a, b) =>
-                (search.sort === 'desc' ? -1 : 1) * 
-                (new Date(a.regDate).getTime() - new Date(b.regDate).getTime())
-            );
-        }
-
         setPosts(filteredPosts);
     }, [search, postList]);
 
     return {
         posts,
         search,
+        recentPosts,
         handleFindPosts,
     }
 }
