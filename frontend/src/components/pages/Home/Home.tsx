@@ -8,6 +8,7 @@ import { SearchBox } from "@/components/pages/Home/SearchBox";
 import { Tag } from "@/components/pages/Home/Tag";
 import { Breadcrumbs } from '@/components/ui/links/Breadcrumbs';
 import { PostType } from "@/models/pages/slug";
+import { Notice } from "@/components/layout/notice";
 
 const TEG_INNER_WIDTH = 1024;
 
@@ -37,6 +38,7 @@ export const Home: React.FC<Props> = ({
 
     return (
         <>
+            <Notice />
             <Breadcrumbs breadcrumbList={[]}/>
             <div>
                 <div className={styles.home}>

@@ -1,5 +1,6 @@
 .container {
-	max-width: 52rem;
+	display: flex;
+	max-width: 68rem;
 	margin: 0 auto;
 	padding: 3rem 1rem;
 	border-radius: 1rem;
@@ -8,10 +9,11 @@
 .detailWrap {
 	max-width: 48rem;
 	margin: 0 auto;
+	padding: 2rem 1rem;
 }
 
 .breadcrumb {
-	max-width: 52rem;
+	max-width: 68rem;
 	margin: 0 auto;
 }
 
@@ -29,4 +31,8 @@
 		border-radius: 2rem;
 		inset: 0;
 	}
+}
+
+.sideWrap {
+	padding: 2rem 1rem;
 }

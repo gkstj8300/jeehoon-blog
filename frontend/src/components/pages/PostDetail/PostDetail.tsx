@@ -1,9 +1,12 @@
 import dynamic from "next/dynamic";
+import { useState } from "react";
 import { Meta } from "./Meta";
 import { PostContent } from './PostContent';
 import styles from './PostDetail.module.scss';
 import { PostInfo } from './PostInfo';
 import { PostTitle } from './PostTitle';
+import { TableOfContents } from "./TableOfContents";
+import { Heading } from '@/components/pages/PostDetail/PostDetail.types';
 import { Breadcrumbs } from '@/components/ui/links/Breadcrumbs';
 
 const PostComents = dynamic(
@@ -34,8 +37,22 @@ export const PostDetail: React.FC<Props> = ({
     tags,
     content,
 }) => {
+    const [headings, setHeadings] = useState<Heading[]>();
+
+    const handleGetHeadigs = (headings: Heading[]) => {
+        setHeadings(headings);
+    }
+
     return (
         <>
+            <Meta
+                slug={slug}
+                title={title}
+                description={description}
+                mainTag={mainTag}
+                tags={tags}
+                thumbnailImage={thumbnailImage}
+            />
             <Breadcrumbs
                 className={styles.breadcrumb}
                 breadcrumbList={[{
@@ -44,14 +61,6 @@ export const PostDetail: React.FC<Props> = ({
                 }]}
             />
             <div className={styles.container}>
-                <Meta
-                    slug={slug}
-                    title={title}
-                    description={description}
-                    mainTag={mainTag}
-                    tags={tags}
-                    thumbnailImage={thumbnailImage}
-                />
                 <div className={styles.detailWrap}>
                     {thumbnailImage && (
                         <div className={styles.thumbnail}>
@@ -64,9 +73,17 @@ export const PostDetail: React.FC<Props> = ({
                         regDate={regDate} 
                         tags={tags} 
                     />
-                    <PostContent content={content} />
+                    <PostContent 
+                        content={content} 
+                        handleGetHeadigs={handleGetHeadigs}
+                    />
                     <PostComents />
                 </div>
+                {headings && (
+                    <div className={styles.sideWrap}>
+                        <TableOfContents headings={headings} />
+                    </div>
+                )}
             </div>
         </>
     )

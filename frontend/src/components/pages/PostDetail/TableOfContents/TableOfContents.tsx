@@ -1,26 +1,54 @@
 import classNames from 'classnames';
+import { useState, useEffect } from 'react';
 import styles from './TableOfContents.module.scss';
-
-type Heading = {
-    level: number;
-    text: string;
-    id: string;
-}
+import { Heading } from '@/components/pages/PostDetail/PostDetail.types';
 
 type Props = {
     headings: Heading[];
 }
 
 export const TableOfContents: React.FC<Props> = ({ headings }) => {
+
+    const [activeId, setActiveId] = useState<string>(headings[0]?.id || '');
+
     const handleClick = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
             window.scrollTo({
-                top: element.offsetTop - 52,
+                top: element.offsetTop - 82,
                 behavior: "smooth",
             });
         }
     };
+
+    useEffect(() => {
+        if (!headings) {
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveId(entry.target.id);
+                    }
+                });
+            },
+            {
+                rootMargin: "0px 0px -90% 0px",
+                threshold: 0.9,
+            }
+        );
+
+        headings.forEach(({ id }) => {
+            const element = document.getElementById(id);
+            if (element) {
+                observer.observe(element);
+            }
+        });
+
+        return () => observer.disconnect();
+    }, [headings]);
 
     return (
         <div className={styles.tableOfContents}>
@@ -34,6 +62,7 @@ export const TableOfContents: React.FC<Props> = ({ headings }) => {
                             paddingLeft: `${(level - 1) * 10}px` 
                         }}
                         onClick={() => handleClick(id)}
+                        data-active={activeId === id}
                     >
                         <span className={classNames(level > 2 && styles.text)}>{text}</span>
                     </li>
