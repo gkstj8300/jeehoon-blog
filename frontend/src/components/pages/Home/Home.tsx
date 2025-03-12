@@ -25,7 +25,7 @@ export const Home: React.FC<Props> = ({
         handleFindPosts 
     } = useHome(postList);
 
-    const [innerWidth, setInnerWidth] = useState(TEG_INNER_WIDTH);
+    const [innerWidth, setInnerWidth] = useState<number>(0);
 
     useEffect(() => {
         const handleResize = () => setInnerWidth(window.innerWidth);
