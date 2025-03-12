@@ -6,7 +6,8 @@ import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
 import { usePostContent } from "./PostContent.hook";
 import styles from './PostContent.module.scss';
-import { TableOfContents } from "./TableOfContents";
+import { Heading } from '@/components/pages/PostDetail/PostDetail.types';
+import { useOnMounted } from "@/hooks/useOnMounted";
 import { CustomMarkdownType } from "@/models/pages/slug";
 import { useSelector } from "@/store/hooks";
 import { selectTheme } from '@/store/modules/common/selectors';
@@ -14,6 +15,7 @@ import { markDownContentFormat } from '@/utils/markDown/markDown';
 
 type Props = {
     content: string;
+    handleGetHeadigs: (headings: Heading[]) => void
 };
 
 const DynamicReactMarkdown = dynamic(() => import("react-markdown"), {
@@ -45,18 +47,22 @@ const customCodeBlock = ({ props, theme }: CustomMarkdownType) => {
     );
 };
 
-export const PostContent: React.FC<Props> = ({ content }) => {
+export const PostContent: React.FC<Props> = ({ 
+    content,
+    handleGetHeadigs,
+}) => {
     const markDownContent = markDownContentFormat(content);
     const { getPostContentHeadings } = usePostContent({ content });
     const headings = getPostContentHeadings();
-
+    
     const theme = useSelector(selectTheme);
 
     const generateHeadingId = (text: string) => text.replace(/\s+/g, "-").toLowerCase();
 
+    useOnMounted(() => handleGetHeadigs(headings));
+
     return (
         <div className={styles.container}>
-            {headings.length > 0 && <TableOfContents headings={headings} />}
             <DynamicReactMarkdown 
                 remarkPlugins={[remarkGfm, remarkBreaks]}
                 rehypePlugins={[rehypeRaw]}
