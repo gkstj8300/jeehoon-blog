@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Meta } from "./Meta";
 import { PostContent } from './PostContent';
 import styles from './PostDetail.module.scss';
@@ -38,6 +38,7 @@ export const PostDetail: React.FC<Props> = ({
     content,
 }) => {
     const [headings, setHeadings] = useState<Heading[]>();
+    const tableListRef = useRef<HTMLDivElement>(null);
 
     const handleGetHeadigs = (headings: Heading[]) => {
         setHeadings(headings);
@@ -74,6 +75,7 @@ export const PostDetail: React.FC<Props> = ({
                         tags={tags} 
                     />
                     <PostContent 
+                        ref={tableListRef}
                         content={content} 
                         handleGetHeadigs={handleGetHeadigs}
                     />
@@ -81,7 +83,7 @@ export const PostDetail: React.FC<Props> = ({
                 </div>
                 {headings && (
                     <div className={styles.sideWrap}>
-                        <TableOfContents headings={headings} />
+                        <TableOfContents headings={headings} tableListRef={tableListRef}/>
                     </div>
                 )}
             </div>

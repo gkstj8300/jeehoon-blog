@@ -29,18 +29,26 @@
 .item {
 	margin: 0;
 	padding-top: 10px;
+	opacity: 0.5;
 	cursor: pointer;
 
+	&:hover {
+		transition: 0.3s ease-out;
+		opacity: 1;
+	}
+	
 	&[data-active='true'] {
+		opacity: 1;
+
 		&::before {
-			opacity: 1;
-			content: "";
+			position: absolute;
+			left: -14px;
 			width: 4px;
 			height: 1rem;
 			background-color: var(--icon-link-background-color);
-			left: -14px;
+			opacity: 1;
 			transition: 0.4s;
-			position: absolute;
+			content: "";
 		}
 	}
 }
