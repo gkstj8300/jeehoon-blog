@@ -1,6 +1,8 @@
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import styles from './RecentPosts.module.scss';
 import { PostType } from "@/models/pages/slug";
+import { url } from '@/utils/url';
 
 type Props = {
     posts: PostType[];
@@ -12,10 +14,10 @@ export const RecentPosts: React.FC<Props> = ({ posts }) => {
     return (
         <div className={styles.container}>
             <div className={styles.head}>
-                <a href="/s" className={styles.recentPosts}>
+                <span className={styles.recentPosts}>
                     {t('component.pages.home.recentPosts.recentPost')}
-                </a>
-                <a href="/s" className={styles.allPostLink}>
+                </span>
+                <Link href="/" className={styles.allPostLink}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="24px"
@@ -29,11 +31,11 @@ export const RecentPosts: React.FC<Props> = ({ posts }) => {
                         ></path>
                     </svg>
                     {t('component.pages.home.recentPosts.allPost')}
-                </a>
+                </Link>
             </div>
             <div className={styles.body}>
                 {posts.map((post) => (
-                    <a href="" key={post.title} className={styles.post}>
+                    <Link href={url.postDetail(post.slug)} key={post.title} className={styles.post}>
                         <span className={styles.tag}>{post.mainTag}</span>
                         <div className={styles.title} title={post.title}>
                             {post.title}
@@ -46,7 +48,7 @@ export const RecentPosts: React.FC<Props> = ({ posts }) => {
                                 })}
                             >{post.regDate}</span>
                         </div>
-                    </a>
+                    </Link>
                 ))}
             </div>
         </div>

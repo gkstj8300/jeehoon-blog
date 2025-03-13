@@ -2,7 +2,6 @@
 	display: flex;
 	max-width: 68rem;
 	margin: 0 auto;
-	padding: 3rem 1rem;
 	border-radius: 1rem;
 };
 
@@ -35,4 +34,37 @@
 
 .sideWrap {
 	padding: 2rem 1rem;
+}
+
+.asideButton {
+	z-index: 4;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	background-color: var(--sub-background-color);
+	border-radius: 0 0 0 1.3rem;
+	cursor: pointer;
+	user-select: none;
+	user-select: none;
+	user-select: none;
+}
+
+.sideMenuIcon {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+@media (max-width: 992px) {
+	.asideButton {
+		display: flex;
+	}
+
+	.sideWrap {
+		position: fixed;
+		right: 0;
+		display: flex;
+		padding: 0;
+	}
 }
