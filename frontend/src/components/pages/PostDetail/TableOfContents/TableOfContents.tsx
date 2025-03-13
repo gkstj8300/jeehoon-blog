@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useState, useEffect, useCallback, RefObject } from 'react';
+import { useState, useEffect, useCallback, RefObject, useRef } from 'react';
 import styles from './TableOfContents.module.scss';
 import { Heading } from '@/components/pages/PostDetail/PostDetail.types';
 import { useScrollTo } from '@/hooks/useScrollTo';
@@ -8,11 +8,13 @@ import { sleep } from '@/utils/timer/timer';
 type Props = {
     headings: Heading[];
     tableListRef: RefObject<HTMLDivElement>;
+    isAside: boolean;
 }
 
 export const TableOfContents: React.FC<Props> = ({ 
     headings, 
     tableListRef,
+    isAside,
 }) => {
 
     const [activeId, setActiveId] = useState<string>(headings[0]?.id || '');
@@ -49,37 +51,53 @@ export const TableOfContents: React.FC<Props> = ({
         [scrollToGroup]
     );
 
+    const observerRef = useRef<IntersectionObserver | null>(null);
+
     useEffect(() => {
-		if (tableListRef.current) {
-            setTimeout(() => {
-                const observer = new IntersectionObserver(
-                    (entries) => {
-                        entries.forEach((entry) => {
-                            if (entry.isIntersecting) {
-                                setActiveId(entry.target.id);
-                            }
-                        });
-                    },
-                    {
-                        rootMargin: "0px",
-                        threshold: 0.85,
-                    }
-                );
+        setTimeout(() => {
+            if (!tableListRef.current) {
+                return;
+            }
         
-                headings.forEach(({ id }) => {
-                    const element = document.getElementById(id);
-                    if (element) {
-                        observer.observe(element);
-                    }
-                });
+            if (observerRef.current) {
+                observerRef.current.disconnect();
+            }
         
-                return () => observer.disconnect();
-            }, 500);
-		}
-	}, [tableListRef, headings]);
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            setActiveId(entry.target.id);
+                        }
+                    }); 
+                },
+                {
+                    rootMargin: "0px",
+                    threshold: 0.85,
+                }
+            );
+        
+            observerRef.current = observer;
+        
+            headings.forEach(({ id }) => {
+                const element = document.getElementById(id);
+                if (element) {
+                    observer.observe(element);
+                }
+            });
+        
+            return () => {
+                observer.disconnect();
+                observerRef.current = null;
+            };
+        }, 500);
+    }, [tableListRef, headings, isAside]);
 
     return (
-        <div className={styles.tableOfContents}>
+        <div 
+            className={styles.tableOfContents}
+            data-aside={isAside}
+        >
             <h3 className={styles.heading}>목차</h3>
             <ul className={styles.list}>
                 {headings.map(({ level, text, id }, index) => (
@@ -87,7 +105,7 @@ export const TableOfContents: React.FC<Props> = ({
                         className={classNames(styles.item, level > 2 && styles.childItem)} 
                         key={index} 
                         style={{ 
-                            paddingLeft: `${(level - 1) * 10}px` 
+                            paddingLeft: `${(level - 1) * 5}px` 
                         }}
                         onClick={() => handleClick(id)}
                         data-active={activeId === id}

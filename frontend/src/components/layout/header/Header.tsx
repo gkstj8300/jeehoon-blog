@@ -15,6 +15,8 @@ import { useStore, useSelector } from '@/store/hooks';
 import { loadLayoutTheme, toggleUpdateLayoutTheme } from '@/store/modules/common/operations';
 import { selectTheme } from '@/store/modules/common/selectors';
 
+export const HEADER_WRAPPER_ID = 'header-wrapper';
+
 export const Header: React.FC = () => {
     const router = useRouter();
     const store = useStore();
@@ -50,7 +52,7 @@ export const Header: React.FC = () => {
 
     return (
         <>
-            <header className={styles.header} data-theme={theme}>
+            <header className={styles.header} data-theme={theme} id={HEADER_WRAPPER_ID}>
                 <div className={styles.inner}>
                     <span className={styles.title}>
                         {pathIsMain ? (
