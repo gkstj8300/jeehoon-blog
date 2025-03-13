@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useHome } from './Home.hooks';
 import styles from './Home.module.scss';
+import { Notice } from "@/components/layout/notice";
 import { Post } from '@/components/pages/Home/Post';
 import { Profile } from '@/components/pages/Home/Profile';
 import { RecentPosts } from "@/components/pages/Home/RecentPosts";
 import { SearchBox } from "@/components/pages/Home/SearchBox";
 import { Tag } from "@/components/pages/Home/Tag";
-import { Notice } from "@/components/layout/notice";
 import { Breadcrumbs } from '@/components/ui/links/Breadcrumbs';
 import { PostType } from "@/models/pages/slug";
 
