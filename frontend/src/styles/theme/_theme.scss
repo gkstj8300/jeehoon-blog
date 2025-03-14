@@ -18,6 +18,7 @@ html[data-theme="dark"] {
 	--post-tag-background-color: #{dark.$postTagBackgroundColor};
 	--icon-link-background-color: #{dark.$iconLinkBackgroundColor};
 	--back-to-top-background-color: #{dark.$backToTopBackgroundColor};
+	--aside-heading-background-color: #{dark.$asideHeadingBackgroundColor};
 	--base-font: #{dark.$baseFont};
 }
 
@@ -38,5 +39,6 @@ html[data-theme="light"] {
 	--post-tag-background-color: #{light.$postTagBackgroundColor};
 	--icon-link-background-color: #{light.$iconLinkBackgroundColor};
 	--back-to-top-background-color: #{light.$backToTopBackgroundColor};
+	--aside-heading-background-color: #{light.$asideHeadingBackgroundColor};
 	--base-font: #{light.$baseFont};     
 }

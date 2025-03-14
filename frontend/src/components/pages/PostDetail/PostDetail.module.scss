@@ -6,8 +6,9 @@
 };
 
 .detailWrap {
-	max-width: 48rem;
+	max-width: 50rem;
 	margin: 0 auto;
+	padding: 0 1rem;
 }
 
 .breadcrumb {
@@ -57,6 +58,10 @@
 	.container {
 		display: block;
 	};
+
+	.detailWrap {
+		padding: 0;
+	}
 
 	.asideButton {
 		display: flex;
