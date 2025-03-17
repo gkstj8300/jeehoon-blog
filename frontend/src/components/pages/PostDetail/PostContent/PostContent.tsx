@@ -34,7 +34,7 @@ const customCodeBlock = ({ props, theme }: CustomMarkdownType) => {
                 className={styles.scriptBlock}
                 style={theme === 'dark' ? materialDark : coy}
                 language="javascript"
-                PreTag="div"
+                PreTag="pre"
                 showLineNumbers
                 wrapLines
             >
