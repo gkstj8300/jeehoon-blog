@@ -31,6 +31,7 @@ export const TagLink: FC<Props> = forwardRef<HTMLAnchorElement, Props>(
 				ref={ref}
                 className={classNames(styles.link, className)}
                 {...props}
+				onClick={(e) => e.preventDefault()}
             >
 				<>
 				{name}
