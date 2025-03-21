@@ -9,7 +9,7 @@ type Props = {
 const PostListPage: NextPage<Props> = props => {
     return (
         <>
-            PostListPage
+            {props}
         </>
     );
 };
