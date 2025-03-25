@@ -92,7 +92,7 @@ export const PostDetail: React.FC<Props> = ({
                     />
                     <PostComents />
                 </div>
-                {headings && (
+                {headings && headings.length > 0 && (
                     <div 
                         className={styles.sideWrap}
                         style={{
