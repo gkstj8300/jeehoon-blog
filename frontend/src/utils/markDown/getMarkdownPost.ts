@@ -6,20 +6,19 @@ import { PostType } from '@/models/pages/slug';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 
-/* eslint-disable no-restricted-syntax */
 const getMarkdownPost = async (slug: string): Promise<PostType> => {
     const fileNames = await fs.readdir(postsDirectory);
 
-    const post = await Promise.all(
-        fileNames.map(async (fileName) => {
-            const filePath = path.join(postsDirectory, fileName);
-            const fileContents = await fs.readFile(filePath, 'utf8');
-            const { data, content } = matter(fileContents);
+    for (const fileName of fileNames) {
+        const filePath = path.join(postsDirectory, fileName);
+        const fileContents = await fs.readFile(filePath, 'utf8');
+        const { data, content } = matter(fileContents);
 
-            const convertSlug = convertToSlug(data.title);
+        const convertSlug = convertToSlug(data.title);
 
-            const post: PostType = {
-                slug: convertToSlug(data.title),
+        if (convertSlug === slug) {
+            return {
+                slug: convertSlug,
                 title: data.title,
                 description: data.description,
                 thumbnailImage: data.thumbnailImage,
@@ -28,18 +27,10 @@ const getMarkdownPost = async (slug: string): Promise<PostType> => {
                 tags: data.tags,
                 content,
             };
-
-            if(convertSlug === slug) {
-                return post;
-            }
-        })
-    ).then((posts) => posts.find((post) => post));
-
-    if (!post) {
-        throw new Error('게시글을 찾지 못했습니다.')
+        }
     }
 
-    return post;
+    throw new Error('게시글을 찾지 못했습니다.');
 };
 
 export default getMarkdownPost;
