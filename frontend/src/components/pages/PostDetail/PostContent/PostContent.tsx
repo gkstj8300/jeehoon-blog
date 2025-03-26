@@ -5,6 +5,9 @@ import { materialDark, coy } from "react-syntax-highlighter/dist/cjs/styles/pris
 import rehypeRaw from "rehype-raw";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
+import { CautionCodeBlock } from './CautionCodeBlock';
+import { ListCodeBlock } from "./ListCodeBlock";
+import { PointCodeBlock } from "./PointCodeBlock";
 import { usePostContent } from "./PostContent.hook";
 import styles from './PostContent.module.scss';
 import { Heading } from '@/components/pages/PostDetail/PostDetail.types';
@@ -42,10 +45,21 @@ const customCodeBlock = ({ props, theme }: CustomMarkdownType) => {
             </SyntaxHighlighter>
         );
     }
+
+    if(match?.[1] === "point") {
+        return <PointCodeBlock content={String(children).replace(/\n$/, '')}/>
+    }
+
+    if(match?.[1] === 'list') {
+        return <ListCodeBlock props={props} />
+    }
+
+    if(match?.[1] === 'caution') {
+        return <CautionCodeBlock content={String(children).replace(/\n$/, '')}/>
+    }
+
     return (
-        <div className={styles.codeBlock}>
-            <code {...props}>{children}</code>
-        </div>
+        <code className={styles.codeBlock}>{children}</code>
     );
 };
 

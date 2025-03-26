@@ -63,7 +63,7 @@ const getMarkdownAllPosts = async () => {
 
 ### 3. 상세 페이지
 마크다운 파일을 통해서 데이터를 가져오는 방법을 확인했으면 이러한 데이터를 이용하여 화면에 출력하는 방법을 알아보죠. 마크다운 형식의 데이터를 화면에 출력하기 위해 아래와 같은 라이브러리를 사용해볼게요
-```
+```list
 1. react-markdown
 - React 환경에서 마크다운을 렌더링 할 수 있도록 도와줍니다.
 - 마크다운 문법을 HTML로 변환하여 출력해줍니다.
@@ -78,10 +78,9 @@ const getMarkdownAllPosts = async () => {
 ```
 
 적용에 앞서 react-markdown의 Import에 관련이에요. react-markdown을 직접적으로 import 하게되면 Hydration failed 에러가 발생할 수 있어요 그러면 가장 먼저 Hydration failed는 무엇일까요?
-```
-1. Hydration failed 에러란?
-- Next.js에서는 서버에서 미리 렌더링한 HTML과 클라이언트에서 실행되는 React 컴포넌트의 결과가 일치하지 않으면 Hydration failed 오류가 발생해요.
-즉, 서버에서 렌더링한 마크다운과 클라이언트에서 렌더링한 마크다운이 다르면 에러가 뜨는 거죠.
+```point
+1. Hydration failed 에러란? 
+- Next.js에서는 서버에서 미리 렌더링한 HTML과 클라이언트에서 실행되는 React 컴포넌트의 결과가 일치하지 않으면 Hydration failed 오류가 발생해요. 즉, 서버에서 렌더링한 마크다운과 클라이언트에서 렌더링한 마크다운이 다르면 에러가 뜨는 거죠.
 ```
 서버와 클라이언트의 마크다운이 다르게 해석될 가능성이 충분이 있으며 저는 이러한 에러로인해 Dynamic Import로 클라이언트에서만 실행되도록 설정하였어요.
 
