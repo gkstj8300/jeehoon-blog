@@ -30,7 +30,7 @@
 
 .menu {
 	display: flex;
-	gap: 0.5rem;
+	gap: 1rem;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -40,12 +40,25 @@
 }
 
 .theme {
-	width: 1.5rem;
-	height: 1.5rem;
+	width: 1.4rem;
+	height: 1.4rem;
 	cursor: pointer;
+
+	&:hover {
+		height: 1.5rem;
+		color: var(--icon-link-background-color);
+		font-weight: bold;
+		transition: color .2s;
+	}
 }
 
 .link {
-	width: 1.5rem;
-	height: 1.5rem;
+	height: 1.4rem;
+
+	&:hover {
+		height: 1.5rem;
+		color: var(--icon-link-background-color);
+		font-weight: bold;
+		transition: color .2s;
+	}
 }

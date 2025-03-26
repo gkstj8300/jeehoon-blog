@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSession, signOut } from 'next-auth/react';
 import { useEffect, useCallback, useMemo } from 'react';
-import { BsPersonBoundingBox } from "react-icons/bs";
 import { CiLight } from "react-icons/ci";
+import { FaGithub, FaRegUserCircle } from 'react-icons/fa';
 import { MdDarkMode } from "react-icons/md";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { TfiWrite } from "react-icons/tfi";
@@ -14,6 +14,7 @@ import { useOnMounted } from '@/hooks/useOnMounted';
 import { useStore, useSelector } from '@/store/hooks';
 import { loadLayoutTheme, toggleUpdateLayoutTheme } from '@/store/modules/common/operations';
 import { selectTheme } from '@/store/modules/common/selectors';
+import { url } from '@/utils/url';
 
 export const HEADER_WRAPPER_ID = 'header-wrapper';
 
@@ -63,7 +64,13 @@ export const Header: React.FC = () => {
                     </span>
                     <div className={styles.menu}>
                         <Link href={'/about'} className={styles.link}>
-                            <BsPersonBoundingBox className={styles.theme} />
+                            소개
+                        </Link>
+                        <Link href={url.github} className={styles.link}>
+                            <FaGithub className={styles.theme} />
+                        </Link>
+                        <Link href={url.portfolio} className={styles.link}>
+                            <FaRegUserCircle className={styles.theme} />
                         </Link>
                         {theme === 'dark' 
                         ? (
