@@ -39,6 +39,12 @@
 		}
 	}
 
+	.codeBlock {
+		color: var(--icon-link-background-color);
+		font-weight: bold;
+		white-space: break-spaces;
+	}
+
 	code {
 		font-weight: 500;
 	}
@@ -61,27 +67,6 @@
 
 .scriptBlock {
 	border: var(--post-content-border);
-}
-
-.codeBlock {
-	display: inline-flex;
-	align-items: center;
-	box-sizing: border-box;
-	width: 100%;
-	margin: 4px 0;
-	padding: 16px 16px 16px 12px;
-	background-color: rgb(112 100 133 / 0.2);
-	border-width: 1px;
-	border-left: var(--post-content-left-border);
-	border-radius: 5px;
-
-	code {
-		width: 100%;
-		margin-left: 8px;
-		line-height: 2rem;
-		white-space: pre-wrap;
-		word-break: break-word;
-	}
 }
 
 .list {
