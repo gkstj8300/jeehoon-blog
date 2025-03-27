@@ -1,5 +1,6 @@
 .home {
-	display: grid;
+	display: flex;
+	flex-direction: column;
 }
 
 .rcontainer {
