@@ -5,7 +5,7 @@ export const experience: Translation = {
     naedam: {
         name: '내담C&C',
         durationStart: '2022-03',
-        durationEnd: '재직중',
+        durationEnd: '2025-03',
     },
     experience: `한화생명 코어프로젝트 개발 (2명)<br />
                  Naedam Admin 프로그램 구축 (3명)<br />
