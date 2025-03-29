@@ -43,7 +43,7 @@ export const project: Translation = {
         name: '한국미스미',
         projectName: '리뉴얼 개발/유지보수/운영',
         durationStart: '2024-03',
-        durationEnd: '진행중',
+        durationEnd: '2025-03',
         skillKeywords: 'React,TypeScript,Next.js,Redux,Nodejs,Sass,Vercel,Webpack,SWC,Babel,DataDog,GitHub Actions,Circleci',
         description: `PC 및 모바일 프론트엔드 리뉴얼 개발<br />
                       공통 Header 개발: 로고, 문구, 견적/주문, 장바구니, 문의, 로그인/로그아웃 등 구현<br />
