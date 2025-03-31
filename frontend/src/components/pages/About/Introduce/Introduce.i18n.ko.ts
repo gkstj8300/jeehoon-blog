@@ -7,5 +7,5 @@ export const introduce: Translation = {
         개발이란 코딩을 잘하는 것이 중요하다고 생각할 수 있지만 커뮤니케이션이 가장 중요하다고 생각하고 있습니다.
         비즈니스와 사용자와의 적극적인 커뮤니케이션과 책임감을 바탕으로 보다 더 좋은 프론트엔드 개발자로서 성장하기 위해 학습하고 경험하고 노력하고 있습니다.`,
     lastUpdate: 'Latest Updated',
-    updateDate: '2025.02.26',
+    updateDate: '2025.03.30',
 };
