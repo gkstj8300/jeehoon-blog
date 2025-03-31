@@ -3,7 +3,7 @@ import { Translation } from '@/i18n/types';
 export const experience: Translation = {
     title: 'Experience',
     naedam: {
-        name: '내담C&C',
+        name: '내담씨앤씨',
         durationStart: '2022-03',
         durationEnd: '2025-03',
     },

@@ -14,7 +14,7 @@ export const project: Translation = {
                       인터페이스 실행 및 데이터 검증`,
     },
     naedam: {
-        name: '내담C&C',
+        name: '내담씨앤씨',
         projectName: '사내 홈페이지 신규개발',
         durationStart: '2022-12',
         durationEnd: '2023-03',
@@ -29,8 +29,8 @@ export const project: Translation = {
     misumiMaintenance: {
         name: '한국미스미',
         projectName: '프론트엔드 유지보수/운영',
-        durationStart: '2023-03',
-        durationEnd: '2023-12',
+        durationStart: '2023-04',
+        durationEnd: '2024-04',
         skillKeywords: 'Php,Rxjs,Twig,Javascript,Jquery,Ubuntu Linux,Docker,Apache,Nodejs,Xampp,Bitbucket,Jenkins',
         description: `신규 API의 설계, 적용 및 프론트엔드 개발<br />
                       UI/UX 개선 및 사용자 편의성 강화<br />
@@ -42,8 +42,8 @@ export const project: Translation = {
     misumiRenewal: {
         name: '한국미스미',
         projectName: '리뉴얼 개발/유지보수/운영',
-        durationStart: '2024-03',
-        durationEnd: '2025-03',
+        durationStart: '2024-05',
+        durationEnd: '2024-12',
         skillKeywords: 'React,TypeScript,Next.js,Redux,Nodejs,Sass,Vercel,Webpack,SWC,Babel,DataDog,GitHub Actions,Circleci',
         description: `PC 및 모바일 프론트엔드 리뉴얼 개발<br />
                       공통 Header 개발: 로고, 문구, 견적/주문, 장바구니, 문의, 로그인/로그아웃 등 구현<br />
