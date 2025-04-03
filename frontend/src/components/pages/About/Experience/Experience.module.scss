@@ -17,6 +17,8 @@
 	width: 8rem;
 	max-width: 100%;
 	height: 8rem;
+	padding: 1rem;
+	background-color: #fff;
 	border-width: 1px;
 	border-style: solid;
 	border-color: rgb(234 236 238);
@@ -67,7 +69,6 @@
 }
 
 .calculateDuration {
-	color: var(--post-font-color);
 	font-size: 0.8rem;
 	text-align: center;
 	background-color: var(--sub-background-color);
