@@ -2,7 +2,7 @@
 title: '윈도우 10 로그온이 user profile service 서비스에서 실패했습니다 사용자 프로필을 로드할 수 없습니다. 오류'
 regDate: '2024-03-04 10:01'
 description: '"윈도우 10 로그온이 user profile service 서비스에서 실패했습니다 사용자 프로필을 로드할 수 없습니다." 위와 같은 오류가 나면서 프로필에 로그인이 되지 않는 문제가 발생하였다. 컴퓨터를 몇번이나 다시 시작해도 해당과 같은 오류가 발생하며 로그인이 되지 않았고 검색을 통하여 문제를 해결하였다.'
-thumbnailImage: ''
+thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/window_error.png'
 mainTag: '기타'
 tags: ['윈도우 10','Window 10','사용자 프로필 오류']
 ---
