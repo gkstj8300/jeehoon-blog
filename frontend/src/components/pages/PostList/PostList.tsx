@@ -1,5 +1,5 @@
-import { ChangeEvent, useState, useMemo } from 'react';
 import Link from 'next/link';
+import { ChangeEvent, useState, useMemo } from 'react';
 import { PostContent } from './PostContent';
 import { PostInfo } from './PostInfo';
 import styles from './PostList.module.scss';
