@@ -25,6 +25,7 @@ export const Header: React.FC = () => {
     const { data: session, status } = useSession();
 
     const pathIsMain = router.pathname === '/';
+    const pathIsPostList = router.pathname === '/postList';
 
     const theme = useSelector(selectTheme);
 
@@ -89,7 +90,7 @@ export const Header: React.FC = () => {
                     </div>
                 </div>
             </header>
-            {!pathIsMain && <ScrollProgressBar />}
+            {!pathIsMain && !pathIsPostList && <ScrollProgressBar />}
         </>
     )
 }
