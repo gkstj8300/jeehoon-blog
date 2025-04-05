@@ -17,7 +17,7 @@ export const RecentPosts: React.FC<Props> = ({ posts }) => {
                 <span className={styles.recentPosts}>
                     {t('component.pages.home.recentPosts.recentPost')}
                 </span>
-                <Link href="/" className={styles.allPostLink}>
+                <Link href="/postList" className={styles.allPostLink}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         height="24px"
