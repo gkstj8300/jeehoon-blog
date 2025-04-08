@@ -32,8 +32,16 @@ export const PostSearch: React.FC<Props> = ({ postList, filterPosts }) => {
     }, []);
 
     const handleClickSearch = useCallback(() => {
-        setSearch(prev => ({ ...prev, keyword: prev.keyword.trim() }));
-    }, []);
+        let filteredPosts = [...postList];
+
+        if (search.keyword) {
+            filteredPosts = filteredPosts.filter(post => 
+                post.title.toLowerCase().includes(search.keyword.toLowerCase())
+            );
+        }
+
+        filterPosts(filteredPosts);
+    }, [postList, search.keyword, filterPosts]);
 
     useEffect(() => {
         let filteredPosts = [...postList];
