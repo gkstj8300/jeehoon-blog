@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import { ChangeEvent, useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { PostContent } from './PostContent';
 import { PostInfo } from './PostInfo';
 import styles from './PostList.module.scss';
+import { PostSearch } from './PostSearch';
 import { PostTitle } from './PostTitle';
 import { Breadcrumbs } from '@/components/ui/links/Breadcrumbs';
-import { Title } from '@/components/ui/title';
 import { PostType } from "@/models/pages/slug";
 import { url } from '@/utils/url';
 
@@ -14,15 +14,14 @@ type Props = {
 };
 
 export const PostList: React.FC<Props> = ({ postList }) => {
-    const [keyDownValue, setKeyDownValue] = useState('');
+    const [posts, setPosts] = useState<PostType[]>(postList);
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const { value } = event.currentTarget;
-        setKeyDownValue(value);
-    };
+    const filterPosts = useCallback((posts: PostType[]) => {
+        setPosts(posts);
+    }, []);
 
     const renderedPostList = useMemo(() => {
-        return postList.map((post) => (
+        return posts.map((post) => (
             <div key={post.slug} className={styles.post}>
                 <PostTitle title={post.title}/>
                 <PostInfo regDate={post.regDate} tags={post.tags}/>
@@ -35,7 +34,7 @@ export const PostList: React.FC<Props> = ({ postList }) => {
                 </div>
             </div>
         ));
-    }, [postList]);
+    }, [posts]);
 
     return (
         <>
@@ -48,16 +47,10 @@ export const PostList: React.FC<Props> = ({ postList }) => {
             />
             <div className={styles.container}>
                 <div className={styles.searchWrap}>
-                    <div className={styles.search}>
-                        <Title className={styles.searchTitle} title='Search' />
-                        <input 
-                            value={keyDownValue}
-                            className={styles.searchBox} 
-                            type="text" 
-                            placeholder='keyword input'
-                            onChange={handleChange}
-                        />
-                    </div>
+                    <PostSearch 
+                        postList={postList}
+                        filterPosts={filterPosts}
+                    />
                 </div>
                 <div className={styles.postListWrap}>
                     {renderedPostList}

@@ -1,6 +1,7 @@
 .container {
 	position: relative;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 	box-sizing: border-box;
 	border-radius: 1rem;
@@ -8,34 +9,7 @@
 
 .searchWrap {
 	width: 100%;
-	border-right: 1px solid var(--color-border-secondary);
-}
-
-.search {
-	display: flex;
-	align-items: center;
-	padding: 0.5rem;
-	background-color: var(--sub-background-color);
-	border-radius: 1rem;
-	margin-right: 30px;
-}
-
-.searchTitle {
-	margin: 0;
-}
-
-.searchBox {
-	width: 100%;
-	padding: 0.5rem 1.25rem;
-	color: var(--foreground);
-	font-family: var(--base-font);
-	background-color: transparent;
-	border-width: 0;
-	outline: none;
-
-	&::placeholder {
-		color: var(--foreground);
-	}
+	border-right: none;
 }
 
 .postListWrap {
@@ -47,8 +21,8 @@
 .post {
 	position: relative;
 	max-height: 900px;
-	padding-top: 44px;
-	padding-right: 10px;
+	padding-top: 0;
+	padding-right: 0;
 	padding-bottom: 44px;
 	overflow: hidden;
 	border-bottom: 1px solid var(--color-border-secondary);
@@ -83,4 +57,21 @@
 	border-radius: 6px;
 	box-shadow: 0 0 10px #121212;
 	cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+	.container {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.searchWrap {
+		width: 100%;
+		border-right: 1px solid var(--color-border-secondary);
+	}
+
+	.post {
+		padding-top: 44px;
+		padding-right: 10px;
+	}
 }
