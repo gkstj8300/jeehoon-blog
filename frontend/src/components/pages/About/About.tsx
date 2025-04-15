@@ -5,8 +5,11 @@ import { Introduce } from './Introduce';
 import { Project } from './Project';
 import { Skill } from './Skill';
 import { Breadcrumbs } from '@/components/ui/links/Breadcrumbs';
+import { useOnMounted } from '@/hooks/useOnMounted';
+import { ga } from '@/logs/analytics';
 
 export const About: React.FC = () => {
+    useOnMounted(ga.pageView.about);
 
     return (
         <>

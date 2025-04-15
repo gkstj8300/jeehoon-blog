@@ -10,6 +10,8 @@ import { TableOfContents } from "./TableOfContents";
 import { HEADER_WRAPPER_ID } from "@/components/layout/header/Header";
 import { Heading } from '@/components/pages/PostDetail/PostDetail.types';
 import { Breadcrumbs } from '@/components/ui/links/Breadcrumbs';
+import { useOnMounted } from '@/hooks/useOnMounted';
+import { ga } from '@/logs/analytics';
 import { getHeight } from "@/utils/dom";
 
 const PostComents = dynamic(
@@ -49,11 +51,19 @@ export const PostDetail: React.FC<Props> = ({
 
     const handleGetHeadigs = (headings: Heading[]) => {
         setHeadings(headings);
-    }
+    };
 
     const handleClickAsideOpen = () => {
         setIsAside((prev) => !prev);
-    }
+    };
+
+    useOnMounted(() => {
+        ga.pageView.postDetail({
+            title,
+            regDate,
+            mainTag,
+        });
+    });
 
     return (
         <>
