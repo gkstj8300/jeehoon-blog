@@ -9,5 +9,5 @@ export const trackAboutView = async () => {
 export const setVariables = async () => {
     clearVariables();
     window.ga_eventType = 'PageView';
-    window.ga_layout = 'About';
+    window.ga_layout = 'About Page';
 }

@@ -9,5 +9,5 @@ export const trackPostListView = async () => {
 export const setVariables = async () => {
     clearVariables();
     window.ga_eventType = 'PageView';
-    window.ga_layout = 'PostList';
+    window.ga_layout = 'PostList Page';
 }

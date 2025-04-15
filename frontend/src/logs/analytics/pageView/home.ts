@@ -9,5 +9,5 @@ export const trackHomeView = async () => {
 export const setVariables = async () => {
     clearVariables();
     window.ga_eventType = 'PageView';
-    window.ga_layout = 'Main';
+    window.ga_layout = 'Home Page';
 }

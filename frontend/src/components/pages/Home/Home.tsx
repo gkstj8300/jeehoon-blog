@@ -37,9 +37,7 @@ export const Home: React.FC<Props> = ({
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    useOnMounted(() => {
-        ga.pageView.home();
-    });
+    useOnMounted(ga.pageView.home);
 
     return (
         <>
