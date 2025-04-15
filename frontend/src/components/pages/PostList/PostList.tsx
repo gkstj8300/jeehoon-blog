@@ -6,6 +6,8 @@ import styles from './PostList.module.scss';
 import { PostSearch } from './PostSearch';
 import { PostTitle } from './PostTitle';
 import { Breadcrumbs } from '@/components/ui/links/Breadcrumbs';
+import { useOnMounted } from '@/hooks/useOnMounted';
+import { ga } from '@/logs/analytics';
 import { PostType } from "@/models/pages/slug";
 import { url } from '@/utils/url';
 
@@ -35,6 +37,8 @@ export const PostList: React.FC<Props> = ({ postList }) => {
             </div>
         ));
     }, [posts]);
+
+    useOnMounted(ga.pageView.postList);
 
     return (
         <>

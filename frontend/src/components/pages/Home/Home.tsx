@@ -7,6 +7,8 @@ import { RecentPosts } from "@/components/pages/Home/RecentPosts";
 import { SearchBox } from "@/components/pages/Home/SearchBox";
 import { Tag } from "@/components/pages/Home/Tag";
 import { Breadcrumbs } from '@/components/ui/links/Breadcrumbs';
+import { useOnMounted } from "@/hooks/useOnMounted";
+import { ga } from "@/logs/analytics";
 import { PostType } from "@/models/pages/slug";
 
 const TEG_INNER_WIDTH = 1024;
@@ -34,6 +36,10 @@ export const Home: React.FC<Props> = ({
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
+    useOnMounted(() => {
+        ga.pageView.home();
+    });
 
     return (
         <>

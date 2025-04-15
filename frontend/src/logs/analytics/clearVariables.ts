@@ -1,16 +1,18 @@
-import { GaVariables } from "@/logs/analytics/googleFields";
+import { GoogleAnalyticsFields } from "@/logs/analytics/GoogleAnalyticsFields";
 
 const variablesInitialValues: {
 	[P in keyof Required<
 		Omit<
-        GaVariables,
+        GoogleAnalyticsFields,
 			'dataLayer'
 		>
-	>]: GaVariables[P];
+	>]: GoogleAnalyticsFields[P];
 } = {
-    ga_name: undefined,
     ga_eventType: undefined,
     ga_layout: undefined,
+	ga_post_title: undefined,
+	ga_post_regDate: undefined,
+	ga_post_mainTag: undefined,
 };
 
 export const clearVariables = () => {
