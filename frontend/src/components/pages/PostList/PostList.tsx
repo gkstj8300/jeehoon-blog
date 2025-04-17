@@ -15,11 +15,17 @@ type Props = {
     postList: PostType[];
 };
 
+const LAYOUT = 'PostList';
+
 export const PostList: React.FC<Props> = ({ postList }) => {
     const [posts, setPosts] = useState<PostType[]>(postList);
 
     const filterPosts = useCallback((posts: PostType[]) => {
         setPosts(posts);
+    }, []);
+
+    const handlePostClick = useCallback((post: PostType) => {
+        ga.events.selectPost(post, LAYOUT);
     }, []);
 
     const renderedPostList = useMemo(() => {
@@ -30,13 +36,17 @@ export const PostList: React.FC<Props> = ({ postList }) => {
                 <PostContent content={post.content}/>
                 <div className={styles.detailButton}>
                     <div className={styles.overlay}></div>
-                    <Link className={styles.button} href={url.postDetail(post.slug)}>
+                    <Link 
+                        className={styles.button} 
+                        href={url.postDetail(post.slug)}
+                        onClick={() => handlePostClick(post)}
+                    >
                         상세보기
                     </Link>
                 </div>
             </div>
         ));
-    }, [posts]);
+    }, [posts, handlePostClick]);
 
     useOnMounted(ga.pageView.postList);
 
