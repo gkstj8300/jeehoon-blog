@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './RecentPosts.module.scss';
+import { ga } from '@/logs/analytics';
 import { PostType } from "@/models/pages/slug";
 import { url } from '@/utils/url';
 
@@ -8,8 +10,14 @@ type Props = {
     posts: PostType[];
 };
 
+const LAYOUT = 'Home';
+
 export const RecentPosts: React.FC<Props> = ({ posts }) => {
     const { t } = useTranslation();
+
+    const handlePostClick = useCallback((post: PostType) => {
+        ga.events.selectPost(post, LAYOUT);
+    }, []);
 
     return (
         <div className={styles.container}>
@@ -35,7 +43,12 @@ export const RecentPosts: React.FC<Props> = ({ posts }) => {
             </div>
             <div className={styles.body}>
                 {posts.map((post) => (
-                    <Link href={url.postDetail(post.slug)} key={post.title} className={styles.post}>
+                    <Link 
+                        href={url.postDetail(post.slug)} 
+                        key={post.title} 
+                        className={styles.post}
+                        onClick={() => handlePostClick(post)}
+                    >
                         <span className={styles.tag}>{post.mainTag}</span>
                         <div className={styles.title} title={post.title}>
                             {post.title}

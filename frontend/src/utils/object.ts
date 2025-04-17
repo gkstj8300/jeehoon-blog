@@ -15,11 +15,9 @@ export function isObject<T extends object = object>(
 }
 
 /**
- * 指定のキーを対象のオブジェクトから削除します。
- *
- * @param {Record<K, V>} target - 対象のオブジェクト
- * @param {...K} keys - 削除したいキー
- * @returns {Record<K, V>} 指定のキーが削除されたオブジェクト
+ * @param {Record<K, V>} target
+ * @param {...K} keys
+ * @returns {Record<K, V>}
  * @template K, V
  */
 export function remove<K extends string | number, V>(
