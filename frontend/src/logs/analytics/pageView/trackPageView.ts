@@ -4,7 +4,7 @@ export async function tractPageView() {
 	window.dataLayer = window.dataLayer || [];
 
     window.dataLayer.push({
-		event: 'gaDisplay',
+		event: 'PageView',
 		dl_referrer: routerHistory.getReferrer(),
         ga_eventType: window.ga_eventType,
         ga_layout: window.ga_layout,

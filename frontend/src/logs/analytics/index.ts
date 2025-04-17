@@ -1,3 +1,4 @@
+import { events } from "./events";
 import { pageView } from "./pageView";
 
-export const ga = { pageView } as const;
+export const ga = { events, pageView } as const;
