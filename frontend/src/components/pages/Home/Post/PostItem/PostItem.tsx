@@ -1,27 +1,24 @@
 import Link from 'next/link';
 import styles from './PostItem.module.scss';
+import { PostType } from '@/models/pages/slug';
 import { url } from '@/utils/url';
 
 type Props = {
-    slug: string;
-    title: string;
-    description: string;
-    thumbnailImage?: string;
-    regDate: string;
-    mainTag: string;
-    tags: string[];
+    post: PostType;
+    handlePostClick: (post: PostType) => void;
 };
 
 export const PostItem: React.FC<Props> = ({
-    slug, 
-    title, 
-    description, 
-    thumbnailImage, 
-    regDate,
-    mainTag,
+    post,
+    handlePostClick,
 }) => {
+    const { slug, title, description, thumbnailImage, regDate,mainTag } = post;
     return (
-        <Link className={styles.container} href={url.postDetail(slug)}>
+        <Link 
+            className={styles.container} 
+            href={url.postDetail(slug)}
+            onClick={() => handlePostClick(post)}
+        >
             <div className={styles.thumbnail}>
                 <div className={styles.thumbnailImg}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
