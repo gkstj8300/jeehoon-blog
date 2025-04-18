@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import styles from './Header.module.scss';
 import { ScrollProgressBar } from '@/components/ui/progressBar';
 import { useOnMounted } from '@/hooks/useOnMounted';
+import { ga } from '@/logs/analytics';
 import { useStore, useSelector } from '@/store/hooks';
 import { loadLayoutTheme, toggleUpdateLayoutTheme } from '@/store/modules/common/operations';
 import { selectTheme } from '@/store/modules/common/selectors';
@@ -38,9 +39,18 @@ export const Header: React.FC = () => {
         async (event: React.MouseEvent) => {
             event.preventDefault();
             toggleUpdateLayoutTheme(store)(theme);
+            ga.events.themeChange(theme);
         },
         [store, theme]
     );
+
+    const handleGithubClick = useCallback(() => {
+        ga.events.githubView(router.pathname);
+    }, [router]);
+
+    const handleCareerDescriptionClick = useCallback(() => {
+        ga.events.careerDescriptionView(router.pathname);
+    }, [router]);
 
     const load = useCallback(() => {
         loadLayoutTheme(dispatch);
@@ -68,10 +78,16 @@ export const Header: React.FC = () => {
                             소개
                         </Link>
                         <Link href={url.github} className={styles.link}>
-                            <FaGithub className={styles.theme} />
+                            <FaGithub 
+                                className={styles.theme} 
+                                onClick={() => handleGithubClick()}
+                            />
                         </Link>
                         <Link href={url.portfolio} className={styles.link}>
-                            <FaRegUserCircle className={styles.theme} />
+                            <FaRegUserCircle 
+                                className={styles.theme} 
+                                onClick={() => handleCareerDescriptionClick()}
+                            />
                         </Link>
                         {theme === 'dark' 
                         ? (
