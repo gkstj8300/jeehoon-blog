@@ -83,7 +83,7 @@ export const Header: React.FC = () => {
                                 onClick={() => handleGithubClick()}
                             />
                         </Link>
-                        <Link href={url.portfolio} className={styles.link}>
+                        <Link href={url.careerDescription} className={styles.link}>
                             <FaRegUserCircle 
                                 className={styles.theme} 
                                 onClick={() => handleCareerDescriptionClick()}

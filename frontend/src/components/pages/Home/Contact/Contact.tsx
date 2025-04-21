@@ -38,8 +38,8 @@ export const Contact: React.FC = () => {
         },
         {
             icon: <FaRegUserCircle />,
-            href: url.portfolio,
-            text: t('component.pages.home.contact.portfolio'),
+            href: url.careerDescription,
+            text: t('component.pages.home.contact.careerDescription'),
         }
     ];
 

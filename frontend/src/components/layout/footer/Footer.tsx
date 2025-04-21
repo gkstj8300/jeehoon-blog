@@ -19,9 +19,9 @@ export const Footer: React.FC = () => {
                 </a>
                 <a 
                     target="_blank" 
-                    href={url.portfolio}
+                    href={url.careerDescription}
                 >
-                    <span>{t('component.ui.layouts.footer.portfolio')}</span>
+                    <span>{t('component.ui.layouts.footer.careerDescription')}</span>
                 </a>
             </div>
             <div>
