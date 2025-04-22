@@ -1,8 +1,7 @@
 # Jeehoon Blog
 
 ## :clipboard: UI
-![Baakahan](https://github.com/user-attachments/assets/70518ace-6356-4d58-a41f-eefdc369dcbd)
-
+![Image](https://github.com/user-attachments/assets/1fec83a5-eda8-4466-bd57-6f98b0ed02e3)
 
 ![Next.js](https://img.shields.io/badge/Next.js-14.2.1-blue) ![React](https://img.shields.io/badge/React-18-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.4.5-blue) ![Styled with Sass](https://img.shields.io/badge/Styled_with-Sass-pink)
 
