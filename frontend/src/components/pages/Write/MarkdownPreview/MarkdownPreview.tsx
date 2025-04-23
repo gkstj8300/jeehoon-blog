@@ -5,6 +5,9 @@ import rehypeRaw from "rehype-raw";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
 import styles from "./MarkdownPreview.module.scss";
+import { CautionCodeBlock } from '@/components/pages/PostDetail/PostContent/CautionCodeBlock';
+import { ListCodeBlock } from '@/components/pages/PostDetail/PostContent/ListCodeBlock';
+import { PointCodeBlock } from '@/components/pages/PostDetail/PostContent/PointCodeBlock';
 import { CustomMarkdownType } from "@/models/pages/slug";
 import { useSelector } from "@/store/hooks";
 import { selectTheme } from '@/store/modules/common/selectors';
@@ -33,10 +36,21 @@ const customCodeBlock = ({ props, theme }: CustomMarkdownType) => {
             </SyntaxHighlighter>
         );
     }
+
+    if(match?.[1] === "point") {
+        return <PointCodeBlock content={String(children).replace(/\n$/, '')}/>
+    }
+
+    if(match?.[1] === 'list') {
+        return <ListCodeBlock props={props} />
+    }
+
+    if(match?.[1] === 'caution') {
+        return <CautionCodeBlock content={String(children).replace(/\n$/, '')}/>
+    }
+
     return (
-        <div className={styles.codeBlock}>
-            <code {...props}>{children}</code>
-        </div>
+        <code className={styles.codeBlock}>{children}</code>
     );
 };
 
