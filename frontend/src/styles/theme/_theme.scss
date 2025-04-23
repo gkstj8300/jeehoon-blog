@@ -20,6 +20,8 @@ html[data-theme="dark"] {
 	--back-to-top-background-color: #{dark.$backToTopBackgroundColor};
 	--aside-heading-background-color: #{dark.$asideHeadingBackgroundColor};
 	--base-font: #{dark.$baseFont};
+	--post-list-tag-color: #{dark.$postListTagColor};
+	--post-list-tag-boder-color: #{dark.$postListTagBoderColor};
 }
 
 html[data-theme="light"] {
@@ -40,5 +42,7 @@ html[data-theme="light"] {
 	--icon-link-background-color: #{light.$iconLinkBackgroundColor};
 	--back-to-top-background-color: #{light.$backToTopBackgroundColor};
 	--aside-heading-background-color: #{light.$asideHeadingBackgroundColor};
-	--base-font: #{light.$baseFont};     
+	--base-font: #{light.$baseFont};
+	--post-list-tag-color: #{light.$postListTagColor};
+	--post-list-tag-boder-color: #{light.$postListTagBoderColor};   
 }
