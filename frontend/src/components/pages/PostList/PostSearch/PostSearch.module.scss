@@ -47,23 +47,23 @@
 }
 
 .tag {
-	color: #ffffff80;
+	color: var(--post-list-tag-color);
 	font-weight: 600;
 	font-size: 13px;
 	line-height: 1;
 	background-color: transparent;
-	border: 1px solid rgb(255 255 255 / .1);
+	border: 1px solid var(--post-list-tag-boder-color);
 	border-radius: 4px;
 	outline: none;
 	cursor: pointer;
 	user-select: none;
 
 	&[data-bold='true'] {
-		background-color: rgb(255 255 255 / .1);
+		background-color: var(--post-list-tag-boder-color);
 	}
 
 	&:hover {
-		background-color: rgb(255 255 255 / .1);
+		background-color: var(--post-list-tag-boder-color);
 	}
 }
 
