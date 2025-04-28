@@ -45,7 +45,7 @@ export const Experience: React.FC = () => {
                     <div className={styles.companyWrap}>
                         <h4 className={styles.companyName}>{t('component.pages.about.experience.naedam.name')}</h4>
                         <div className={styles.duration}>
-                            <div>
+                            <div className={styles.durationDate}>
                                 {t('component.pages.about.experience.naedam.durationStart')}
                                 <span>~</span>
                                 {t('component.pages.about.experience.naedam.durationEnd')}

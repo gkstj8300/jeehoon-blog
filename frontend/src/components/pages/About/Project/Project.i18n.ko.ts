@@ -20,7 +20,7 @@ export const project: Translation = {
         durationEnd: '2023-03',
         skillKeywords: 'Java,Spring Boot,Javascript,Jquery,MariaDB,Servlet,Cafe24',
         description: `사내 홈페이지의 백엔드 및 프론트엔드 설계, 구현, 그리고 시스템 구축<br />
-                      Neadam Admin 프로그램과의 연동 및 적용 작업 수행<br />
+                      Naedam Admin 프로그램과의 연동 및 적용 작업 수행<br />
                       비동기 작업 처리를 위한 유틸리티 설계 및 구현<br />
                       사용자 경험(UX)과 사용자 인터페이스(UI)에 기반한 설계 및 개발<br />
                       SEO(Search Engine Optimization) 최적화 구현<br />

@@ -80,4 +80,18 @@
 	.companyName {
 		font-size: 1.3rem;
 	}
+
+	.details {
+		margin-right: 0;
+	}
+
+	.divider {
+		margin-right: 10;
+	}
+
+	.durationDate {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-end;
+	}
 }
