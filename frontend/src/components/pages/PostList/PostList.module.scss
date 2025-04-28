@@ -50,6 +50,7 @@
 	width: 90px;
 	height: 40px;
 	margin: 0 auto;
+	color: #fff;
 	font-weight: 600;
 	font-size: 14px;
 	background: #121212;
@@ -57,6 +58,10 @@
 	border-radius: 6px;
 	box-shadow: 0 0 10px #121212;
 	cursor: pointer;
+
+	&:hover {
+		background-color: var(--post-list-tag-boder-color);
+	}
 }
 
 @media (min-width: 1024px) {
