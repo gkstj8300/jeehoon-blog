@@ -58,7 +58,7 @@
 	}
 
 	&:hover {
-		background-color: #ffffff0d;
+		background-color: var(--post-list-tag-boder-color);
 		border-radius: 6px;
 	}
 }
@@ -78,6 +78,7 @@
 
 .title {
 	display: -webkit-box;
+	height: 20px;
 	overflow: hidden;
 	font-size: 16px;
 	line-height: 1;
