@@ -1,0 +1,1 @@
+export { SkillContent } from './SkillContent';
