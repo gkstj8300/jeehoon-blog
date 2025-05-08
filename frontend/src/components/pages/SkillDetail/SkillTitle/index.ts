@@ -1,0 +1,1 @@
+export { SkillTitle } from './SkillTitle';
