@@ -4,6 +4,7 @@ import { useSession, signOut } from 'next-auth/react';
 import { useEffect, useCallback, useMemo } from 'react';
 import { CiLight } from "react-icons/ci";
 import { FaGithub, FaRegUserCircle } from 'react-icons/fa';
+import { GiSkills } from "react-icons/gi";
 import { MdDarkMode } from "react-icons/md";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { TfiWrite } from "react-icons/tfi";
@@ -101,6 +102,9 @@ export const Header: React.FC = () => {
                                     <TfiWrite className={styles.theme}/>
                                 </Link>
                                 <RiLogoutCircleLine className={styles.theme} onClick={() => signOut({ callbackUrl: "/"})}/>
+                                <Link href={'/skillList'} className={styles.link}>
+                                    <GiSkills className={styles.theme}/>
+                                </Link>
                             </>
                         )}
                     </div>
