@@ -4,7 +4,7 @@ import React from 'react';
 import { SkillDetail } from '@/components/pages/SkillDetail';
 import { SkillType } from '@/models/pages/slug';
 import { getParams } from '@/utils/getParams';
-import getMarkdownPost from '@/utils/markDown/getMarkdownPost';
+import getMarkdownSkill from '@/utils/markDown/getMarkdownSkill';
 
 type Props = {
     post: SkillType;
@@ -29,7 +29,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
 	query,    
 }) => {
     const { slug } = getParams(query);
-    const post = await getMarkdownPost(String(slug));
+    const post = await getMarkdownSkill(String(slug));
 
     return {
         props: { post }
