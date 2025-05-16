@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { PostContent } from './PostContent';
 import { PostInfo } from './PostInfo';
 import styles from './PostList.module.scss';
@@ -16,20 +16,60 @@ type Props = {
 };
 
 const LAYOUT = 'PostList';
+const PAGE_SIZE = 5;
 
 export const PostList: React.FC<Props> = ({ postList }) => {
     const [posts, setPosts] = useState<PostType[]>(postList);
+    const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+    const observerRef = useRef<HTMLDivElement | null>(null);
 
     const filterPosts = useCallback((posts: PostType[]) => {
         setPosts(posts);
+        setVisibleCount(PAGE_SIZE);
     }, []);
 
     const handlePostClick = useCallback((post: PostType) => {
         ga.events.selectPost(post, LAYOUT);
     }, []);
 
+    const visiblePosts = useMemo(() => {
+        return posts.slice(0, visibleCount);
+    }, [posts, visibleCount]);
+
+    useEffect(() => {
+        if (visibleCount >= posts.length) {
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0]?.isIntersecting) {
+                    setVisibleCount((prev) => {
+                        const next = prev + PAGE_SIZE;
+                        return next > posts.length ? posts.length : next;
+                    });
+                }
+            },
+            { 
+                threshold: 1.0 
+            }
+        );
+
+        const target = observerRef.current;
+        
+        if (target) {
+            observer.observe(target)
+        }
+
+        return () => {
+            if (target) {
+                observer.unobserve(target)
+            }
+        };
+    }, [posts, visibleCount]);
+
     const renderedPostList = useMemo(() => {
-        return posts.map((post) => (
+        return visiblePosts.map((post) => (
             <div key={post.slug} className={styles.post}>
                 <PostTitle title={post.title}/>
                 <PostInfo regDate={post.regDate} tags={post.tags}/>
@@ -46,7 +86,7 @@ export const PostList: React.FC<Props> = ({ postList }) => {
                 </div>
             </div>
         ));
-    }, [posts, handlePostClick]);
+    }, [visiblePosts, handlePostClick]);
 
     useOnMounted(ga.pageView.postList);
 
@@ -68,6 +108,9 @@ export const PostList: React.FC<Props> = ({ postList }) => {
                 </div>
                 <div className={styles.postListWrap}>
                     {renderedPostList}
+                    {visibleCount < posts.length && (
+                        <div ref={observerRef} style={{ height: '1px' }} />
+                    )}
                 </div>
             </div>
         </>
