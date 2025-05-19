@@ -11,6 +11,10 @@ import { ga } from '@/logs/analytics';
 export const About: React.FC = () => {
     useOnMounted(ga.pageView.about);
 
+    const handleOpenResumePdf = () => {
+        window.open('https://d2ut7x8yqv441q.cloudfront.net/posts/resume.pdf', '_blank');
+    }
+
     return (
         <>
             <Breadcrumbs
@@ -21,6 +25,7 @@ export const About: React.FC = () => {
                 }]}
             />
             <div className={styles.container}>
+                <div className={styles.pdf} onClick={handleOpenResumePdf}>PDF 열기</div>
                 <Introduce />
                 <Skill />
                 <Experience />
