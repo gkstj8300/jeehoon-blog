@@ -63,7 +63,7 @@ export const project: Translation = {
                 name: '사내 홈페이지 Back-end 및 Front-end 개발',
                 developmentStart: '',
                 developmentEnd: '',
-                description: `시스템 구축 및 Admin 프로그램 연동 및 적용<br />,
+                description: `시스템 구축 및 Admin 프로그램 연동 및 적용<br />
                               SEO 최적화 개발<br />
                               한글 / 영문 페이지 구축 (다국어 지원) 개발`
             },
