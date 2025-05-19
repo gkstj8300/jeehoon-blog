@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
 import styles from './ProjectItem.module.scss';
+import type { Develop } from '@/components/pages/About/Project/Project';
 import { Skill } from '@/components/pages/About/Project/Skill';
+import { MiniTitle } from '@/components/ui/title/MiniTitle';
 
 type Props = {
     idx: number,
@@ -11,22 +13,18 @@ type Props = {
     durationEnd: string,
     skillKeywords: string,
     description: string,
+    development: Develop[],
 }
 
 export const ProjectItem: React.FC<Props> = ({
-    idx,
     name,
     projectName,
     logoImg,
     durationStart,
     durationEnd,
     skillKeywords,
-    description,
+    development,
 }) => {
-
-    const isEven = useMemo(() => 
-        idx % 2 === 0
-    , [idx]);
 
     const skillList = useMemo(() => 
         skillKeywords.split(',')
@@ -50,51 +48,57 @@ export const ProjectItem: React.FC<Props> = ({
         return duration;
     }, [durationStart, durationEnd]);
 
-    const descriptionList = useMemo(() => 
-        description.split('<br />').map(item => item.trim()
-    ), [description]);
-
     const Item = (
         <div className={styles.projectItem}>
-            {isEven && (
-                <div>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className={styles.projectLogo} src={logoImg} alt={projectName} />
-                </div>
-            )}
-            <div 
-                className={styles.detailBody}
-                data-even={isEven}
-            >
-                <div>
-                    <h3 className={styles.name}>{name}</h3>
-                    <h3 className={styles.projectName}>{projectName}</h3>
-                    <div className={styles.duration}>
-                        <div>
-                            {durationStart}
-                            <span>~</span>
-                            {durationEnd}
+            <div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className={styles.projectLogo} src={logoImg} alt={projectName} />
+                <div className={styles.detailBody}>
+                    <div>
+                        <h3 className={styles.name}>{name}</h3>
+                        <h3 className={styles.projectName}>{projectName}</h3>
+                        <div className={styles.duration}>
+                            <div>
+                                {durationStart}
+                                <span>~</span>
+                                {durationEnd}
+                            </div>
+                            <span className={styles.calculateDuration}>
+                                {calculateDuration}
+                            </span>
                         </div>
-                        <span className={styles.calculateDuration}>
-                            {calculateDuration}
-                        </span>
                     </div>
                 </div>
-                <ul className={styles.description} data-even={isEven}>
-                    {descriptionList.map((description, idx) => 
-                        <li key={idx}>{description}</li>    
-                    )}
+            </div>
+            <div className={styles.description}>
+                <div className={styles.skill}>
                     {skillList.map(skill => 
                         <Skill key={skill} skill={skill}/>
                     )}
-                </ul>
-            </div>
-            {!isEven && (
-                <div className={styles.logoWrap}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className={styles.projectLogo} src={logoImg} alt={projectName} />
                 </div>
-            )}
+                {development.map((item, idx) => 
+                    <div key={item.name + idx} className={styles.development}>
+                        <div className={styles.developmentHead}>
+                            <MiniTitle type={item.type}/>
+                            <h3>{item.name}</h3>
+                        </div>
+                        <div className={styles.developmentDate}>
+                            {item.developmentStart && item.developmentEnd && (
+                                <em>
+                                    {item.developmentStart}
+                                        <span>~</span>
+                                    {item.developmentEnd}
+                                </em>
+                            )}
+                        </div>
+                        {item.description.split('<br />').map((item, idx) => (
+                            <li key={`description_${idx}`}>
+                                {item}
+                            </li>
+                        ))}
+                    </div>
+                )}
+            </div>
         </div>
     );
 

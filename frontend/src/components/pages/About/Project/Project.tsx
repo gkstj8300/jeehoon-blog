@@ -5,9 +5,10 @@ import hanwhaLogo from './assets/hanwhaLogo.png';
 import misumiLogo from './assets/misumiLogo.svg';
 import naedamLogo from './assets/naedamLogo.jpg';
 import { Title } from '@/components/ui/title';
+import { DevelopType } from '@/components/ui/title/MiniTitle';
 
 export type Develop = {
-    type: string;
+    type: DevelopType;
     name: string;
     developmentStart: string;
     developmentEnd: string;
@@ -39,7 +40,7 @@ export const Project: React.FC = () => {
         const development: Develop[] = [];
 
         for (let i = 1; i <= 5; i++) {
-            const type = t(`component.pages.about.project.${key}.development.develop${i}.type`);
+            const type: DevelopType = t(`component.pages.about.project.${key}.development.develop${i}.type`);
             if (!type || type === `component.pages.about.project.${key}.development.develop${i}.type`) {
                 continue;
             }

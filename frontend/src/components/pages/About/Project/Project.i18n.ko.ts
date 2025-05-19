@@ -22,7 +22,7 @@ export const project: Translation = {
                               시스템 간 데이터 전송을 위한 배치 인터페이스를 구현하였으며, 실제 운영 환경에서 데이터가 정확하게 전달되도록 다각도의 검증 로직을 설계 및 적용.`
             },
             develop2: {
-                type: '(검증) Feature',
+                type: 'Test',
                 name: '데이터 마이그레이션 검증',
                 developmentStart: '',
                 developmentEnd: '',
@@ -99,7 +99,7 @@ export const project: Translation = {
                               새로운 과금 항목 및 배송료 로직에 대응하여 API 설계 및 화면 단 변경 수행`
             },
             develop3: {
-                type: 'Feature',
+                type: 'Style',
                 name: 'UI/UX 개선 작업',
                 developmentStart: '2023-09',
                 developmentEnd: '2023-11',
@@ -159,7 +159,7 @@ export const project: Translation = {
                               최종 오픈 일정에 맞춰 사용자 피드백 기반 수정 및 기능 안정화 진행`
             },
             develop3: {
-                type: 'stabilize',
+                type: 'Stabilize',
                 name: '안정화 및 운영',
                 developmentStart: '2025-01',
                 developmentEnd: '2025-03',
