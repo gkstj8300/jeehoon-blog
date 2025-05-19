@@ -5,8 +5,17 @@ import hanwhaLogo from './assets/hanwhaLogo.png';
 import misumiLogo from './assets/misumiLogo.svg';
 import naedamLogo from './assets/naedamLogo.jpg';
 import { Title } from '@/components/ui/title';
+import { DevelopType } from '@/components/ui/title/MiniTitle';
 
-type ProjectItem = {
+export type Develop = {
+    type: DevelopType;
+    name: string;
+    developmentStart: string;
+    developmentEnd: string;
+    description: string;
+}
+
+type ProjectItemType = {
     name: string;
     projectName: string;
     logoImg: string;
@@ -14,6 +23,7 @@ type ProjectItem = {
     durationEnd: string;
     skillKeywords: string;
     description: string;
+    development: Develop[];
 };
 
 const projectData = [
@@ -26,15 +36,35 @@ const projectData = [
 export const Project: React.FC = () => {
     const { t } = useTranslation();
 
-    const projects: ProjectItem[] = projectData.map(({ key, logoImg }) => ({
-        name: t(`component.pages.about.project.${key}.name`),
-        projectName: t(`component.pages.about.project.${key}.projectName`),
-        logoImg,
-        durationStart: t(`component.pages.about.project.${key}.durationStart`),
-        durationEnd: t(`component.pages.about.project.${key}.durationEnd`),
-        skillKeywords: t(`component.pages.about.project.${key}.skillKeywords`),
-        description: t(`component.pages.about.project.${key}.description`),
-    })).reverse();
+    const projects: ProjectItemType[] = projectData.map(({ key, logoImg }) => {
+        const development: Develop[] = [];
+
+        for (let i = 1; i <= 5; i++) {
+            const type: DevelopType = t(`component.pages.about.project.${key}.development.develop${i}.type`);
+            if (!type || type === `component.pages.about.project.${key}.development.develop${i}.type`) {
+                continue;
+            }
+
+            development.push({
+                type,
+                name: t(`component.pages.about.project.${key}.development.develop${i}.name`),
+                developmentStart: t(`component.pages.about.project.${key}.development.develop${i}.developmentStart`),
+                developmentEnd: t(`component.pages.about.project.${key}.development.develop${i}.developmentEnd`),
+                description: t(`component.pages.about.project.${key}.development.develop${i}.description`),
+            });
+        }
+
+        return {
+            name: t(`component.pages.about.project.${key}.name`),
+            projectName: t(`component.pages.about.project.${key}.projectName`),
+            logoImg,
+            durationStart: t(`component.pages.about.project.${key}.durationStart`),
+            durationEnd: t(`component.pages.about.project.${key}.durationEnd`),
+            skillKeywords: t(`component.pages.about.project.${key}.skillKeywords`),
+            description: t(`component.pages.about.project.${key}.description`),
+            development,
+        };
+    }).reverse();
 
     return (
         <section>
