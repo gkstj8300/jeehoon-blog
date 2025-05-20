@@ -50,7 +50,7 @@ export const ProjectItem: React.FC<Props> = ({
 
     const Item = (
         <div className={styles.projectItem}>
-            <div>
+            <div className={styles.projectDetailWrap}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img className={styles.projectLogo} src={logoImg} alt={projectName} />
                 <div className={styles.detailBody}>
