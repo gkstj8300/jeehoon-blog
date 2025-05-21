@@ -1,0 +1,30 @@
+$miniTitle: (
+	Feature: (
+		background-color: #007cffa6,
+	),
+	Fix: (
+		background-color: rgb(60 148 117),
+	),
+	Style: (
+		background-color: rgb(157 62 156),
+	),
+	Test: (
+		background-color: rgb(177 191 118),
+	),
+	Stabilize: (
+		background-color: rgb(111 136 224),
+	),
+);
+
+.miniTitle {
+
+	@each $property, $developType in $miniTitle {
+		&[data-developType='#{$property}'] {
+			background-color: map-get($developType, background-color);
+		}
+	}
+
+	height: fit-content;
+	padding: 0 6px;
+	border-radius: 10px;
+}

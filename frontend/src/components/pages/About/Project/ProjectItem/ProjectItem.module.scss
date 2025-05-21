@@ -1,13 +1,26 @@
 .projectItem {
 	display: flex;
+	flex-direction: column;
 	align-items: flex-start;
-	margin-bottom: 5rem;
+	margin-bottom: 3rem;
 	padding-bottom: 2rem;
 	border-bottom: 1px rgb(234 236 238) solid;
 
 	&:last-child {
 		margin: 0;
 	}
+
+	&[data-even='false'] {
+		align-items: flex-end;
+	}
+}
+
+.projectDetailWrap {
+	width: 100%;
+}
+
+.projectMain {
+	display: flex;
 }
 
 .details {
@@ -20,8 +33,8 @@
 }
 
 .detailBody {
-	flex: 2;
-	padding: 0 20px;
+	flex: 2 1;
+	padding-top: 10px;
 
 	&[data-even='false'] {
 		text-align: right;
@@ -44,19 +57,18 @@
 .name {
 	margin: 5px 0;
 	font-weight: 600;
-	font-size: 1.5rem;
-	line-height: 0.8rem;
+	font-size: 1.8rem;
+	line-height: 1.3rem;
 }
 
 .projectName {
 	margin: 5px 0;
 	font-weight: 600;
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 	line-height: 2rem;
 }
 
 .duration {
-	padding-bottom: 10px;
 	font-size: 1rem;
 
 	span {
@@ -70,13 +82,17 @@
 
 	li {
 		margin-bottom: 10px;
-		font-size: 14px;
+		font-size: 16px;
 		line-height: 1.4;
-	}
 
-	&[data-even='false'] {
-		text-align: left;
+		&::marker {
+			content: "- ";
+		}
 	}
+}
+
+.skill {
+	padding-bottom: 1rem;
 }
 
 .calculateDuration {
@@ -85,6 +101,29 @@
 	background-color: var(--sub-background-color);
 	border-radius: 10px;
 	-webkit-print-color-adjust:exact;
+}
+
+.development {
+	margin-bottom: 0.5rem;
+	list-style: none;
+}
+
+.developmentHead {
+	display: flex;
+	gap: 0.7rem;
+	margin-bottom: 0.2rem;
+}
+
+.developmentDate {
+	display: flex;
+	gap: 0.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.developmentType {
+	padding: 0 6px;
+	background-color: #007cffa6;
+	border-radius: 10px;
 }
 
 @media (max-width: 530px) {
