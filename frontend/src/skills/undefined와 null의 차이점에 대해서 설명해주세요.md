@@ -4,7 +4,7 @@ regDate: '2025-05-08 18:22'
 description: 'undefined와 null의 차이점에 대해서 설명해주세요'
 thumbnailImage: ''
 mainTag: 'undefined'
-tags: ['undefined, null']
+tags: ['undefined', 'null']
 ---
 
 ## undefined와 null의 차이점에 대해서 설명해주세요
