@@ -4,7 +4,7 @@ regDate: '2025-05-08 18:22'
 description: 'useEffect가 호출되는 시점에 대해 설명해 주세요'
 thumbnailImage: ''
 mainTag: 'React'
-tags: ['undeReactined']
+tags: ['React']
 ---
 
 ## useEffect가 호출되는 시점에 대해 설명해 주세요
