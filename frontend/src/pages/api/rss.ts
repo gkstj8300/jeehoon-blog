@@ -8,9 +8,9 @@ const generateRssFeed = (postList: PostType[]) => {
     return `<?xml version="1.0" encoding="UTF-8"?>
     <rss version="2.0">
         <channel>
-            <title>Baakhan 기술 블로그</title>
+            <title>박지훈 기술 블로그</title>
             <link>${baseUrl}</link>
-            <description>박지훈의 기술 블로그</description>
+            <description>박지훈 기술 블로그</description>
             <language>ko</language>
             ${postList
                 .map(post => `
