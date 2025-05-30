@@ -4,7 +4,7 @@ import { getLayoutTheme, updateLayoutTheme } from '@/servieces/localStorage/comm
 import { AppStore } from '@/store';
 
 export const loadLayoutTheme = (dispatch: Dispatch) => {
-    dispatch(actions.updateTheme(getLayoutTheme() || 'dark'));
+    dispatch(actions.updateTheme(getLayoutTheme() || 'light'));
 };
 
 export function toggleUpdateLayoutTheme(store: AppStore) {
