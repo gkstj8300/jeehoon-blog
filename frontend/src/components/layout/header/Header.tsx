@@ -107,16 +107,16 @@ export const Header: React.FC = () => {
                         </Link>
                         {theme === 'dark' 
                         ? (
-                            <MdDarkMode 
-                                className={styles.theme} 
-                                onClick={handleTogleChangeClick}
-                                title={t('component.ui.layouts.header.dark')}
-                            />
-                        ) : (
                             <CiLight 
                                 className={styles.theme} 
                                 onClick={handleTogleChangeClick}
                                 title={t('component.ui.layouts.header.lihgt')}
+                            />
+                        ) : (
+                            <MdDarkMode 
+                                className={styles.theme} 
+                                onClick={handleTogleChangeClick}
+                                title={t('component.ui.layouts.header.dark')}
                             />
                         )}
                         {isAuthenticate && (
