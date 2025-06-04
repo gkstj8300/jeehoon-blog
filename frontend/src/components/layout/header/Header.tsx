@@ -1,14 +1,15 @@
+import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
+import { FaMoon } from "@react-icons/all-files/fa/FaMoon";
+import { FaPen } from "@react-icons/all-files/fa/FaPen";
+import { FaRegUserCircle } from '@react-icons/all-files/fa/FaRegUserCircle';
+import { FaSun } from "@react-icons/all-files/fa/FaSun";
+import { GiSkills } from "@react-icons/all-files/gi/GiSkills";
+import { RiLogoutCircleLine } from "@react-icons/all-files/ri/RiLogoutCircleLine";
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSession, signOut } from 'next-auth/react';
 import { useEffect, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { CiLight } from "react-icons/ci";
-import { FaGithub, FaRegUserCircle } from 'react-icons/fa';
-import { GiSkills } from "react-icons/gi";
-import { MdDarkMode } from "react-icons/md";
-import { RiLogoutCircleLine } from "react-icons/ri";
-import { TfiWrite } from "react-icons/tfi";
 import { useDispatch } from 'react-redux';
 import styles from './Header.module.scss';
 import { ScrollProgressBar } from '@/components/ui/progressBar';
@@ -107,13 +108,13 @@ export const Header: React.FC = () => {
                         </Link>
                         {theme === 'dark' 
                         ? (
-                            <CiLight 
+                            <FaSun 
                                 className={styles.theme} 
                                 onClick={handleTogleChangeClick}
                                 title={t('component.ui.layouts.header.lihgt')}
                             />
                         ) : (
-                            <MdDarkMode 
+                            <FaMoon 
                                 className={styles.theme} 
                                 onClick={handleTogleChangeClick}
                                 title={t('component.ui.layouts.header.dark')}
@@ -126,7 +127,7 @@ export const Header: React.FC = () => {
                                     className={styles.link}
                                     title={t('component.ui.layouts.header.write')}
                                 >
-                                    <TfiWrite className={styles.theme}/>
+                                    <FaPen className={styles.theme}/>
                                 </Link>
                                 <RiLogoutCircleLine className={styles.theme} onClick={() => signOut({ callbackUrl: "/"})}/>
                                 <Link 

@@ -1,4 +1,4 @@
-import { FiAlertCircle } from "react-icons/fi";
+import { FiAlertCircle } from "@react-icons/all-files/fi/FiAlertCircle";
 import styles from './PointCodeBlock.module.scss';
 
 type Props = {

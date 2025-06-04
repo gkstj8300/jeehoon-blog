@@ -1,4 +1,4 @@
-import { FiAlertTriangle } from "react-icons/fi";
+import { FiAlertTriangle } from "@react-icons/all-files/fi/FiAlertTriangle";
 import styles from './CautionCodeBlock.module.scss';
 
 type Props = {
