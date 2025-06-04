@@ -1,13 +1,15 @@
+import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
+import { FaMoon } from "@react-icons/all-files/fa/FaMoon";
+import { FaPen } from "@react-icons/all-files/fa/FaPen";
+import { FaRegUserCircle } from '@react-icons/all-files/fa/FaRegUserCircle';
+import { FaSun } from "@react-icons/all-files/fa/FaSun";
+import { GiSkills } from "@react-icons/all-files/gi/GiSkills";
+import { RiLogoutCircleLine } from "@react-icons/all-files/ri/RiLogoutCircleLine";
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSession, signOut } from 'next-auth/react';
 import { useEffect, useCallback, useMemo } from 'react';
-import { CiLight } from "react-icons/ci";
-import { FaGithub, FaRegUserCircle } from 'react-icons/fa';
-import { GiSkills } from "react-icons/gi";
-import { MdDarkMode } from "react-icons/md";
-import { RiLogoutCircleLine } from "react-icons/ri";
-import { TfiWrite } from "react-icons/tfi";
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import styles from './Header.module.scss';
 import { ScrollProgressBar } from '@/components/ui/progressBar';
@@ -25,6 +27,8 @@ export const Header: React.FC = () => {
     const store = useStore();
     const dispatch = useDispatch();
     const { data: session, status } = useSession();
+
+    const { t } = useTranslation();
 
     const pathIsMain = router.pathname === '/';
     const pathIsPostList = router.pathname === '/postList';
@@ -69,22 +73,34 @@ export const Header: React.FC = () => {
                 <div className={styles.inner}>
                     <span className={styles.title}>
                         {pathIsMain ? (
-                            <h1>@BaakHan</h1>
+                            <h1>{t('component.ui.layouts.header.baakhan')}</h1>
                         ) : (
-                            <Link href='/'>@BaakHan</Link>
+                            <Link href='/'>{t('component.ui.layouts.header.baakhan')}</Link>
                         )}
                     </span>
                     <div className={styles.menu}>
-                        <Link href={'/about'} className={styles.link}>
-                            소개
+                        <Link 
+                            href={'/about'} 
+                            className={styles.link} 
+                            title={t('component.ui.layouts.header.about')}
+                        >
+                            {t('component.ui.layouts.header.about')}
                         </Link>
-                        <Link href={url.github} className={styles.link}>
+                        <Link 
+                            href={url.github} 
+                            className={styles.link}
+                            title={t('component.ui.layouts.header.github')}
+                        >
                             <FaGithub 
                                 className={styles.theme} 
                                 onClick={() => handleGithubClick()}
                             />
                         </Link>
-                        <Link href={url.careerDescription} className={styles.link}>
+                        <Link 
+                            href={url.careerDescription} 
+                            className={styles.link}
+                            title={t('component.ui.layouts.header.careerDescription')}
+                        >
                             <FaRegUserCircle 
                                 className={styles.theme} 
                                 onClick={() => handleCareerDescriptionClick()}
@@ -92,17 +108,33 @@ export const Header: React.FC = () => {
                         </Link>
                         {theme === 'dark' 
                         ? (
-                            <MdDarkMode className={styles.theme} onClick={handleTogleChangeClick}/>
+                            <FaSun 
+                                className={styles.theme} 
+                                onClick={handleTogleChangeClick}
+                                title={t('component.ui.layouts.header.lihgt')}
+                            />
                         ) : (
-                            <CiLight className={styles.theme} onClick={handleTogleChangeClick} />
+                            <FaMoon 
+                                className={styles.theme} 
+                                onClick={handleTogleChangeClick}
+                                title={t('component.ui.layouts.header.dark')}
+                            />
                         )}
                         {isAuthenticate && (
                             <>
-                                <Link href={'/write'} className={styles.link}>
-                                    <TfiWrite className={styles.theme}/>
+                                <Link 
+                                    href={'/write'} 
+                                    className={styles.link}
+                                    title={t('component.ui.layouts.header.write')}
+                                >
+                                    <FaPen className={styles.theme}/>
                                 </Link>
                                 <RiLogoutCircleLine className={styles.theme} onClick={() => signOut({ callbackUrl: "/"})}/>
-                                <Link href={'/skillList'} className={styles.link}>
+                                <Link 
+                                    href={'/skillList'} 
+                                    className={styles.link}
+                                    title={t('component.ui.layouts.header.skill')}
+                                >
                                     <GiSkills className={styles.theme}/>
                                 </Link>
                             </>

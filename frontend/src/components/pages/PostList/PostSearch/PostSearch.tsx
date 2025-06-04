@@ -1,5 +1,5 @@
+import { IoSearchOutline } from "@react-icons/all-files/io5/IoSearchOutline";
 import { ChangeEvent, useState, useCallback, useMemo, useEffect } from 'react';
-import { IoSearchOutline } from "react-icons/io5";
 import styles from './PostSearch.module.scss';
 import { TagLink } from '@/components/ui/links/TagLink';
 import { Title } from '@/components/ui/title';
