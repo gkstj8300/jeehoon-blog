@@ -1,7 +1,8 @@
+import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
+import { FaRegUserCircle } from '@react-icons/all-files/fa/FaRegUserCircle';
+import { MdEmail } from '@react-icons/all-files/md/MdEmail';
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaGithub, FaRegUserCircle } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
 import styles from './Contact.module.scss';
 import { IconLink } from '@/components/ui/links/IconLink';
 import { Title } from '@/components/ui/title';

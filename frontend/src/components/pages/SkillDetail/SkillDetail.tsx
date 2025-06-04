@@ -1,5 +1,5 @@
+import { RiMenu4Fill } from "@react-icons/all-files/ri/RiMenu4Fill";
 import { useState, useRef } from "react";
-import { RiMenu4Fill } from "react-icons/ri";
 import { SkillContent } from './SkillContent';
 import styles from './SkillDetail.module.scss';
 import { SkillInfo } from './SkillInfo';

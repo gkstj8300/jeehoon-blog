@@ -1,6 +1,6 @@
+import { RiMenu4Fill } from "@react-icons/all-files/ri/RiMenu4Fill";
 import dynamic from "next/dynamic";
 import { useState, useRef } from "react";
-import { RiMenu4Fill } from "react-icons/ri";
 import { Meta } from "./Meta";
 import { PostContent } from './PostContent';
 import styles from './PostDetail.module.scss';
