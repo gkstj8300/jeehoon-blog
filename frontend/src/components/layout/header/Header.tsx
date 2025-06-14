@@ -4,6 +4,7 @@ import { FaPen } from "@react-icons/all-files/fa/FaPen";
 import { FaRegUserCircle } from '@react-icons/all-files/fa/FaRegUserCircle';
 import { FaSun } from "@react-icons/all-files/fa/FaSun";
 import { GiSkills } from "@react-icons/all-files/gi/GiSkills";
+import { RiFileList3Line } from '@react-icons/all-files/ri/RiFileList3Line';
 import { RiLogoutCircleLine } from "@react-icons/all-files/ri/RiLogoutCircleLine";
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -95,6 +96,13 @@ export const Header: React.FC = () => {
                                 className={styles.theme} 
                                 onClick={() => handleGithubClick()}
                             />
+                        </Link>
+                        <Link
+                            href={url.portfolio}
+                            className={styles.link}
+                            title={t('component.ui.layouts.header.portfolio')}
+                        >
+                            <RiFileList3Line className={styles.theme} />
                         </Link>
                         <Link 
                             href={url.careerDescription} 

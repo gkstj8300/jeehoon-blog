@@ -9,4 +9,5 @@ export const header: Translation = {
     dark: 'DarkMode',
     write: '글작성',
     skill: '스킬',
+    portfolio: '포트폴리오',
 }
