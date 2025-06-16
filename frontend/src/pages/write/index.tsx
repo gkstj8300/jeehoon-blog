@@ -11,7 +11,10 @@ const WritePage: React.FC = () => {
     const load = useCallback(async () => {
         setNotFound(false);
         const authenticate = 
-            !!(session?.user?.email === process.env.NEXT_PUBLIC_GITHUB_ACCESS_EMAIL && status === "authenticated");
+            !!(
+            (session?.user?.email === process.env.NEXT_PUBLIC_GITHUB_ACCESS_EMAIL ||
+             session?.user?.email === process.env.NEXT_PUBLIC_GITHUB_ACCESS_GOOGLE_EMAIL) 
+             && status === "authenticated");
 
         if(!authenticate) {
             setNotFound(true);
