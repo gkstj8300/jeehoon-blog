@@ -37,7 +37,10 @@ export const Header: React.FC = () => {
     const theme = useSelector(selectTheme);
 
     const isAuthenticate = useMemo(
-        () => !!(session?.user?.email === process.env.NEXT_PUBLIC_GITHUB_ACCESS_EMAIL && status === "authenticated"),
+        () => !!(
+            (session?.user?.email === process.env.NEXT_PUBLIC_GITHUB_ACCESS_EMAIL ||
+             session?.user?.email === process.env.NEXT_PUBLIC_GITHUB_ACCESS_GOOGLE_EMAIL) 
+             && status === "authenticated"),
         [session, status]
     );
 
