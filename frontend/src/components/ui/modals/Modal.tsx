@@ -32,7 +32,6 @@ export const Modal: React.FC<Props> = ({ children, title, ...props }) => {
 	const isOpen = props.isOpen ?? context.isOpen;
 	const onCancel = props.onCancel ?? context.close;
 
-	// Should be given via Props or Context.
 	assertNotNull(isOpen);
 	assertNotNull(onCancel);
 
@@ -62,12 +61,9 @@ export const Modal: React.FC<Props> = ({ children, title, ...props }) => {
 		}
 	}, [calculateModalPosition, isOpen]);
 
-	// If the Escape button is pressed, the modal will be closed
 	useEffect(() => {
 		const handleKeydown = (event: KeyboardEvent) => {
 			if (['Esc', 'Escape'].includes(event.key)) {
-				// REVIEW: dirty な form を抱えるようなモーダルコンテンツの場合は、
-				//         確認モーダルを出すなどした方がいいかもしれない。
 				onCancel();
 			}
 		};
@@ -86,8 +82,6 @@ export const Modal: React.FC<Props> = ({ children, title, ...props }) => {
 		}
 
 		const observer = new ResizeObserver(entries => {
-			// NOTE: wrap with requestAnimationFrame to avoid "ResizeObserver - loop limit exceeded" error
-			// Ref: https://stackoverflow.com/a/58701523
 			window.requestAnimationFrame(() => {
 				if (!Array.isArray(entries) || !entries.length) {
 					return;
@@ -105,8 +99,6 @@ export const Modal: React.FC<Props> = ({ children, title, ...props }) => {
 			window.removeEventListener('resize', handleWindowResize);
 		};
 	}, [handleWindowResize, isOpen]);
-
-	//=======================================================================
 
 	return (
 		<Portal>
@@ -135,11 +127,8 @@ export const Modal: React.FC<Props> = ({ children, title, ...props }) => {
 						}}
 					>
 						{title && <h3 className={styles.title}>{title}</h3>}
-						{/* first focus element on open modal. */}
-						{/* https://www.w3.org/TR/wai-aria-practices-1.1/#keyboard-interaction-7 */}
 						<div tabIndex={-1} ref={focusTargetRef} />
 						{children}
-						{/* TODO: FocusTrap */}
 						<button className={styles.closeButton} onClick={onCancel} />
 					</div>
 				</div>
