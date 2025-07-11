@@ -2,7 +2,7 @@
 title: "Php, RxJS에서 React, TypeScript로의 대전환 - 이커머스 리뉴얼 실무 경험 1편"
 regDate: "2025-05-16 14:22"
 description: '낯선 기술 스택 습득부터 모던 프론트엔드 리뉴얼까지. PHP/RxJS/Twig 환경에서 React/TypeScript로의 대전환 프로젝트를 통한 개발자 성장 스토리!'
-thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/part1.png'
+thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/part1.webp'
 mainTag: '회고'
 tags: ['프로젝트', '회고']
 ---
@@ -28,7 +28,7 @@ Twig는 PHP를 위한 템플릿 엔진입니다. HTML 문서 안에 PHP 로직�
 ### 요청을 받았으면 일을 해야지!
 한국미스미에 들어와서 가장 처음으로 맡았던 개발 건은 GA4 및 이에대한 이벤트 트래킹을 구축하는 것이었어요. 
 
-![GA4이미지.jpg](https://d2ut7x8yqv441q.cloudfront.net/posts/1750098417939.jpg)
+![GA4이미지.webp](https://d2ut7x8yqv441q.cloudfront.net/posts/1750098417939.webp)
 
 Universal Analytics 종료 그리고 GA4로의 전환
 2023년 7월 Universal Analytics(UA) 서비스 종료 발표와 함께 Google Analytics 4(GA4)로의 전면 전환이었죠. 기존에 UA로 수집하던 모든 데이터를 GA4 방식으로 재구축해야 하는 상황이었어요.
@@ -51,10 +51,10 @@ Universal Analytics 종료 그리고 GA4로의 전환
 ### UI/UX를 좀 더 맛있게 만들어 봐
 
 `AS-IS`
-![ASIS.png](https://d2ut7x8yqv441q.cloudfront.net/posts/1750099459916.png)
+![ASIS.webp](https://d2ut7x8yqv441q.cloudfront.net/posts/1750099459916.webp)
 
 `TO-BE`
-![TOBE.png](https://d2ut7x8yqv441q.cloudfront.net/posts/1750099463232.png)
+![TOBE.webp](https://d2ut7x8yqv441q.cloudfront.net/posts/1750099463232.webp)
 
 UI/UX는 이커머스 사이트에서 사용자 경험은 곧 매출과 직결되는 부분이에요. 아무리 좋은 상품이 있어도 사이트가 불편하면 고객들은 금세 다른 곳으로 떠나버리거든요. 그래서 이번 리뉴얼에서는 단순히 디자인만 예쁘게 바꾸는 게 아니라 실제 사용자의 행동 패턴을 분석해서 불편한 지점들을 하나씩 개선해나가는 데 집중했어요. 작은 애니메이션과 인터랙션 효과들이 사용자 경험에 미치는 영향은 생각보다 크다고 생각해요. 버튼을 클릭했을 때의 호버 효과, 로딩 상태를 보여주는 스피너, 성공/실패 상태를 알려주는 토스트 메시지 등 마이크로 인터랙션을 뜻하죠.
 
@@ -100,7 +100,7 @@ groobee("XX", {
 검색창: "이 검색어로 찾은 다른 고객들이 함께 본 상품"
 ```
 
-![그루비 카테고리.png](https://d2ut7x8yqv441q.cloudfront.net/posts/1750100410915.png)
+![그루비 카테고리.webp](https://d2ut7x8yqv441q.cloudfront.net/posts/1750100410915.webp)
 
 추천 기능 도입 약 2개월 후 성과를 분석해보니 새로운 기분을 느꼈어요. 재방문율 15% 증가, 상품 전환율 23% 향상 등 제가 개발했던 추천 영역을 통해 매출이 늘어난다는 것이 너무 신기하고 새로웠어요.
 

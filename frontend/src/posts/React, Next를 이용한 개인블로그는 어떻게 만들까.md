@@ -2,7 +2,7 @@
 title: "React, Next를 이용한 개인블로그는 어떻게 만들까"
 regDate: "2025-03-07 18:38"
 description: 'tstory, 네이버블로그, velog 등을 이용하지 않고 최근에 진행했던 프로젝트의 환경을 기반으로하여 블로그를 만들고 싶었어요. CS 지식이 많이 부족한 스스로에게 공부를 메모할 수 있는 나만의 공간을 만들어보고 기능들을 사용하여 블로그를 만들어봅시다.'
-thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/blog.png'
+thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/blog.webp'
 mainTag: 'Develop'
 tags: ["Blog","React","Next","Redux","gray-matter"]
 ---
@@ -19,7 +19,7 @@ tstory, 네이버블로그, velog 등을 이용하지 않고 최근에 진행했
 ### 1. 공통 레이아웃, 메인페이지 구성
 블로그의 첫 인상이되는 메인페이지를 보여준다고 했을 때 깔끔한 디자인을 보여주고 싶어 고민을 많이 했어요. 기본적인 헤더와 푸터 중앙 영역에는 게시글 목록을 보여주고 목록을 기준으로 양 옆에 사이드 바 메뉴를 구성하면 좋겠다고 생각해 지금과 같은 메인페이지의 UI 구성이 되었죠
 
-![mainpage_layout.png](https://d2ut7x8yqv441q.cloudfront.net/posts/1741325521155.png)
+![mainpage_layout.webp](https://d2ut7x8yqv441q.cloudfront.net/posts/1741325521155.webp)
 
 ### 2. 마크다운
 gray-matter 라는 라이브러리를 통해 마크다운 파일을 읽어올 수 있도록 하였어요. 메인페이지에서 보여줄 전체 게시글 목록인 getMarkdownAllPosts.ts 파일과 게시글 상세페이지에서 보여줄 특정 게시글 목록인 getMarkdownPost.ts 파일을 각각 생성하였고 fs.readFile 을 통해 파일을 읽어 gray-matter로 데이터를 분리하였어요 아래의 코드의 data와 content를 분리하자면 마크다운 파일의 --- 삼중 대시로 감싸 진 영역(Front Matter)이 'data'고 그 외의 본문 내용은 'content'에요 즉 Front Matter 영역 내에 메인페이지, 상세페이지에 보여줄 데이터 내용을 완성하는거죠
@@ -153,10 +153,10 @@ const customCodeBlock = ({ props, theme }: CustomMarkdownType) => {
 react-markdown과 같은 라이브러리는 코드 블록을 렌더링할 때 보통 다음과 같이 code 태그에 className을 추가해요. code 태그 영역으로 들어오는 props 중 className을 통해서 match를 구분하고 각 match마다 원하는 style을 적용시킬 수도 있어요. 저는 코드블록을 두가지로 구분을 했어요 JavaScript("javascript", "js") 또는 TypeScript("ts") 코드 블록이면 react-syntax-highlighter의 SyntaxHighlighter를 사용해 코드 블록을 하이라이팅 하였고 그 외는 모두 일반 code 태그로 출력하여 원하는 코드블럭을 만들었죠. showLineNumbers, wrapLines은 코드블록 좌측에 line number를 생성해주어 같이 추가해 주었어요.
 
 - 하이라이팅 코드블록
-![matchCodeBlock.png](https://d2ut7x8yqv441q.cloudfront.net/posts/1741331013306.png)
+![matchCodeBlock.webp](https://d2ut7x8yqv441q.cloudfront.net/posts/1741331013306.webp)
 
 - 그 외 코드블록
-![defalutCodeBlock.png](https://d2ut7x8yqv441q.cloudfront.net/posts/1741331029037.png)
+![defalutCodeBlock.webp](https://d2ut7x8yqv441q.cloudfront.net/posts/1741331029037.webp)
 
 작성한 마크다운의 내용으로 목차도 자동생성이 되면 좋겠다 라는 마음이 있어 추가로 개발을 해봤어요. 목차의 기준을 마크다운의 헤딩을(#, ##, ###)을 통해 만들어 볼게요. content로 들어오는 마크다운 본문에서 헤딩을 모두 조회하여 각 헤딩별 level과 내용을 위한 text 클릭했을 때 해당 위치로 바로 가기 위한 id 값을 주었어요.
 
@@ -233,7 +233,7 @@ const WritePage: React.FC = () => {
 
 게시글을 작성할 때는 현재 작성하고 있는 마크다운 내용들이 제가 커스텀한 마크다운 디자인으로 실시간 확인이 되길 원했어서 textarea에 onChange 이벤트와 useState set을 적용시켰죠 해당 데이터를 통해 상세 페이지에서 작성한 코드를 응용하면 이처럼 작성페이지와 미리보기를 만들 수 있어요.
 
-![post_write.png](https://d2ut7x8yqv441q.cloudfront.net/posts/1741333505378.png)
+![post_write.webp](https://d2ut7x8yqv441q.cloudfront.net/posts/1741333505378.webp)
 
 그러면 완성된 게시글을 등록해보죠. 
 
