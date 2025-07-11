@@ -21,12 +21,19 @@ export const PostItem: React.FC<Props> = ({
         >
             <div className={styles.thumbnail}>
                 <div className={styles.thumbnailImg}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img 
-                        className={styles.img}
-                        src={thumbnailImage ? thumbnailImage : '/React.png'} 
-                        alt={`${title}`} 
-                    />
+                    <picture>
+                        <source 
+                            className={styles.img} 
+                            srcSet={thumbnailImage} 
+                            type="image/webp"
+                        />
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img 
+                            className={styles.img} 
+                            src={thumbnailImage.replace('webp', 'png')} 
+                            alt={`${title}`} 
+                        />
+                    </picture>
                 </div>
                 <div className={styles.mainTag}>{mainTag}</div>
             </div>

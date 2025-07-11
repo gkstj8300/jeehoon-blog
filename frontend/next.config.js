@@ -8,6 +8,7 @@ module.exports = {
 	},
 	reactStrictMode: false,
 	trailingSlash: true,
+	productionBrowserSourceMaps: true,
 	webpack: config => {
 		config.plugins.push(new CaseSensitivePathsPlugin());
 		return config;

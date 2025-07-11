@@ -34,6 +34,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
 									{title}
 								</span>
 								<input
+									name="textInput"
                                     className={styles.input}
 									type={type}
 									disabled={disabled}

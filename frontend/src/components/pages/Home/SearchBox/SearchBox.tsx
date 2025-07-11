@@ -24,10 +24,11 @@ export const SearchBox: React.FC<Props> = ({
     return (
         <div className={styles.container}>
             <Title className={styles.title} title='Search' />
-            <input 
+            <input
+                name='keyword'
                 value={keyDownValue}
                 className={styles.searchBox} 
-                type="text" 
+                type="text"
                 placeholder='keyword input'
                 onChange={handleChange}
             />

@@ -2,7 +2,7 @@
 title: "Php, RxJS에서 React, TypeScript로의 대전환 - 이커머스 리뉴얼 실무 경험 2편"
 regDate: "2025-06-02 03:19"
 description: '낯선 기술 스택 습득부터 모던 프론트엔드 리뉴얼까지. PHP/RxJS/Twig 환경에서 React/TypeScript로의 대전환 프로젝트를 통한 개발자 성장 스토리!'
-thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/part2.png'
+thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/part2.webp'
 mainTag: '회고'
 tags: ['프로젝트', '회고']
 ---
@@ -30,7 +30,7 @@ tags: ['프로젝트', '회고']
 * AA 및 GA 연동 및 데이터 분석 기능 개발
 ```
 
-![메인페이지.png](https://d2ut7x8yqv441q.cloudfront.net/posts/1750102461514.png)
+![메인페이지.webp](https://d2ut7x8yqv441q.cloudfront.net/posts/1750102461514.webp)
 
 홈페이지를 개발할 때는 영역별로 우선순위가 있죠. 해당 리스트를 참고해서 1순위, 2순위를 정하면 모든 페이지에 공통으로 들어가야 하는 Header, 플로팅 바, 공통 유저 기능 같은 것들이 1순위가 되고 그 외 기능들은 2~3순위로 나뉘게 됩니다. 그래서 제가 맡은 공통 컴포넌트들을 빠르고 완성도 높게 개발해야 이후 다른 기능들도 문제없이 진행될 수 있었어요.
 
@@ -161,7 +161,7 @@ export type ButtonProps = ButtonBaseProps & {
 
 상품 비교 버튼의 위치와 동작 상품을 비교할 수 있는 비교 버튼은 상품 상세 페이지에 위치해 있어요. 사용자가 해당 페이지에서 원하는 모든 스펙(사이즈, 재질 등)을 설정하고 '비교' 버튼을 클릭하면, 해당 상품이 비교 리스트에 추가되는 방식이죠.
 
-![플로팅 바 비교 팝업.png](https://d2ut7x8yqv441q.cloudfront.net/posts/1750105549724.png)
+![플로팅 바 비교 팝업.webp](https://d2ut7x8yqv441q.cloudfront.net/posts/1750105549724.webp)
 
 비교 상품 관리 시스템 최대 5개까지의 상품을 동시에 비교할 수 있도록 제한을 두었고, 선택된 비교 상품들은 모든 페이지 하단에 고정된 플로팅 바를 통해 실시간으로 확인할 수 있어요. 사용자가 어떤 페이지를 이동하더라도 비교 리스트가 유지되어 편리하게 상품들을 관리할 수 있도록 했죠.
 

@@ -2,7 +2,7 @@
 title: "회사의 얼굴을 만드는 일 - IT 기업 홈페이지 리뉴얼기"
 regDate: "2025-05-01 22:43"
 description: '개발 경력이 많지 않은 상황에서 이사님의 신뢰로 맡게 된 사내 홈페이지 리뉴얼 프로젝트. 기획, 디자인, 개발, 배포까지 모든 과정을 주도하며 얻은 기술적 성장과 개발자로서의 자신감을 키운 특별한 경험담'
-thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/homepage.png'
+thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/homepage.webp'
 mainTag: '회고'
 tags: ['프로젝트', '회고']
 ---
@@ -21,18 +21,18 @@ tags: ['프로젝트', '회고']
 이러한 요구사항이 들어왔고 IT 회사에 맞게 홈페이지의 템플릿과 레퍼런스 찾아갔죠. 레퍼런스를 찾았으면 홈페이지의 사이트맵을 최대한 자세히 만드려고 했어요.
 
 ### 사내 홈페이지 기획단계
-![사이트맵.png](https://d2ut7x8yqv441q.cloudfront.net/posts/사이트맵.png)
+![사이트맵.webp](https://d2ut7x8yqv441q.cloudfront.net/posts/사이트맵.webp)
 
 이처럼 구체적으로 전체 페이지를 잡고 회사의 얼굴이 될 메인페이지와 각 서브페이지를 기획하였어요. 각 사업부 부장님들에게 부서를 소개할 페이지들에 사진 및 자료들을 요청하였어요.
 
-![메인페이지.png](https://d2ut7x8yqv441q.cloudfront.net/posts/1750089218492.png)
+![메인페이지.webp](https://d2ut7x8yqv441q.cloudfront.net/posts/1750089218492.webp)
 
 다행이라 생각했던 것이 로그인하고, 무엇을 판매하고, 구매 및 글을 작성하고 이러한 이커머스 속성이 없는 홈페이지며 회사를 얼마나 아름답게 표현할 수 있느냐만 홈페이지에 담기만 하면 되기때문에 복잡하고 어려운 기능들이 없었어요. 즉 홈페이지의 UI 디자인적 요소가 가장 중요한 것이죠.
 
 ### 관리자 페이지 CMS 도입 및 개발
 요구사항 중 첫 번째! CMS 연동 및 콘텐츠 관리 기능 개발을 하는 것이죠. 이렇게 메인페이지와 서브페이지 설계가 완료되었으면 이제 본격적으로 관리자 페이지를 만들어야 했어요.
 
-![cms.png](https://d2ut7x8yqv441q.cloudfront.net/posts/1750089963121.png)
+![cms.webp](https://d2ut7x8yqv441q.cloudfront.net/posts/1750089963121.webp)
 
 관리자 페이지는 이전 OJT 프로젝트 때 만들었던 CMS 시스템을 참고하여 개발 기간을 최대한으로 단축시킬 수 있도록 했어요. 처음부터 새로 개발하는 것보다는 기존에 검증된 구조를 활용하는 것이 효율적이라고 판단했거든요.
 

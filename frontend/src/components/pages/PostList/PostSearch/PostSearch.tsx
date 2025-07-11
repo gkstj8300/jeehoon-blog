@@ -58,6 +58,7 @@ export const PostSearch: React.FC<Props> = ({ postList, filterPosts }) => {
             <div className={styles.search}>
                 <Title className={styles.searchTitle} title="Search" />
                 <input
+                    name="keyword"
                     value={search.keyword}
                     className={styles.searchBox}
                     type="text"
