@@ -9,6 +9,9 @@ module.exports = {
 	reactStrictMode: false,
 	trailingSlash: true,
 	productionBrowserSourceMaps: true,
+	images: {
+		domains: ['d2ut7x8yqv441q.cloudfront.net'],
+	},
 	webpack: config => {
 		config.plugins.push(new CaseSensitivePathsPlugin());
 		return config;
