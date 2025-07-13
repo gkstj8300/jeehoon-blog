@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from './PostItem.module.scss';
 import { PostType } from '@/models/pages/slug';
@@ -27,11 +28,13 @@ export const PostItem: React.FC<Props> = ({
                             srcSet={thumbnailImage} 
                             type="image/webp"
                         />
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img 
+                        <Image
                             className={styles.img} 
                             src={thumbnailImage.replace('webp', 'png')} 
-                            alt={`${title}`} 
+                            alt={`${title}`}
+                            width={350}
+                            height={180}
+                            priority
                         />
                     </picture>
                 </div>
