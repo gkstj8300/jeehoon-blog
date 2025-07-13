@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark, coy } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { useEffect, useState, CSSProperties } from "react";
 import rehypeRaw from "rehype-raw";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
@@ -18,17 +17,43 @@ type Props = {
     content: string;
 }
 
-const customCodeBlock = ({ props, theme }: CustomMarkdownType) => {
+const SyntaxHighlighter = dynamic(
+    () => import("react-syntax-highlighter").then(mod => mod.Prism),
+    { ssr: false }
+);
+
+const loadStyle = async (theme: string): Promise<{ [key: string]: CSSProperties }> => {
+    if (theme === 'dark') {
+        const mod = await import('react-syntax-highlighter/dist/esm/styles/prism/material-dark');
+        return mod.default;
+    }
+    const mod = await import('react-syntax-highlighter/dist/esm/styles/prism/coy');
+    return mod.default;
+};
+
+const customCodeBlock = ({ props, style }: CustomMarkdownType) => {
     const { className, children } = props;
     const match = /language-(\w+)/.exec(className || '');
 
-    if (match?.[1] === "javascript" || match?.[1] === "js" || match?.[1] === "ts") {
+    if (match?.[1] === "point") {
+        return <PointCodeBlock content={String(children).replace(/\n$/, '')} />;
+    }
+
+    if (match?.[1] === 'list') {
+        return <ListCodeBlock props={props} />;
+    }
+
+    if (match?.[1] === 'caution') {
+        return <CautionCodeBlock content={String(children).replace(/\n$/, '')} />;
+    }
+
+    if ((match?.[1] === "javascript" || match?.[1] === "js" || match?.[1] === "ts") && style) {
         return (
             <SyntaxHighlighter
                 className={styles.scriptBlock}
-                style={theme === 'dark' ? materialDark : coy}
+                style={style}
                 language="javascript"
-                PreTag="div"
+                PreTag="pre"
                 showLineNumbers
                 wrapLines
             >
@@ -37,26 +62,18 @@ const customCodeBlock = ({ props, theme }: CustomMarkdownType) => {
         );
     }
 
-    if(match?.[1] === "point") {
-        return <PointCodeBlock content={String(children).replace(/\n$/, '')}/>
-    }
-
-    if(match?.[1] === 'list') {
-        return <ListCodeBlock props={props} />
-    }
-
-    if(match?.[1] === 'caution') {
-        return <CautionCodeBlock content={String(children).replace(/\n$/, '')}/>
-    }
-
-    return (
-        <code className={styles.codeBlock}>{children}</code>
-    );
+    return <code className={styles.codeBlock}>{children}</code>;
 };
 
 export const MarkdownPreview: React.FC<Props> = ({ content }) => {
+    const [style, setStyle] = useState<{ [key: string]: CSSProperties } | null>(null);
+
     const theme = useSelector(selectTheme);
     const generateHeadingId = (text: string) => text.replace(/\s+/g, "-").toLowerCase();
+
+    useEffect(() => {
+        loadStyle(theme).then(setStyle);
+    }, [theme]);
     return (
         <div className={styles.editor}>
             <DynamicReactMarkdown
@@ -64,7 +81,7 @@ export const MarkdownPreview: React.FC<Props> = ({ content }) => {
                 rehypePlugins={[rehypeRaw]}
                 components={{
                     code(props) {
-                        return customCodeBlock({ props, theme });
+                        return customCodeBlock({ props, theme, style });
                     },
                     h1: ({ children, ...props }) => {
                         return <h1 id={generateHeadingId(String(children))} style={{ fontSize: "2em" }} {...props}>{children}</h1>;
