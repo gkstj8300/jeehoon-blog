@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './Experience.module.scss';
@@ -40,8 +41,12 @@ export const Experience: React.FC = () => {
             <Title title={t('component.pages.about.experience.title')} />
             <div className={styles.experience}>
                 <div className={styles.details}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className={styles.companyImg} src={naedamLogoImg.src} alt="companyImg"/>
+                    <Image 
+                        className={styles.companyImg}
+                        src={naedamLogoImg.src}
+                        alt="companyImg"
+                        priority
+                    />
                     <div className={styles.companyWrap}>
                         <h4 className={styles.companyName}>{t('component.pages.about.experience.naedam.name')}</h4>
                         <div className={styles.duration}>

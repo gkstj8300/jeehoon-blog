@@ -1,7 +1,5 @@
 import dynamic from "next/dynamic";
-import { RefObject, forwardRef } from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark, coy } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { RefObject, forwardRef, useEffect, useState, CSSProperties } from "react";
 import rehypeRaw from "rehype-raw";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
@@ -17,25 +15,45 @@ import { useSelector } from "@/store/hooks";
 import { selectTheme } from '@/store/modules/common/selectors';
 import { markDownContentFormat } from '@/utils/markDown/markDown';
 
-type Props = {
-    ref: RefObject<HTMLDivElement>;
-    content: string;
-    handleGetHeadigs: (headings: Heading[]) => void
-};
-
 const DynamicReactMarkdown = dynamic(() => import("react-markdown"), {
     ssr: false,
 });
 
-const customCodeBlock = ({ props, theme }: CustomMarkdownType) => {
+const SyntaxHighlighter = dynamic(
+    () => import("react-syntax-highlighter").then(mod => mod.Prism),
+    { ssr: false }
+);
+
+const loadStyle = async (theme: string): Promise<{ [key: string]: CSSProperties }> => {
+    if (theme === 'dark') {
+        const mod = await import('react-syntax-highlighter/dist/esm/styles/prism/material-dark');
+        return mod.default;
+    }
+    const mod = await import('react-syntax-highlighter/dist/esm/styles/prism/coy');
+    return mod.default;
+};
+
+const customCodeBlock = ({ props, style }: CustomMarkdownType & { style: { [key: string]: CSSProperties } | null }) => {
     const { className, children } = props;
     const match = /language-(\w+)/.exec(className || '');
 
-    if (match?.[1] === "javascript" || match?.[1] === "js" || match?.[1] === "ts") {
+    if (match?.[1] === "point") {
+        return <PointCodeBlock content={String(children).replace(/\n$/, '')} />;
+    }
+
+    if (match?.[1] === 'list') {
+        return <ListCodeBlock props={props} />;
+    }
+
+    if (match?.[1] === 'caution') {
+        return <CautionCodeBlock content={String(children).replace(/\n$/, '')} />;
+    }
+
+    if ((match?.[1] === "javascript" || match?.[1] === "js" || match?.[1] === "ts") && style) {
         return (
             <SyntaxHighlighter
                 className={styles.scriptBlock}
-                style={theme === 'dark' ? materialDark : coy}
+                style={style}
                 language="javascript"
                 PreTag="pre"
                 showLineNumbers
@@ -46,25 +64,13 @@ const customCodeBlock = ({ props, theme }: CustomMarkdownType) => {
         );
     }
 
-    if(match?.[1] === "point") {
-        return <PointCodeBlock content={String(children).replace(/\n$/, '')}/>
-    }
-
-    if(match?.[1] === 'list') {
-        return <ListCodeBlock props={props} />
-    }
-
-    if(match?.[1] === 'caution') {
-        return <CautionCodeBlock content={String(children).replace(/\n$/, '')}/>
-    }
-
-    return (
-        <code className={styles.codeBlock}>{children}</code>
-    );
+    return <code className={styles.codeBlock}>{children}</code>;
 };
 
-export const PostContent = forwardRef<HTMLDivElement, Props>(
+export const PostContent = forwardRef<HTMLDivElement, { content: string; handleGetHeadigs: (headings: Heading[]) => void; ref: RefObject<HTMLDivElement>; }>(
     ({ content, handleGetHeadigs }, ref) => {
+        const [style, setStyle] = useState<{ [key: string]: CSSProperties } | null>(null);
+
         const markDownContent = markDownContentFormat(content);
         const { getPostContentHeadings } = usePostContent({ content });
         const headings = getPostContentHeadings();
@@ -76,6 +82,10 @@ export const PostContent = forwardRef<HTMLDivElement, Props>(
 
         useOnMounted(() => handleGetHeadigs(headings));
 
+        useEffect(() => {
+            loadStyle(theme).then(setStyle);
+        }, [theme]);
+
         return (
             <div className={styles.container} ref={ref}>
                 <DynamicReactMarkdown
@@ -83,7 +93,7 @@ export const PostContent = forwardRef<HTMLDivElement, Props>(
                     rehypePlugins={[rehypeRaw]}
                     components={{
                         code(props) {
-                            return customCodeBlock({ props, theme });
+                            return customCodeBlock({ props, style, theme });
                         },
                         h1: ({ children, ...props }) => (
                             <h1 id={generateHeadingId(String(children))} style={{ fontSize: "2em" }} {...props}>
@@ -113,4 +123,5 @@ export const PostContent = forwardRef<HTMLDivElement, Props>(
         );
     }
 );
+
 PostContent.displayName = 'PostContent';

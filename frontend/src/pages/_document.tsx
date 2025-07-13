@@ -1,4 +1,5 @@
 import RawDocument, { Head, Html, Main, NextScript } from 'next/document';
+import { notoSansKR } from '@/styles/fonts/NotoSansKR/notoSansKR';
 
 class Document extends RawDocument {
 	render() {
@@ -11,7 +12,7 @@ class Document extends RawDocument {
 					<meta httpEquiv="content-style-type" content="text/css" />
 					<meta httpEquiv="content-script-type" content="text/javascript" />
 				</Head>
-				<body>
+				<body className={notoSansKR.className}>
 					<Main />
 					<NextScript />
 				</body>

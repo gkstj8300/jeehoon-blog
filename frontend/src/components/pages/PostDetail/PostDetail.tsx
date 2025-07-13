@@ -1,5 +1,6 @@
 import { RiMenu4Fill } from "@react-icons/all-files/ri/RiMenu4Fill";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useState, useRef } from "react";
 import { Meta } from "./Meta";
 import { PostContent } from './PostContent';
@@ -17,7 +18,8 @@ import { getHeight } from "@/utils/dom";
 const PostComents = dynamic(
     () => import("@/components/pages/PostDetail/PostComents/PostComents"),
     {
-      ssr: false,
+        ssr: false,
+        loading: () => <div style={{ minHeight: "200px" }} />
     }
 );
 
@@ -30,7 +32,7 @@ type Props = {
     regDate: string;
     tags: string[];
     content: string;
-}
+};
 
 export const PostDetail: React.FC<Props> = ({
     slug,
@@ -86,37 +88,42 @@ export const PostDetail: React.FC<Props> = ({
                 <div className={styles.detailWrap}>
                     {thumbnailImage && (
                         <div className={styles.thumbnail}>
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={thumbnailImage} alt={`${thumbnailImage}`} />
+                            <Image
+                                src={thumbnailImage}
+                                alt={`${thumbnailImage}`}
+                                width={768}
+                                height={400}
+                                priority
+                            />
                         </div>
                     )}
                     <PostTitle title={title} />
-                    <PostInfo 
-                        regDate={regDate} 
-                        tags={tags} 
+                    <PostInfo
+                        regDate={regDate}
+                        tags={tags}
                     />
-                    <PostContent 
+                    <PostContent
                         ref={tableListRef}
-                        content={content} 
+                        content={content}
                         handleGetHeadigs={handleGetHeadigs}
                     />
                     <PostComents />
                 </div>
                 {headings && headings.length > 0 && (
-                    <div 
+                    <div
                         className={styles.sideWrap}
                         style={{
                             top: headerHeight + 4
                         }}
                     >
-                        <div 
-                            className={styles.asideButton} 
+                        <div
+                            className={styles.asideButton}
                             onClick={handleClickAsideOpen}
                         >
                             <RiMenu4Fill className={styles.sideMenuIcon} />
                         </div>
                         <TableOfContents
-                            headings={headings} 
+                            headings={headings}
                             tableListRef={tableListRef}
                             isAside={isAside}
                         />
@@ -124,5 +131,5 @@ export const PostDetail: React.FC<Props> = ({
                 )}
             </div>
         </>
-    )
-}
+    );
+};

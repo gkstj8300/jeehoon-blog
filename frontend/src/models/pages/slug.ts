@@ -1,4 +1,4 @@
-import { ClassAttributes, HTMLAttributes } from "react";
+import { ClassAttributes, HTMLAttributes, CSSProperties } from "react";
 import { ExtraProps } from "react-markdown";
 
 export interface PostType {
@@ -26,4 +26,7 @@ export interface SkillType {
 export interface CustomMarkdownType {
     props: ClassAttributes<HTMLElement> & HTMLAttributes<HTMLElement> & ExtraProps;
     theme: string;
+    style: {
+        [key: string]: CSSProperties;
+    } | null;
 }

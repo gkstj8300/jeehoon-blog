@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useMemo } from 'react';
 import styles from './ProjectItem.module.scss';
 import type { Develop } from '@/components/pages/About/Project/Project';
@@ -51,8 +52,12 @@ export const ProjectItem: React.FC<Props> = ({
     const Item = (
         <div className={styles.projectItem}>
             <div className={styles.projectDetailWrap}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img className={styles.projectLogo} src={logoImg} alt={projectName} />
+                <Image 
+                    className={styles.projectLogo}
+                    src={logoImg}
+                    alt={projectName}
+                    priority
+                />
                 <div className={styles.detailBody}>
                     <div>
                         <h3 className={styles.name}>{name}</h3>
