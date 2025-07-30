@@ -8,7 +8,7 @@ type Props = {
 
 export const MiniTitle: React.FC<Props> = ({ type }) => {
     return (
-        <div className={styles.miniTitle} data-developType={type}>{type}</div>
+        <div className={styles.miniTitle} data-develop-type={type}>{type}</div>
     );
 };
 MiniTitle.displayName = 'MiniTitle';

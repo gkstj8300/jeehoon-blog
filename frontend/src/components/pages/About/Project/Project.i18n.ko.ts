@@ -53,19 +53,19 @@ export const project: Translation = {
                 name: '사내 홈페이지 설계',
                 developmentStart: '',
                 developmentEnd: '',
-                description: `메인페이지 및 서브페이지 기획<br />
-                              각 사업부 담당자에게 자료 요청 및 수집<br />
-                              비동기 작업 처리를 위한 유틸리티 설계<br />
-                              UI / UX 기반 설계`
+                description: `전체 기획 및 사이트맵 설계 주도<br />
+                              최신 IT 기업 홈페이지 트렌드를 참고해 전체 구조 기획<br />
+                              부서별 소개자료 수집 및 콘텐츠 반영<br />
+                              사내 관리자 시스템 도입을 통해 홈페이지 콘텐츠를 동적으로 제어할 수 있는 구조 구현`
             },
             develop2: {
                 type: 'Feature',
                 name: '사내 홈페이지 Back-end 및 Front-end 개발',
                 developmentStart: '',
                 developmentEnd: '',
-                description: `시스템 구축 및 Admin 프로그램 연동 및 적용<br />
-                              SEO 최적화 개발<br />
-                              한글 / 영문 페이지 구축 (다국어 지원) 개발`
+                description: `관리자 페이지에서 이미지·텍스트 등을 쉽게 수정할 수 있도록 구성<br />
+                              쿠키 기반 다국어 전환(국/영문) 기능 구현<br />
+                              반응형 UI + 스크롤 인터랙션 설계로 최신 트렌드 반영 및 최신 스크롤링 기반 레이아웃과 시각적 인터랙션 도입`
             },
         },
     },
@@ -87,8 +87,8 @@ export const project: Translation = {
                 name: 'GA4 도입 및 전환 이벤트 트래킹 구축',
                 developmentStart: '2023-04',
                 developmentEnd: '2023-07',
-                description: `기존 Google Analytics UA에서 GA4로 전환됨에 따라 전 페이지에 PV 이벤트 및 사용자 행위 기반의 주요 이벤트를 수동 처리로 구현<br />
-                              장바구니, 주문 완료, 마이페이지 등 구매 전환 흐름과 관련된 상세 이벤트까지 측정되도록 작업`
+                description: `기존 Universal Analytics(UA) 종료에 대응하여 Google Analytics 4 전면 도입<br />
+                              모든 페이지의 PV(Page View) 및 주요 사용자 행동 이벤트(장바구니 추가, 주문, 상품 스펙 확인, 검색 등) 트래킹 구축`
             },
             develop2: {
                 type: 'Feature',
@@ -103,8 +103,9 @@ export const project: Translation = {
                 name: 'UI/UX 개선 작업',
                 developmentStart: '2023-09',
                 developmentEnd: '2023-11',
-                description: `반복적이고 불필요한 UI 동작을 개선하고 사용자 편의성을 높이기 위한 마이크로 인터랙션을 도입<br />
-                              Header, Footer 등 공통 레이아웃 컴포넌트의 일관성과 재사용성 확보`
+                description: `UI/UX 개선 작업을 통한 콘텐츠 시선 흐름 및 마우스 동선 최적화 - UX 개선 및 이탈률 감소에 기여<br />
+                              사용자 권한에 따른 메인페이지 및 공통 헤더 UI 분기 처리로 개인화된 UX 제공<br />
+                              불필요한 반복 동작 제거 및 마이크로 인터랙션 도입을 통한 사용자 이탈률 감소에 기여`
             },
             develop4: {
                 type: 'Fix',
@@ -116,17 +117,17 @@ export const project: Translation = {
             },
             develop5: {
                 type: 'Feature',
-                name: '그루비(Groobee) 기반 상품 추천 기능 개발',
+                name: 'Groobee 솔루션 기반 추천 상품 기능 개발',
                 developmentStart: '2024-01',
                 developmentEnd: '2024-03',
-                description: `사용자의 최근 본 상품을 기준으로 추천 상품을 노출하는 기능을 Groobee API를 기반으로 개발<br />
-                              검색창, 메인 페이지, 카테고리 페이지, 상세 페이지에 각각 다른 형태의 추천 로직 적용`
+                description: `Groobee 솔루션을 활용하여 상품 조회수 및 구매 수 기반 데이터 수집 및 전송<br />
+                              사용자의 최근 본 상품을 기준으로 추천 상품을 노출하는 기능을 Groobee API를 기반으로 개발`
             },
         },
     },
     misumiRenewal: {
         name: '한국미스미',
-        projectName: '리뉴얼 개발/유지보수/운영',
+        projectName: '한국미스미 이커머스 플랫폼 마이그레이션 (React/Next.js)',
         durationStart: '2024-05',
         durationEnd: '2025-03',
         skillKeywords: 'React,TypeScript,Next.js,Redux,Nodejs,Sass,Vercel,Webpack,SWC,Babel,DataDog,GitHub Actions,Circleci',
@@ -143,12 +144,16 @@ export const project: Translation = {
         development: {
             develop1: {
                 type: 'Feature',
-                name: '리뉴얼 개발 (웹/모바일 공통 대응)',
+                name: '이커머스 플랫폼 마이그레이션',
                 developmentStart: '2024-05',
                 developmentEnd: '2024-12',
-                description: `전체 구조 설계에 참여, Redux를 통한 상태 관리 및 API 연결 구조 정의<br />
-                              공통 헤더, 플로팅바(추천/비교하기/주문 등) 등 핵심 레이아웃 요소를 개발<br />
-                              카테고리 페이지, 상품 비교 기능, 유저 관련 기능(권한/장바구니/배송 등) 개발`
+                description: `RxJS, Twig 기반 10년 된 레거시 플랫폼을 React + Next.js 기반으로 전면 리뉴얼<br />
+                              렌더링 최적화, Intersection Observer, Lazy Load + CDN(S+CloudFront) 도입을 통한 레거시 시스템 대비 렌더링 속도 60% 향상 및 사용자 이탈률 15% 감소<br />
+                              CSR/SSR 분기 처리 및 Next 미들웨어로 크롤링 대응 -> SEO 이슈 해결<br />
+                              멀티 디바이스 구조 설계 (_app.pc.tsx / _app.mobile.tsx 분리) -> 기기별 최적화 및 유지보수 효율 증대<br />
+                              상품 비교 기능 및 비교 페이지 신규 도입 개발 -> 비교 상품에 관한 상세 페이지 유입률 및 구매 전환율 상승<br />
+                              공통 UI 컴포넌트(Button, Checkbox, Modal 등) 개발 -> UI 일관성과 유지보수성 향상<br />
+                              헤더, 메인페이지, 장바구니, My부품 추가 등 주요 기능 개발`
             },
             develop2: {
                 type: 'Test',
