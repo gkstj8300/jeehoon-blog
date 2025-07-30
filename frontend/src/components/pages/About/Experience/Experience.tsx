@@ -45,6 +45,8 @@ export const Experience: React.FC = () => {
                         className={styles.companyImg}
                         src={naedamLogoImg.src}
                         alt="companyImg"
+                        width={128}
+                        height={128}
                         priority
                     />
                     <div className={styles.companyWrap}>

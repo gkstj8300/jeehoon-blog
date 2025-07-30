@@ -22,21 +22,14 @@ export const PostItem: React.FC<Props> = ({
         >
             <div className={styles.thumbnail}>
                 <div className={styles.thumbnailImg}>
-                    <picture>
-                        <source 
-                            className={styles.img} 
-                            srcSet={thumbnailImage} 
-                            type="image/webp"
-                        />
-                        <Image
-                            className={styles.img} 
-                            src={thumbnailImage.replace('webp', 'png')} 
-                            alt={`${title}`}
-                            width={350}
-                            height={180}
-                            priority
-                        />
-                    </picture>
+                    <Image
+                        className={styles.img} 
+                        src={thumbnailImage} 
+                        alt={`${title}`}
+                        fill
+                        priority
+                        sizes='(max-width: 768px) 100vw, 50vw'
+                    />
                 </div>
                 <div className={styles.mainTag}>{mainTag}</div>
             </div>
