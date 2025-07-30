@@ -19,7 +19,7 @@ $miniTitle: (
 .miniTitle {
 
 	@each $property, $developType in $miniTitle {
-		&[data-developType='#{$property}'] {
+		&[data-develop-type='#{$property}'] {
 			background-color: map-get($developType, background-color);
 		}
 	}

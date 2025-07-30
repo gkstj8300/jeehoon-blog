@@ -57,6 +57,8 @@ export const ProjectItem: React.FC<Props> = ({
                     src={logoImg}
                     alt={projectName}
                     priority
+                    width={320}
+                    height={208}
                 />
                 <div className={styles.detailBody}>
                     <div>

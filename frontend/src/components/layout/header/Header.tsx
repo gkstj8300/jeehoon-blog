@@ -85,15 +85,19 @@ export const Header: React.FC = () => {
                     <div className={styles.menu}>
                         <Link 
                             href={'/about'} 
-                            className={styles.link} 
-                            title={t('component.ui.layouts.header.about')}
+                            className={styles.link}
+                            title={t('component.ui.layouts.header.careerDescription')}
                         >
-                            {t('component.ui.layouts.header.about')}
+                            <FaRegUserCircle 
+                                className={styles.theme} 
+                                onClick={() => handleCareerDescriptionClick()}
+                            />
                         </Link>
                         <Link 
                             href={url.github} 
                             className={styles.link}
                             title={t('component.ui.layouts.header.github')}
+                            target='_blank'
                         >
                             <FaGithub 
                                 className={styles.theme} 
@@ -104,18 +108,9 @@ export const Header: React.FC = () => {
                             href={url.portfolio}
                             className={styles.link}
                             title={t('component.ui.layouts.header.portfolio')}
+                            target='_blank'
                         >
                             <RiFileList3Line className={styles.theme} />
-                        </Link>
-                        <Link 
-                            href={url.careerDescription} 
-                            className={styles.link}
-                            title={t('component.ui.layouts.header.careerDescription')}
-                        >
-                            <FaRegUserCircle 
-                                className={styles.theme} 
-                                onClick={() => handleCareerDescriptionClick()}
-                            />
                         </Link>
                         {theme === 'dark' 
                         ? (

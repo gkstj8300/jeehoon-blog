@@ -1,8 +1,6 @@
 @use 'src/styles/variables';
 
 .img {
-	width: 100%;
-	height: 100%;
 	transition: .4s;
 }
 
@@ -47,6 +45,7 @@
 }
 
 .thumbnailImg {
+	position: relative;
 	width: 100%;
 	height: 180px;
 	border-radius: 10px;
