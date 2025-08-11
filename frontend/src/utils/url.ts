@@ -12,7 +12,7 @@ export const url = {
 	careerDescription: 'https://parkjeehoon-career-description.vercel.app/',
 	// 게시글 상세
 	postDetail: (slug: string) => {
-		return `/posts/${slug}`;
+		return `/post/detail/${slug}`;
 	},
 	// 스킬 상세
 	skillDetail: (slug: string) => {

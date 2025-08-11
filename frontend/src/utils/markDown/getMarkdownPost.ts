@@ -8,15 +8,15 @@ const postsDirectory = path.join(process.cwd(), 'src/posts');
 
 const getMarkdownPost = async (slug: string): Promise<PostType> => {
 	const fileNames = await fs.readdir(postsDirectory);
+	const decodingSlug = decodeURIComponent(slug);
 
 	for (const fileName of fileNames) {
 		const filePath = path.join(postsDirectory, fileName);
 		const fileContents = await fs.readFile(filePath, 'utf8');
 		const { data, content } = matter(fileContents);
-
 		const convertSlug = convertToSlug(data.title);
 
-		if (convertSlug === slug) {
+		if (convertSlug === decodingSlug) {
 			return {
 				slug: convertSlug,
 				title: data.title,
