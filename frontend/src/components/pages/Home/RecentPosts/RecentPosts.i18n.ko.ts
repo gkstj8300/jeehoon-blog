@@ -1,7 +1,7 @@
-import { Translation } from '@/i18n/types';
+import { Translation } from '@/lib/i18n/types';
 
 export const recentPosts: Translation = {
-    recentPost: '최신 글',
-    allPost: '전체 보기',
-    regDate: '생성일: {{date}}'
+	recentPost: '최신 글',
+	allPost: '전체 보기',
+	regDate: '생성일: {{date}}',
 };

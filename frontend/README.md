@@ -1,15 +1,15 @@
 # Jeehoon Blog
 
 ## :clipboard: UI
-![Baakahan](https://github.com/user-attachments/assets/70518ace-6356-4d58-a41f-eefdc369dcbd)
 
+![Baakahan](https://github.com/user-attachments/assets/70518ace-6356-4d58-a41f-eefdc369dcbd)
 
 ![Next.js](https://img.shields.io/badge/Next.js-14.2.1-blue) ![React](https://img.shields.io/badge/React-18-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.4.5-blue) ![Styled with Sass](https://img.shields.io/badge/Styled_with-Sass-pink)
 
 개인 블로그 프로젝트로, Next.js와 TypeScript를 기반으로 마크다운을 활용한 게시글 작성 및 관리 기능을 제공합니다.
 
-
 ## 🚀 주요 기능
+
 - **마크다운 기반 블로그**: gray-matter를 활용하여 마크다운 파일을 변환 및 렌더링
 - **게시글 작성 페이지**: 웹에서 직접 마크다운 게시글을 작성 및 업로드 가능
 - **i18n 지원**: 다국어 지원을 위해 react-i18next 사용
@@ -17,8 +17,8 @@
 - **AWS S3 연동**: 게시글 및 리소스를 AWS S3에 업로드 가능
 - **SEO 최적화**: Next.js의 기본 SEO 기능 활용
 
-
 ## 📂 프로젝트 구조
+
 ```
 jeehoon-blog/
 ├── public/              # 정적 파일
@@ -37,33 +37,40 @@ jeehoon-blog/
 └── tsconfig.json        # TypeScript 설정
 ```
 
-
 ## 🛠️ 개발 환경 설정
+
 ### 1. 프로젝트 클론
+
 ```sh
 git clone https://github.com/your-username/jeehoon-blog.git
 cd jeehoon-blog
 ```
+
 ### 2. 의존성 설치
+
 ```sh
 npm install
 ```
+
 ### 3. 개발 서버 실행
+
 ```sh
 npm run dev
 ```
+
 - 기본적으로 `http://localhost:3010`에서 실행됩니다.
 
 ## ✅ 코드 스타일
+
 코드 품질 유지를 위해 아래 도구를 사용합니다:
+
 - **ESLint**: `npm run lint`
 - **Prettier**: `npm run prettier:validation-only`
 - **Stylelint**: `npm run stylelint:validation-only`
 
-
 ## 📜 라이선스
-이 프로젝트는 MIT 라이선스를 따릅니다.
 
+이 프로젝트는 MIT 라이선스를 따릅니다.
 
 ## :computer: 커밋 메세지 컨벤션
 

@@ -1,0 +1,11 @@
+.container {
+	margin-right: auto;
+	padding: 0.25rem;
+	font-weight: bold;
+}
+
+@media (min-width: 1024px) {
+	.container {
+		margin-bottom: 0.75rem;
+	}
+}

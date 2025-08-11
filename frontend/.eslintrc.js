@@ -4,11 +4,11 @@ module.exports = {
 	root: true,
 	plugins: ['unused-imports', 'sort-keys-fix'],
 	extends: [
-    'eslint:recommended',
+		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
 		'next/core-web-vitals',
 	],
-  settings: {
+	settings: {
 		'import/resolver': 'webpack',
 	},
 	rules: {

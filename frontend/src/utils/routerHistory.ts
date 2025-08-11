@@ -64,6 +64,5 @@ function isNotReload() {
 function isPerformanceNavigationTiming(
 	entry?: PerformanceEntry
 ): entry is PerformanceNavigationTiming {
-
 	return entry != null && 'type' in entry;
 }

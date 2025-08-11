@@ -1,6 +1,6 @@
 ---
-title: "ErrorBoundary 분석 및 error 처리"
-regDate: "2025-07-28 03:20"
+title: 'ErrorBoundary 분석 및 error 처리'
+regDate: '2025-07-28 03:20'
 description: 'React의 ErrorBoundary를 활용해 컴포넌트 단위로 오류를 감지하고 에러 상황에 유연하게 대응할 수 있는 에러 처리 패턴을 소개합니다.'
 thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/ErrorBoundary.webp'
 mainTag: 'React'
@@ -41,10 +41,11 @@ function PageA() {
       <h1>API 요청 테스트</h1>
       <button onClick={handleClick}>데이터 가져오기</button>
     </main>
-  );  
+  );
 }
 ```
-현재 위 방식은 API를 통하여 에러가 발생할 경우 error 여부를 통한 에러 컴포넌트를 렌더링 하고 있습니다. 
+
+현재 위 방식은 API를 통하여 에러가 발생할 경우 error 여부를 통한 에러 컴포넌트를 렌더링 하고 있습니다.
 그렇다면 이러한 방식의 에러처리는 어떠한 문제를 야기할 수 있을까요?
 
 ```list
@@ -57,6 +58,7 @@ function PageA() {
 이러한 문제점들이 발생할 수 있죠. 그러면 이러한 문제들을 해결하기 위해 ErrorBoundary를 적용해보죠.
 
 ## ErrorBoundary를 통해 API 에러를 처리하기
+
 ```ts
 // ErrorBoundary
 interface ErrorProps {}
@@ -118,8 +120,8 @@ function MainPage() {
 
 에러의 종류나 위치에 따라 ErrorBoundary를 구분하면 더 유연하고 상황에 맞는 에러 대응이 가능해지겠죠.
 
-
 ## 마지막으로
+
 지금까지 Redux 상태로 에러를 처리하는 방식의 한계와 ErrorBoundary를 활용한 선언적 에러 처리 방식에 대해 알아봤어요.
 에러는 언제 어디서든 발생할 수 있고 이를 어떻게 효율적이고 사용자 친화적으로 처리하느냐는 프로젝트의 완성도를 크게 좌우합니다.
 ErrorBoundary는 단순히 예외를 막는 도구를 넘어 에러의 종류별로 책임을 나누고 사용자 경험을 지키는 수단이 될 수 있습니다.

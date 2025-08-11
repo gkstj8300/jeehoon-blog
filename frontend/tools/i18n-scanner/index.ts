@@ -6,7 +6,7 @@ import chalk from 'chalk';
 import flat from 'flat';
 import glob from 'glob';
 import { get } from 'lodash';
-import { resources } from '@/i18n/resources';
+import { resources } from '@/lib/i18n/resources';
 
 const translations: Record<string, string> = flat({
 	...resources.ko.translation,
@@ -16,7 +16,7 @@ const translations: Record<string, string> = flat({
 const foundKeys: Record<string, true> = {};
 
 console.time('Total');
-glob('../../src/**/*.{ts,tsx}', (err: Error|null, files: string[]) => {
+glob('../../src/**/*.{ts,tsx}', (err: Error | null, files: string[]) => {
 	files.forEach(filePath => {
 		const warnings: string[] = [];
 		const errors: string[] = [];

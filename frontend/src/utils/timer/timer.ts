@@ -1,4 +1,4 @@
-import { TimerProps } from "./type";
+import { TimerProps } from './type';
 
 const onBrowser = typeof window !== 'undefined';
 

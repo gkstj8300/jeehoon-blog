@@ -1,9 +1,9 @@
-import { Translation } from '@/i18n/types';
+import { Translation } from '@/lib/i18n/types';
 
 export const footer: Translation = {
-    email: 'Email',
-    github: 'Github',
-    portfolio: 'Portfolio',
-    careerDescription: 'CareerDescription',
-    copyright: 'Copyright 2025.JeeHoon-Blog Corporation All Rights Reserved.'
-}
+	email: 'Email',
+	github: 'Github',
+	portfolio: 'Portfolio',
+	careerDescription: 'CareerDescription',
+	copyright: 'Copyright 2025.JeeHoon-Blog Corporation All Rights Reserved.',
+};

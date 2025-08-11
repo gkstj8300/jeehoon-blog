@@ -1,1 +1,0 @@
-export { SkillContent } from './SkillContent';

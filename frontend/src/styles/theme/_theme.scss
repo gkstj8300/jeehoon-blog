@@ -1,7 +1,7 @@
 @use './dark' as dark;
 @use './light' as light;
 
-html[data-theme="dark"] {
+html[data-theme='dark'] {
 	--background: #{dark.$backgroundColor};
 	--sub-background-color: #{dark.$subBackgroundColor};
 	--foreground: #{dark.$fontColor};
@@ -24,13 +24,13 @@ html[data-theme="dark"] {
 	--post-list-tag-boder-color: #{dark.$postListTagBoderColor};
 }
 
-html[data-theme="light"] {
+html[data-theme='light'] {
 	--background: #{light.$backgroundColor};
 	--sub-background-color: #{light.$subBackgroundColor};
 	--foreground: #{light.$fontColor};
 	--sub-font-color: #{light.$subFontColor};
 	--post-font-color: #{light.$postFontColor};
-	--post-sub-font-color: #{light.$postSubFontColor};   
+	--post-sub-font-color: #{light.$postSubFontColor};
 	--post-content-border: #{light.$postContentBorder};
 	--post-content-left-border: #{light.$postContentLeftBorder};
 	--header-background-color: #{light.$headerBackgroundColor};
@@ -44,5 +44,5 @@ html[data-theme="light"] {
 	--aside-heading-background-color: #{light.$asideHeadingBackgroundColor};
 	--base-font: #{light.$baseFont};
 	--post-list-tag-color: #{light.$postListTagColor};
-	--post-list-tag-boder-color: #{light.$postListTagBoderColor};   
+	--post-list-tag-boder-color: #{light.$postListTagBoderColor};
 }

@@ -1,6 +1,6 @@
 import { toNumeric } from './string';
-import { ApplicationError } from '@/errors/ApplicationError';
-import { AssertionError } from '@/errors/app/AssertionError';
+import { ApplicationError } from '@/lib/errors/ApplicationError';
+import { AssertionError } from '@/lib/errors/app/AssertionError';
 import { isObject } from '@/utils/object';
 
 /**

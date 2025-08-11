@@ -1,6 +1,6 @@
 ---
-title: "Php, RxJS에서 React, TypeScript로의 대전환 - 이커머스 리뉴얼 실무 경험 2편"
-regDate: "2025-06-02 03:19"
+title: 'Php, RxJS에서 React, TypeScript로의 대전환 - 이커머스 리뉴얼 실무 경험 2편'
+regDate: '2025-06-02 03:19'
 description: '낯선 기술 스택 습득부터 모던 프론트엔드 리뉴얼까지. PHP/RxJS/Twig 환경에서 React/TypeScript로의 대전환 프로젝트를 통한 개발자 성장 스토리!'
 thumbnailImage: 'https://d2ut7x8yqv441q.cloudfront.net/posts/part2.webp'
 mainTag: '회고'
@@ -8,6 +8,7 @@ tags: ['프로젝트', '회고']
 ---
 
 ## React를 실무에서 개발할 수 있는 경험을 하다니
+
 리뉴얼 개발 프로젝트의 개발 환경은 크게 `React, TypeScript, Next.js, Redux`로 구성되어 있어요. 현재 가장 인기 있고 실제로 많이 쓰이는 기술들이라 그런지 굉장히 설레기도 했고 한편으로는 긴장도 많이 됐죠.
 
 각 기술은 단순히 강의에만 의존하지 않고 강의나 유튜브로 기초를 다진 다음 공식 Document를 최대한 많이 참고하려고 했어요. 그리고 공부한 내용을 바탕으로 동일한 환경의 간단한 개인 프로젝트도 직접 진행해봤어요. 그렇게 공부하다 보니 처음엔 많이 어렵던 것들도 점점 익숙해졌어요. 이 날을 위해서 지금까지 운영과 유지보수의 과정들과 그동안 해왔던 공부와 스터디, 개인프로젝트들이 빛을 밝힐 시간이었죠.
@@ -34,23 +35,24 @@ tags: ['프로젝트', '회고']
 
 홈페이지를 개발할 때는 영역별로 우선순위가 있죠. 해당 리스트를 참고해서 1순위, 2순위를 정하면 모든 페이지에 공통으로 들어가야 하는 Header, 플로팅 바, 공통 유저 기능 같은 것들이 1순위가 되고 그 외 기능들은 2~3순위로 나뉘게 됩니다. 그래서 제가 맡은 공통 컴포넌트들을 빠르고 완성도 높게 개발해야 이후 다른 기능들도 문제없이 진행될 수 있었어요.
 
-리뉴얼 프로젝트는 PC버전과 Mobile버전으로 구분되어 있었고 각 버전별로 따로 개발을 진행해야 했어요. 로컬스토리지를 활용해 사용자의 디바이스 정보를 저장하고 Next.js를 기준으로 _app.tsx 파일을 _app.pc.tsx, _app.mobile.tsx처럼 구분해서 각 디바이스에 맞는 타겟을 호출할 수 있도록 설정했어요. 버전이 분리되다 보니 파일 수도 많아지고 자연스럽게 속도 문제가 생길 수 있었는데 이런 부분을 고려해서 공통 모듈, UI 컴포넌트, 공통 함수 등 자주 사용하는 부분은 최대한 모듈화하려고 노력했어요.
+리뉴얼 프로젝트는 PC버전과 Mobile버전으로 구분되어 있었고 각 버전별로 따로 개발을 진행해야 했어요. 로컬스토리지를 활용해 사용자의 디바이스 정보를 저장하고 Next.js를 기준으로 \_app.tsx 파일을 \_app.pc.tsx, \_app.mobile.tsx처럼 구분해서 각 디바이스에 맞는 타겟을 호출할 수 있도록 설정했어요. 버전이 분리되다 보니 파일 수도 많아지고 자연스럽게 속도 문제가 생길 수 있었는데 이런 부분을 고려해서 공통 모듈, UI 컴포넌트, 공통 함수 등 자주 사용하는 부분은 최대한 모듈화하려고 노력했어요.
 
 ### 렌더링 속도를 빠르게
+
 이커머스 특성상 이미지가 많이 보여질 수밖에 없다고 생각해요. 그 중 메인페이지와 카테고리 페이지는 한 페이지에 최대 100개가 넘는 이미지가 로드되어 렌더링 속도 저하문제가 심했죠. 그러면 이미지로 인해 발생하는 속도 저하 문제는 어떻게 해결하는 것이 좋을까요?
 
 ```list
 Amazon S3 + CloudFront CDN 도입
 ```
 
-첫 번째로는 이미지 서빙 방식의 개선이었어요. 기존에는 모든 정적 파일을 웹 서버에서 직접 제공하고 있었는데 이렇게 되면 서버에 부하가 집중되면서 전체적인 응답 속도가 느려질 수밖에 없었어요. 
+첫 번째로는 이미지 서빙 방식의 개선이었어요. 기존에는 모든 정적 파일을 웹 서버에서 직접 제공하고 있었는데 이렇게 되면 서버에 부하가 집중되면서 전체적인 응답 속도가 느려질 수밖에 없었어요.
 
 Amazon S3에 모든 이미지 파일을 업로드하고 CloudFront CDN을 통해 전 세계 어디서든 빠르게 접근할 수 있도록 구성했어요. CDN의 장점은 사용자와 가장 가까운 서버에서 이미지를 제공하기 때문에 물리적 거리로 인한 지연시간을 최소화할 수 있다는 점이죠.
 
 ```ts
 // 이미지 URL 구성 예시
 const getOptimizedImageUrl = (imagePath, width = 300) => {
-    return `https://cdn.cloudfront.net/images/${imagePath}?w=${width}&q=80`;
+	return `https://cdn.cloudfront.net/images/${imagePath}?w=${width}&q=80`;
 };
 ```
 
@@ -78,37 +80,38 @@ const getOptimizedImageUrl = (imagePath, width = 300) => {
 ```ts
 // Intersection Observer 구현 예시
 const useImageLazyLoading = () => {
-    const [imageRef, setImageRef] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
+	const [imageRef, setImageRef] = useState(null);
+	const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect(() => {
-        if (!imageRef) {
-            return;
-        }
+	useEffect(() => {
+		if (!imageRef) {
+			return;
+		}
 
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting && !isLoaded) {
-                setIsLoaded(true);
-                observer.disconnect();
-                }
-            },
-            { 
-                threshold: 0.1 
-            }
-        );
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting && !isLoaded) {
+					setIsLoaded(true);
+					observer.disconnect();
+				}
+			},
+			{
+				threshold: 0.1,
+			}
+		);
 
-        observer.observe(imageRef);
-        return () => observer.disconnect();
-    }, [imageRef, isLoaded]);
+		observer.observe(imageRef);
+		return () => observer.disconnect();
+	}, [imageRef, isLoaded]);
 
-    return { setImageRef, isLoaded };
+	return { setImageRef, isLoaded };
 };
 ```
 
 이러한 작업들을 통해 초기 렌더링 속도를 체감될 정도로 단축시킬 수 있었어요. 다시 생각해보니 뿌듯하네요.
 
 ### 공통 UI 컴포넌트를 통해 보다 더 효율성있게
+
 리뉴얼 전 기존 사이트는 UI의 일관성이 없어 아쉬운 점이 많았어요. 버튼, 체크박스, 셀렉트 박스 등 조금씩 제각각인면이 있었죠. 여기서 React의 장점들이 빛을 발하죠.
 
 ```list
@@ -121,13 +124,7 @@ const useImageLazyLoading = () => {
 
 ```ts
 // Button 테마
-const Themes = [
-	'strong',
-	'primary',
-	'default',
-	'sub',
-	'secondary',
-] as const;
+const Themes = ['strong', 'primary', 'default', 'sub', 'secondary'] as const;
 export type Theme = (typeof Themes)[number];
 
 // Button 아이콘
@@ -207,15 +204,16 @@ const slice = createSlice({
 
 이렇게 구현된 상품 비교 기능을 통해 사용자들이 여러 상품의 스펙을 체계적으로 비교하고 최적의 선택을 할 수 있도록 도움을 주었어요
 
-
 ### 지훈 주임님 SEO 데이터 수집이 되질 않아요.
+
 ```point
 SEO 크롤링 문제 해결 과정은 아래 URL의 게시글에 정리해 놓았어요!
 ```
+
 https://www.baakhan.com/posts/CSR과-SSR을-활용한-SEO-크롤링-대응처리/
 
-
 ## 마무리
+
 모든 프로젝트의 경험은 개발자라는 길에 있어서 뼈와 살이 되는 것 같아요. 제가 요즘에 스스로에게도 하는 말이며 고민을 갖고 있는 분들에게 항상 하는 말이 있어요.
 `기회는 찾아오는 것이 아니며 계속 움직이는 나에게 다가오는 것이다.`
 마지막 프로젝트를 진행하면서 스스로에게 부족한 부분이 보이며 제자리인 느낌이 계속 들었어요. 저는 이 순간에도 가만히 방황하지 않으며 무엇인가 하려고 했죠. 이것이 독서일 수도 개인 프로젝트가 될 수도 있죠. 저는 진행했던 React 프로젝트를 복습하고 제 것으로 만들고싶어 같은 환경으로 경력기술서와 지금의 블로그를 만들었죠. 바위처럼 클 수도 소금처럼 작을 수도 있지만 이렇게 쌓다보면 언젠가는 제가 원하는 탑의 모양이 나오지 않을까요?

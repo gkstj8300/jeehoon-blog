@@ -54,7 +54,7 @@
 		height: 1px;
 		margin: 0 auto;
 		background-color: var(--footer-hover-font-color);
-		content: "";
+		content: '';
 	}
 
 	&:hover {
@@ -70,10 +70,10 @@
 	font-weight: 700;
 	font-size: 12px;
 	line-height: 1;
-	white-space:nowrap;
+	white-space: nowrap;
 	background-color: var(--icon-link-background-color);
 	border-radius: 4px;
-	user-select: none
+	user-select: none;
 }
 
 .title {
@@ -94,5 +94,5 @@
 .date {
 	flex-shrink: 0;
 	font-size: 12px;
-	opacity: .6;
+	opacity: 0.6;
 }

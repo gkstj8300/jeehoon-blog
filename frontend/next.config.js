@@ -19,12 +19,12 @@ module.exports = {
 	rewrites() {
 		return [
 			{
-				source: "/sitemap.xml",
-				destination: "/api/sitemap",
+				source: '/sitemap.xml',
+				destination: '/api/sitemap',
 			},
 			{
-				source: "/rss.xml",
-				destination: "/api/rss",
+				source: '/rss.xml',
+				destination: '/api/rss',
 			},
 		];
 	},

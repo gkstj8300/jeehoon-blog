@@ -1,81 +1,99 @@
-import Head from 'next/head';
-import React from 'react';
-import styles from './ErrorBoundary.module.scss';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
 
-/**
- * error boundary props
- */
-interface ErrorProps {
-	children?: React.ReactNode;
-}
+import { Component, createElement, isValidElement } from 'react';
+import type { ErrorInfo } from 'react';
+import { ErrorBoundaryContext } from './ErrorBoundaryContext';
+import type { ErrorBoundaryProps, FallbackProps } from '@/types/errorBoundary';
 
-/**
- * error boundary state
- */
 interface ErrorState {
 	hasError: boolean;
+	error: Error | null;
 }
 
-class ErrorBoundary extends React.Component<ErrorProps, ErrorState> {
-	/**
-	 * constructor
-	 */
-	constructor(props: ErrorProps) {
+const initialState: ErrorState = {
+	hasError: false,
+	error: null,
+};
+
+class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorState> {
+	constructor(props: ErrorBoundaryProps) {
 		super(props);
-		this.state = {
-			hasError: false,
-		};
+		this.state = initialState;
+		this.resetErrorBoundary = this.resetErrorBoundary.bind(this);
 	}
 
-	/**
-	 * displayName
-	 */
-	static displayName = 'ErrorBoundary';
-
-/**
-	 * 다음 렌더링 풀백 UI가 표시되도록 state 갱신
-	 */
-	static getDerivedStateFromError(): ErrorState {
-		return { hasError: true };
+	static getDerivedStateFromError(error: Error) {
+		return { hasError: true, error };
 	}
 
-	render(): React.ReactNode {
-		// Header
-		const ErrorPageHeader: React.FC = () => {
-			return (
-				<header className={styles.headerBox}>
-					<div className={styles.header}>
-                        Jee-Hoon Blog
-					</div>
-				</header>
-			);
-		};
-
-		// Footer
-		const ErrorPageFooter: React.FC = () => {
-			return (
-				<footer className={styles.footer}>
-					<div className={styles.copyright}>
-                        Jee-Hoon Blog
-					</div>
-				</footer>
-			);
-		};
-
-		if (this.state.hasError) {
-			return (
-				<>
-					<Head>
-						<meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-						<title>Jee-Hoon Blog</title>
-					</Head>
-					<ErrorPageHeader />
-					<ErrorPageFooter />
-				</>
-			);
+	resetErrorBoundary(...args: any[]) {
+		if (this.state.error !== null) {
+			this.props.onReset?.({
+				args,
+				reason: 'imperative-api',
+			});
+			this.setState(initialState);
 		}
-		return this.props.children;
 	}
+
+	componentDidCatch(error: Error, info: ErrorInfo) {
+		this.props.onError?.(error, info);
+	}
+
+	componentDidUpdate(prevProps: ErrorBoundaryProps, prevState: ErrorState) {
+		if (
+			this.state.hasError &&
+			prevState.error !== null &&
+			hasArrayChanged(prevProps.resetKeys, this.props.resetKeys)
+		) {
+			this.props.onReset?.({
+				next: this.props.resetKeys,
+				prev: prevProps.resetKeys,
+				reason: 'keys',
+			});
+			this.setState(initialState);
+		}
+	}
+
+	render() {
+		const { children, fallbackRender, FallbackComponent, fallback } =
+			this.props;
+		const { hasError, error } = this.state;
+
+		let childToRender = children;
+
+		if (hasError) {
+			const props: FallbackProps = {
+				error: error!,
+				resetErrorBoundary: this.resetErrorBoundary,
+			};
+
+			if (typeof fallbackRender === 'function') {
+				childToRender = fallbackRender(props);
+			} else if (FallbackComponent) {
+				childToRender = createElement(FallbackComponent, props);
+			} else if (fallback && isValidElement(fallback)) {
+				childToRender = fallback;
+			} else {
+				throw error;
+			}
+		}
+
+		return createElement(
+			ErrorBoundaryContext.Provider,
+			{
+				value: { hasError, error, resetErrorBoundary: this.resetErrorBoundary },
+			},
+			childToRender
+		);
+	}
+}
+
+function hasArrayChanged(a: any[] = [], b: any[] = []) {
+	return (
+		a.length !== b.length || a.some((item, index) => !Object.is(item, b[index]))
+	);
 }
 
 export default ErrorBoundary;

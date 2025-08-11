@@ -1,1 +1,0 @@
-export { ScrollProgressBar } from'./ScrollProgressBar';

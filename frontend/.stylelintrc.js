@@ -53,6 +53,6 @@ module.exports = {
 		'no-invalid-double-slash-comments': true,
 		'alpha-value-notation': 'number',
 		'function-url-quotes': 'never',
-		"value-no-vendor-prefix": null,
+		'value-no-vendor-prefix': null,
 	},
 };

@@ -1,0 +1,18 @@
+.layout {
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+.backToTop {
+	position: fixed;
+	right: 10px;
+	bottom: 99px;
+}
+
+@media (min-width: 1024px) {
+	.layout {
+		padding: 1rem;
+	}
+}

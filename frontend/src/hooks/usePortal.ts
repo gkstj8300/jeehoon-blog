@@ -16,11 +16,14 @@ export const usePortal = () => {
 		}
 	}, []);
 
-	const Portal: React.FC<{ children: React.ReactNode }> = useCallback(({ children }) => {
-		if (!portalRef.current) {
-			return null;
-		}
-		return createPortal(children, portalRef.current);
-	}, []);
+	const Portal: React.FC<{ children: React.ReactNode }> = useCallback(
+		({ children }) => {
+			if (!portalRef.current) {
+				return null;
+			}
+			return createPortal(children, portalRef.current);
+		},
+		[]
+	);
 	return { Portal, portalRef };
 };
