@@ -1,0 +1,148 @@
+.projectItem {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-bottom: 3rem;
+	padding-bottom: 2rem;
+	border-bottom: 1px rgb(234 236 238) solid;
+
+	&:last-child {
+		margin: 0;
+	}
+
+	&[data-even='false'] {
+		align-items: flex-end;
+	}
+}
+
+.projectDetailWrap {
+	width: 100%;
+}
+
+.projectMain {
+	display: flex;
+}
+
+.details {
+	flex: 1;
+	max-width: 150px;
+	margin-right: 20px;
+	padding-bottom: 15px;
+	text-align: right;
+	border-bottom: 1px rgb(234 236 238) solid;
+}
+
+.detailBody {
+	flex: 2 1;
+	padding-top: 10px;
+
+	&[data-even='false'] {
+		text-align: right;
+	}
+}
+
+.projectLogo {
+	max-width: 100%;
+	padding: 1rem;
+	background-color: #fff;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(234 236 238);
+	border-radius: 8px;
+	object-fit: contain;
+}
+
+.name {
+	margin: 5px 0;
+	font-weight: 600;
+	font-size: 1.8rem;
+	line-height: 1.3rem;
+}
+
+.projectName {
+	margin: 5px 0;
+	font-weight: 600;
+	font-size: 1.6rem;
+	line-height: 2rem;
+}
+
+.duration {
+	font-size: 1rem;
+
+	span {
+		padding: 0 5px;
+	}
+}
+
+.description {
+	list-style-position: inside;
+	list-style-type: disc;
+
+	li {
+		margin-bottom: 10px;
+		font-size: 16px;
+		line-height: 1.4;
+
+		&::marker {
+			content: '- ';
+		}
+	}
+}
+
+.skill {
+	padding-bottom: 1rem;
+}
+
+.calculateDuration {
+	font-size: 0.8rem;
+	text-align: center;
+	background-color: var(--sub-background-color);
+	border-radius: 10px;
+	-webkit-print-color-adjust: exact;
+}
+
+.development {
+	margin-bottom: 0.5rem;
+	list-style: none;
+}
+
+.developmentHead {
+	display: flex;
+	gap: 0.7rem;
+	margin-bottom: 0.2rem;
+}
+
+.developmentDate {
+	display: flex;
+	gap: 0.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.developmentType {
+	padding: 0 6px;
+	background-color: #007cffa6;
+	border-radius: 10px;
+}
+
+@media (max-width: 530px) {
+	.projectName {
+		font-size: 1.1rem;
+	}
+
+	.projectItem {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.logoWrap {
+		order: -1;
+	}
+
+	.description li {
+		line-height: 1.2;
+	}
+
+	.detailBody {
+		padding: 10px 0 0;
+	}
+}

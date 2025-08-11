@@ -1,5 +1,3 @@
-import Router from 'next/router';
-
 /** Session storage key */
 const STORAGE_KEY = 'ROUTER_HISTORY';
 
@@ -42,11 +40,6 @@ class RouterHistory {
 			if (isNotReload()) {
 				this.setHistory({ prev: document.referrer, current: location.href });
 			}
-			Router.events.on('routeChangeStart', location => {
-				if (document.readyState === 'complete') {
-					this.pushHistory(location);
-				}
-			});
 		}
 	}
 }

@@ -1,0 +1,95 @@
+.experience {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 20px;
+}
+
+.details {
+	flex: 1;
+	max-width: 150px;
+	margin-right: 20px;
+	padding-bottom: 15px;
+	text-align: right;
+	border-bottom: 1px rgb(234 236 238) solid;
+}
+
+.companyImg {
+	max-width: 100%;
+	padding: 1rem;
+	background-color: #fff;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(234 236 238);
+	border-radius: 8px;
+	object-fit: contain;
+}
+
+.title {
+	margin: 0;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.companyName {
+	margin: 5px 0;
+	font-weight: 600;
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+
+.duration {
+	font-size: 1rem;
+
+	span {
+		padding: 0 5px;
+	}
+}
+
+.divider {
+	width: 1px;
+	height: 150px;
+	margin-right: 20px;
+	background-color: var(--background);
+}
+
+.description {
+	flex: 2;
+	margin: 0;
+	padding: 0;
+	list-style-position: inside;
+	list-style-type: disc;
+}
+
+.description li {
+	margin-bottom: 10px;
+	font-size: 14px;
+	line-height: 1.4;
+}
+
+.calculateDuration {
+	font-size: 0.8rem;
+	text-align: center;
+	background-color: var(--sub-background-color);
+	border-radius: 10px;
+	-webkit-print-color-adjust: exact;
+}
+
+@media (max-width: 530px) {
+	.companyName {
+		font-size: 1.3rem;
+	}
+
+	.details {
+		margin-right: 0;
+	}
+
+	.divider {
+		margin-right: 10;
+	}
+
+	.durationDate {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-end;
+	}
+}

@@ -1,0 +1,31 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	max-width: 52rem;
+	margin: 0 auto;
+	padding: 3rem 1rem;
+}
+
+.breadcrumb {
+	max-width: 52rem;
+	margin: 0 auto;
+}
+
+.pdf {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 100px;
+	max-width: 100px;
+	padding: 5px;
+	background-color: var(--sub-background-color);
+	border-radius: 0.3rem;
+	cursor: pointer;
+
+	&:hover {
+		color: rgb(237 237 237);
+		background-color: var(--icon-link-background-color);
+		transition: 0.15s ease-in-out;
+	}
+}

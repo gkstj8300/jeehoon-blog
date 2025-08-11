@@ -1,0 +1,58 @@
+.container {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	align-items: flex-start;
+	margin: 20px 0;
+}
+
+.line {
+	flex: 1;
+	height: 1px;
+	background-color: var(--background);
+}
+
+.title {
+	font-weight: 500;
+	font-size: 24px;
+	text-align: center;
+}
+
+.introduce {
+	display: flex;
+	flex-direction: column;
+	padding: 0 0 20px 20px;
+	border-left: 1px solid var(--color-border-secondary);
+
+	> p {
+		font-weight: 400;
+		line-height: 1.6;
+	}
+}
+
+.footer {
+	display: flex;
+	align-content: center;
+	float: right;
+}
+
+.updateWrap {
+	text-align: right;
+}
+
+.lastUpdate {
+	font-weight: 600;
+	font-size: 80%;
+}
+
+.updateDate {
+	padding-left: 6px;
+	color: var(--color-text-secondary);
+	font-size: 80%;
+}
+
+@media (max-width: 530px) {
+	.container {
+		flex-direction: column;
+	}
+}

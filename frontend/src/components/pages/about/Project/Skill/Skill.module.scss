@@ -1,0 +1,14 @@
+.skill {
+	display: inline-block;
+	margin-right: 0.25rem;
+	padding: 0.25em 0.4em;
+	font-weight: 400;
+	font-size: 85%;
+	line-height: 1;
+	white-space: nowrap;
+	text-align: center;
+	vertical-align: baseline;
+	background-color: var(--post-tag-background-color);
+	border-radius: 0.25rem;
+	-webkit-print-color-adjust: exact;
+}
