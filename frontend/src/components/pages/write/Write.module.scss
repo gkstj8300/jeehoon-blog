@@ -1,0 +1,124 @@
+.editorContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 1rem;
+}
+
+.writeInfoWrap {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.titleInput {
+	padding: 0.5rem;
+	font-size: 1.5rem;
+}
+
+.editor {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	width: 100%;
+	padding: 1rem;
+	overflow-y: auto;
+	border: 1px solid #dfdfdf;
+	border-radius: 4px;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-top: 1.5rem;
+		margin-bottom: 1rem;
+		font-weight: 600;
+		line-height: 1.25;
+	}
+
+	ul,
+	ol {
+		padding-left: 2em;
+	}
+
+	p,
+	blockquote,
+	ul,
+	ol,
+	dl,
+	table,
+	pre,
+	details {
+		margin-top: 0;
+	}
+}
+
+.inputBox {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.textarea {
+	height: 300px;
+	padding: 1rem;
+	color: var(--sub-font-color);
+	font-size: 1rem;
+	font-family: var(--base-font);
+	background-color: var(--sub-background-color);
+}
+
+.codeBlock {
+	display: inline-flex;
+	align-items: center;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 4px 0;
+	padding: 16px 16px 16px 12px;
+	border: var(--post-content-border);
+	border-width: 1px;
+	border-radius: 3px;
+
+	code {
+		width: 100%;
+		margin-left: 8px;
+		white-space: pre-wrap;
+		word-break: break-word;
+	}
+}
+
+.buttonWrap {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+}
+
+.downloadButton {
+	padding: 0.75rem;
+	color: var(--sub-font-color);
+	font-size: 1rem;
+	background-color: var(--post-tag-background-color);
+	border: none;
+	cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+	.writeInfoWrap {
+		flex-direction: row;
+	}
+
+	.editor {
+		width: 60%;
+	}
+
+	.inputBox {
+		width: 40%;
+	}
+
+	.textarea {
+		height: 100%;
+		min-height: 300px;
+	}
+}

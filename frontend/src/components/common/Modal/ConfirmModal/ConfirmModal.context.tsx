@@ -13,29 +13,27 @@ type MessageNode = string | ReactElement;
 type TitleNode = string | ReactElement;
 
 /** Confirm modal content resource */
-type ConfirmResource =
-	| MessageNode
-	| {
-		title?: TitleNode;
-		message: MessageNode;
-		confirmButton?: ButtonNode;
-		closeButton?: string | ReactElement;
-	};
+type ConfirmResource = | MessageNode | {
+	title?: TitleNode;
+	message: MessageNode;
+	confirmButton?: ButtonNode;
+	closeButton?: string | ReactElement;
+};
 
 /** Confirm modal context type */
 type ConfirmModalContext =
 	| {
-		isOpen: false;
-		resource: ConfirmResource;
-		onConfirm?: () => void;
-		onClose?: () => void;
-	}
+	isOpen: false;
+	resource: ConfirmResource;
+	onConfirm?: () => void;
+	onClose?: () => void;
+}
 	| {
-		isOpen: true;
-		resource: ConfirmResource;
-		onConfirm: () => void;
-		onClose: () => void;
-	};
+	isOpen: true;
+	resource: ConfirmResource;
+	onConfirm: () => void;
+	onClose: () => void;
+};
 
 /** Confirm dispatch context type */
 type ConfirmDispatchContext = (message: ConfirmResource) => Promise<boolean>;
@@ -46,21 +44,20 @@ const ConfirmModalContext = createContext<ConfirmModalContext>({
 		message: '',
 	},
 });
+
 const ConfirmDispatchContext = createContext<ConfirmDispatchContext>(
 	async () => false
 );
 
 type ConfirmModalAction =
 	| {
-		type: 'OPEN';
-		context: Required<Omit<ConfirmModalContext, 'isOpen'>>;
-	}
-	| {
-		type: 'CLOSE';
-	}
-	| {
-		type: 'CONFIRM';
-	};
+	type: 'OPEN';
+	context: Required<Omit<ConfirmModalContext, 'isOpen'>>;
+} | {
+	type: 'CLOSE';
+} | {
+	type: 'CONFIRM';
+};
 
 function reducer(
 	state: ConfirmModalContext,

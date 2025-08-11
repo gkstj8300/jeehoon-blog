@@ -1,23 +1,18 @@
 import dynamic from 'next/dynamic';
 import {
-	Ref,
-	forwardRef,
+	useCallback,
 	useEffect,
-	useMemo,
 	useState,
+	useMemo,
 	CSSProperties,
 	DetailedHTMLProps,
 	HTMLAttributes,
-	useCallback,
 } from 'react';
 import rehypeRaw from 'rehype-raw';
 import remarkBreaks from 'remark-breaks';
 import remarkGfm from 'remark-gfm';
-import usePostContent from './PostContent.hook';
-import styles from './PostContent.module.scss';
+import styles from './MarkdownPreview.module.scss';
 import CustomCodeBlock from '@/components/common/PostContent/CustomCodeBlock';
-import { Heading } from '@/components/pages/postDetail/PostDetail.types';
-import { useOnMounted } from '@/hooks/useOnMounted';
 import { useSelector } from '@/lib/store/hooks';
 import { selectTheme } from '@/lib/store/modules/common/selectors';
 import { loadStyle } from '@/utils/loadStyle';
@@ -27,15 +22,11 @@ const DynamicReactMarkdown = dynamic(() => import('react-markdown'), {
 	ssr: false,
 });
 
-interface PostContentProps {
+interface MarkdownPreviewProps {
 	content: string;
-	handleGetHeadigs?: (headings: Heading[]) => void;
 }
 
-function PostContent(
-	{ content, handleGetHeadigs }: PostContentProps,
-	ref?: Ref<HTMLDivElement>
-) {
+export default function MarkdownPreview({ content }: MarkdownPreviewProps) {
 	const [style, setStyle] = useState<{ [key: string]: CSSProperties } | null>(
 		null
 	);
@@ -44,22 +35,17 @@ function PostContent(
 	const theme = useSelector(selectTheme);
 	const generateHeadingId = useCallback((text: string) => text.replace(/\s+/g, '-').toLowerCase(), []);
 
-	const { getPostContentHeadings } = usePostContent({ content });
-	const headings = getPostContentHeadings();
-
 	const markdownComponents = useMemo(
 		() => createMarkdownComponents(style, theme, generateHeadingId),
 		[style, theme, generateHeadingId]
 	);
-
-	useOnMounted(() => handleGetHeadigs && handleGetHeadigs(headings));
 
 	useEffect(() => {
 		loadStyle(theme).then(setStyle);
 	}, [theme]);
 
 	return (
-		<div className={styles.container} ref={ref}>
+		<div className={styles.editor}>
 			<DynamicReactMarkdown
 				remarkPlugins={[remarkGfm, remarkBreaks]}
 				rehypePlugins={[rehypeRaw]}
@@ -70,8 +56,7 @@ function PostContent(
 		</div>
 	);
 }
-export default forwardRef(PostContent);
-PostContent.displayName = 'PostContent';
+MarkdownPreview.displayName = 'MarkdownPreview';
 
 function createMarkdownComponents(
 	style: { [key: string]: CSSProperties } | null,
