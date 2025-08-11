@@ -25,7 +25,7 @@ export default function RecentPosts({ posts }: RecentPostsProps) {
 				<span className={styles.recentPosts}>
 					{t('component.pages.home.recentPosts.recentPost')}
 				</span>
-				<Link href="/postList" className={styles.allPostLink}>
+				<Link href="/post/list" className={styles.allPostLink}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						height="24px"

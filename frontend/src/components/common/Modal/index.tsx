@@ -13,12 +13,12 @@ import { Context } from './context';
 import { usePortal } from '@/hooks/usePortal';
 import { assertNotNull } from '@/utils/assertions';
 
-type Props = {
+interface Props {
 	isOpen?: boolean;
 	title?: string | ReactNode;
 	onCancel?: () => void;
 	children?: React.ReactNode;
-};
+}
 
 type Position = 'absolute' | 'fixed';
 

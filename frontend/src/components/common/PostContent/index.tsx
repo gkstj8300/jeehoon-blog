@@ -83,12 +83,12 @@ const customCodeBlock = ({
 
 interface PostContentProps {
 	content: string;
-	handleGetHeadigs: (headings: Heading[]) => void;
+	handleGetHeadigs?: (headings: Heading[]) => void;
 }
 
 function PostContent(
 	{ content, handleGetHeadigs }: PostContentProps,
-	ref: Ref<HTMLDivElement>
+	ref?: Ref<HTMLDivElement>
 ) {
 	const [style, setStyle] = useState<{ [key: string]: CSSProperties } | null>(
 		null
@@ -103,7 +103,7 @@ function PostContent(
 	const generateHeadingId = (text: string) =>
 		text.replace(/\s+/g, '-').toLowerCase();
 
-	useOnMounted(() => handleGetHeadigs(headings));
+	useOnMounted(() => handleGetHeadigs && handleGetHeadigs(headings));
 
 	useEffect(() => {
 		loadStyle(theme).then(setStyle);

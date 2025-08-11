@@ -5,11 +5,11 @@ import Title from '@/components/common/Title';
 import { SearchType } from '@/components/pages/home/Home.types';
 import { PostType } from '@/types/slug';
 
-type TagProps = {
+interface TagProps {
 	postList: PostType[];
 	search?: SearchType;
 	handleFindPosts: (search: SearchType) => void;
-};
+}
 
 export default function Tag({ postList, search, handleFindPosts }: TagProps) {
 	const [tags, setTags] = useState<string[]>();

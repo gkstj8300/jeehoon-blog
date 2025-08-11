@@ -2,10 +2,10 @@ import React, { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './ModalTransition.module.scss';
 
-type Props = {
+interface Props {
 	isOpen: boolean;
 	children?: React.ReactNode;
-};
+}
 
 /**
  * Modal Transition & Display control

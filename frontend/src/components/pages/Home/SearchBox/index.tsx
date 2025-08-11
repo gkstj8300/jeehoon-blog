@@ -3,9 +3,9 @@ import styles from './SearchBox.module.scss';
 import Title from '@/components/common/Title';
 import { SearchType } from '@/components/pages/home/Home.types';
 
-type SearchBoxProps = {
+interface SearchBoxProps {
 	handleFindPosts: (search: SearchType) => void;
-};
+}
 
 export default function SearchBox({ handleFindPosts }: SearchBoxProps) {
 	const [keyDownValue, setKeyDownValue] = useState('');

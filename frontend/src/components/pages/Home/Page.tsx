@@ -15,10 +15,10 @@ import { PostType } from '@/types/slug';
 
 const TEG_INNER_WIDTH = 1024;
 
-type HomePageProps = {
+interface HomePageProps {
 	postList: PostType[];
 	className?: string;
-};
+}
 
 export default function HomePage({ postList }: HomePageProps) {
 	const { posts, search, recentPosts, handleFindPosts } = useHome(postList);

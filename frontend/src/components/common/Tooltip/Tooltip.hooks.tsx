@@ -2,13 +2,13 @@ import { useRef, ReactNode, useContext, MouseEvent } from 'react';
 import { Direction, Theme } from './Tooltip';
 import { TooltipContext } from '.';
 
-type Options = {
+interface Options {
 	content: ReactNode;
 	direction?: Direction;
 	closeOnClick?: boolean;
 	offset?: number;
 	theme?: Theme;
-};
+}
 
 export function useTooltip<T extends HTMLDivElement | HTMLAnchorElement>({
 	content,

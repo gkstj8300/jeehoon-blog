@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 
-type PostContentParams = {
+interface PostContentParams {
 	content: string;
-};
+}
 
 export default function usePostContent({ content }: PostContentParams) {
 	const getPostContentHeadings = useCallback(() => {

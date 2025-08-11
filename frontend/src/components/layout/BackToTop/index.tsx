@@ -1,9 +1,9 @@
 import React, { RefObject } from 'react';
 import styles from './BackToTop.module.scss';
 
-type BackToTopProps = {
+interface BackToTopProps {
 	layoutRootRef: RefObject<HTMLDivElement>;
-};
+}
 
 export default function BackToTop({ layoutRootRef }: BackToTopProps) {
 	const handleClickBackToTop = (event: React.MouseEvent) => {
