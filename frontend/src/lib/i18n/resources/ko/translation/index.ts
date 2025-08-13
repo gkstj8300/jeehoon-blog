@@ -4,7 +4,7 @@ import { header } from '@/components/layout/Header/Header.i18n.ko';
 import { about } from '@/components/pages/about/About.i18n.ko';
 import { home } from '@/components/pages/home/Home.i18n.ko';
 import { postDetail } from '@/components/pages/postDetail/PostDetail.i18n.ko';
-// import { write } from '@/components/pages/Write/Write.i18n.ko';
+import { write } from '@/components/pages/write/Write.i18n.ko';
 import type { Translation } from '@/lib/i18n/types';
 
 const translation: Translation = {
@@ -23,7 +23,7 @@ const translation: Translation = {
 			home,
 			postDetail,
 			about,
-			// write,
+			write,
 		},
 	},
 };

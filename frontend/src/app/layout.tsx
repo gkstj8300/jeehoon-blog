@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="ko">
-			<body className={pretendard.className}>
+			<body className={pretendard.variable}>
 				<Providers>
 					<StandardLayout>{children}</StandardLayout>
 				</Providers>
