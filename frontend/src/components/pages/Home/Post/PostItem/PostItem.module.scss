@@ -47,9 +47,9 @@
 }
 
 .thumbnailImg {
-	width: 100%;
-	height: 180px;
-	border-radius: 10px;
+  position: relative;
+  width: 350px;
+  aspect-ratio: 350 / 180;
 }
 
 .mainTag {
