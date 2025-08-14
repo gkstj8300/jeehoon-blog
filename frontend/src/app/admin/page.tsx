@@ -1,10 +1,18 @@
-// import { signIn } from "next-auth/react";
-// import { useEffect } from "react";
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/apis/auth"; 
 
-// export default function AdminRedirect() {
-//     useEffect(() => {
-//         signIn("github", { callbackUrl: "/" });
-//     }, []);
+export default async function Admin() {
+  const session = await getServerSession(authOptions);
 
-//     return <p>Loding...</p>;
-// }
+  if (!session) {
+    redirect("/api/auth/signin?callbackUrl=/admin");
+  }
+
+  return (
+    <main>
+      <h1>Admin Dashboard</h1>
+      <p>Welcome, {session.user?.name}</p>
+    </main>
+  );
+}

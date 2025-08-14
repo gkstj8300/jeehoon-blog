@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Providers from './providers';
+import GoogleAnalytics from '@/components/anylytics/GoogleAnalytics';
 import StandardLayout from '@/components/layout/StandardLayout';
 import { pretendard } from '@/styles/fonts/Pretendard/pretendard';
 import '@/styles/globals.scss';
@@ -22,12 +23,15 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
+	const gaId = process.env.NEXT_PUBLIC_GTM_ID;
+
 	return (
 		<html lang="ko">
 			<body className={pretendard.variable}>
 				<Providers>
 					<StandardLayout>{children}</StandardLayout>
 				</Providers>
+				{gaId ? <GoogleAnalytics gaId={gaId} /> : null}
 			</body>
 		</html>
 	);

@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { PostType } from "@/models/pages/slug";
+import { PostType } from "@/types/slug";
 import getMarkdownAllPosts from "@/utils/markDown/getMarkdownAllPosts";
 
 const generateRssFeed = (postList: PostType[]) => {

@@ -7,7 +7,7 @@ npm-debug.log*
 .npmrc
 .next
 /out
-.env.local
+.env
 /config/dist
 /src/utils/$path.ts
 .vercel
