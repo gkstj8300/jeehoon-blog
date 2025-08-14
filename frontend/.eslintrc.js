@@ -12,7 +12,6 @@ module.exports = {
 		'import/resolver': 'webpack',
 	},
 	rules: {
-		curly: 'error',
 		'lines-between-class-members': ['error', 'always'],
 		// Suppress to conflict to @typescript-eslint/explicit-member-accessibility
 		'member-access': 'off',
