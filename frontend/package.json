@@ -53,6 +53,7 @@
 		"rehype-raw": "^7.0.0",
 		"remark-breaks": "^4.0.0",
 		"remark-gfm": "^4.0.1",
+		"rss": "^1.2.2",
 		"yup": "^1.5.0"
 	},
 	"devDependencies": {
@@ -62,6 +63,7 @@
 		"@types/react-dom": "^18",
 		"@types/react-i18next": "^8.1.0",
 		"@types/react-syntax-highlighter": "^15.5.13",
+		"@types/rss": "^0.0.32",
 		"@typescript-eslint/eslint-plugin": "^7.6.0",
 		"case-sensitive-paths-webpack-plugin": "^2.4.0",
 		"eslint": "^8",
