@@ -1,0 +1,75 @@
+@use 'src/styles/variables';
+
+.profile {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+	height: 100%;
+	padding: 0.5rem 0.8rem;
+	background-color: var(--sub-background-color); // 수정된 부분
+	border-radius: 1rem;
+}
+
+.mainProfile {
+	display: flex;
+	align-items: center;
+}
+
+.image {
+	flex: 0 0 auto;
+	width: 90px;
+	height: 90px;
+	background: url(https://d2ut7x8yqv441q.cloudfront.net/posts/profile.webp);
+	background-position: center center;
+	background-size: cover;
+	border-radius: 999px;
+}
+
+.sub {
+	width: 100%;
+	padding: 0.5rem;
+
+	a {
+		margin-right: 9.6px;
+	}
+}
+
+.developer {
+	color: var(--profile-develop-color);
+}
+
+.author {
+	margin-bottom: 4.8px;
+	font-weight: 700;
+	font-size: 1.24rem;
+}
+
+.description {
+	color: var(--sub-font-color);
+	font-size: 0.85rem;
+	line-height: 1.5;
+	white-space: normal;
+}
+
+@media (min-width: 1024px) {
+	.container {
+		display: block;
+		grid-column: span 3 / span 3;
+	}
+
+	.profile {
+		flex-direction: column;
+		align-items: center;
+		padding: 1rem;
+	}
+
+	.mainProfile {
+		flex-direction: column;
+	}
+
+	.image {
+		width: 128px;
+		height: 128px;
+	}
+}

@@ -1,0 +1,26 @@
+.container {
+	margin-right: auto;
+	padding: 0.25rem;
+	font-weight: bold;
+}
+
+.sort {
+	display: flex;
+	gap: 0.5rem;
+	font-size: 0.8rem;
+
+	span {
+		font-weight: 100;
+		cursor: pointer;
+
+		&[data-sort='true'] {
+			font-weight: bold;
+		}
+	}
+}
+
+@media (min-width: 1024px) {
+	.container {
+		margin-bottom: 0.75rem;
+	}
+}
