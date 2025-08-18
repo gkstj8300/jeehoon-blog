@@ -8,7 +8,7 @@ interface MiniTitleProps {
 
 export default function MiniTitle({ type }: MiniTitleProps) {
 	return (
-		<div className={styles.miniTitle} data-developType={type}>
+		<div className={styles.miniTitle} data-develop-type={type}>
 			{type}
 		</div>
 	);
