@@ -2,18 +2,20 @@ const defaultRestrictedImportPatterns = ['*../**'];
 
 module.exports = {
 	root: true,
-	plugins: ['unused-imports', 'sort-keys-fix'],
+	plugins: ['unused-imports', 'sort-keys-fix', 'import'],
 	extends: [
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
 		'next/core-web-vitals',
 	],
 	settings: {
-		'import/resolver': 'webpack',
+		'import/resolver': {
+			typescript: { project: './tsconfig.json' },
+			node: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+		},
 	},
 	rules: {
 		'lines-between-class-members': ['error', 'always'],
-		// Suppress to conflict to @typescript-eslint/explicit-member-accessibility
 		'member-access': 'off',
 		'no-console': 'error',
 		'no-debugger': 'error',
@@ -21,52 +23,34 @@ module.exports = {
 		'no-eval': 'error',
 		'no-restricted-imports': [
 			'error',
-			{
-				patterns: defaultRestrictedImportPatterns,
-			},
+			{ patterns: defaultRestrictedImportPatterns },
 		],
 		'no-restricted-syntax': ['error', 'TSEnumDeclaration'],
 		'padding-line-between-statements': [
 			'error',
-			{
-				blankLine: 'always',
-				prev: 'function',
-				next: 'function',
-			},
-			{
-				blankLine: 'always',
-				prev: 'block-like',
-				next: 'block-like',
-			},
+			{ blankLine: 'always', prev: 'function', next: 'function' },
+			{ blankLine: 'always', prev: 'block-like', next: 'block-like' },
 		],
 		'spaced-comment': [
 			'error',
 			'always',
 			{
-				line: {
-					exceptions: ['-', '='],
-				},
-				block: {
-					balanced: true,
-				},
+				line: { exceptions: ['-', '='] },
+				block: { balanced: true },
 				markers: ['/'],
 			},
 		],
 		'react/display-name': 'off',
 		'react-hooks/exhaustive-deps': [
 			'warn',
-			{
-				enableDangerousAutofixThisMayCauseInfiniteLoops: true,
-			},
+			{ enableDangerousAutofixThisMayCauseInfiniteLoops: true },
 		],
-		'import/no-duplicates': ['error'],
-		'import/no-namespace': ['error'],
+		'import/no-duplicates': 'error',
+		'import/no-namespace': 'error',
 		'import/order': [
 			'error',
 			{
-				alphabetize: {
-					order: 'asc',
-				},
+				alphabetize: { order: 'asc' },
 				'newlines-between': 'never',
 			},
 		],
@@ -80,9 +64,7 @@ module.exports = {
 				'no-dupe-class-members': 'off',
 				'@typescript-eslint/explicit-member-accessibility': [
 					'error',
-					{
-						accessibility: 'no-public',
-					},
+					{ accessibility: 'no-public' },
 				],
 				'@typescript-eslint/explicit-module-boundary-types': 'off',
 				'@typescript-eslint/no-empty-interface': 0,
@@ -91,9 +73,7 @@ module.exports = {
 		},
 		{
 			files: ['src/i18n/*/resources/*/translation/**/*.ts'],
-			rules: {
-				'sort-keys-fix/sort-keys-fix': 'error',
-			},
+			rules: { 'sort-keys-fix/sort-keys-fix': 'error' },
 		},
 		{
 			files: ['src/**/*.i18n.*.ts'],
@@ -111,9 +91,7 @@ module.exports = {
 			rules: {
 				'no-restricted-imports': [
 					'error',
-					{
-						patterns: ['@/**/*i18n.*'],
-					},
+					{ patterns: ['@/**/*i18n.*'] },
 				],
 			},
 		},
