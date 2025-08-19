@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Post from '../Post';
 import Profile from '../Profile';
 import RecentPosts from '../RecentPosts';
@@ -8,12 +7,13 @@ import SearchBox from '../SearchBox';
 import Tag from '../Tag';
 import styles from './HomePage.module.scss';
 import { useHome } from '@/features/home/hooks';
+import { useBreakpoint } from '@/shared/hooks/useBreakpoint';
 import { useOnMounted } from '@/shared/hooks/useOnMounted';
 import { ga } from '@/shared/lib/logs/analytics';
 import { PostType } from '@/shared/types/slug';
 import Breadcrumbs from '@/shared/ui/Breadcrumbs';
 
-const TEG_INNER_WIDTH = 1024;
+const BREAKPOINT = 1024;
 
 interface HomePageProps {
 	postList: PostType[];
@@ -22,16 +22,7 @@ interface HomePageProps {
 
 export default function HomePage({ postList }: HomePageProps) {
 	const { posts, search, recentPosts, handleFindPosts } = useHome(postList);
-
-	const [innerWidth, setInnerWidth] = useState<number>(0);
-
-	useEffect(() => {
-		const handleResize = () => setInnerWidth(window.innerWidth);
-
-		window.addEventListener('resize', handleResize);
-		return () => window.removeEventListener('resize', handleResize);
-	}, []);
-
+	const isNarrow = useBreakpoint(BREAKPOINT);
 	useOnMounted(ga.pageView.home);
 
 	return (
@@ -42,7 +33,7 @@ export default function HomePage({ postList }: HomePageProps) {
 					<div className={styles.lcontainer}>
 						<Profile />
 					</div>
-					{innerWidth < TEG_INNER_WIDTH && (
+					{isNarrow && (
 						<div className={styles.rcontainer}>
 							<Tag
 								postList={postList}
@@ -55,7 +46,7 @@ export default function HomePage({ postList }: HomePageProps) {
 						<RecentPosts posts={recentPosts} />
 						<SearchBox handleFindPosts={handleFindPosts} />
 					</div>
-					{innerWidth >= TEG_INNER_WIDTH && (
+					{!isNarrow && (
 						<div className={styles.rcontainer}>
 							<Tag
 								postList={postList}

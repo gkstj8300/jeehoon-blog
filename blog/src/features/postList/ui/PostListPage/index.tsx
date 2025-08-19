@@ -1,12 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import styles from './PostListPage.module.scss';
 import PostContent from '@/entities/post/ui/PostContent';
 import PostInfo from '@/entities/post/ui/PostInfo';
 import PostSearch from '@/entities/post/ui/PostSearch';
 import PostTitle from '@/entities/post/ui/PostTitle';
+import { useInfiniteSlice } from '@/shared/hooks/useInfiniteSlice';
 import { useOnMounted } from '@/shared/hooks/useOnMounted';
 import { ga } from '@/shared/lib/logs/analytics';
 import { PostType } from '@/shared/types/slug';
@@ -14,109 +15,73 @@ import Breadcrumbs from '@/shared/ui/Breadcrumbs';
 import { url } from '@/shared/utils/url';
 
 interface PostListPageProps {
-	postList: PostType[];
+  postList: PostType[];
 }
 
 const LAYOUT = 'PostList';
 const PAGE_SIZE = 5;
 
 export default function PostListPage({ postList }: PostListPageProps) {
-	const [posts, setPosts] = useState<PostType[]>(postList);
-	const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-	const observerRef = useRef<HTMLDivElement | null>(null);
+  const [filtered, setFiltered] = useState<PostType[]>(postList);
 
-	const filterPosts = useCallback((posts: PostType[]) => {
-		setPosts(posts);
-		setVisibleCount(PAGE_SIZE);
-	}, []);
+  const { visibleItems, hasMore, sentinelRef } = useInfiniteSlice(filtered, {
+    pageSize: PAGE_SIZE,
+    rootMargin: '200px',
+    threshold: 0,
+  });
 
-	const handlePostClick = useCallback((post: PostType) => {
-		ga.events.selectPost(post, LAYOUT);
-	}, []);
+  const filterPosts = useCallback((next: PostType[]) => {
+    setFiltered(next);
+  }, []);
 
-	const visiblePosts = useMemo(() => {
-		return posts.slice(0, visibleCount);
-	}, [posts, visibleCount]);
+  const handlePostClick = useCallback((post: PostType) => {
+    ga.events.selectPost(post, LAYOUT);
+  }, []);
 
-	useEffect(() => {
-		if (visibleCount >= posts.length) {
-			return;
-		}
+  const renderedPostList = useMemo(
+    () =>
+      visibleItems.map((post) => (
+        <div key={post.slug} className={styles.post}>
+          <div className={styles.postWrap}>
+            <PostTitle title={post.title} />
+            <PostInfo regDate={post.regDate} tags={post.tags} />
+            <PostContent content={post.content} />
+          </div>
+          <div className={styles.detailButton}>
+            <div className={styles.overlay} />
+            <Link
+              className={styles.button}
+              href={url.postDetail(post.slug)}
+              onPointerDown={() => handlePostClick(post)}
+              aria-label={`게시글 상세 보기: ${post.title}`}
+            >
+              상세보기
+            </Link>
+          </div>
+        </div>
+      )),
+    [visibleItems, handlePostClick]
+  );
 
-		const observer = new IntersectionObserver(
-			entries => {
-				if (entries[0]?.isIntersecting) {
-					setVisibleCount(prev => {
-						const next = prev + PAGE_SIZE;
-						return next > posts.length ? posts.length : next;
-					});
-				}
-			},
-			{
-				threshold: 1.0,
-			}
-		);
+  useOnMounted(ga.pageView.postList);
 
-		const target = observerRef.current;
+  return (
+    <>
+      <Breadcrumbs
+        className={styles.breadcrumb}
+        breadcrumbList={[{ text: '전체글', strong: true }]}
+      />
+      <div className={styles.container}>
+        <div className={styles.searchWrap}>
+          <PostSearch postList={postList} filterPosts={filterPosts} />
+        </div>
 
-		if (target) {
-			observer.observe(target);
-		}
-
-		return () => {
-			if (target) {
-				observer.unobserve(target);
-			}
-		};
-	}, [posts, visibleCount]);
-
-	const renderedPostList = useMemo(() => {
-		return visiblePosts.map(post => (
-			<div key={post.slug} className={styles.post}>
-				<div className={styles.postWrap}>
-					<PostTitle title={post.title} />
-					<PostInfo regDate={post.regDate} tags={post.tags} />
-					<PostContent content={post.content} />
-				</div>
-				<div className={styles.detailButton}>
-					<div className={styles.overlay}></div>
-					<Link
-						className={styles.button}
-						href={url.postDetail(post.slug)}
-						onClick={() => handlePostClick(post)}
-					>
-						상세보기
-					</Link>
-				</div>
-			</div>
-		));
-	}, [visiblePosts, handlePostClick]);
-
-	useOnMounted(ga.pageView.postList);
-
-	return (
-		<>
-			<Breadcrumbs
-				className={styles.breadcrumb}
-				breadcrumbList={[
-					{
-						text: '전체글',
-						strong: true,
-					},
-				]}
-			/>
-			<div className={styles.container}>
-				<div className={styles.searchWrap}>
-					<PostSearch postList={postList} filterPosts={filterPosts} />
-				</div>
-				<div className={styles.postListWrap}>
-					{renderedPostList}
-					{visibleCount < posts.length && (
-						<div ref={observerRef} style={{ height: '1px' }} />
-					)}
-				</div>
-			</div>
-		</>
-	);
+        <div className={styles.postListWrap}>
+          {renderedPostList}
+          {hasMore && <div ref={sentinelRef} style={{ height: 1 }} />}
+        </div>
+      </div>
+    </>
+  );
 }
 PostListPage.displayName = 'PostListPage';
