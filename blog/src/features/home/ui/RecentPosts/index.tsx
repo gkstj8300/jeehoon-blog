@@ -22,7 +22,7 @@ export default function RecentPosts({ posts }: RecentPostsProps) {
 				<span className={styles.recentPosts}>
 					최신 글
 				</span>
-				<Link href="/post/list" className={styles.allPostLink}>
+				<Link href="/post" className={styles.allPostLink}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						height="24px"
