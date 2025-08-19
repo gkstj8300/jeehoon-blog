@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Providers from './providers';
-import GoogleAnalytics from '@/shared/lib/anylytics/GoogleAnalytics';
+import GoogleAnalytics from '@/shared/lib/logs/analytics/GoogleAnalytics';
 import StandardLayout from '@/shared/ui/layouts/StandardLayout';
 import { pretendard } from '@/styles/fonts/Pretendard/pretendard';
 import '@/styles/globals.scss';
