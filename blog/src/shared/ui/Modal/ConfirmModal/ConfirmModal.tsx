@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react';
-import { useTranslation } from 'react-i18next';
 import styles from './ConfirmModal.module.scss';
 import { ApplicationError } from '@/shared/lib/errors/ApplicationError';
 import { Modal } from '@/shared/ui/Modal';
@@ -28,8 +27,6 @@ export const ConfirmModal: React.FC<Props> = props => {
 		onClose,
 	} = { ...props };
 
-	const { t } = useTranslation();
-
 	if (process.env.NODE_ENV === 'development') {
 		if (isOpen && !message) {
 			throw new ApplicationError('If the modal opens, needs a message.');
@@ -43,7 +40,7 @@ export const ConfirmModal: React.FC<Props> = props => {
 			<div className={styles.buttonContainer}>
 				{!confirmButton || typeof confirmButton === 'string' ? (
 					<div className={styles.confirm}>
-						{confirmButton ?? t('components.ui.modals.confirmModal.confirm')}
+						{confirmButton ?? '닫기'}
 					</div>
 				) : (
 					<div onClick={onConfirm} className={styles.confirm}>
@@ -53,7 +50,7 @@ export const ConfirmModal: React.FC<Props> = props => {
 
 				{!closeButton || typeof closeButton === 'string' ? (
 					<div>
-						{closeButton ?? t('components.ui.modals.confirmModal.close')}
+						{closeButton ?? '확인'}
 					</div>
 				) : (
 					<div onClick={onClose}>{closeButton}</div>

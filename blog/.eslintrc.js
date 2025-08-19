@@ -71,29 +71,5 @@ module.exports = {
 				'@typescript-eslint/no-explicit-any': 'error',
 			},
 		},
-		{
-			files: ['src/i18n/*/resources/*/translation/**/*.ts'],
-			rules: { 'sort-keys-fix/sort-keys-fix': 'error' },
-		},
-		{
-			files: ['src/**/*.i18n.*.ts'],
-			rules: {
-				'no-restricted-imports': [
-					'error',
-					{
-						patterns: defaultRestrictedImportPatterns.concat('@/**/*i18n.*'),
-					},
-				],
-			},
-		},
-		{
-			files: ['src/i18n/*/resources/*/translation/index.ts'],
-			rules: {
-				'no-restricted-imports': [
-					'error',
-					{ patterns: ['@/**/*i18n.*'] },
-				],
-			},
-		},
 	],
 };

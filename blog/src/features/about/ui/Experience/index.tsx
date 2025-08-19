@@ -1,24 +1,16 @@
 import Image from 'next/image';
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import styles from './Experience.module.scss';
 import naedamLogoImg from './assets/neadam_logo.png';
 import Title from '@/shared/ui/Title';
 
 export default function Experience() {
-	const { t } = useTranslation();
-
 	const calculateDuration = useMemo(() => {
-		const durationStart = t(
-			'component.pages.about.experience.naedam.durationStart'
-		);
-		const durationEnd = t(
-			'component.pages.about.experience.naedam.durationEnd'
-		);
+		const durationStart = '2022-03';
+		const durationEnd = '2025-03';
 
 		const startDate = new Date(durationStart);
-		const endDate =
-			durationEnd === '재직중' ? new Date() : new Date(durationEnd);
+		const endDate = new Date(durationEnd);
 
 		let years = endDate.getFullYear() - startDate.getFullYear();
 		let months = endDate.getMonth() - startDate.getMonth();
@@ -33,16 +25,20 @@ export default function Experience() {
 		const duration = `${yearText} ${monthText}`.trim();
 
 		return duration;
-	}, [t]);
+	}, []);
 
 	const experienceList = useMemo(() => {
-		const experience = t('component.pages.about.experience.experience');
+		const experience = `한화생명 코어프로젝트 개발 (2명)<br />
+												Naedam Admin 프로그램 구축 (3명)<br />
+												Naedam New Homepage 신규개발 (3명)<br />
+												한국미스미 프론트엔드 유지보수/운영 (4명)<br />
+												한국미스미 리뉴얼 개발 (4~6명)`;
 		return experience.split('<br />').map(item => item.trim());
-	}, [t]);
+	}, []);
 
 	return (
 		<section>
-			<Title title={t('component.pages.about.experience.title')} />
+			<Title title='Experience' />
 			<div className={styles.experience}>
 				<div className={styles.details}>
 					<Image
@@ -55,13 +51,11 @@ export default function Experience() {
 					/>
 					<div className={styles.companyWrap}>
 						<h4 className={styles.companyName}>
-							{t('component.pages.about.experience.naedam.name')}
+							내담씨앤씨
 						</h4>
 						<div className={styles.duration}>
 							<div className={styles.durationDate}>
-								{t('component.pages.about.experience.naedam.durationStart')}
-								<span>~</span>
-								{t('component.pages.about.experience.naedam.durationEnd')}
+								2022-03<span>~</span>2025-03
 							</div>
 							<span className={styles.calculateDuration}>
 								{calculateDuration}

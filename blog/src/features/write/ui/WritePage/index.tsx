@@ -1,14 +1,12 @@
 'use client';
 
 import { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import MarkdownPreview from '../MarkdownPreview';
 import styles from './WritePage.module.scss';
 import { useWrite } from '@/features/write/hooks';
 import Input from '@/shared/ui/Input';
 
 export default function WritePage() {
-	const { t } = useTranslation();
 	const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
 	const {
@@ -36,9 +34,7 @@ export default function WritePage() {
 						<Input
 							key={field}
 							title={field}
-							placeholder={t('component.pages.write.inputPlaceHolder', {
-								field,
-							})}
+							placeholder={`${field} (을)를 입력하세요.`}
 							type="text"
 							name={field}
 							isRequired
@@ -56,7 +52,7 @@ export default function WritePage() {
 							e.preventDefault();
 						}}
 						onDrop={e => handleDragOver(e, textAreaRef)}
-						placeholder={t('component.pages.write.mdPlaceholder')}
+						placeholder={'마크다운을 입력하세요.'}
 						className={styles.textarea}
 					/>
 				</div>
@@ -64,10 +60,10 @@ export default function WritePage() {
 			</div>
 			<div className={styles.buttonWrap}>
 				<button onClick={handleDownload} className={styles.downloadButton}>
-					{t('component.pages.write.mdDownload')}
+					마크다운 다운로드
 				</button>
 				<button onClick={handleUpload} className={styles.downloadButton}>
-					{t('component.pages.write.mdUpload')}
+					마크다운 깃허브 업로드
 				</button>
 			</div>
 		</div>

@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 interface MetaProps {
 	slug: string;
@@ -19,7 +18,6 @@ export default function Meta({
 	tags,
 	thumbnailImage,
 }: MetaProps) {
-	const { t } = useTranslation();
 	const keywords = useMemo(
 		() => [mainTag, ...tags].join(', '),
 		[mainTag, tags]
@@ -27,16 +25,14 @@ export default function Meta({
 
 	return (
 		<Head>
-			<title>{t('component.pages.postDetail.meta.title', { title })}</title>
+			<title>{title} | Baakhan</title>
 			<meta
 				name="description"
-				content={t('component.pages.postDetail.meta.description', {
-					description,
-				})}
+				content={`${description} | 박지훈 기술 블로그입니다.`}
 			/>
 			<meta
 				name="keywords"
-				content={t('component.pages.postDetail.meta.keywords', { keywords })}
+				content={`${keywords}, Baakhan, 박지훈, Frontend, 기술 블로그`}
 			/>
 
 			{/* Facebook Meta Tags */}
@@ -44,17 +40,15 @@ export default function Meta({
 			<meta property="og:type" content="website" />
 			<meta
 				property="og:site_name"
-				content={t('component.pages.postDetail.meta.title', { title })}
+				content={`${title} | Baakhan`}
 			/>
 			<meta
 				property="og:title"
-				content={t('component.pages.postDetail.meta.title', { title })}
+				content={`${title} | Baakhan`}
 			/>
 			<meta
 				property="og:description"
-				content={t('component.pages.postDetail.meta.description', {
-					description,
-				})}
+				content={`${description} | 박지훈 기술 블로그입니다.`}
 			/>
 			<meta property="og:image" content={thumbnailImage} />
 
@@ -67,19 +61,17 @@ export default function Meta({
 			/>
 			<meta
 				name="twitter:title"
-				content={t('component.pages.postDetail.meta.title', { title })}
+				content={`${title} | Baakhan`}
 			/>
 			<meta
 				name="twitter:description"
-				content={t('component.pages.postDetail.meta.description', {
-					description,
-				})}
+				content={`${description} | 박지훈 기술 블로그입니다.`}
 			/>
 			<meta name="twitter:image" content={thumbnailImage} />
 			<meta name="twitter:label1" content="Baakhan" />
 			<meta
 				name="twitter:data1"
-				content={t('component.pages.postDetail.meta.keywords', { keywords })}
+				content={`${keywords}, Baakhan, 박지훈, Frontend, 기술 블로그`}
 			/>
 		</Head>
 	);

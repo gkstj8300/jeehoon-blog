@@ -1,35 +1,29 @@
-import { useTranslation } from 'react-i18next';
 import styles from './Education.module.scss';
 import EducationItem from './EducationItem';
+import { education } from './education.data';
 import Title from '@/shared/ui/Title';
 
+const educationKeys = ['highSchool', 'university1', 'education', 'university2'] as const;
+type EducationKey = typeof educationKeys[number];
+
 export interface EducationProps {
-	name: string;
-	major: string;
-	durationStart: string;
-	durationEnd: string;
+  name: string;
+  major: string;
+  durationStart: string;
+  durationEnd: string;
 }
 
 export default function Education() {
-	const { t } = useTranslation();
+	const educationKeys: Array<EducationKey> = ['highSchool', 'university1', 'education', 'university2'];
 
-	const educationKeys = [
-		'highSchool',
-		'university1',
-		'education',
-		'university2',
-	];
-
-	const educations: EducationProps[] = educationKeys.map(key => ({
-		name: t(`component.pages.about.education.${key}.name`),
-		major: t(`component.pages.about.education.${key}.major`),
-		durationStart: t(`component.pages.about.education.${key}.durationStart`),
-		durationEnd: t(`component.pages.about.education.${key}.durationEnd`),
-	}));
+	const educations: EducationProps[] = educationKeys.map((key) => {
+		const { name, major, durationStart, durationEnd } = education[key];
+		return { name, major, durationStart, durationEnd };
+	});
 
 	return (
 		<section>
-			<Title title={t('component.pages.about.education.title')} />
+			<Title title='Education' />
 			<div className={styles.education}>
 				{educations.map((item, index) => (
 					<EducationItem key={index} {...item} />

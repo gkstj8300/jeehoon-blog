@@ -1,9 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import styles from './Project.module.scss';
 import ProjectItem from './ProjectItem';
 import hanwhaLogo from './assets/hanwhaLogo.png';
 import misumiLogo from './assets/misumiLogo.svg';
 import naedamLogo from './assets/naedamLogo.jpg';
+import { project } from './project.data';
 import type { DevelopType } from '@/shared/ui/MiniTitle';
 import Title from '@/shared/ui/Title';
 
@@ -26,65 +26,66 @@ interface ProjectItemType {
 	development: Develop[];
 }
 
-const projectData = [
-	{ key: 'hanwha', logoImg: hanwhaLogo.src },
-	{ key: 'naedam', logoImg: naedamLogo.src },
-	{ key: 'misumiMaintenance', logoImg: misumiLogo.src },
-	{ key: 'misumiRenewal', logoImg: misumiLogo.src },
-];
+type ProjectKey = Exclude<keyof typeof project, 'title'>;
+
+type RawDevelopment = {
+	type: DevelopType;
+	name: string;
+	developmentStart: string;
+	developmentEnd: string;
+	description: string;
+};
+
+type RawProject = {
+	name: string;
+	projectName: string;
+	durationStart: string;
+	durationEnd: string;
+	skillKeywords: string;
+	description: string;
+	development: Record<string, RawDevelopment>;
+};
+
+const logoByKey: Record<ProjectKey, string> = {
+	hanwha: hanwhaLogo.src,
+	naedam: naedamLogo.src,
+	misumiMaintenance: misumiLogo.src,
+	misumiRenewal: misumiLogo.src,
+};
+
+function toDevelopmentList(devObj: RawProject['development']): Develop[] {
+	return Object.entries(devObj)
+		.sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+		.map(([, v]) => ({
+			type: v.type,
+			name: v.name,
+			developmentStart: v.developmentStart,
+			developmentEnd: v.developmentEnd,
+			description: v.description,
+		}));
+}
 
 export default function Project() {
-	const { t } = useTranslation();
-
-	const projects: ProjectItemType[] = projectData
-		.map(({ key, logoImg }) => {
-			const development: Develop[] = [];
-
-			for (let i = 1; i <= 5; i++) {
-				const type: DevelopType = t(
-					`component.pages.about.project.${key}.development.develop${i}.type`
-				);
-				if (
-					!type ||
-					type ===
-						`component.pages.about.project.${key}.development.develop${i}.type`
-				) {
-					continue;
-				}
-
-				development.push({
-					type,
-					name: t(
-						`component.pages.about.project.${key}.development.develop${i}.name`
-					),
-					developmentStart: t(
-						`component.pages.about.project.${key}.development.develop${i}.developmentStart`
-					),
-					developmentEnd: t(
-						`component.pages.about.project.${key}.development.develop${i}.developmentEnd`
-					),
-					description: t(
-						`component.pages.about.project.${key}.development.develop${i}.description`
-					),
-				});
-			}
-
+	const projects: ProjectItemType[] = Object.keys(project)
+		.filter((k): k is ProjectKey => k !== 'title')
+		.map((key) => {
+			const p = project[key];
 			return {
-				name: t(`component.pages.about.project.${key}.name`),
-				projectName: t(`component.pages.about.project.${key}.projectName`),
-				logoImg,
-				durationStart: t(`component.pages.about.project.${key}.durationStart`),
-				durationEnd: t(`component.pages.about.project.${key}.durationEnd`),
-				skillKeywords: t(`component.pages.about.project.${key}.skillKeywords`),
-				description: t(`component.pages.about.project.${key}.description`),
-				development,
+				name: p.name,
+				projectName: p.projectName,
+				logoImg: logoByKey[key],
+				durationStart: p.durationStart,
+				durationEnd: p.durationEnd,
+				skillKeywords: p.skillKeywords,
+				description: p.description,
+				development: toDevelopmentList(p.development),
 			};
 		})
 		.reverse();
 
 	return (
 		<section>
-			<Title title={t('component.pages.about.project.title')} />
+			<Title title={project.title} />
 			<div className={styles.projects}>
 				{projects.map((item, index) => (
 					<ProjectItem key={index} idx={index} {...item} />

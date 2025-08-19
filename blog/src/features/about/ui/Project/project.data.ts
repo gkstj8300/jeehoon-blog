@@ -1,6 +1,4 @@
-import { Translation } from "@/shared/lib/i18n/types";
-
-export const project: Translation = {
+export const project = {
 	title: 'Project',
 	hanwha: {
 		name: '한화생명',
@@ -177,4 +175,4 @@ export const project: Translation = {
 			},
 		},
 	},
-};
+} as const;

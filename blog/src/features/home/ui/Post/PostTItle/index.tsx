@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import styles from './PostTItle.module.scss';
 
 type Sort = 'desc' | 'asc';
@@ -18,8 +17,6 @@ export default function PostTItle({
 	sort,
 	handleClickSort,
 }: PostTItleprops) {
-	const { t } = useTranslation();
-
 	return (
 		<div className={classNames(className, styles.container)}>
 			{title}
@@ -28,10 +25,10 @@ export default function PostTItle({
 					data-sort={sort === 'desc'}
 					onClick={() => handleClickSort('desc')}
 				>
-					{t('component.pages.home.post.newest')}
+					Newest
 				</span>
 				<span data-sort={sort === 'asc'} onClick={() => handleClickSort('asc')}>
-					{t('component.pages.home.post.oldest')}
+					Oldest
 				</span>
 			</div>
 		</div>

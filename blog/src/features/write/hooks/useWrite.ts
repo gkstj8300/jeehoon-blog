@@ -1,10 +1,8 @@
 import { RefObject, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { uploadToGitHub } from '@/shared/lib/apis/uploadToGitHub';
 import { PostType } from '@/shared/types/slug';
 
 export function useWrite() {
-	const { t } = useTranslation();
 	const [post, setPost] = useState<PostType>({
 		title: '',
 		description: '',
@@ -30,23 +28,23 @@ export function useWrite() {
 	// 마크다운 업로드 핸들러
 	const handleUpload = async () => {
 		if (!post.title.trim() || !post.content.trim() || !post.mainTag.trim()) {
-			alert(t('component.pages.write.postValidateAlert'));
+			alert('필수값을 입력하세요.');
 			return;
 		}
 
 		try {
 			await uploadToGitHub(post);
-			alert(t('component.pages.write.apiSuccess'));
+			alert('GitHub Api 업로드 완료');
 		} catch (error) {
 			/* eslint-disable no-console */
-			console.error(t('component.pages.write.apiError'), error);
+			console.error('Git Api 업로드 실패', error);
 		}
 	};
 
 	// 마크다운 파일 다운로드 핸들러
 	const handleDownload = () => {
 		if (!post.title.trim() || !post.content.trim() || !post.mainTag.trim()) {
-			alert(t('component.pages.write.postValidateAlert'));
+			alert('필수값을 입력하세요.');
 			return;
 		}
 

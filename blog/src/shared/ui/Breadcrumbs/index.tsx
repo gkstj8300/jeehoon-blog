@@ -2,7 +2,6 @@ import { UrlObject } from 'url';
 import classNames from 'classnames';
 import Link from 'next/link';
 import React, { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import styles from './Breadcrumbs.module.scss';
 
 interface Breadcrumb {
@@ -25,8 +24,6 @@ export default function Breadcrumbs({
 	customTag,
 	className,
 }: BreadcrumbsProps) {
-	const { t } = useTranslation();
-
 	const renderDynamicElement = useCallback(
 		(text: string) => {
 			const props = {
@@ -47,7 +44,7 @@ export default function Breadcrumbs({
 	return (
 		<ul className={classNames(styles.breadcrumbList, className)}>
 			<li className={styles.breadcrumb}>
-				<Link href={'/'}>{t('component.ui.links.breadcrumbs.home')}</Link>
+				<Link href={'/'}>Home</Link>
 			</li>
 			{breadcrumbList.map((breadcrumb, key) => (
 				<li

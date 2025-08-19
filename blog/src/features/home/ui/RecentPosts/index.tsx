@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import styles from './RecentPosts.module.scss';
 import { ga } from '@/shared/lib/logs/analytics';
 import { PostType } from '@/shared/types/slug';
@@ -13,8 +12,6 @@ type RecentPostsProps = {
 const LAYOUT = 'Home';
 
 export default function RecentPosts({ posts }: RecentPostsProps) {
-	const { t } = useTranslation();
-
 	const handlePostClick = useCallback((post: PostType) => {
 		ga.events.selectPost(post, LAYOUT);
 	}, []);
@@ -23,7 +20,7 @@ export default function RecentPosts({ posts }: RecentPostsProps) {
 		<div className={styles.container}>
 			<div className={styles.head}>
 				<span className={styles.recentPosts}>
-					{t('component.pages.home.recentPosts.recentPost')}
+					최신 글
 				</span>
 				<Link href="/post/list" className={styles.allPostLink}>
 					<svg
@@ -36,7 +33,7 @@ export default function RecentPosts({ posts }: RecentPostsProps) {
 					>
 						<path d="M360-240v-80h480v80H360Zm0-200v-80h480v80H360ZM120-640v-80h720v80H120Z"></path>
 					</svg>
-					{t('component.pages.home.recentPosts.allPost')}
+					전체 보기
 				</Link>
 			</div>
 			<div className={styles.body}>
@@ -53,11 +50,7 @@ export default function RecentPosts({ posts }: RecentPostsProps) {
 						</div>
 						<div className={styles.place}></div>
 						<div className={styles.date}>
-							<span
-								title={t('component.pages.home.recentPosts.allPost', {
-									date: post.regDate,
-								})}
-							>
+							<span>
 								{post.regDate}
 							</span>
 						</div>

@@ -1,10 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import styles from './Profile.module.scss';
 import Title from '@/shared/ui/Title';
 
 export default function Profile() {
-	const { t } = useTranslation();
-
 	return (
 		<div className={styles.profile}>
 			<Title title="Profile" />
@@ -12,13 +9,13 @@ export default function Profile() {
 				<div className={styles.image} />
 				<div className={styles.sub}>
 					<div className={styles.developer}>
-						{t('component.pages.home.profile.developer')}
+						Frontend Developer
 					</div>
 					<div className={styles.author}>
-						{t('component.pages.home.profile.author')}
+						Park Jee Hoon
 					</div>
 					<div className={styles.description}>
-						{t('component.pages.home.profile.description')}
+						Step into my development journey
 					</div>
 				</div>
 			</div>

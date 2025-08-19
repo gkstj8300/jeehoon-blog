@@ -2,7 +2,6 @@ import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
 import { FaRegUserCircle } from '@react-icons/all-files/fa/FaRegUserCircle';
 import { MdEmail } from '@react-icons/all-files/md/MdEmail';
 import React, { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import styles from './Contact.module.scss';
 import IconLink from '@/shared/ui/IconLink';
 import Title from '@/shared/ui/Title';
@@ -10,10 +9,8 @@ import { useTooltip } from '@/shared/ui/Tooltip/Tooltip.hooks';
 import { url } from '@/shared/utils/url';
 
 export default function Contact() {
-	const { t } = useTranslation();
-
 	const { bind } = useTooltip<HTMLAnchorElement>({
-		content: t('component.pages.home.contact.emailTooltip'),
+		content: '이메일을 클릭하시면 복사가 가능합니다.',
 		theme: 'dark',
 		closeOnClick: true,
 	});
@@ -21,29 +18,29 @@ export default function Contact() {
 	const handleEmailCopy = useCallback(
 		(email: string) => {
 			navigator.clipboard.writeText(email).then(() => {
-				alert(t('component.pages.home.contact.emailCopy'));
+				alert('이메일 주소가 복사되었습니다.');
 			});
 		},
-		[t]
+		[]
 	);
 
 	const contactItems = [
 		{
 			icon: <MdEmail />,
 			href: '',
-			text: t('component.pages.home.contact.email'),
+			text: 'email',
 			onClick: () => handleEmailCopy('gkstj8300@naver.com'),
 			bind: bind,
 		},
 		{
 			icon: <FaGithub />,
 			href: url.github,
-			text: t('component.pages.home.contact.github'),
+			text: 'github',
 		},
 		{
 			icon: <FaRegUserCircle />,
 			href: url.careerDescription,
-			text: t('component.pages.home.contact.careerDescription'),
+			text: 'careerDescription',
 		},
 	];
 

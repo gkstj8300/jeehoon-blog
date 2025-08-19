@@ -12,7 +12,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
 import { useEffect, useCallback, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import styles from './Header.module.scss';
 import { useOnMounted } from '@/shared/hooks/useOnMounted';
@@ -33,8 +32,6 @@ export default function Header() {
 	const pathName = usePathname();
 	const dispatch = useDispatch();
 	const { data: session, status } = useSession();
-
-	const { t } = useTranslation();
 
 	const pathIsMain = pathName === '/';
 	const pathIsPostList = pathName === '/postList';
@@ -89,23 +86,23 @@ export default function Header() {
 				<div className={styles.inner}>
 					<span className={styles.title}>
 						{pathIsMain ? (
-							<h1>{t('component.ui.layouts.header.baakhan')}</h1>
+							<h1>@BaakHan</h1>
 						) : (
-							<Link href="/">{t('component.ui.layouts.header.baakhan')}</Link>
+							<Link href="/">@BaakHan</Link>
 						)}
 					</span>
 					<div className={styles.menu}>
 						<Link
 							href={'/about'}
 							className={styles.link}
-							title={t('component.ui.layouts.header.about')}
+							title='소개'
 						>
-							{t('component.ui.layouts.header.about')}
+							소개
 						</Link>
 						<Link
 							href={url.github}
 							className={styles.link}
-							title={t('component.ui.layouts.header.github')}
+							title='깃허브'
 						>
 							<FaGithub
 								className={styles.theme}
@@ -115,14 +112,14 @@ export default function Header() {
 						<Link
 							href={url.portfolio}
 							className={styles.link}
-							title={t('component.ui.layouts.header.portfolio')}
+							title='포트폴리오'
 						>
 							<RiFileList3Line className={styles.theme} />
 						</Link>
 						<Link
 							href={url.careerDescription}
 							className={styles.link}
-							title={t('component.ui.layouts.header.careerDescription')}
+							title='경력기술서'
 						>
 							<FaRegUserCircle
 								className={styles.theme}
@@ -133,13 +130,13 @@ export default function Header() {
 							<FaSun
 								className={styles.theme}
 								onClick={handleTogleChangeClick}
-								title={t('component.ui.layouts.header.lihgt')}
+								title='LihgtMode'
 							/>
 						) : (
 							<FaMoon
 								className={styles.theme}
 								onClick={handleTogleChangeClick}
-								title={t('component.ui.layouts.header.dark')}
+								title='DarkMode'
 							/>
 						)}
 						{isAuthenticate && (
@@ -147,7 +144,7 @@ export default function Header() {
 								<Link
 									href={'/write'}
 									className={styles.link}
-									title={t('component.ui.layouts.header.write')}
+									title='글작성'
 								>
 									<FaPen className={styles.theme} />
 								</Link>
@@ -158,7 +155,7 @@ export default function Header() {
 								<Link
 									href={'/skillList'}
 									className={styles.link}
-									title={t('component.ui.layouts.header.skill')}
+									title='스킬'
 								>
 									<GiSkills className={styles.theme} />
 								</Link>
