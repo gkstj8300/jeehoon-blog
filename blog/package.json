@@ -9,7 +9,7 @@
     "dev": "next dev -p 3010",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint && eslint --fix \"{config,tools}/**/*.{ts,tsx}\" && stylelint --fix 'src/**/*.{css,scss,sass}'",
+    "lint": "next lint && eslint --fix && stylelint --fix 'src/**/*.{css,scss,sass}'",
     "i18n-scan": "cd tools/i18n-scanner && npm start",
     "prettier:validation-only": "prettier --check --loglevel warn .",
     "stylelint:validation-only": "stylelint \"src/**/*.scss\"",
@@ -63,7 +63,12 @@
     "eslint-plugin-unused-imports": "^4.1.4",    
     "sass": "^1.75.0",
     "stylelint": "^14.2.0",
+    "stylelint-config-css-modules": "^2.3.0",
     "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-rational-order-plugin": "^1.0.2",
+    "stylelint-scss": "^4.1.0",
     "typescript": "^5.4.5"
   }
 }
