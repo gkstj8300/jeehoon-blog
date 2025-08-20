@@ -4,7 +4,6 @@ import { RiMenu4Fill } from '@react-icons/all-files/ri/RiMenu4Fill';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useState, useRef } from 'react';
-import Meta from '../Meta';
 import TableOfContents from '../TableOfContents';
 import styles from './PostDetailPage.module.scss';
 import PostContent from '@/entities/post/ui/PostContent';
@@ -26,9 +25,7 @@ const PostComents = dynamic(
 );
 
 interface PostDetailProps {
-	slug: string;
 	title: string;
-	description: string;
 	thumbnailImage: string;
 	mainTag: string;
 	regDate: string;
@@ -37,9 +34,7 @@ interface PostDetailProps {
 }
 
 export default function PostDetailPage({
-	slug,
 	title,
-	description,
 	thumbnailImage,
 	regDate,
 	mainTag,
@@ -71,14 +66,6 @@ export default function PostDetailPage({
 
 	return (
 		<>
-			<Meta
-				slug={slug}
-				title={title}
-				description={description}
-				mainTag={mainTag}
-				tags={tags}
-				thumbnailImage={thumbnailImage}
-			/>
 			<Breadcrumbs
 				className={styles.breadcrumb}
 				breadcrumbList={[
