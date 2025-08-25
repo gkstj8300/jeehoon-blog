@@ -2,12 +2,5 @@
   "name": "jeehoon-portfolio",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@10.8.0",
-  "scripts": {
-    "dev": "pnpm -r --parallel --filter @app/* dev",
-    "build": "pnpm -r --filter @app/* build",
-    "lint": "pnpm -r lint",
-    "typecheck": "pnpm -r typecheck",
-    "clean": "pnpm -r clean"
-  }
+  "packageManager": "pnpm@10.8.0"
 }
