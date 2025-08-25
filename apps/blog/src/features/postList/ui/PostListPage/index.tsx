@@ -1,5 +1,6 @@
 'use client';
 
+import { url } from '@jeehoon/utils';
 import Link from 'next/link';
 import { useState, useMemo, useCallback } from 'react';
 import styles from './PostListPage.module.scss';
@@ -12,7 +13,6 @@ import { useOnMounted } from '@/shared/hooks/useOnMounted';
 import { ga } from '@/shared/lib/logs/analytics';
 import { PostType } from '@/shared/types/slug';
 import Breadcrumbs from '@/shared/ui/Breadcrumbs';
-import { url } from '@/shared/utils/url';
 
 interface PostListPageProps {
   postList: PostType[];

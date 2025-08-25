@@ -1,5 +1,6 @@
 'use client';
 
+import { sleep } from '@jeehoon/utils';
 import {
 	createContext,
 	CSSProperties,
@@ -13,7 +14,6 @@ import {
 	useEffect,
 } from 'react';
 import Tooltip from './Tooltip';
-import { sleep } from '@/shared/utils/timer/timer';
 
 type Theme = 'light' | 'dark';
 type Direction = 'top' | 'right' | 'bottom' | 'left';

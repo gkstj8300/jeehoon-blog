@@ -1,5 +1,6 @@
 'use client';
 
+import { url } from '@jeehoon/utils';
 import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
 import { FaMoon } from '@react-icons/all-files/fa/FaMoon';
 import { FaPen } from '@react-icons/all-files/fa/FaPen';
@@ -23,7 +24,6 @@ import {
 } from '@/shared/lib/store/modules/common/operations';
 import { selectTheme } from '@/shared/lib/store/modules/common/selectors';
 import ScrollProgressBar from '@/shared/ui/ScrollProgressBar';
-import { url } from '@/shared/utils/url';
 
 export const HEADER_WRAPPER_ID = 'header-wrapper';
 

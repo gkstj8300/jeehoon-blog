@@ -1,5 +1,5 @@
 import { RefObject } from 'react';
-import { isObject } from '@/shared/utils/object';
+import { isObject } from './object';
 
 export function getRect(selector: string): DOMRect | undefined;
 export function getRect(element: HTMLElement): DOMRect;

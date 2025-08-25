@@ -1,4 +1,4 @@
-import { routerHistory } from '@/shared/utils/routerHistory';
+import { routerHistory } from "@jeehoon/utils";
 
 export async function tractPageView() {
 	window.dataLayer = window.dataLayer || [];

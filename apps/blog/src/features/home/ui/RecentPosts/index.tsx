@@ -1,9 +1,9 @@
+import { url } from '@jeehoon/utils';
 import Link from 'next/link';
 import { useCallback } from 'react';
 import styles from './RecentPosts.module.scss';
 import { ga } from '@/shared/lib/logs/analytics';
 import { PostType } from '@/shared/types/slug';
-import { url } from '@/shared/utils/url';
 
 type RecentPostsProps = {
 	posts: PostType[];

@@ -9,8 +9,10 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@repo/ui": ["packages/ui/src/index.ts"],
-      "@repo/utils": ["packages/utils/src/index.ts"]
+      "@jeehoon/ui": ["packages/ui/src/index.ts"],
+      "@jeehoon/ui/*": ["packages/ui/src/*"],
+      "@jeehoon/utils": ["packages/utils/src/index.ts"],
+      "@jeehoon/utils/*": ["packages/utils/src/*"]
     }
   }
 }

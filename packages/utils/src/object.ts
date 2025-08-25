@@ -1,5 +1,5 @@
-import { snakeToCamel } from '@/shared/utils/string';
-import { MayBe, SnakePropsToCamel } from '@/shared/utils/type';
+import { snakeToCamel } from './string';
+import { MayBe, SnakePropsToCamel } from './type';
 
 /**
  * determine object type of value.
@@ -110,7 +110,7 @@ export function removeEmptyProperties<T extends object>(object: T): Partial<T> {
  * @param {Object} object - The object to be checked for emptiness.
  * @returns {boolean} Returns true if the object is empty, otherwise false.
  */
-export function isEmpty<T extends object>(object: T) {
+export function objectIsEmpty<T extends object>(object: T) {
 	return (
 		object && Object.keys(object).length === 0 && object.constructor === Object
 	);

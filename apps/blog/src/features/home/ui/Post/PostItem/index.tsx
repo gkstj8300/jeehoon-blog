@@ -1,8 +1,8 @@
+import { url } from '@jeehoon/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './PostItem.module.scss';
 import { PostType } from '@/shared/types/slug';
-import { url } from '@/shared/utils/url';
 
 interface PostItemProps {
 	post: PostType;

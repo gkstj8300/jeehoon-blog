@@ -1,7 +1,7 @@
+import { getLayoutTheme, updateLayoutTheme } from '@jeehoon/utils';
 import { Dispatch } from 'redux';
 import { actions } from './slice';
 import { AppStore } from '@/shared/lib/store';
-import { getLayoutTheme, updateLayoutTheme } from '@/shared/utils/storage/theme';
 
 export const loadLayoutTheme = (dispatch: Dispatch) => {
 	dispatch(actions.updateTheme(getLayoutTheme() || 'light'));

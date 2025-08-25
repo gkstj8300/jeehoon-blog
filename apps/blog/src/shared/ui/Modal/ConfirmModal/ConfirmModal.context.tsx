@@ -1,3 +1,4 @@
+import { isObject } from '@jeehoon/utils';
 import React, {
 	createContext,
 	ReactElement,
@@ -6,7 +7,6 @@ import React, {
 	useReducer,
 } from 'react';
 import { ConfirmModal } from './ConfirmModal';
-import { isObject } from '@/shared/utils/object';
 
 type ButtonNode = string | ReactElement;
 type MessageNode = string | ReactElement;

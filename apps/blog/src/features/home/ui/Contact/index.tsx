@@ -1,3 +1,4 @@
+import { url } from '@jeehoon/utils';
 import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
 import { FaRegUserCircle } from '@react-icons/all-files/fa/FaRegUserCircle';
 import { MdEmail } from '@react-icons/all-files/md/MdEmail';
@@ -6,7 +7,6 @@ import styles from './Contact.module.scss';
 import IconLink from '@/shared/ui/IconLink';
 import Title from '@/shared/ui/Title';
 import { useTooltip } from '@/shared/ui/Tooltip/Tooltip.hooks';
-import { url } from '@/shared/utils/url';
 
 export default function Contact() {
 	const { bind } = useTooltip<HTMLAnchorElement>({

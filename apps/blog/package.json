@@ -1,5 +1,5 @@
 {
-  "name": "jeehoon-blog",
+  "name": "@jeehoon/blog",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -9,7 +9,7 @@
     "dev": "next dev -p 3010",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint && eslint --fix && stylelint --fix 'src/**/*.{css,scss,sass}'",
+    "lint": "next lint --fix && stylelint 'src/**/*.{css,scss,sass}' --fix",
     "prettier:validation-only": "prettier --check --loglevel warn .",
     "stylelint:validation-only": "stylelint \"src/**/*.scss\"",
     "stylelint-check": "stylelint-config-prettier-check"
@@ -19,6 +19,8 @@
     "@aws-sdk/lib-storage": "^3.758.0",
     "@react-icons/all-files": "^4.1.0",
     "@reduxjs/toolkit": "^1.7.1",
+    "@jeehoon/ui": "workspace:*",
+    "@jeehoon/utils": "workspace:*",
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "formidable": "^3.5.2",

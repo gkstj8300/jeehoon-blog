@@ -1,5 +1,5 @@
 import styles from './Footer.module.scss';
-import { url } from '@/shared/utils/url';
+import { url } from '@jeehoon/utils';
 
 export default function Footer() {
 	return (

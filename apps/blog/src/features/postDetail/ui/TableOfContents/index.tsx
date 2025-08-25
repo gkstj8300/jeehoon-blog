@@ -1,9 +1,9 @@
+import { sleep } from '@jeehoon/utils';
 import classNames from 'classnames';
 import { useState, useEffect, useCallback, RefObject, useRef } from 'react';
 import styles from './TableOfContents.module.scss';
 import { Heading } from '@/features/postDetail/types/PostDetail.types';
 import { useScrollTo } from '@/shared/hooks/useScrollTo';
-import { sleep } from '@/shared/utils/timer/timer';
 
 interface TableOfContentsProps {
 	headings: Heading[];

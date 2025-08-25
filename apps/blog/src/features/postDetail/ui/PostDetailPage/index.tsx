@@ -1,5 +1,6 @@
 'use client';
 
+import { getHeight } from '@jeehoon/utils';
 import { RiMenu4Fill } from '@react-icons/all-files/ri/RiMenu4Fill';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
@@ -14,7 +15,6 @@ import { useOnMounted } from '@/shared/hooks/useOnMounted';
 import { ga } from '@/shared/lib/logs/analytics';
 import Breadcrumbs from '@/shared/ui/Breadcrumbs';
 import { HEADER_WRAPPER_ID } from '@/shared/ui/layouts/Header';
-import { getHeight } from '@/shared/utils/dom';
 
 const PostComents = dynamic(
 	() => import('@/features/postDetail/ui/PostComents'),

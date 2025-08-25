@@ -6,6 +6,7 @@ module.exports = {
 		scrollRestoration: true,
 		esmExternals: false,
 	},
+	transpilePackages: ["@jeehoon/utils", "@jeehoon/ui"],
 	reactStrictMode: false,
 	trailingSlash: true,
 	productionBrowserSourceMaps: true,

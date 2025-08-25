@@ -1,4 +1,4 @@
-import React, { RefObject } from 'react';
+import { RefObject, MouseEvent } from 'react';
 import styles from './BackToTop.module.scss';
 
 interface BackToTopProps {
@@ -6,7 +6,7 @@ interface BackToTopProps {
 }
 
 export default function BackToTop({ layoutRootRef }: BackToTopProps) {
-	const handleClickBackToTop = (event: React.MouseEvent) => {
+	const handleClickBackToTop = (event: MouseEvent) => {
 		event.preventDefault();
 		if (layoutRootRef.current) {
 			layoutRootRef.current.scrollIntoView({ behavior: 'smooth' });

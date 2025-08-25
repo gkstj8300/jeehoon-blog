@@ -1,5 +1,5 @@
 import { ParsedUrlQuery } from 'querystring';
-import { getOneParams } from '@/shared/utils/query';
+import { getOneParams } from './query';
 
 export function getParams(query: ParsedUrlQuery) {
 	const params = getOneParams(query, 'slug');

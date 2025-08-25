@@ -16,6 +16,12 @@ importers:
       '@aws-sdk/lib-storage':
         specifier: ^3.758.0
         version: 3.872.0(@aws-sdk/client-s3@3.872.0)
+      '@jeehoon/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@jeehoon/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       '@react-icons/all-files':
         specifier: ^4.1.0
         version: 4.1.0(react@18.3.1)
@@ -161,12 +167,27 @@ importers:
 
   packages/ui:
     dependencies:
-      react:
-        specifier: '18'
-        version: 18.3.1
-      react-dom:
-        specifier: '18'
-        version: 18.3.1(react@18.3.1)
+      '@jeehoon/utils':
+        specifier: workspace:*
+        version: link:../utils
+      '@react-icons/all-files':
+        specifier: ^4.1.0
+        version: 4.1.0(react@18.3.1)
+    devDependencies:
+      '@types/react':
+        specifier: ^18
+        version: 18.3.23
+      '@types/react-dom':
+        specifier: ^18
+        version: 18.3.7(@types/react@18.3.23)
+      next:
+        specifier: ^14.2.1
+        version: 14.2.32(@babel/core@7.28.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.90.0)
+      sass:
+        specifier: ^1.75.0
+        version: 1.90.0
+
+  packages/utils:
     devDependencies:
       '@types/react':
         specifier: ^18

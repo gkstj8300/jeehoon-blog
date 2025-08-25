@@ -1,7 +1,3 @@
-import { UrlObject } from 'url';
-import { resolveHref } from 'next/dist/client/resolve-href';
-import Router from 'next/router';
-
 export const url = {
 	// 깃허브 링크
 	github: 'https://github.com/gkstj8300/',
@@ -19,12 +15,3 @@ export const url = {
 		return `/skills/${slug}`;
 	},
 };
-
-export function convertToURLString(url: UrlObject) {
-	const [resolved, interpolated] = resolveHref(
-		Router,
-		url,
-		true
-	) as unknown as string[];
-	return `/${interpolated ?? resolved}`;
-}

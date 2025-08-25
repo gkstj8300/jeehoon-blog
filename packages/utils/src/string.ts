@@ -1,5 +1,4 @@
-import { IncomingMessage } from 'http';
-import { SnakeToCamel } from '@/shared/utils/type';
+import { SnakeToCamel } from './type';
 
 /**
  * Converts a snake case string to a camel case.
@@ -35,23 +34,6 @@ export function toNumeric(string: string | undefined) {
 	}
 	return Number(string);
 }
-
-export const readableStreamToString = (
-	readable: IncomingMessage
-): Promise<string> => {
-	return new Promise((resolve, reject) => {
-		let data = ``;
-		readable.on(`data`, chunk => {
-			data += chunk;
-		});
-		readable.on(`end`, () => {
-			resolve(data);
-		});
-		readable.on(`error`, error => {
-			reject(error);
-		});
-	});
-};
 
 /**
  * Insert a backslash before characters
