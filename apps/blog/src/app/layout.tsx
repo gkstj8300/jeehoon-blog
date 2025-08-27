@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
 import Providers from './providers';
 import GoogleAnalytics from '@/shared/lib/logs/analytics/GoogleAnalytics';
 import StandardLayout from '@/shared/ui/layouts/StandardLayout';
@@ -24,9 +25,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	const gaId = process.env.NEXT_PUBLIC_GTM_ID;
+	const theme = cookies().get('theme')?.value as 'light' | 'dark' | undefined;
 
 	return (
-		<html lang="ko">
+		<html lang="ko" data-theme={theme} suppressHydrationWarning>
 			<body className={pretendard.variable}>
 				<Providers>
 					<StandardLayout>{children}</StandardLayout>

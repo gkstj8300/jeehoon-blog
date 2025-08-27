@@ -2,8 +2,6 @@
 	position: sticky;
 	top: 0;
 	z-index: 30;
-	background-color: var(--header-background-color);
-	box-shadow: rgb(0 0 0 / 0.08) 0 0 8px;
 	opacity: 1;
 	backdrop-filter: blur(5px);
 	transition:
@@ -45,22 +43,19 @@
 	width: 1.4rem;
 	height: 1.4rem;
 	cursor: pointer;
+	font-weight: bold;
+	margin-right: 0.5rem;
 
 	&:hover {
-		height: 1.5rem;
 		color: var(--icon-link-background-color);
-		font-weight: bold;
-		transition: color 0.2s;
 	}
 }
 
 .link {
 	height: 1.4rem;
+	font-weight: bold;
 
 	&:hover {
-		height: 1.5rem;
 		color: var(--icon-link-background-color);
-		font-weight: bold;
-		transition: color 0.2s;
 	}
 }
