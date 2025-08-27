@@ -11,3 +11,4 @@ npm-debug.log*
 /config/dist
 /src/utils/$path.ts
 .vercel
+.turbo
