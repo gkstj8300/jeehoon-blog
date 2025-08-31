@@ -1,3 +1,5 @@
+import { usePortal } from '@jeehoon/hooks';
+import { assertNotNull } from '@jeehoon/utils';
 import {
 	ReactNode,
 	useCallback,
@@ -10,10 +12,8 @@ import ResizeObserver from 'resize-observer-polyfill';
 import styles from './Modal.module.scss';
 import { ModalTransition } from './ModalTransition';
 import { Context } from './context';
-import { usePortal } from '@/shared/hooks/usePortal';
-import { assertNotNull } from '@/shared/utils/assertions';
 
-interface Props {
+interface ModalProps {
 	isOpen?: boolean;
 	title?: string | ReactNode;
 	onCancel?: () => void;
@@ -27,7 +27,11 @@ const TOP_SPACING = 25;
 /**
  * Modal base component.
  */
-export const Modal: React.FC<Props> = ({ children, title, ...props }) => {
+export function Modal({
+	children,
+	title,
+	...props
+}: ModalProps) {
 	const context = useContext(Context);
 	const isOpen = props.isOpen ?? context.isOpen;
 	const onCancel = props.onCancel ?? context.close;

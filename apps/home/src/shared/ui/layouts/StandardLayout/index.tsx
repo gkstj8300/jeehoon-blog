@@ -1,11 +1,12 @@
 'use client';
 
-import { Layout, Ui } from '@jeehoon/ui';
+import { Ui } from '@jeehoon/ui';
 import { SessionProvider } from 'next-auth/react';
 import { useRef } from 'react';
 import styles from './StandardLayout.module.scss';
 import { ContextProviders } from '@/shared/functional/ContextProviders';
 import ErrorBoundary from '@/shared/ui/ErrorBoundary';
+import { TooltipController } from '@/shared/ui/Tooltip';
 
 export default function StandardLayout({
 	children,
@@ -19,16 +20,16 @@ export default function StandardLayout({
 			<ContextProviders>
 				<SessionProvider>
 					<div className={styles.container} ref={rootRef}>
-						<Layout.Header />
+						<Ui.Header />
 						<div className={styles.layout}>
 							{children}
 							<div className={styles.backToTop}>
-								<Layout.BackToTop layoutRootRef={rootRef} />
+								<Ui.BackToTop layoutRootRef={rootRef} />
 							</div>
 						</div>
-						<Layout.Footer />
+						<Ui.Footer />
 					</div>
-					<Ui.TooltipController />
+					<TooltipController />
 				</SessionProvider>
 			</ContextProviders>
 		</ErrorBoundary>

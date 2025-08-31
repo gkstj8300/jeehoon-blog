@@ -1,9 +1,8 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
+import { Modal } from '..';
 import styles from './ConfirmModal.module.scss';
-import { ApplicationError } from '@/shared/lib/errors/ApplicationError';
-import { Modal } from '@/shared/ui/Modal';
 
-export type Props = {
+export type ConfirmModalProps = {
 	isOpen: boolean;
 	title?: string | ReactElement;
 	message: string | ReactElement;
@@ -16,7 +15,7 @@ export type Props = {
 /**
  * Confirm Modal
  */
-export const ConfirmModal: React.FC<Props> = props => {
+export function ConfirmModal(props: ConfirmModalProps) {
 	const {
 		isOpen,
 		title,
@@ -29,7 +28,7 @@ export const ConfirmModal: React.FC<Props> = props => {
 
 	if (process.env.NODE_ENV === 'development') {
 		if (isOpen && !message) {
-			throw new ApplicationError('If the modal opens, needs a message.');
+			throw new Error('If the modal opens, needs a message.');
 		}
 	}
 

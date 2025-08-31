@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@jeehoon/hooks": ["packages/hooks/src/index.ts"],
       "@jeehoon/ui": ["packages/ui/src/index.ts"],
       "@jeehoon/utils": ["packages/utils/src/index.ts"],
     }

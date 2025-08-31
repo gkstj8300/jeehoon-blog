@@ -1,3 +1,4 @@
+import { useOnMounted } from '@jeehoon/hooks';
 import dynamic from 'next/dynamic';
 import {
 	Ref,
@@ -18,7 +19,6 @@ import { usePostContent } from '@/entities/post/hooks';
 import CustomCodeBlock from '@/entities/post/ui/PostContent/CustomCodeBlock';
 import { markDownContentFormat } from '@/entities/post/utils';
 import { Heading } from '@/features/postDetail/types/PostDetail.types';
-import { useOnMounted } from '@/shared/hooks/useOnMounted';
 import { useSelector } from '@/shared/lib/store/hooks';
 import { selectTheme } from '@/shared/lib/store/modules/common/selectors';
 import { loadStyle } from '@/shared/utils/loadStyle';

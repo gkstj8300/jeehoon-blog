@@ -1,5 +1,6 @@
 'use client';
 
+import { useInfiniteSlice, useOnMounted } from '@jeehoon/hooks'; 
 import { url } from '@jeehoon/utils';
 import Link from 'next/link';
 import { useState, useMemo, useCallback } from 'react';
@@ -8,8 +9,6 @@ import PostContent from '@/entities/post/ui/PostContent';
 import PostInfo from '@/entities/post/ui/PostInfo';
 import PostSearch from '@/entities/post/ui/PostSearch';
 import PostTitle from '@/entities/post/ui/PostTitle';
-import { useInfiniteSlice } from '@/shared/hooks/useInfiniteSlice';
-import { useOnMounted } from '@/shared/hooks/useOnMounted';
 import { ga } from '@/shared/lib/logs/analytics';
 import { PostType } from '@/shared/types/slug';
 import Breadcrumbs from '@/shared/ui/Breadcrumbs';

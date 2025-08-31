@@ -1,5 +1,6 @@
 import { isObject } from '@jeehoon/utils';
-import React, {
+import {
+	ReactNode,
 	createContext,
 	ReactElement,
 	useCallback,
@@ -77,9 +78,9 @@ function reducer(
  * Confirm modal provider
  * It is assumed to be the only one used by the App component.
  */
-export const ConfirmModalProvider: React.FC<{ children: React.ReactNode }> = ({
+export function ConfirmModalProvider({
 	children,
-}) => {
+}: { children: ReactNode }) {
 	const [context, dispatch] = useReducer(reducer, {
 		isOpen: false,
 		resource: { message: '' },
@@ -116,7 +117,7 @@ export const ConfirmModalProvider: React.FC<{ children: React.ReactNode }> = ({
 };
 ConfirmModalProvider.displayName = 'ConfirmModalProvider';
 
-export const ConfirmModalController: React.VFC = () => {
+export function ConfirmModalController() {
 	const { isOpen, resource, onClose, onConfirm } =
 		useContext(ConfirmModalContext);
 	return (

@@ -1,5 +1,6 @@
 'use client';
 
+import { useBreakpoint, useOnMounted } from '@jeehoon/hooks';
 import Post from '../Post';
 import Profile from '../Profile';
 import RecentPosts from '../RecentPosts';
@@ -7,8 +8,6 @@ import SearchBox from '../SearchBox';
 import Tag from '../Tag';
 import styles from './HomePage.module.scss';
 import { useHome } from '@/features/home/hooks';
-import { useBreakpoint } from '@/shared/hooks/useBreakpoint';
-import { useOnMounted } from '@/shared/hooks/useOnMounted';
 import { ga } from '@/shared/lib/logs/analytics';
 import { PostType } from '@/shared/types/slug';
 import Breadcrumbs from '@/shared/ui/Breadcrumbs';

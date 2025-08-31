@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './ModalTransition.module.scss';
 
-interface Props {
+interface ModalTransitionProps {
 	isOpen: boolean;
 	children?: React.ReactNode;
 }
@@ -10,7 +10,10 @@ interface Props {
 /**
  * Modal Transition & Display control
  */
-export const ModalTransition: React.FC<Props> = ({ isOpen, children }) => {
+export function ModalTransition ({ 
+	isOpen,
+	children
+}: ModalTransitionProps) {
 	const ref = useRef(null);
 	return (
 		<CSSTransition

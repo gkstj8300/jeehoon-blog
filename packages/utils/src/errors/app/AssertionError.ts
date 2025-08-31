@@ -1,4 +1,4 @@
-import { ApplicationError } from '@/shared/lib/errors/ApplicationError';
+import { ApplicationError } from "../ApplicationError";
 
 /**
  * Assertion Error

@@ -1,5 +1,6 @@
 'use client';
 
+
 import { getHeight } from '@jeehoon/utils';
 import { RiMenu4Fill } from '@react-icons/all-files/ri/RiMenu4Fill';
 import dynamic from 'next/dynamic';
@@ -11,10 +12,10 @@ import PostContent from '@/entities/post/ui/PostContent';
 import PostInfo from '@/entities/post/ui/PostInfo';
 import PostTitle from '@/entities/post/ui/PostTitle';
 import { Heading } from '@/features/postDetail/types';
-import { useOnMounted } from '@/shared/hooks/useOnMounted';
 import { ga } from '@/shared/lib/logs/analytics';
 import Breadcrumbs from '@/shared/ui/Breadcrumbs';
-import { HEADER_WRAPPER_ID } from '@/shared/ui/layouts/Header';
+
+const HEADER_WRAPPER_ID = 'header-wrapper';
 
 const PostComents = dynamic(
 	() => import('@/features/postDetail/ui/PostComents'),

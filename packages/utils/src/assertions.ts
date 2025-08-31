@@ -1,6 +1,6 @@
 import { isObject, toNumeric } from '@jeehoon/utils';
-import { ApplicationError } from '@/shared/lib/errors/ApplicationError';
-import { AssertionError } from '@/shared/lib/errors/app/AssertionError';
+import { ApplicationError } from './errors/ApplicationError';
+import { AssertionError } from './errors/app/AssertionError';
 
 /**
  * Verify that the target is null or undefined.

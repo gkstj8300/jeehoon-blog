@@ -7,3 +7,4 @@ export * from './routerHistory';
 export * from './string';
 export * from './type';
 export * from './url';
+export * from './assertions';

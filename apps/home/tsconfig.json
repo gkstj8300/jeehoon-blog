@@ -19,9 +19,10 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./src/*"],
-			"@jeehoon/hooks": ["../../packages/hooks/src/index.ts"],
       "@jeehoon/ui": ["../../packages/ui/src/index.ts"],
+      "@jeehoon/ui/*": ["../../packages/ui/src/*"],
       "@jeehoon/utils": ["../../packages/utils/src/index.ts"],
+      "@jeehoon/utils/*": ["../../packages/utils/src/*"]
 		},
 		"plugins": [
 			{
@@ -29,6 +30,6 @@
 			}
 		]
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "../../packages/utils/src/assertions.ts", "../../packages/utils/src/errors/ApplicationError.ts"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
 	"exclude": ["node_modules"]
 }

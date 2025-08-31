@@ -1,8 +1,8 @@
-import React, { useCallback, useState } from 'react';
+import { ReactNode, useCallback, useState } from 'react';
 import { MainLoaderContext } from './MainLoader.context';
 
 interface MainLoaderProviderProps {
-	children: React.ReactNode;
+	children: ReactNode;
 }
 
 export default function MainLoaderProvider({

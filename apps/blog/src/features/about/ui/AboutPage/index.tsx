@@ -1,12 +1,12 @@
 'use client';
 
+import { useOnMounted } from '@jeehoon/hooks';
 import Education from '../Education';
 import Experience from '../Experience';
 import Introduce from '../Introduce';
 import Project from '../Project';
 import Skill from '../Skill';
 import styles from './AboutPage.module.scss';
-import { useOnMounted } from '@/shared/hooks/useOnMounted';
 import { ga } from '@/shared/lib/logs/analytics';
 import Breadcrumbs from '@/shared/ui/Breadcrumbs';
 

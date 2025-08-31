@@ -1,7 +1,7 @@
+import { usePortal } from '@jeehoon/hooks';
 import classNames from 'classnames';
 import { CSSProperties, forwardRef, ReactNode, Ref } from 'react';
 import styles from './Tooltip.module.scss';
-import { usePortal } from '@/shared/hooks/usePortal';
 
 export const Themes = ['light', 'dark'] as const;
 export type Theme = (typeof Themes)[number];

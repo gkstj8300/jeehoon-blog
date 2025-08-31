@@ -20,6 +20,9 @@ importers:
       '@aws-sdk/lib-storage':
         specifier: ^3.758.0
         version: 3.872.0(@aws-sdk/client-s3@3.872.0)
+      '@jeehoon/hooks':
+        specifier: workspace:*
+        version: link:../../packages/hooks
       '@jeehoon/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -68,9 +71,6 @@ importers:
       react-syntax-highlighter:
         specifier: ^15.6.1
         version: 15.6.1(react@18.3.1)
-      react-transition-group:
-        specifier: ^4.4.2
-        version: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rehype-raw:
         specifier: ^7.0.0
         version: 7.0.0
@@ -80,9 +80,6 @@ importers:
       remark-gfm:
         specifier: ^4.0.1
         version: 4.0.1
-      resize-observer-polyfill:
-        specifier: ^1.5.1
-        version: 1.5.1
       rss:
         specifier: ^1.2.2
         version: 1.2.2
@@ -105,9 +102,6 @@ importers:
       '@types/react-syntax-highlighter':
         specifier: ^15.5.13
         version: 15.5.13
-      '@types/react-transition-group':
-        specifier: ^4.4.12
-        version: 4.4.12(@types/react@18.3.23)
       '@types/rss':
         specifier: ^0.0.32
         version: 0.0.32
@@ -169,18 +163,43 @@ importers:
         specifier: ^5.4.5
         version: 5.9.2
 
-  apps/home: {}
+  apps/home:
+    dependencies:
+      '@jeehoon/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@jeehoon/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      next:
+        specifier: ^14.2.1
+        version: 14.2.32(@babel/core@7.28.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.90.0)
+      react:
+        specifier: '18'
+        version: 18.3.1
+      react-dom:
+        specifier: '18'
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@types/node':
+        specifier: ^20.12.4
+        version: 20.19.11
+      '@types/react':
+        specifier: ^18
+        version: 18.3.23
+      '@types/react-dom':
+        specifier: ^18
+        version: 18.3.7(@types/react@18.3.23)
+      sass:
+        specifier: ^1.75.0
+        version: 1.90.0
+      typescript:
+        specifier: ^5.4.5
+        version: 5.9.2
 
   apps/resume: {}
 
-  packages/ui:
-    dependencies:
-      '@jeehoon/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@react-icons/all-files':
-        specifier: ^4.1.0
-        version: 4.1.0(react@18.3.1)
+  packages/hooks:
     devDependencies:
       '@types/react':
         specifier: ^18
@@ -188,6 +207,40 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.3.7(@types/react@18.3.23)
+      sass:
+        specifier: ^1.75.0
+        version: 1.90.0
+
+  packages/ui:
+    dependencies:
+      '@jeehoon/hooks':
+        specifier: workspace:*
+        version: link:../hooks
+      '@jeehoon/utils':
+        specifier: workspace:*
+        version: link:../utils
+      '@react-icons/all-files':
+        specifier: ^4.1.0
+        version: 4.1.0(react@18.3.1)
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
+      react-transition-group:
+        specifier: ^4.4.2
+        version: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      resize-observer-polyfill:
+        specifier: ^1.5.1
+        version: 1.5.1
+    devDependencies:
+      '@types/react':
+        specifier: ^18
+        version: 18.3.23
+      '@types/react-dom':
+        specifier: ^18
+        version: 18.3.7(@types/react@18.3.23)
+      '@types/react-transition-group':
+        specifier: ^4.4.12
+        version: 4.4.12(@types/react@18.3.23)
       next:
         specifier: ^14.2.1
         version: 14.2.32(@babel/core@7.28.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.90.0)
@@ -196,6 +249,10 @@ importers:
         version: 1.90.0
 
   packages/utils:
+    dependencies:
+      '@jeehoon/ui':
+        specifier: workspace:*
+        version: link:../ui
     devDependencies:
       '@types/react':
         specifier: ^18
