@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import getMarkdownAllPosts from '@/entities/post/api/getMarkdownAllPosts';
-import HomePage from '@/features/home/ui/HomePage';
+import BlogHomePage from '@/features/blogHome/ui/BlogHomePage';
 
 export const metadata: Metadata = {
   title: '박지훈 기술 블로그',
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Home() {
+export default async function BlogHome() {
 	const { postList } = await getMarkdownAllPosts();
 
-	return <HomePage postList={postList} />;
+	return <BlogHomePage postList={postList} />;
 }

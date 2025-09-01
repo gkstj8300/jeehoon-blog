@@ -2,7 +2,7 @@
 	width: 100%;
 	max-width: 1400px;
 	margin: 0 auto;
-	padding: 1rem;
+	padding: 0 3rem;
 }
 
 .backToTop {
@@ -11,8 +11,3 @@
 	bottom: 99px;
 }
 
-@media (min-width: 1024px) {
-	.layout {
-		padding: 1rem;
-	}
-}

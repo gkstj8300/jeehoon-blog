@@ -1,9 +1,9 @@
+import "@jeehoon/theme";
+import { Infra, pretendard } from '@jeehoon/ui';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import Providers from './providers';
-import GoogleAnalytics from '@/shared/lib/logs/analytics/GoogleAnalytics';
 import StandardLayout from '@/shared/ui/layouts/StandardLayout';
-import { pretendard } from '@/styles/fonts/Pretendard/pretendard';
 import '@/styles/globals.scss';
 
 export const metadata: Metadata = {
@@ -33,7 +33,7 @@ export default function RootLayout({
 				<Providers>
 					<StandardLayout>{children}</StandardLayout>
 				</Providers>
-				{gaId ? <GoogleAnalytics gaId={gaId} /> : null}
+				{gaId ? <Infra.GoogleAnalytics gaId={gaId} /> : null}
 			</body>
 		</html>
 	);

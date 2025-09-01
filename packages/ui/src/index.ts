@@ -2,18 +2,24 @@ import BackToTop from './components/BackToTop';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Notice from './components/Notice';
-import MainLoaderProvider from './components/MainLoader';
-import { TooltipController, TooltipProvider } from './components/Tooltip';
+import ContextProviders from './components/Provider/ContextProviders';
+import { TooltipController } from './components/Tooltip';
+import GoogleAnalytics from './components/GoogleAnalytics';
 
 // Layout components
 export const Layout = { BackToTop, Footer, Header, Notice };
 
-// Ui components
-export const Ui = {
-  MainLoaderProvider, 
-  TooltipController, 
-  TooltipProvider 
-};
+// UI components
+export const Ui = { TooltipController };
 
-// React Icons
+// Providers
+export const Providers = { ContextProviders };
+
+// Infra
+export const Infra = { GoogleAnalytics };
+
+// Icons
 export { Icons } from './icons';
+
+// Font
+export { pretendard } from './styles/fonts/pretendard';

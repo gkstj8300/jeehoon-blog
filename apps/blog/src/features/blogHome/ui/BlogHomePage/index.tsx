@@ -7,19 +7,19 @@ import RecentPosts from '../RecentPosts';
 import SearchBox from '../SearchBox';
 import Tag from '../Tag';
 import styles from './HomePage.module.scss';
-import { useHome } from '@/features/home/hooks';
+import { useHome } from '@/features/blogHome/hooks';
 import { ga } from '@/shared/lib/logs/analytics';
 import { PostType } from '@/shared/types/slug';
 import Breadcrumbs from '@/shared/ui/Breadcrumbs';
 
 const BREAKPOINT = 1024;
 
-interface HomePageProps {
+interface BlogHomePageProps {
 	postList: PostType[];
 	className?: string;
 }
 
-export default function HomePage({ postList }: HomePageProps) {
+export default function BlogHomePage({ postList }: BlogHomePageProps) {
 	const { posts, search, recentPosts, handleFindPosts } = useHome(postList);
 	const isNarrow = useBreakpoint(BREAKPOINT);
 	useOnMounted(ga.pageView.home);
@@ -60,4 +60,4 @@ export default function HomePage({ postList }: HomePageProps) {
 		</>
 	);
 }
-HomePage.displayName = 'HomePage';
+BlogHomePage.displayName = 'HomePage';

@@ -20,6 +20,7 @@
     "@react-icons/all-files": "^4.1.0",
     "@reduxjs/toolkit": "^1.7.1",
     "@jeehoon/hooks": "workspace:*",
+    "@jeehoon/theme": "workspace:*",
     "@jeehoon/ui": "workspace:*",
     "@jeehoon/utils": "workspace:*",
     "classnames": "^2.5.1",

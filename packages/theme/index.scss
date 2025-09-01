@@ -1,5 +1,6 @@
 @use './dark' as dark;
 @use './light' as light;
+@use './variables';
 
 html[data-theme='dark'] {
 	--background: #{dark.$backgroundColor};

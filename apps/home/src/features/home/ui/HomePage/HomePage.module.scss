@@ -1,0 +1,112 @@
+// firstSection START
+
+.firstSection {
+  padding-top: 8dvh;
+  padding-bottom: 8dvh;
+  margin-bottom: 80px;
+}
+
+.firstWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.name {
+  font-size: clamp(3.5rem,10vw,6rem);
+}
+
+.nickName {
+  font-size: clamp(1rem,3vw,1.75rem);
+}
+
+.developer {
+  font-size: clamp(2rem,6vw,4rem);
+  line-height: 0.6;
+  color: #fa2454;
+}
+
+// firstSection END
+
+// secondSection END
+.secondSection {
+  padding: 0px;
+  margin: 0px 0px 80px;
+}
+
+.secondWrap {
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  animation: animation-section 1s ease-in-out 0.5s 1 normal forwards running;
+}
+
+.introduction {
+  width: 505px;
+  padding-left: 38px;
+}
+
+.webQuestion {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #fa2454; // 추 후 폰트 통합으로 설정해야함
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.webIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  min-width: 24px;
+  font-size: inherit;
+  margin-right: 4px;
+}
+
+.firstIntro {
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: rgb(51, 61, 75);
+}
+
+.secondIntro {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: rgb(107, 118, 132);
+}
+
+.test {
+  max-width: calc(50% - 30px);
+  height: auto;
+  box-shadow: 1px 3px 20px #cccccc;
+  border-radius: 35px;
+}
+
+@keyframes animation-section {
+	0% {
+    opacity: 0;
+    transform: translate3d(0px, 50px, 0px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
+}
