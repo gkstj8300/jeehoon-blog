@@ -1,4 +1,4 @@
-import { FiAlertCircle } from '@react-icons/all-files/fi/FiAlertCircle';
+import { Icons } from '@jeehoon/ui';
 import styles from './PointCodeBlock.module.scss';
 
 interface PointCodeBlockProps {
@@ -9,7 +9,7 @@ export default function PointCodeBlock({ content }: PointCodeBlockProps) {
 	return (
 		<div className={styles.container}>
 			<div className={styles.codeBlock}>
-				<FiAlertCircle className={styles.content} />
+				<Icons.FiAlertCircle className={styles.content} />
 			</div>
 			{content}
 		</div>

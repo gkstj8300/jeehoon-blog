@@ -1,8 +1,8 @@
 'use client';
 
 import { useOnMounted } from '@jeehoon/hooks';
+import { Icons } from '@jeehoon/ui';
 import { getHeight } from '@jeehoon/utils';
-import { RiMenu4Fill } from '@react-icons/all-files/ri/RiMenu4Fill';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useState, useRef } from 'react';
@@ -106,7 +106,7 @@ export default function PostDetailPage({
 						}}
 					>
 						<div className={styles.asideButton} onClick={handleClickAsideOpen}>
-							<RiMenu4Fill className={styles.sideMenuIcon} />
+							<Icons.RiMenu4Fill className={styles.sideMenuIcon} />
 						</div>
 						<TableOfContents
 							headings={headings}

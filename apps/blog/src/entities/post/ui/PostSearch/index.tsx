@@ -1,4 +1,4 @@
-import { IoSearchOutline } from '@react-icons/all-files/io5/IoSearchOutline';
+import { Icons } from '@jeehoon/ui';
 import { ChangeEvent, useState, useCallback, useMemo, useEffect } from 'react';
 import styles from './PostSearch.module.scss';
 import { PostType } from '@/shared/types/slug';
@@ -65,7 +65,7 @@ export default function PostSearch({ postList, filterPosts }: PostSearchProps) {
 					placeholder="keyword input"
 					onChange={handleChange}
 				/>
-				<IoSearchOutline
+				<Icons.IoSearchOutline
 					className={styles.searchIcon}
 					onClick={handleClickSearch}
 				/>

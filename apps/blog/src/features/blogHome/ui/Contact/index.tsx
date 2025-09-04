@@ -1,12 +1,9 @@
+import { Icons, useTooltip } from '@jeehoon/ui';
 import { url } from '@jeehoon/utils';
-import { FaGithub } from '@react-icons/all-files/fa/FaGithub';
-import { FaRegUserCircle } from '@react-icons/all-files/fa/FaRegUserCircle';
-import { MdEmail } from '@react-icons/all-files/md/MdEmail';
 import React, { useCallback } from 'react';
 import styles from './Contact.module.scss';
 import IconLink from '@/shared/ui/IconLink';
 import Title from '@/shared/ui/Title';
-import { useTooltip } from '@/shared/ui/Tooltip/Tooltip.hooks';
 
 export default function Contact() {
 	const { bind } = useTooltip<HTMLAnchorElement>({
@@ -26,19 +23,19 @@ export default function Contact() {
 
 	const contactItems = [
 		{
-			icon: <MdEmail />,
+			icon: <Icons.MdEmail />,
 			href: '',
 			text: 'email',
 			onClick: () => handleEmailCopy('gkstj8300@naver.com'),
 			bind: bind,
 		},
 		{
-			icon: <FaGithub />,
+			icon: <Icons.FaGithub />,
 			href: url.github,
 			text: 'github',
 		},
 		{
-			icon: <FaRegUserCircle />,
+			icon: <Icons.FaRegUserCircle />,
 			href: url.careerDescription,
 			text: 'careerDescription',
 		},
