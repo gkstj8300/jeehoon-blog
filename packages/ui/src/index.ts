@@ -1,10 +1,11 @@
 import BackToTop from './components/BackToTop';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import GoogleAnalytics from './components/GoogleAnalytics';
 import Notice from './components/Notice';
 import ContextProviders from './components/Provider/ContextProviders';
 import { TooltipController } from './components/Tooltip';
-import GoogleAnalytics from './components/GoogleAnalytics';
+import { useTooltip } from './components/Tooltip/Tooltip.hooks';
 
 // Layout components
 export const Layout = { BackToTop, Footer, Header, Notice };
@@ -23,3 +24,6 @@ export { Icons } from './icons';
 
 // Font
 export { pretendard } from './styles/fonts/pretendard';
+
+// Tooltip
+export { useTooltip }

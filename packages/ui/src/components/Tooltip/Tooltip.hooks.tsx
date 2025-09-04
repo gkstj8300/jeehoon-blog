@@ -1,3 +1,5 @@
+'use client';
+
 import { useRef, ReactNode, useContext, MouseEvent } from 'react';
 import { Direction, Theme } from './Tooltip';
 import { TooltipContext } from '.';
