@@ -18,7 +18,7 @@ export default function SecondSection() {
         <Image
           src={chat}
           alt=''
-          width={300}
+          width={315}
           height={580}
           style={{
             position: 'absolute',

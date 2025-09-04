@@ -39,18 +39,6 @@
 	display: flex;
 }
 
-.theme {
-	width: 1.4rem;
-	height: 1.4rem;
-	cursor: pointer;
-	font-weight: bold;
-	margin-right: 0.5rem;
-
-	&:hover {
-		color: var(--icon-link-background-color);
-	}
-}
-
 .link {
 	height: 1.4rem;
 	font-weight: bold;
@@ -59,5 +47,15 @@
 
 	&:hover {
 		color: var(--icon-link-background-color);
+	}
+}
+
+@media (max-width: 768px) {
+	.header {
+		padding: 0 0.5rem;
+	}
+
+	.menu {
+		display: none;
 	}
 }
