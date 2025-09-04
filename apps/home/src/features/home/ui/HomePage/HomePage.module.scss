@@ -1,13 +1,17 @@
 .container {
-  >section {
+  > section:not(:first-of-type) {
     margin-bottom: 150px;
   }
 }
 
 @media (max-width: 768px) {
   .container {
-    >section {
-      margin-bottom: 20px;
+    section:first-of-type {
+      margin-bottom: 0px;
+    }
+
+    > section:not(:first-of-type) {
+      margin-bottom: 80px;
     }
   }
 }

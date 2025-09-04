@@ -3,7 +3,7 @@ import { Infra, pretendard } from '@jeehoon/ui';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import StandardLayout from '@/shared/layouts/StandardLayout';
-import './globals.scss';
+import '@/styles/globals.scss';
 
 export const metadata: Metadata = {
 	title: '박지훈 기술 블로그',

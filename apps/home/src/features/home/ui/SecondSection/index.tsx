@@ -7,10 +7,10 @@ export default function SecondSection() {
     <section className={styles.secondSection}>
       <div className={styles.secondWrap}>
         <Image
-          src='https://d2ut7x8yqv441q.cloudfront.net/baakhan/iphone_frame_image.png'
+          src='https://d2ut7x8yqv441q.cloudfront.net/baakhan/iphone_frame_image.webp'
           alt=''
-          width={510}
-          height={740}
+          width={360}
+          height={700}
           style={{
             borderRadius: '35px',
           }}
@@ -22,7 +22,6 @@ export default function SecondSection() {
           height={580}
           style={{
             position: 'absolute',
-            left: '23%',
             top: '-7%',
           }}
         />
