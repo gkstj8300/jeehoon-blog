@@ -11,7 +11,7 @@ export default function ThirdSection() {
             <span className={styles.webIcon}><Icons.FaGlobe /></span>
             이 웹은?
           </p>
-          <p className={styles.firstIntro}>하나의 baakhan.com으로 여러 프로젝트를 자유롭게</p>
+          <p className={styles.firstIntro}>하나의 baakhan.com으로<br />여러 프로젝트를 자유롭게</p>
           <p className={styles.secondIntro}>각기 다른 프로젝트들을 한 도메인에서 통합해 운영하고 있어요.</p>
         </div>
         <div className={styles.thirdSectionDesImg1}>

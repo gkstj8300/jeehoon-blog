@@ -20,6 +20,7 @@
   font-weight: 600;
   line-height: 1.4;
   color: #fa2454;
+  animation: animation-section 1s ease-in-out 0.5s 1 normal forwards running;
 }
 
 .webIcon {
@@ -36,6 +37,7 @@
 
 .packageContent {
   flex: 0 0 340px;
+  animation: animation-section 1s ease-in-out 0.5s 1 normal forwards running;
 }
 
 .firstIntro {
@@ -73,6 +75,7 @@
 .flow {
   position: relative;
   flex: 1;
+  animation: animation-section 1s ease-in-out 0.5s 1 normal forwards running;
 }
 
 .flowBox {

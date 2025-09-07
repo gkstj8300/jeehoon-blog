@@ -21,6 +21,7 @@
   font-size: clamp(1.45rem, 3vw, 3.1rem);
   padding-left: 1rem;
   padding-top: 2.5rem;
+  animation: animation-section 1s ease-in-out 0.5s 1 normal forwards running;
 
   p {
     font-weight: bold;
