@@ -1,0 +1,29 @@
+{
+  "name": "@jeehoon/ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.8.0",
+  "dependencies": {
+    "@jeehoon/hooks": "workspace:*",
+    "@jeehoon/utils": "workspace:*",
+    "@react-icons/all-files": "^4.1.0",
+    "react-transition-group": "^4.4.2",
+    "classnames": "^2.5.1",
+    "resize-observer-polyfill": "^1.5.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-transition-group": "^4.4.12",
+    "next": "^14.2.1",
+    "sass": "^1.75.0"
+  }
+}

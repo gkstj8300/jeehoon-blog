@@ -1,0 +1,58 @@
+.firstSection {
+  padding-top: 5dvh;
+  padding-bottom: 5dvh;
+  margin-bottom: 50px;
+}
+
+.firstWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.name {
+  font-size: clamp(3.5rem, 10vw, 6rem);
+  font-weight: bold;
+}
+
+.resumeBtn {
+  background-color: transparent;
+  border: 2px solid #fa2454;
+  border-radius: 9999px;
+  color: #fa2454;
+  cursor: pointer;
+  display: flex;
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1;
+  padding: 1rem 2rem;
+  font-weight: 700;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: var(--foreground);
+    outline: 0;
+  }
+
+  transition: box-shadow 300ms ease-in-out,
+  color 300ms ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 40px 40px #fa2454 inset;
+  }
+}
+
+.nickName {
+  font-size: clamp(1rem, 3vw, 1.75rem);
+}
+
+.developer {
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.2;
+  color: #fa2454;
+}

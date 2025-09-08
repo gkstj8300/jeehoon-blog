@@ -1,0 +1,125 @@
+.thirdSection {
+  display: flex;
+  flex-direction: column;
+  padding: 0 5rem;
+}
+
+.thirdWrap {
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 0;
+  animation: animation-section 1s ease-in-out 0.5s 1 normal forwards running;
+
+  &:first-child {
+    margin: 0px 0px 150px;
+  }
+}
+
+.introduction {
+  padding-left: 38px;
+}
+
+.webQuestion {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #fa2454;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.webIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  min-width: 24px;
+  font-size: inherit;
+  margin-right: 4px;
+}
+
+.firstIntro {
+  margin-bottom: 20px;
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--foreground);
+}
+
+.secondIntro {
+  font-size: clamp(0.5rem, 3vw, 1.03rem);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--sub-font-color);
+}
+
+.thirdSectionDesImg1 {
+  min-width: 390px;
+  width: calc(40% - 30px);
+  flex-basis: calc(40% - 30px);
+  height: auto;
+  box-shadow: 1px 3px 20px #cccccc;
+  border-radius: 35px;
+}
+
+.thirdSectionDesImg2 {
+  min-width: 390px;
+  width: calc(40% - 30px);
+  flex-basis: calc(40% - 30px);
+  height: auto;
+  box-shadow: 1px 3px 20px #cccccc;
+  border-radius: 35px;
+}
+
+@media (max-width: 768px) {
+  .thirdWrap {
+    flex-direction: column;
+
+    &:first-child {
+      margin: 0px 0px 50px;
+    }
+  }
+
+  .introduction {
+    order: -1;
+  }
+
+  .thirdSectionDesImg1 {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .thirdSectionDesImg2 {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .thirdSection {
+    padding: 0;
+  }
+
+  .introduction {
+    padding: 0;
+  }
+}
+
+@keyframes animation-section {
+	0% {
+    opacity: 0;
+    transform: translate3d(0px, 50px, 0px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
+}

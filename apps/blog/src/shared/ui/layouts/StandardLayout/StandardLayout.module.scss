@@ -1,0 +1,19 @@
+.layout {
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 3rem;
+}
+
+.backToTop {
+	position: fixed;
+	right: 10px;
+	bottom: 99px;
+}
+
+@media (max-width: 768px) {
+	.layout {
+		padding: 0 1rem;
+	}
+}
+

@@ -1,0 +1,7 @@
+{
+  "name": "@jeehoon/theme",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "style": "index.scss",
+  "type": "module"
+}

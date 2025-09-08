@@ -1,0 +1,51 @@
+@use './dark' as dark;
+@use './light' as light;
+@use './variables';
+
+html[data-theme='dark'] {
+	--background: #{dark.$backgroundColor};
+	--sub-background-color: #{dark.$subBackgroundColor};
+	--foreground: #{dark.$fontColor};
+	--sub-font-color: #{dark.$subFontColor};
+	--change-font-color: #{dark.$changeFontColor};
+	--post-font-color: #{dark.$postFontColor};
+	--post-sub-font-color: #{dark.$postSubFontColor};
+	--post-content-border: #{dark.$postContentBorder};
+	--post-content-left-border: #{dark.$postContentLeftBorder};
+	--header-background-color: #{dark.$headerBackgroundColor};
+	--footer-hover-font-color: #{dark.$footerHoverFontColor};
+	--tag: #{dark.$tag};
+	--profile-develop-color: #{dark.$profileDevelopColor};
+	--post-background-color: #{dark.$postBackgroundColor};
+	--post-tag-background-color: #{dark.$postTagBackgroundColor};
+	--icon-link-background-color: #{dark.$iconLinkBackgroundColor};
+	--back-to-top-background-color: #{dark.$backToTopBackgroundColor};
+	--aside-heading-background-color: #{dark.$asideHeadingBackgroundColor};
+	--base-font: #{dark.$baseFont};
+	--post-list-tag-color: #{dark.$postListTagColor};
+	--post-list-tag-boder-color: #{dark.$postListTagBoderColor};
+}
+
+html[data-theme='light'] {
+	--background: #{light.$backgroundColor};
+	--sub-background-color: #{light.$subBackgroundColor};
+	--foreground: #{light.$fontColor};
+	--sub-font-color: #{light.$subFontColor};
+	--change-font-color: #{light.$changeFontColor};
+	--post-font-color: #{light.$postFontColor};
+	--post-sub-font-color: #{light.$postSubFontColor};
+	--post-content-border: #{light.$postContentBorder};
+	--post-content-left-border: #{light.$postContentLeftBorder};
+	--header-background-color: #{light.$headerBackgroundColor};
+	--footer-hover-font-color: #{light.$footerHoverFontColor};
+	--tag: #{light.$tag};
+	--profile-develop-color: #{light.$profileDevelopColor};
+	--post-background-color: #{light.$postBackgroundColor};
+	--post-tag-background-color: #{light.$postTagBackgroundColor};
+	--icon-link-background-color: #{light.$iconLinkBackgroundColor};
+	--back-to-top-background-color: #{light.$backToTopBackgroundColor};
+	--aside-heading-background-color: #{light.$asideHeadingBackgroundColor};
+	--base-font: #{light.$baseFont};
+	--post-list-tag-color: #{light.$postListTagColor};
+	--post-list-tag-boder-color: #{light.$postListTagBoderColor};
+}

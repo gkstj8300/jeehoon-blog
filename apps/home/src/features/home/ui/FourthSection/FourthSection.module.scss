@@ -1,0 +1,204 @@
+.fourthSection {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding: 0 5rem;
+}
+
+.fourthWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;  
+}
+
+.webQuestion {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #fa2454;
+  animation: animation-section 1s ease-in-out 0.5s 1 normal forwards running;
+}
+
+.webIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  min-width: 24px;
+  font-size: inherit;
+  margin-right: 4px;
+  margin-top: 3px;
+}
+
+.packageContent {
+  flex: 0 0 340px;
+  animation: animation-section 1s ease-in-out 0.5s 1 normal forwards running;
+}
+
+.firstIntro {
+  margin-bottom: 20px;
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--foreground);
+}
+
+.secondIntro {
+  font-size: clamp(0.5rem, 3vw, 1.1rem);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--sub-font-color);
+}
+
+.fourthContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chip {
+  border-radius: 9999px;
+  background-color: #f5f5f5;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  color: #404040;
+}
+
+.chipGitHubLink {
+  border-radius: 9999px;
+  background-color: #f5f5f5;
+  padding: 0.25rem 0.75rem;
+  font-size: 1rem;
+  color: #404040;
+}
+
+.link {
+  color: #fa2454;
+  font-weight: bold;
+  text-decoration-line: underline;
+  margin-right: 5px;
+}
+
+.directory{
+  padding-bottom: 20px;
+}
+
+.chipContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-right: 2rem;
+}
+
+.flow {
+  position: relative;
+  flex: 1;
+  animation: animation-section 1s ease-in-out 0.5s 1 normal forwards running;
+}
+
+.flowBox {
+  border-radius: 1rem;
+  border: 1px solid #e5e5e5;
+  background-color: #ffffff;
+  padding: 1rem;
+  box-shadow: 1px 3px 20px #cccccc;
+}
+
+.flowGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.colSpan1 {
+  grid-column: span 1 / span 1;
+  color: rgb(18 18 18);
+}
+
+.flowTitle {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.flowItem {
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #f5f5f5;
+  padding: 0.5rem 0.75rem;
+}
+
+.colSpan2 {
+  grid-column: span 1 / span 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.packageIcon {
+  width: 25px;
+  height: 25px;
+  color: #6c757d;
+}
+
+.monoPackages {
+  grid-column: span 2 / span 2;
+}
+
+.packagesTitle {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.packagesItem {
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #fff1f2;
+  padding: 0.5rem 0.75rem;
+  color: #be123c;
+}
+
+@media (max-width: 768px) {
+  .fourthSection {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .fourthContent {
+    flex-direction: column;
+  }
+
+  .fourthWrap {
+    gap: 0;
+  }
+
+  .packageContent {
+    flex: 1;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .fourthSection {
+    padding: 0;
+  }
+}
+
+@keyframes animation-section {
+	0% {
+    opacity: 0;
+    transform: translate3d(0px, 50px, 0px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+  }
+}

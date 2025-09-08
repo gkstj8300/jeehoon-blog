@@ -1,0 +1,11 @@
+.icon {
+	width: 1.4rem;
+	height: 1.4rem;
+	cursor: pointer;
+	font-weight: bold;
+	margin-right: 0.5rem;
+
+	&:hover {
+		color: var(--icon-link-background-color);
+	}
+}

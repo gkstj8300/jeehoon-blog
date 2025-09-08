@@ -1,0 +1,14 @@
+{
+  "name": "jeehoon-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.8.0",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.6"
+  }
+}
