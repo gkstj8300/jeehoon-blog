@@ -35,6 +35,13 @@
 	align-items: center;
 }
 
+.menuList {
+	display: flex;
+	gap: 1rem;
+	justify-content: space-between;
+	align-items: center;
+}
+
 .asideMenu {
 	display: flex;
 }
@@ -55,7 +62,7 @@
 		padding: 0 0.5rem;
 	}
 
-	.menu {
+	.menuList {
 		display: none;
 	}
 }

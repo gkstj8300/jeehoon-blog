@@ -19,18 +19,27 @@ export default function SideBar() {
       </div>
 
       {active && (
-        <div className={styles.tableOfContents}>
-          <ul className={styles.list}>
-            {HEADER_MENU.map(({ link, title }) => (
-              <li
-                key={title}
-                className={styles.item}
+        <div className={styles.test}>
+          <div className={styles.overLay}></div>
+          <div className={styles.tableOfContents}>
+            <div className={styles.closeWrap}>
+              <Icons.FaTimes
+                className={styles.closeIcon}
                 onClick={handleSideBarOnClick}
-              >
-                <span className={styles.menu}>{title}</span>
-              </li>
-            ))}
-          </ul>
+              />
+            </div>
+            <ul className={styles.list}>
+              {HEADER_MENU.map(({ link, title }) => (
+                <li
+                  key={title}
+                  className={styles.item}
+                  onClick={handleSideBarOnClick}
+                >
+                  <span className={styles.menu}>{title}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </div>

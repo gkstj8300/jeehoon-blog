@@ -15,6 +15,7 @@ import { FiAlertCircle } from '@react-icons/all-files/fi/FiAlertCircle';
 import { IoSearchOutline } from '@react-icons/all-files/io5/IoSearchOutline';
 import { MdEmail } from '@react-icons/all-files/md/MdEmail';
 import { RiMenu4Fill } from '@react-icons/all-files/ri/RiMenu4Fill';
+import { FaTimes } from '@react-icons/all-files/fa/FaTimes';
 
 export const Icons = {
   FaGithub,
@@ -34,4 +35,5 @@ export const Icons = {
   IoSearchOutline,
   MdEmail,
   RiMenu4Fill,
+  FaTimes,
 }

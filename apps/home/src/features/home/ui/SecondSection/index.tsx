@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from './SecondSection.module.scss';
-import chat from '@/features/home/assets/chat.svg';
+import darkChat from '@/features/home/assets/dark-chat.svg';
 
 export default function SecondSection() {
   return (
@@ -16,7 +16,7 @@ export default function SecondSection() {
           }}
         />
         <Image
-          src={chat}
+          src={darkChat}
           alt=''
           width={315}
           height={580}

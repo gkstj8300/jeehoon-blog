@@ -15,19 +15,21 @@ export default function Header() {
             <Link href="/home" aria-label="Go to home">@ BaakHan</Link>
           </h1>
         </span>
-        <SideBar />
         <nav className={styles.menu} aria-label="Primary">
           <ThemeToggle />
-          {HEADER_MENU.map(({ link, title }) => 
-            <Link
-              key={title}
-              href={link} 
-              className={styles.link} 
-              title={title}
-            >
-              {title}
-            </Link>
-          )}
+          <SideBar />
+          <div className={styles.menuList}>
+            {HEADER_MENU.map(({ link, title }) => 
+              <Link
+                key={title}
+                href={link}
+                className={styles.link}
+                title={title}
+              >
+                {title}
+              </Link>
+            )}
+          </div>
         </nav>
       </div>
     </header>

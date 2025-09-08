@@ -7,6 +7,7 @@ html[data-theme='dark'] {
 	--sub-background-color: #{dark.$subBackgroundColor};
 	--foreground: #{dark.$fontColor};
 	--sub-font-color: #{dark.$subFontColor};
+	--change-font-color: #{dark.$changeFontColor};
 	--post-font-color: #{dark.$postFontColor};
 	--post-sub-font-color: #{dark.$postSubFontColor};
 	--post-content-border: #{dark.$postContentBorder};
@@ -30,6 +31,7 @@ html[data-theme='light'] {
 	--sub-background-color: #{light.$subBackgroundColor};
 	--foreground: #{light.$fontColor};
 	--sub-font-color: #{light.$subFontColor};
+	--change-font-color: #{light.$changeFontColor};
 	--post-font-color: #{light.$postFontColor};
 	--post-sub-font-color: #{light.$postSubFontColor};
 	--post-content-border: #{light.$postContentBorder};

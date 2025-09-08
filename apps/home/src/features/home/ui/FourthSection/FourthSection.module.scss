@@ -83,6 +83,7 @@
   border: 1px solid #e5e5e5;
   background-color: #ffffff;
   padding: 1rem;
+  box-shadow: 1px 3px 20px #cccccc;
 }
 
 .flowGrid {
@@ -94,6 +95,7 @@
 
 .colSpan1 {
   grid-column: span 1 / span 1;
+  color: rgb(18 18 18);
 }
 
 .flowTitle {
