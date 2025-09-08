@@ -1,4 +1,6 @@
 import { Icons } from '@jeehoon/ui';
+import { url } from '@jeehoon/utils';
+import Link from 'next/link';
 import styles from './FourthSection.module.scss';
 import { mono } from '../../contents/mono';
 
@@ -17,8 +19,17 @@ export default function FourthSection() {
               <p className={styles.secondIntro}>apps → (home, blog, resome, lab)</p>
               <p className={styles.secondIntro}>packages → (ui, theme, hook, utils)</p>
             </div>
-            <div>
+            <div className={styles.chipContent}>
               <span className={styles.chip}>모노레포: 하나의 저장소에 여러 패키지</span>
+              <span className={styles.chipGitHubLink}>
+                <Link
+                  href={url.githubRepository}
+                  className={styles.link}
+                >
+                  GitHub
+                </Link>
+                에서 전체 코드 확인하기
+              </span>
             </div>
           </div>
           <div className={styles.flow}>
