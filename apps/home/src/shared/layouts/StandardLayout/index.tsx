@@ -18,7 +18,7 @@ export default function StandardLayout({
 			<Providers.ContextProviders>
 				<SessionProvider>
 					<div className={styles.container} ref={rootRef}>
-						<Layout.Header />
+						<Layout.Header domain='Home'/>
 						<div className={styles.layout}>
 							{children}
 							<div className={styles.backToTop}>

@@ -1,4 +1,12 @@
 export const url = {
+	// Home
+	home: 'https://baakhan.com',
+	// Resume
+	resume: 'https://resume.baakhan.com',
+	// Blog
+	blog: 'https://blog.baakhan.com',
+	// Lab
+	lab: 'https://lab.baakhan.com',
 	// 깃허브 링크
 	github: 'https://github.com/gkstj8300/',
 	// 깃허브 레파지토리 링크
