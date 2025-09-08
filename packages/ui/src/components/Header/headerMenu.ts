@@ -1,18 +1,20 @@
+import { url } from "@jeehoon/utils";
+
 export const HEADER_MENU = [
   {
     title: "Home",
-    link: "/",
+    link: url.home,
   },
   {
     title: "Resume",
-    link: "/resume",
+    link: url.resume,
   },
   {
     title: "Blog",
-    link: "/blog",
+    link: url.blog,
   },
   {
     title: "Lab",
-    link: "/lab",
+    link: url.lab,
   },
 ];

@@ -5,7 +5,11 @@ import { useState } from 'react';
 import styles from './SideBar.module.scss';
 import { HEADER_MENU } from '../headerMenu';
 
-export default function SideBar() {
+interface SideBarProps {
+  domain: string;
+}
+
+export default function SideBar({ domain }: SideBarProps) {
   const [active, setActive] = useState(false);
 
   const handleSideBarOnClick = () => {
@@ -33,6 +37,7 @@ export default function SideBar() {
                 <li
                   key={title}
                   className={styles.item}
+                  data-domain={title === domain}
                   onClick={handleSideBarOnClick}
                 >
                   <span className={styles.menu}>{title}</span>

@@ -55,6 +55,10 @@
 	&:hover {
 		color: var(--icon-link-background-color);
 	}
+
+	&[data-domain='true'] {
+		color: #fa2454;
+	}
 }
 
 @media (max-width: 768px) {

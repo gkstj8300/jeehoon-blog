@@ -94,6 +94,10 @@
 			opacity: 1;
 		}
 	}
+
+	&[data-domain='true'] {
+		color: #fa2454;
+	}
 }
 
 .menu {
