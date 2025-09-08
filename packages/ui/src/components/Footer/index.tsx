@@ -16,7 +16,7 @@ export default function Footer() {
 				</a>
 			</div>
 			<div>
-				<span>Copyright 2025.JeeHoon-Blog Corporation All Rights Reserved.</span>
+				<span>Copyright 2025 @JeeHoon (JeeHoon Park) Corporation All Rights Reserved.</span>
 			</div>
 		</footer>
 	);
