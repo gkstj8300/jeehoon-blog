@@ -12,13 +12,15 @@ interface HeaderProps {
 }
 
 export default function Header({ domain }: HeaderProps) {
+  const homeLink = HEADER_MENU.find(v => v.title === domain)?.link ?? '/';
+
   return (
     <header className={styles.header} id={HEADER_WRAPPER_ID}>
       <div className={styles.inner}>
         <span className={styles.title}>
           <h1>
             <Link
-              href={HEADER_MENU.find(v => v.title === domain)?.link}
+              href={homeLink}
               aria-label="Go to home">
               @ BaakHan
             </Link>
