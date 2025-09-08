@@ -1,8 +1,12 @@
 import styles from './Notice.module.scss';
 
-export default function Notice() {
+interface NoticeProps {
+	description: string;
+}
+
+export default function Notice({ description }: NoticeProps) {
 	return (
-		<div className={styles.container}>현재 블로그 리펙토링 작업중입니다.</div>
+		<div className={styles.container}>{description}</div>
 	);
 }
 Notice.displayName = 'Notice';
