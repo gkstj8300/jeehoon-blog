@@ -1,0 +1,124 @@
+:root {
+	--color-text-primary: #000;
+	--color-text-secondary: #717171;
+	--color-border-primary: #000;
+	--color-border-secondary: #717171;
+
+	transition:
+		background-color 0.4s ease,
+		color 0.4s ease;
+}
+
+body,
+div,
+span,
+p,
+pre,
+code,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+img,
+small,
+strong,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+form,
+label,
+footer,
+header,
+nav,
+section {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	border: 0;
+	outline: 0;
+}
+
+table,
+tbody,
+tr,
+th,
+td {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	outline: 0;
+}
+
+tr,
+th,
+td {
+	vertical-align: middle;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	color: var(--foreground);
+	background: var(--background);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transition:
+		background-color 0.4s ease,
+		color 0.4s ease;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #f5f5f5;
+	border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #aaa;
+	border-radius: 8px;
+}
+
+h2 {
+	font-size: 2.25rem;
+}
+
+p {
+	font-weight: 400;
+}
+
+pre, code, input {
+	font-family: var(--font-preten-dard), monospace !important;
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+}

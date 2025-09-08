@@ -3,8 +3,10 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import GoogleAnalytics from './components/GoogleAnalytics';
 import Notice from './components/Notice';
+import MiniTitle from './components/MiniTitle';
 import ContextProviders from './components/Provider/ContextProviders';
 import Reveal from './components/Reveal';
+import Title from './components/Title';
 import { TooltipController } from './components/Tooltip';
 import { useTooltip } from './components/Tooltip/Tooltip.hooks';
 
@@ -12,7 +14,7 @@ import { useTooltip } from './components/Tooltip/Tooltip.hooks';
 export const Layout = { BackToTop, Footer, Header, Notice };
 
 // UI components
-export const Ui = { TooltipController, Reveal };
+export const Ui = { TooltipController, Reveal, Title, MiniTitle };
 
 // Providers
 export const Providers = { ContextProviders };
