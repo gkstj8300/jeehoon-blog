@@ -73,6 +73,7 @@
 
 	&:hover {
 		transition: 0.3s ease-out;
+		color: var(--icon-link-background-color);
 	}
 
 	&::before {
@@ -102,7 +103,7 @@
 }
 
 @media (min-width: 768px) {
-	.test {
+	.sideBarMenu {
 		display: none;
 	}
 }

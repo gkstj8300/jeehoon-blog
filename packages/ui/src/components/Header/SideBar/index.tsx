@@ -19,7 +19,7 @@ export default function SideBar() {
       </div>
 
       {active && (
-        <div className={styles.test}>
+        <div className={styles.sideBarMenu}>
           <div className={styles.overLay}></div>
           <div className={styles.tableOfContents}>
             <div className={styles.closeWrap}>
