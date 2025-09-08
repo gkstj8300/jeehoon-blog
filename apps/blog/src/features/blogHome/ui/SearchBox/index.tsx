@@ -1,6 +1,6 @@
 import { ChangeEvent, useState, useEffect } from 'react';
 import styles from './SearchBox.module.scss';
-import { SearchType } from '@/features/home/types';
+import { SearchType } from '@/features/blogHome/types';
 import Title from '@/shared/ui/Title';
 
 interface SearchBoxProps {

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, MouseEvent } from 'react';
 import styles from './Tag.module.scss';
-import { SearchType } from '@/features/home/types';
+import { SearchType } from '@/features/blogHome/types';
 import { PostType } from '@/shared/types/slug';
 import TagLink from '@/shared/ui/TagLink';
 import Title from '@/shared/ui/Title';
