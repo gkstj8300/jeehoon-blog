@@ -6,3 +6,4 @@ export * from './useOuterClick';
 export * from './usePortal';
 export * from './useScrollStart';
 export * from './useScrollTo';
+export * from './useReveal';
