@@ -1,5 +1,5 @@
 import { ParsedUrlQuery } from 'querystring';
-import { assertNotEmpty } from '@/shared/utils/assertions';
+import { assertNotEmpty } from '@jeehoon/utils';
 
 /**
  * Get only one param records.
