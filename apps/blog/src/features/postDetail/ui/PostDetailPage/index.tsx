@@ -13,7 +13,6 @@ import PostInfo from '@/entities/post/ui/PostInfo';
 import PostTitle from '@/entities/post/ui/PostTitle';
 import { Heading } from '@/features/postDetail/types';
 import { ga } from '@/shared/lib/logs/analytics';
-import Breadcrumbs from '@/shared/ui/Breadcrumbs';
 
 const HEADER_WRAPPER_ID = 'header-wrapper';
 
@@ -66,57 +65,46 @@ export default function PostDetailPage({
 	});
 
 	return (
-		<>
-			<Breadcrumbs
-				className={styles.breadcrumb}
-				breadcrumbList={[
-					{
-						text: title,
-						strong: true,
-					},
-				]}
-			/>
-			<div className={styles.container}>
-				<div className={styles.detailWrap}>
-					{thumbnailImage && (
-						<div className={styles.thumbnail}>
-							<Image
-								src={thumbnailImage}
-								alt={`${thumbnailImage}`}
-								width={768}
-								height={400}
-								priority
-							/>
-						</div>
-					)}
-					<PostTitle title={title} />
-					<PostInfo regDate={regDate} tags={tags} />
-					<PostContent
-						ref={tableListRef}
-						content={content}
-						handleGetHeadigs={handleGetHeadigs}
-					/>
-					<PostComents />
-				</div>
-				{headings && headings.length > 0 && (
-					<div
-						className={styles.sideWrap}
-						style={{
-							top: headerHeight + 4,
-						}}
-					>
-						<div className={styles.asideButton} onClick={handleClickAsideOpen}>
-							<Icons.RiMenu4Fill className={styles.sideMenuIcon} />
-						</div>
-						<TableOfContents
-							headings={headings}
-							tableListRef={tableListRef}
-							isAside={isAside}
+		<div className={styles.container}>
+			<div className={styles.detailWrap}>
+				{thumbnailImage && (
+					<div className={styles.thumbnail}>
+						<Image
+							src={thumbnailImage}
+							alt={`${thumbnailImage}`}
+							width={768}
+							height={400}
+							priority
 						/>
 					</div>
 				)}
+				<PostTitle title={title} />
+				<PostInfo regDate={regDate} tags={tags} />
+				<PostContent
+					ref={tableListRef}
+					content={content}
+					handleGetHeadigs={handleGetHeadigs}
+				/>
+				<PostComents />
 			</div>
-		</>
+			{headings && headings.length > 0 && (
+				<div
+					className={styles.sideWrap}
+					style={{
+						top: headerHeight + 4,
+					}}
+				>
+					<div className={styles.asideButton} onClick={handleClickAsideOpen}>
+						<Icons.RiMenu4Fill className={styles.sideMenuIcon} />
+					</div>
+					<TableOfContents
+						headings={headings}
+						tableListRef={tableListRef}
+						isAside={isAside}
+					/>
+				</div>
+			)}
+		</div>
 	);
 }
 PostDetailPage.displayName = 'PostDetailPage';

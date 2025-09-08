@@ -11,7 +11,6 @@ import PostSearch from '@/entities/post/ui/PostSearch';
 import PostTitle from '@/entities/post/ui/PostTitle';
 import { ga } from '@/shared/lib/logs/analytics';
 import { PostType } from '@/shared/types/slug';
-import Breadcrumbs from '@/shared/ui/Breadcrumbs';
 
 interface PostListPageProps {
   postList: PostType[];
@@ -65,22 +64,16 @@ export default function PostListPage({ postList }: PostListPageProps) {
   useOnMounted(ga.pageView.postList);
 
   return (
-    <>
-      <Breadcrumbs
-        className={styles.breadcrumb}
-        breadcrumbList={[{ text: '전체글', strong: true }]}
-      />
-      <div className={styles.container}>
-        <div className={styles.searchWrap}>
-          <PostSearch postList={postList} filterPosts={filterPosts} />
-        </div>
-
-        <div className={styles.postListWrap}>
-          {renderedPostList}
-          {hasMore && <div ref={sentinelRef} style={{ height: 1 }} />}
-        </div>
+    <div className={styles.container}>
+      <div className={styles.searchWrap}>
+        <PostSearch postList={postList} filterPosts={filterPosts} />
       </div>
-    </>
+
+      <div className={styles.postListWrap}>
+        {renderedPostList}
+        {hasMore && <div ref={sentinelRef} style={{ height: 1 }} />}
+      </div>
+    </div>
   );
 }
 PostListPage.displayName = 'PostListPage';
