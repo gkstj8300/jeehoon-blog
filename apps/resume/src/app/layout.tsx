@@ -23,7 +23,7 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	const gaId = process.env.NEXT_PUBLIC_GTM_ID;
+	const gaId = process.env.GTM_ID;
 	const theme = cookies().get('theme')?.value as 'light' | 'dark' | undefined;
 
 	return (
