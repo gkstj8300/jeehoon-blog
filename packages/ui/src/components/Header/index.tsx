@@ -1,4 +1,3 @@
-import { url } from '@jeehoon/utils';
 import Link from 'next/link';
 import { HEADER_MENU } from './headerMenu';
 import styles from './Header.module.scss';
