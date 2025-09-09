@@ -1,3 +1,4 @@
+import { url } from '@jeehoon/utils';
 import Link from 'next/link';
 import styles from './FirstSection.module.scss';
 
@@ -13,7 +14,7 @@ export default function FirstSection() {
             <rp>)</rp>
           </ruby>
         </h1>
-        <Link className={styles.resumeBtn} href={''}>이력</Link>
+        <Link className={styles.resumeBtn} href={url.resume}>이력</Link>
       </div>
       <h2 className={styles.developer}>FRONT-END 개발자</h2>
     </section>
