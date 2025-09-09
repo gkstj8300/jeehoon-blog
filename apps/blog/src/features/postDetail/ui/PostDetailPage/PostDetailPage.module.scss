@@ -1,27 +1,22 @@
 .container {
 	display: flex;
-	max-width: 68rem;
 	margin: 0 auto;
 	border-radius: 1rem;
 }
 
 .detailWrap {
-	max-width: 50rem;
 	margin: 0 auto;
 	padding: 0 1rem;
 }
 
 .breadcrumb {
-	max-width: 68rem;
 	margin: 0 auto;
 }
 
 .thumbnail {
-	position: relative;
-	width: 100%;
+	max-width: 668px;
 	height: 400px;
-	margin-bottom: 1.75rem;
-	overflow: hidden;
+	margin: 0 auto;
 
 	img {
 		width: 100%;

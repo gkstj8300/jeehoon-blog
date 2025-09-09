@@ -1,7 +1,6 @@
 'use client';
 
 import { Layout, Ui, Providers } from '@jeehoon/ui';
-import { SessionProvider } from 'next-auth/react';
 import { useRef } from 'react';
 import styles from './StandardLayout.module.scss';
 import ErrorBoundary from '@/shared/ui/ErrorBoundary';
@@ -16,9 +15,8 @@ export default function StandardLayout({
 	return (
 		<ErrorBoundary>
 			<Providers.ContextProviders>
-				<SessionProvider>
 					<div className={styles.container} ref={rootRef}>
-						<Layout.Header domain='Resume'/>
+						<Layout.Header domain='Lab'/>
 						<div className={styles.layout}>
 							{children}
 							<div className={styles.backToTop}>
@@ -28,7 +26,6 @@ export default function StandardLayout({
 						<Layout.Footer />
 					</div>
 					<Ui.TooltipController />
-				</SessionProvider>
 			</Providers.ContextProviders>
 		</ErrorBoundary>
 	);

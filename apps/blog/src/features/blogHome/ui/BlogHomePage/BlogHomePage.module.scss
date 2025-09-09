@@ -31,7 +31,7 @@
 
 	.mainContainer {
 		display: grid;
-		grid-column: span 9 / span 9;
+		grid-column: span 12 / span 12;
 		align-content: space-between;
 		order: 1;
 	}
@@ -42,7 +42,6 @@
 		display: block;
 		grid-column: span 2 / span 2;
 		order: 2;
-		// height: calc(-210px + 100vh); 임시 주석
 		overflow: scroll;
 		scrollbar-width: none;
 	}
