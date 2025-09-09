@@ -11,9 +11,6 @@
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.8.0",
-  "dependencies": {
-    "@jeehoon/ui": "workspace:*"
-  },
   "devDependencies": {
     "@types/react": "^18",
     "@types/react-dom": "^18",
