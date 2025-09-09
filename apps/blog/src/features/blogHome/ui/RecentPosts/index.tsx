@@ -28,7 +28,6 @@ export default function RecentPosts({ posts }: RecentPostsProps) {
 						height="24px"
 						viewBox="0 -960 960 960"
 						width="24px"
-						fill="#e8eaed"
 						className={styles.icon}
 					>
 						<path d="M360-240v-80h480v80H360Zm0-200v-80h480v80H360ZM120-640v-80h720v80H120Z"></path>

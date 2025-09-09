@@ -72,7 +72,7 @@ export default function PostDetailPage({
 						<Image
 							src={thumbnailImage}
 							alt={`${thumbnailImage}`}
-							width={768}
+							width={668}
 							height={400}
 							priority
 						/>

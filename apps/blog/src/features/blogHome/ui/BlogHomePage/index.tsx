@@ -2,11 +2,10 @@
 
 import { useBreakpoint, useOnMounted } from '@jeehoon/hooks';
 import Post from '../Post';
-import Profile from '../Profile';
 import RecentPosts from '../RecentPosts';
 import SearchBox from '../SearchBox';
 import Tag from '../Tag';
-import styles from './HomePage.module.scss';
+import styles from './BlogHomePage.module.scss';
 import { useHome } from '@/features/blogHome/hooks';
 import { ga } from '@/shared/lib/logs/analytics';
 import { PostType } from '@/shared/types/slug';
@@ -26,9 +25,6 @@ export default function BlogHomePage({ postList }: BlogHomePageProps) {
 	return (
 		<div>
 			<div className={styles.home}>
-				<div className={styles.lcontainer}>
-					<Profile />
-				</div>
 				{isNarrow && (
 					<div className={styles.rcontainer}>
 						<Tag
