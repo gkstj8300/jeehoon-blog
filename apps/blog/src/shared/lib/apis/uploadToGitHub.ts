@@ -2,9 +2,9 @@ import { format, parseISO } from 'date-fns';
 import { PostType } from '@/shared/types/slug';
 
 export const uploadToGitHub = async (post: PostType) => {
-	const repo = process.env.NEXT_PUBLIC_GITHUB_REPO!;
-	const branch = process.env.NEXT_PUBLIC_GITHUB_BRANCH!;
-	const token = process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN!;
+	const repo = process.env.GITHUB_REPO!;
+	const branch = process.env.GITHUB_BRANCH!;
+	const token = process.env.GITHUB_ACCESS_TOKEN!;
 
 	const filePath = `frontend/src/posts/${post.title}.md`;
 	const commitMessage = `docs: ${post.title} 게시글 작성`;

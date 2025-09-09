@@ -1,6 +1,7 @@
 'use client';
 
 import { Icons } from '@jeehoon/ui';
+import Link from 'next/link';
 import { useState } from 'react';
 import styles from './SideBar.module.scss';
 import { HEADER_MENU } from '../headerMenu';
@@ -40,7 +41,13 @@ export default function SideBar({ domain }: SideBarProps) {
                   data-domain={title === domain}
                   onClick={handleSideBarOnClick}
                 >
-                  <span className={styles.menu}>{title}</span>
+                  <Link
+                    className={styles.menu}
+                    href={link}
+                    title={title}
+                  >
+                    {title}
+                  </Link>
                 </li>
               ))}
             </ul>

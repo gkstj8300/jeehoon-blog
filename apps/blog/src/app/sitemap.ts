@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import getMarkdownAllPosts from "@/entities/post/api/getMarkdownAllPosts"; 
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.baakhan.com";
+  const baseUrl = process.env.SITE_URL ?? "https://www.baakhan.com";
   const { postList } = await getMarkdownAllPosts();
 
   return [
