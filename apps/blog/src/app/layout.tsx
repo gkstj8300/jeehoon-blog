@@ -25,7 +25,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	const gaId = process.env.GTM_ID;
-	const theme = cookies().get('theme')?.value as 'light' | 'dark' | undefined;
+	const themeCookie = cookies().get('theme')?.value;
+  const theme = themeCookie === 'dark' || themeCookie === 'light' ? themeCookie : 'light';
 
 	return (
 		<html lang="ko" data-theme={theme} suppressHydrationWarning>
