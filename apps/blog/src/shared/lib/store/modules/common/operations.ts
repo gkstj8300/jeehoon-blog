@@ -14,7 +14,7 @@ export function toggleUpdateLayoutTheme(store: AppStore) {
 	};
 }
 
-const updateThemeState = (store: AppStore, theme: string) => {
+const updateThemeState = (store: AppStore, theme: 'light' | 'dark') => {
 	store.dispatch(actions.updateTheme(theme));
 	updateLayoutTheme(theme);
 };
