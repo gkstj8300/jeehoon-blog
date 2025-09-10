@@ -1,4 +1,3 @@
-export * from './storage';
 export * from './timer';
 export * from './dom';
 export * from './object';
@@ -8,3 +7,4 @@ export * from './string';
 export * from './type';
 export * from './url';
 export * from './assertions';
+export * from './theme';
