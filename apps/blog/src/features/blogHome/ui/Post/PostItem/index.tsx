@@ -10,7 +10,7 @@ interface PostItemProps {
 }
 
 export default function PostItem({ post, handlePostClick }: PostItemProps) {
-	const { slug, title, description, thumbnailImage, regDate, mainTag } = post;
+	const { slug, title, description, thumbnailImage, mainTag } = post;
 	return (
 		<Link
 			className={styles.container}
@@ -31,7 +31,6 @@ export default function PostItem({ post, handlePostClick }: PostItemProps) {
 				<div className={styles.mainTag}>{mainTag}</div>
 			</div>
 			<div className={styles.title}>{title}</div>
-			<div className={styles.regDate}>{regDate}</div>
 			<div className={styles.description}>{description}</div>
 		</Link>
 	);
