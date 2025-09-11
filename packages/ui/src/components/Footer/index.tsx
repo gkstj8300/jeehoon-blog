@@ -11,12 +11,12 @@ export default function Footer() {
 				<a target="_blank" href={url.github}>
 					<span>Github</span>
 				</a>
-				<a target="_blank" href={url.careerDescription}>
-					<span>CareerDescription</span>
+				<a target="_blank" href={url.portfolio}>
+					<span>Notion-Portfolio</span>
 				</a>
 			</div>
 			<div>
-				<span>Copyright 2025 @JeeHoon (JeeHoon Park) Corporation All Rights Reserved.</span>
+				<span>Copyright 2025 @ JeeHoon Park Corporation All Rights Reserved.</span>
 			</div>
 		</footer>
 	);
