@@ -42,7 +42,7 @@ export default function PostListPage({ postList }: PostListPageProps) {
         <div key={post.slug} className={styles.post}>
           <div className={styles.postWrap}>
             <PostTitle title={post.title} />
-            <PostInfo regDate={post.regDate} tags={post.tags} />
+            <PostInfo tags={post.tags} />
             <PostContent content={post.content} />
           </div>
           <div className={styles.detailButton}>

@@ -1,7 +1,6 @@
 import { ChangeEvent, useState, useEffect } from 'react';
 import styles from './SearchBox.module.scss';
 import { SearchType } from '@/features/blogHome/types';
-import Title from '@/shared/ui/Title';
 
 interface SearchBoxProps {
 	handleFindPosts: (search: SearchType) => void;
@@ -21,7 +20,7 @@ export default function SearchBox({ handleFindPosts }: SearchBoxProps) {
 
 	return (
 		<div className={styles.container}>
-			<Title className={styles.title} title="Search" />
+			<div className={styles.title}>Search</div>
 			<input
 				name="keyword"
 				value={keyDownValue}

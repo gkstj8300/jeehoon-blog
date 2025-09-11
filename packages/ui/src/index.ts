@@ -1,4 +1,5 @@
 import BackToTop from './components/BackToTop';
+import Blob from './components/Blob';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import GoogleAnalytics from './components/GoogleAnalytics';
@@ -11,7 +12,7 @@ import { TooltipController } from './components/Tooltip';
 import { useTooltip } from './components/Tooltip/Tooltip.hooks';
 
 // Layout components
-export const Layout = { BackToTop, Footer, Header, Notice };
+export const Layout = { BackToTop, Footer, Header, Notice, Blob };
 
 // UI components
 export const Ui = { TooltipController, Reveal, Title, MiniTitle };

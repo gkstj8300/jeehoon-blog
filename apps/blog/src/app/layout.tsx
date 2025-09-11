@@ -1,5 +1,5 @@
 import "@jeehoon/theme";
-import { Infra, pretendard } from '@jeehoon/ui';
+import { Layout, Infra, pretendard } from '@jeehoon/ui';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import Providers from './providers';
@@ -31,6 +31,7 @@ export default function RootLayout({
 	return (
 		<html lang="ko" data-theme={theme} suppressHydrationWarning>
 			<body className={pretendard.variable}>
+				<Layout.Blob />
 				<Providers>
 					<StandardLayout>{children}</StandardLayout>
 				</Providers>

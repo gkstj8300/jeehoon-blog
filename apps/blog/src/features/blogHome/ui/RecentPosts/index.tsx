@@ -48,11 +48,6 @@ export default function RecentPosts({ posts }: RecentPostsProps) {
 							{post.title}
 						</div>
 						<div className={styles.place}></div>
-						<div className={styles.date}>
-							<span>
-								{post.regDate}
-							</span>
-						</div>
 					</Link>
 				))}
 			</div>

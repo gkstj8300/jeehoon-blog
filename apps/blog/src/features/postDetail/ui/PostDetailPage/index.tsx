@@ -79,7 +79,7 @@ export default function PostDetailPage({
 					</div>
 				)}
 				<PostTitle title={title} />
-				<PostInfo regDate={regDate} tags={tags} />
+				<PostInfo tags={tags} />
 				<PostContent
 					ref={tableListRef}
 					content={content}

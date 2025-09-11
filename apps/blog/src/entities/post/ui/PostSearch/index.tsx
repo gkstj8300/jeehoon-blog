@@ -3,7 +3,6 @@ import { ChangeEvent, useState, useCallback, useMemo, useEffect } from 'react';
 import styles from './PostSearch.module.scss';
 import { PostType } from '@/shared/types/slug';
 import TagLink from '@/shared/ui/TagLink';
-import Title from '@/shared/ui/Title';
 
 interface PostSearchProps {
 	postList: PostType[];
@@ -56,7 +55,7 @@ export default function PostSearch({ postList, filterPosts }: PostSearchProps) {
 	return (
 		<div className={styles.container}>
 			<div className={styles.search}>
-				<Title className={styles.searchTitle} title="Search" />
+				<h3 className={styles.searchTitle}>Search</h3>
 				<input
 					name="keyword"
 					value={search.keyword}
