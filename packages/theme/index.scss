@@ -24,6 +24,8 @@ html[data-theme='dark'] {
 	--base-font: #{dark.$baseFont};
 	--post-list-tag-color: #{dark.$postListTagColor};
 	--post-list-tag-boder-color: #{dark.$postListTagBoderColor};
+	--blog-first-background-color: #{dark.$blobFirstBackgroundColor};
+	--blog-second-background-color: #{dark.$blobSecondBackgroundColor};
 }
 
 html[data-theme='light'] {
@@ -48,4 +50,6 @@ html[data-theme='light'] {
 	--base-font: #{light.$baseFont};
 	--post-list-tag-color: #{light.$postListTagColor};
 	--post-list-tag-boder-color: #{light.$postListTagBoderColor};
+	--blog-first-background-color: #{light.$blobFirstBackgroundColor};
+	--blog-second-background-color: #{light.$blobSecondBackgroundColor};
 }
