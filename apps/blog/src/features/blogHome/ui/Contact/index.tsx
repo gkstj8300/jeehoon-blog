@@ -1,9 +1,8 @@
-import { Icons, useTooltip } from '@jeehoon/ui';
+import { Icons, Ui, useTooltip } from '@jeehoon/ui';
 import { url } from '@jeehoon/utils';
 import React, { useCallback } from 'react';
 import styles from './Contact.module.scss';
 import IconLink from '@/shared/ui/IconLink';
-import Title from '@/shared/ui/Title';
 
 export default function Contact() {
 	const { bind } = useTooltip<HTMLAnchorElement>({
@@ -43,7 +42,7 @@ export default function Contact() {
 
 	return (
 		<div className={styles.contact}>
-			<Title title="Contact" />
+			<Ui.Title title="Contact" />
 			<ul className={styles.linkList}>
 				{contactItems.map((item, index) => (
 					<li key={index} className={styles.link}>

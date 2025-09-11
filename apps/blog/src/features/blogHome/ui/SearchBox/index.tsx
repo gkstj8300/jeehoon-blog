@@ -1,7 +1,7 @@
+import { Ui } from '@jeehoon/ui';
 import { ChangeEvent, useState, useEffect } from 'react';
 import styles from './SearchBox.module.scss';
 import { SearchType } from '@/features/blogHome/types';
-import Title from '@/shared/ui/Title';
 
 interface SearchBoxProps {
 	handleFindPosts: (search: SearchType) => void;
@@ -21,7 +21,7 @@ export default function SearchBox({ handleFindPosts }: SearchBoxProps) {
 
 	return (
 		<div className={styles.container}>
-			<Title className={styles.title} title="Search" />
+			<Ui.Title className={styles.title} title="Search" />
 			<input
 				name="keyword"
 				value={keyDownValue}
