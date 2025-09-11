@@ -23,7 +23,7 @@ export default function Education() {
 
 	return (
 		<section>
-			<Ui.Title title='Education' />
+			<Ui.Title title='교육' />
 			<div className={styles.education}>
 				{educations.map((item, index) => (
 					<EducationItem key={index} {...item} />

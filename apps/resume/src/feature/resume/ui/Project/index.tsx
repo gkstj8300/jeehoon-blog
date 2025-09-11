@@ -18,19 +18,6 @@ interface ProjectItemType {
 
 type ProjectKey = Exclude<keyof typeof project, 'title'>;
 
-type RawDevelopment = {
-	description: string;
-};
-
-type RawProject = {
-	name: string;
-	projectName: string;
-	durationStart: string;
-	durationEnd: string;
-	skillKeywords: string;
-	description: string;
-	development: Record<string, RawDevelopment>;
-};
 
 const logoByKey: Record<ProjectKey, string> = {
 	hanwha: hanwhaLogo.src,

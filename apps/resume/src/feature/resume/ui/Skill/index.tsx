@@ -18,7 +18,7 @@ export default function Skill() {
 
 	return (
 		<section>
-			<Ui.Title title='Skill' />
+			<Ui.Title title='사용하는 기술' />
 			<div className={styles.skill}>
 				{skills.map((item, index) => (
 					<SkillItem key={index} {...item} />

@@ -38,7 +38,7 @@ export default function Experience() {
 
 	return (
 		<section>
-			<Ui.Title title='Experience' />
+			<Ui.Title title='경력' />
 			<div className={styles.experience}>
 				<div className={styles.details}>
 					<Image

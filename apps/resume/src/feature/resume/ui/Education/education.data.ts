@@ -1,5 +1,5 @@
 export const education = {
-	title: 'Education',
+	title: '교육',
 	university2: {
 		name: '방송통신대학교',
 		major: '컴퓨터과학과 졸업',

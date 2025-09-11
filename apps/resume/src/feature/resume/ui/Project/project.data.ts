@@ -1,5 +1,5 @@
 export const project = {
-	title: 'Project',
+	title: '프로젝트',
 	hanwha: {
 		name: '한화생명',
 		projectName: '코어 시스템 구축 프로젝트',
