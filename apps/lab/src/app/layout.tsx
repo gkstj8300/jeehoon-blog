@@ -1,5 +1,5 @@
 import "@jeehoon/theme";
-import { Infra, pretendard } from '@jeehoon/ui';
+import { Layout, Infra, pretendard } from '@jeehoon/ui';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
 import StandardLayout from '@/shared/layouts/StandardLayout';
@@ -25,12 +25,13 @@ export default function RootLayout({
 }) {
 	const gaId = process.env.GTM_ID;
 	const themeCookie = cookies().get('theme')?.value;
-  const theme = themeCookie === 'dark' || themeCookie === 'light' ? themeCookie : 'light';
+	const theme = themeCookie === 'dark' || themeCookie === 'light' ? themeCookie : 'light';
 
 	return (
 		<html lang="ko" data-theme={theme} suppressHydrationWarning>
 			<body className={pretendard.variable}>
-        <StandardLayout>{children}</StandardLayout>
+				<Layout.Blob />
+				<StandardLayout>{children}</StandardLayout>
 				{gaId ? <Infra.GoogleAnalytics gaId={gaId} /> : null}
 			</body>
 		</html>
