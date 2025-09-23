@@ -4,7 +4,7 @@ import { PostType } from "@/shared/types/slug";
 export const runtime = "nodejs";
 export const revalidate = 3600;
 
-const BASE_URL = process.env.SITE_URL ?? "https://www.baakhan.com";
+const BASE_URL = process.env.SITE_URL ?? "https://blog.baakhan.com";
 const FEED_URL = `${BASE_URL}/rss.xml`;
 const FEED_TITLE = "박지훈 기술 블로그";
 const FEED_DESC = "박지훈 기술 블로그";

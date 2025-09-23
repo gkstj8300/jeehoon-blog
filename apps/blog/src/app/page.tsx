@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/' },
   openGraph: {
-    url: 'https://www.baakhan.com',
+    url: 'https://blog.baakhan.com',
     type: 'website',
     siteName: '박지훈 기술 블로그',
     title: '박지훈 기술 블로그',
