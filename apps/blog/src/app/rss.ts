@@ -3,7 +3,7 @@ import getMarkdownAllPosts from "@/entities/post/api/getMarkdownAllPosts";
 import { PostType } from "@/shared/types/slug";
 
 const generateRssFeed = (postList: PostType[]) => {
-    const baseUrl = "https://www.baakhan.com";
+    const baseUrl = "https://blog.baakhan.com";
 
     return `<?xml version="1.0" encoding="UTF-8"?>
     <rss version="2.0">

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 	description:
 		'프론트엔드 개발과 관련된 최신 기술, 개발 경험, 문제 해결 과정을 공유합니다.',
 	openGraph: {
-		url: 'https://www.baakhan.com/',
+		url: 'https://resume.baakhan.com/',
 		siteName: 'baakhan-techBlog',
 		locale: 'ko',
 		type: 'website',
