@@ -1,10 +1,10 @@
 import { trackAboutView } from './about';
-import { trackHomeView } from './home';
+import { trackBlogView } from './blog';
 import { trackPostDetailView } from './postDetail';
 import { trackPostListView } from './postList';
 
 export const pageView = {
-	home: trackHomeView,
+	blog: trackBlogView,
 	postDetail: trackPostDetailView,
 	postList: trackPostListView,
 	about: trackAboutView,

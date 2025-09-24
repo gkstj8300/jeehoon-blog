@@ -1,4 +1,6 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+"use client";
+
+import { useCallback, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
 export const usePortal = () => {

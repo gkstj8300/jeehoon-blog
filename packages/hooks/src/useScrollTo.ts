@@ -1,3 +1,5 @@
+"use client";
+
 import { RefObject, useCallback, useRef } from 'react';
 
 export function useScrollTo(targetRef: RefObject<HTMLElement>) {

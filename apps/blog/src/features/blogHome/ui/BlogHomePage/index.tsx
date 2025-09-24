@@ -20,7 +20,7 @@ interface BlogHomePageProps {
 export default function BlogHomePage({ postList }: BlogHomePageProps) {
 	const { posts, search, recentPosts, handleFindPosts } = useHome(postList);
 	const isNarrow = useBreakpoint(BREAKPOINT);
-	useOnMounted(ga.pageView.home);
+	useOnMounted(ga.pageView.blog);
 
 	return (
 		<div>

@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from 'react';
 
 type Listener<E extends Event> = (event: E) => void;

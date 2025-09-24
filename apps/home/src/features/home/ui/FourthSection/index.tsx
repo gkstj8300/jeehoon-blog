@@ -3,8 +3,13 @@ import { url } from '@jeehoon/utils';
 import Link from 'next/link';
 import styles from './FourthSection.module.scss';
 import { mono } from '../../contents/mono';
+import { ga } from '@/shared/lib/logs/analytics';
 
 export default function FourthSection() {
+  const handleGithubViewClick = () => {
+    ga.events.githubView();
+  }
+
   return (
     <section className={styles.fourthSection}>
       <div className={styles.fourthWrap}>
@@ -28,6 +33,7 @@ export default function FourthSection() {
                   <Link
                     href={url.githubRepository}
                     className={styles.link}
+                    onClick={() => handleGithubViewClick()}
                   >
                     GitHub
                   </Link>
