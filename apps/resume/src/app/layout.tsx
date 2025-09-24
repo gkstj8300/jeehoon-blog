@@ -6,12 +6,12 @@ import StandardLayout from '@/shared/layouts/StandardLayout';
 import '@/styles/globals.scss';
 
 export const metadata: Metadata = {
-	title: '박지훈 기술 블로그',
+	title: '박지훈 이력서 | FE 박지훈',
 	description:
-		'프론트엔드 개발과 관련된 최신 기술, 개발 경험, 문제 해결 과정을 공유합니다.',
+		'프론트엔드 개발자 박지훈 이력서 | 지금까지의 이력을 보려드립니다.',
 	openGraph: {
 		url: 'https://resume.baakhan.com/',
-		siteName: 'baakhan-techBlog',
+		siteName: 'baakhan-resume',
 		locale: 'ko',
 		type: 'website',
 	},

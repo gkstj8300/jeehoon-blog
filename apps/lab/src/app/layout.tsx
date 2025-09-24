@@ -6,12 +6,12 @@ import StandardLayout from '@/shared/layouts/StandardLayout';
 import '@/styles/globals.scss';
 
 export const metadata: Metadata = {
-	title: '박지훈 기술 블로그',
+	title: '실험실 | FE 박지훈',
 	description:
-		'프론트엔드 개발과 관련된 최신 기술, 개발 경험, 문제 해결 과정을 공유합니다.',
+		'현재 실험실 페이지는 개발중입니다.',
 	openGraph: {
 		url: 'https://lab.baakhan.com/',
-		siteName: 'baakhan-techBlog',
+		siteName: 'baakhan-lab',
 		locale: 'ko',
 		type: 'website',
 	},
